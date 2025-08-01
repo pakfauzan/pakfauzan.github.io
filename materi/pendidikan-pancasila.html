@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendidikan Pancasila - Kelas 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bounce-in {
+            animation: bounceIn 0.6s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .quiz-option {
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .correct {
+            background-color: #10b981 !important;
+            color: white !important;
+        }
+        
+        .incorrect {
+            background-color: #ef4444 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 text-center">
+        <h1 class="text-2xl font-bold mb-2">Pendidikan Pancasila</h1>
+        <p class="text-red-100 text-sm">Untuk Kelas 2 - Fase A</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-6 max-w-md">
+        <!-- Home Page -->
+        <div id="homePage" class="space-y-4">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Daftar Materi</h2>
+            
+            <div class="space-y-3">
+                <button onclick="showMaterial(1)" class="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl p-5 text-left card-shadow hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border border-white/20">
+                    <div class="flex items-center">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-4 text-white shadow-lg">
+                            <span class="drop-shadow-sm">1</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-white text-lg mb-1 drop-shadow-sm">Aku Patuh Aturan</h3>
+                            <p class="text-sm text-white/90 leading-relaxed drop-shadow-sm">Berbagai aturan dalam keluarga dan sikap mematuhi aturan</p>
+                        </div>
+                        <div class="ml-3">
+                            <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="showMaterial(2)" class="w-full bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-xl p-5 text-left card-shadow hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border border-white/20">
+                    <div class="flex items-center">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-4 text-white shadow-lg">
+                            <span class="drop-shadow-sm">2</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-white text-lg mb-1 drop-shadow-sm">Aku Berperilaku Pancasila</h3>
+                            <p class="text-sm text-white/90 leading-relaxed drop-shadow-sm">Mengenal lambang dan nilai-nilai Pancasila dalam kehidupan</p>
+                        </div>
+                        <div class="ml-3">
+                            <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="showMaterial(3)" class="w-full bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 rounded-xl p-5 text-left card-shadow hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border border-white/20">
+                    <div class="flex items-center">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-4 text-white shadow-lg">
+                            <span class="drop-shadow-sm">3</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-white text-lg mb-1 drop-shadow-sm">Aku dan Teman-Temanku</h3>
+                            <p class="text-sm text-white/90 leading-relaxed drop-shadow-sm">Mengenal dan menerima keberagaman teman-teman</p>
+                        </div>
+                        <div class="ml-3">
+                            <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="showMaterial(4)" class="w-full bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500 rounded-xl p-5 text-left card-shadow hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 border border-white/20">
+                    <div class="flex items-center">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-4 text-white shadow-lg">
+                            <span class="drop-shadow-sm">4</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-white text-lg mb-1 drop-shadow-sm">Aku Peduli Lingkungan</h3>
+                            <p class="text-sm text-white/90 leading-relaxed drop-shadow-sm">Menjaga dan merawat lingkungan sekitar kita</p>
+                        </div>
+                        <div class="ml-3">
+                            <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Back to Home Button -->
+            <div class="mt-6 text-center">
+                <a href="../" class="block w-full bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl p-4 text-white font-semibold card-shadow hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-white/20 text-decoration-none">
+                    <div class="flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        Kembali ke Halaman Utama
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Material Detail Page -->
+        <div id="materialPage" class="hidden">
+            <div class="bg-white rounded-lg card-shadow p-6 mb-4">
+                <button onclick="showHome()" class="mb-4 text-red-600 hover:text-red-800 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Kembali
+                </button>
+                
+                <h2 id="materialTitle" class="text-xl font-bold text-gray-800 mb-4"></h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-red-600 mb-2">🎯 Tujuan Pembelajaran</h3>
+                    <div id="learningObjectives" class="bg-red-50 p-4 rounded-lg text-gray-700"></div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-red-600 mb-2">📚 Materi Pembelajaran</h3>
+                    <div id="materialContent" class="space-y-4"></div>
+                </div>
+                
+                <div id="demonstration" class="mb-6 hidden">
+                    <h3 class="text-lg font-semibold text-red-600 mb-2">🎭 Demonstrasi</h3>
+                    <div id="demoContent" class="bg-blue-50 p-4 rounded-lg"></div>
+                </div>
+                
+                <button onclick="startQuiz()" class="w-full bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+                    Mulai Kuis 📝
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quizPage" class="hidden">
+            <div class="bg-white rounded-lg card-shadow p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <button onclick="showMaterial(currentMaterial)" class="text-red-600 hover:text-red-800 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Kembali
+                    </button>
+                    <div class="text-sm text-gray-600">
+                        Soal <span id="currentQuestion">1</span> dari <span id="totalQuestions">10</span>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="bg-gray-200 rounded-full h-2 mb-4">
+                        <div id="progressBar" class="bg-red-600 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
+                    </div>
+                    
+                    <h3 id="questionText" class="text-lg font-semibold text-gray-800 mb-4"></h3>
+                    
+                    <div id="optionsContainer" class="space-y-3"></div>
+                </div>
+                
+                <div id="quizNavigation" class="flex justify-between">
+                    <button id="prevBtn" onclick="previousQuestion()" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors" disabled>
+                        Sebelumnya
+                    </button>
+                    <button id="nextBtn" onclick="nextQuestion()" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors" disabled>
+                        Selanjutnya
+                    </button>
+                </div>
+                
+                <div id="quizResult" class="hidden mt-6 text-center">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-800 mb-2">🎉 Kuis Selesai!</h3>
+                        <p class="text-lg text-green-700 mb-4">Skor Anda: <span id="finalScore" class="font-bold"></span></p>
+                        <div class="space-y-2">
+                            <button onclick="retakeQuiz()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                                Ulangi Kuis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentMaterial = 1;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let quizScore = 0;
+        let selectedAnswer = null;
+
+        const materials = {
+            1: {
+                title: "Aku Patuh Aturan",
+                objectives: "Pada bab ini, kalian akan mempelajari berbagai aturan dalam keluarga, sikap mematuhi aturan, menceritakan contoh perilaku mematuhi aturan.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="text-center mb-4">
+                            <div class="w-24 h-24 mx-auto bg-blue-200 rounded-full flex items-center justify-center text-4xl mb-2">📋</div>
+                            <h4 class="font-bold text-lg text-gray-800">Aku Patuh Aturan</h4>
+                            <p class="text-red-600 font-semibold">Menjadi Anak yang Taat dan Bertanggung Jawab</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Apa itu Aturan?</h4>
+                            <p class="text-gray-700">Aturan adalah ketentuan atau tata tertib yang harus kita ikuti agar hidup menjadi tertib, aman, dan nyaman. Aturan dibuat untuk kebaikan kita semua.</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">🏠 Aturan di Rumah:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Bangun pagi dan mandi sebelum berangkat sekolah</li>
+                                <li>• Merapikan tempat tidur setelah bangun</li>
+                                <li>• Mencuci tangan sebelum makan</li>
+                                <li>• Mengerjakan PR sebelum bermain</li>
+                                <li>• Membantu orang tua mengerjakan pekerjaan rumah</li>
+                                <li>• Tidur tepat waktu</li>
+                                <li>• Tidak bermain gadget terlalu lama</li>
+                                <li>• Meletakkan sepatu di tempatnya</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">🏫 Aturan di Sekolah:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Datang ke sekolah tepat waktu</li>
+                                <li>• Memakai seragam sekolah dengan rapi</li>
+                                <li>• Mengikuti upacara bendera dengan khidmat</li>
+                                <li>• Mendengarkan guru saat mengajar</li>
+                                <li>• Mengerjakan tugas dengan baik</li>
+                                <li>• Tidak berlari di dalam kelas</li>
+                                <li>• Membuang sampah pada tempatnya</li>
+                                <li>• Berbicara sopan kepada guru dan teman</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">✨ Manfaat Mematuhi Aturan:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Hidup menjadi tertib dan teratur</li>
+                                <li>• Terhindar dari bahaya</li>
+                                <li>• Disenangi orang tua dan guru</li>
+                                <li>• Menjadi anak yang bertanggung jawab</li>
+                                <li>• Lingkungan menjadi nyaman dan aman</li>
+                                <li>• Mendapat pujian karena perilaku baik</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                            <h4 class="font-semibold text-red-800 mb-2">⚠️ Akibat Tidak Mematuhi Aturan:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Hidup menjadi tidak teratur</li>
+                                <li>• Bisa terjadi kecelakaan atau bahaya</li>
+                                <li>• Orang tua dan guru menjadi kecewa</li>
+                                <li>• Mendapat teguran atau hukuman</li>
+                                <li>• Lingkungan menjadi tidak nyaman</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                demonstration: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-blue-800 mb-3">🎭 Cerita: "Andi Belajar Mematuhi Aturan"</h4>
+                        
+                        <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                            <div class="text-center mb-3">
+                                <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-2xl mb-2">👦</div>
+                                <p class="font-semibold">Andi - Anak Kelas 2</p>
+                            </div>
+                            
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong>Pagi hari:</strong> Andi bangun kesiangan karena tidur larut malam. Ia terburu-buru ke sekolah tanpa mandi dan sarapan.</p>
+                                
+                                <p><strong>Di sekolah:</strong> Andi datang terlambat, seragamnya kusut, dan ia tidak mengerjakan PR. Guru menegur Andi.</p>
+                                
+                                <p><strong>Pulang sekolah:</strong> Andi langsung bermain tanpa ganti baju dan tidak mengerjakan PR lagi.</p>
+                                
+                                <p><strong>Malam hari:</strong> Orang tua Andi menasihati dengan sayang: "Andi, aturan dibuat untuk kebaikanmu. Coba besok ikuti aturan yang baik ya!"</p>
+                                
+                                <div class="bg-green-50 p-3 rounded-lg mt-4">
+                                    <p><strong>Keesokan harinya:</strong> Andi memutuskan untuk mematuhi aturan. Ia bangun pagi, mandi, sarapan, dan berangkat tepat waktu. Di sekolah ia berperilaku baik dan mengerjakan semua tugas. Andi merasa senang dan bangga!</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-yellow-800 mb-2">💡 Pelajaran dari Cerita:</h5>
+                            <p class="text-gray-700">Mematuhi aturan membuat hidup kita lebih baik, teratur, dan menyenangkan. Kita juga akan disenangi oleh orang-orang di sekitar kita!</p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "Aturan adalah...",
+                        options: ["ketentuan yang harus diikuti", "sesuatu yang boleh dilanggar", "hal yang tidak penting", "permainan"],
+                        correct: 0
+                    },
+                    {
+                        question: "Contoh aturan di rumah adalah...",
+                        options: ["berlari di kelas", "merapikan tempat tidur", "datang terlambat", "tidak mengerjakan PR"],
+                        correct: 1
+                    },
+                    {
+                        question: "Sebelum makan, kita harus...",
+                        options: ["bermain dulu", "mencuci tangan", "menonton TV", "tidur"],
+                        correct: 1
+                    },
+                    {
+                        question: "Aturan di sekolah yang benar adalah...",
+                        options: ["datang terlambat", "berlari di kelas", "memakai seragam rapi", "tidak mengerjakan tugas"],
+                        correct: 2
+                    },
+                    {
+                        question: "Manfaat mematuhi aturan adalah...",
+                        options: ["hidup tidak teratur", "mendapat hukuman", "hidup tertib dan teratur", "membuat orang marah"],
+                        correct: 2
+                    },
+                    {
+                        question: "Jika tidak mematuhi aturan, kita bisa...",
+                        options: ["mendapat pujian", "disenangi semua orang", "mendapat teguran", "menjadi pintar"],
+                        correct: 2
+                    },
+                    {
+                        question: "Waktu yang tepat untuk mengerjakan PR adalah...",
+                        options: ["setelah bermain", "sebelum bermain", "saat tidur", "tidak perlu dikerjakan"],
+                        correct: 1
+                    },
+                    {
+                        question: "Sampah harus dibuang di...",
+                        options: ["sembarang tempat", "tempat sampah", "di jalan", "di kelas"],
+                        correct: 1
+                    },
+                    {
+                        question: "Sikap saat upacara bendera yang benar adalah...",
+                        options: ["berbicara dengan teman", "bermain", "khidmat", "berlari-lari"],
+                        correct: 2
+                    },
+                    {
+                        question: "Aturan dibuat untuk...",
+                        options: ["menyusahkan kita", "kebaikan kita", "membuat kita sedih", "tidak ada gunanya"],
+                        correct: 1
+                    }
+                ]
+            },
+            3: {
+                title: "Aku dan Teman-Temanku",
+                objectives: "Pada bab ini, kalian diharapkan mengenal keberagaman hobi, menerima keberagaman ciri-ciri fisik teman-teman, perbedaan agama dan kepercayaan, beserta perbedaan simbol agama dan kepercayaan yang beragam, baik teman-teman di rumah maupun di sekolah.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="text-center mb-4">
+                            <div class="w-24 h-24 mx-auto bg-green-200 rounded-full flex items-center justify-center text-4xl mb-2">👫</div>
+                            <h4 class="font-bold text-lg text-gray-800">Aku dan Teman-Temanku</h4>
+                            <p class="text-red-600 font-semibold">Merayakan Keberagaman dalam Persahabatan</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">🌈 Apa itu Keberagaman?</h4>
+                            <p class="text-gray-700">Keberagaman adalah perbedaan-perbedaan yang ada di antara kita. Perbedaan ini membuat hidup menjadi lebih menarik dan indah, seperti pelangi yang memiliki banyak warna!</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">🎨 Keberagaman Hobi dan Kesukaan:</h4>
+                            <div class="grid grid-cols-2 gap-2 text-gray-700 text-sm">
+                                <div class="flex items-center"><span class="mr-2">⚽</span>Sepak bola</div>
+                                <div class="flex items-center"><span class="mr-2">🎵</span>Menyanyi</div>
+                                <div class="flex items-center"><span class="mr-2">🎨</span>Menggambar</div>
+                                <div class="flex items-center"><span class="mr-2">📚</span>Membaca</div>
+                                <div class="flex items-center"><span class="mr-2">🏃</span>Berlari</div>
+                                <div class="flex items-center"><span class="mr-2">🎭</span>Menari</div>
+                                <div class="flex items-center"><span class="mr-2">🧩</span>Puzzle</div>
+                                <div class="flex items-center"><span class="mr-2">🎮</span>Bermain</div>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Setiap orang punya hobi yang berbeda, dan itu tidak apa-apa!</p>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">👥 Keberagaman Ciri Fisik:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• <strong>Tinggi badan:</strong> Ada yang tinggi, sedang, dan pendek</li>
+                                <li>• <strong>Warna kulit:</strong> Sawo matang, putih, gelap - semua indah!</li>
+                                <li>• <strong>Bentuk mata:</strong> Bulat, sipit, besar, kecil</li>
+                                <li>• <strong>Warna rambut:</strong> Hitam, coklat, pirang</li>
+                                <li>• <strong>Bentuk rambut:</strong> Lurus, keriting, bergelombang</li>
+                                <li>• <strong>Berat badan:</strong> Kurus, gemuk, sedang</li>
+                            </ul>
+                            <p class="text-yellow-700 font-semibold mt-2">💡 Ingat: Semua ciri fisik adalah anugerah Tuhan yang indah!</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-3">🕌 Keberagaman Agama di Indonesia:</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-gray-700">
+                                    <span class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center mr-3 text-lg">☪️</span>
+                                    <div>
+                                        <p class="font-semibold">Islam</p>
+                                        <p class="text-sm">Tempat ibadah: Masjid</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <span class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center mr-3 text-lg">✝️</span>
+                                    <div>
+                                        <p class="font-semibold">Kristen</p>
+                                        <p class="text-sm">Tempat ibadah: Gereja</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <span class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center mr-3 text-lg">🕉️</span>
+                                    <div>
+                                        <p class="font-semibold">Hindu</p>
+                                        <p class="text-sm">Tempat ibadah: Pura</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <span class="w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center mr-3 text-lg">☸️</span>
+                                    <div>
+                                        <p class="font-semibold">Buddha</p>
+                                        <p class="text-sm">Tempat ibadah: Vihara</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <span class="w-8 h-8 bg-red-200 rounded-full flex items-center justify-center mr-3 text-lg">🔯</span>
+                                    <div>
+                                        <p class="font-semibold">Katolik</p>
+                                        <p class="text-sm">Tempat ibadah: Gereja</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <span class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mr-3 text-lg">🙏</span>
+                                    <div>
+                                        <p class="font-semibold">Konghucu</p>
+                                        <p class="text-sm">Tempat ibadah: Klenteng</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-pink-800 mb-2">🤝 Cara Menghargai Keberagaman:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Tidak mengejek perbedaan fisik teman</li>
+                                <li>• Menghormati teman yang sedang beribadah</li>
+                                <li>• Bermain bersama tanpa membeda-bedakan</li>
+                                <li>• Belajar tentang budaya teman yang berbeda</li>
+                                <li>• Membantu teman tanpa melihat perbedaan</li>
+                                <li>• Menggunakan kata-kata yang baik dan sopan</li>
+                                <li>• Mendengarkan cerita teman dengan baik</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                            <h4 class="font-semibold text-orange-800 mb-2">✨ Manfaat Keberagaman:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Kita bisa belajar hal-hal baru dari teman</li>
+                                <li>• Hidup menjadi lebih menarik dan berwarna</li>
+                                <li>• Kita punya banyak teman dengan keunikan masing-masing</li>
+                                <li>• Belajar untuk saling menghormati dan toleransi</li>
+                                <li>• Indonesia menjadi negara yang kaya budaya</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                            <h4 class="font-semibold text-red-800 mb-2">❌ Yang Tidak Boleh Dilakukan:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Mengejek bentuk tubuh atau wajah teman</li>
+                                <li>• Mengganggu teman yang sedang beribadah</li>
+                                <li>• Tidak mau berteman karena beda agama</li>
+                                <li>• Memanggil teman dengan sebutan yang tidak baik</li>
+                                <li>• Membeda-bedakan teman berdasarkan warna kulit</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                demonstration: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-blue-800 mb-3">🎭 Cerita: "Kelas 2A yang Penuh Warna"</h4>
+                        
+                        <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                            <div class="text-center mb-3">
+                                <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center text-2xl mb-2">👫</div>
+                                <p class="font-semibold">Kelas 2A - Kelas yang Beragam</p>
+                            </div>
+                            
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong>Di kelas 2A ada:</strong></p>
+                                <ul class="ml-4 space-y-1">
+                                    <li>• Rina yang suka menggambar dan beragama Kristen</li>
+                                    <li>• Ahmad yang hobi sepak bola dan beragama Islam</li>
+                                    <li>• Ketut yang pandai menari dan beragama Hindu</li>
+                                    <li>• Ling-ling yang suka membaca dan beragama Buddha</li>
+                                    <li>• Maria yang hobi menyanyi dan beragama Katolik</li>
+                                </ul>
+                                
+                                <p><strong>Suatu hari:</strong> Bu Guru mengadakan acara "Hari Keberagaman". Setiap anak diminta menceritakan hobi dan budayanya.</p>
+                                
+                                <p><strong>Rina bercerita:</strong> "Aku suka menggambar pemandangan. Di gerejaku, kami sering menggambar untuk menghias ruangan."</p>
+                                
+                                <p><strong>Ahmad berkata:</strong> "Aku suka main bola. Setelah sholat Jumat, aku sering main bola dengan teman-teman."</p>
+                                
+                                <p><strong>Ketut menambahkan:</strong> "Aku belajar tari Bali di pura. Gerakan tarinya indah sekali!"</p>
+                                
+                                <div class="bg-green-50 p-3 rounded-lg mt-4">
+                                    <p><strong>Akhir cerita:</strong> Semua anak merasa senang mendengar cerita teman-temannya. Mereka belajar bahwa perbedaan membuat mereka semakin akrab dan saling menghargai. "Wah, ternyata teman-temanku punya keunikan yang menarik!" kata mereka bersama.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-yellow-800 mb-2">💡 Pelajaran dari Cerita:</h5>
+                            <p class="text-gray-700">Keberagaman adalah kekayaan! Dengan mengenal dan menghargai perbedaan teman-teman, kita bisa belajar banyak hal baru dan memiliki persahabatan yang indah. Perbedaan bukan penghalang, tetapi jembatan untuk saling mengenal!</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-blue-800 mb-2">🌟 Aktivitas Seru:</h5>
+                            <p class="text-gray-700">Coba ceritakan kepada orang tua tentang teman-temanmu yang berbeda! Apa hobi mereka? Apa yang menarik dari mereka? Bagaimana kalian bisa bermain bersama meski berbeda?</p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "Keberagaman artinya...",
+                        options: ["semua harus sama", "perbedaan-perbedaan yang ada", "hal yang tidak penting", "sesuatu yang buruk"],
+                        correct: 1
+                    },
+                    {
+                        question: "Contoh keberagaman hobi adalah...",
+                        options: ["semua suka sepak bola", "ada yang suka menggambar, ada yang suka menyanyi", "tidak boleh punya hobi", "hobi harus sama"],
+                        correct: 1
+                    },
+                    {
+                        question: "Tempat ibadah umat Islam adalah...",
+                        options: ["Gereja", "Masjid", "Pura", "Vihara"],
+                        correct: 1
+                    },
+                    {
+                        question: "Tempat ibadah umat Hindu adalah...",
+                        options: ["Masjid", "Gereja", "Pura", "Klenteng"],
+                        correct: 2
+                    },
+                    {
+                        question: "Sikap yang benar terhadap teman yang berbeda agama adalah...",
+                        options: ["mengejek", "menghormati", "mengabaikan", "menjauhi"],
+                        correct: 1
+                    },
+                    {
+                        question: "Jika teman kita memiliki warna kulit yang berbeda, kita harus...",
+                        options: ["mengejek", "menjauhi", "tetap berteman baik", "tidak mau bermain"],
+                        correct: 2
+                    },
+                    {
+                        question: "Manfaat keberagaman adalah...",
+                        options: ["membuat hidup membosankan", "hidup menjadi menarik dan berwarna", "membuat kita sedih", "tidak ada manfaatnya"],
+                        correct: 1
+                    },
+                    {
+                        question: "Tempat ibadah umat Buddha adalah...",
+                        options: ["Masjid", "Pura", "Vihara", "Gereja"],
+                        correct: 2
+                    },
+                    {
+                        question: "Yang tidak boleh kita lakukan kepada teman adalah...",
+                        options: ["membantu", "bermain bersama", "mengejek perbedaan fisik", "menghormati"],
+                        correct: 2
+                    },
+                    {
+                        question: "Indonesia memiliki banyak agama yang diakui, yaitu sebanyak...",
+                        options: ["4 agama", "5 agama", "6 agama", "7 agama"],
+                        correct: 2
+                    }
+                ]
+            },
+            4: {
+                title: "Aku Peduli Lingkungan",
+                objectives: "Pada bab ini kalian akan diajak mengetahui sikap peduli lingkungan, mempraktikkan sikap dan perilaku menjaga lingkungan sekitar, serta belajar bekerja sama menjaga lingkungan, melalui berbagai aktivitas bermain, membaca, menulis, melakukan aksi, berkarya, dan lainnya.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="text-center mb-4">
+                            <div class="w-24 h-24 mx-auto bg-green-200 rounded-full flex items-center justify-center text-4xl mb-2">🌱</div>
+                            <h4 class="font-bold text-lg text-gray-800">Aku Peduli Lingkungan</h4>
+                            <p class="text-red-600 font-semibold">Menjadi Penjaga Bumi yang Baik</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">🌍 Apa itu Lingkungan?</h4>
+                            <p class="text-gray-700">Lingkungan adalah segala sesuatu yang ada di sekitar kita, seperti udara, air, tanah, tumbuhan, hewan, dan manusia. Kita semua hidup di dalam lingkungan dan harus menjaganya dengan baik.</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">🏠 Lingkungan di Sekitar Kita:</h4>
+                            <div class="grid grid-cols-2 gap-2 text-gray-700 text-sm">
+                                <div class="flex items-center"><span class="mr-2">🏡</span>Rumah</div>
+                                <div class="flex items-center"><span class="mr-2">🏫</span>Sekolah</div>
+                                <div class="flex items-center"><span class="mr-2">🌳</span>Taman</div>
+                                <div class="flex items-center"><span class="mr-2">🏞️</span>Sungai</div>
+                                <div class="flex items-center"><span class="mr-2">🌾</span>Sawah</div>
+                                <div class="flex items-center"><span class="mr-2">🏔️</span>Gunung</div>
+                                <div class="flex items-center"><span class="mr-2">🏖️</span>Pantai</div>
+                                <div class="flex items-center"><span class="mr-2">🌲</span>Hutan</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">♻️ Cara Menjaga Lingkungan di Rumah:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Membuang sampah pada tempatnya</li>
+                                <li>• Memisahkan sampah organik dan anorganik</li>
+                                <li>• Menghemat air saat mandi dan mencuci</li>
+                                <li>• Mematikan lampu saat tidak digunakan</li>
+                                <li>• Menanam tanaman di halaman rumah</li>
+                                <li>• Tidak membakar sampah sembarangan</li>
+                                <li>• Menggunakan kembali barang bekas (reuse)</li>
+                                <li>• Membuat kompos dari sampah dapur</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">🏫 Cara Menjaga Lingkungan di Sekolah:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Piket kelas secara bergantian</li>
+                                <li>• Tidak mencoret-coret dinding atau meja</li>
+                                <li>• Merawat tanaman di taman sekolah</li>
+                                <li>• Menggunakan kedua sisi kertas</li>
+                                <li>• Membawa botol minum sendiri</li>
+                                <li>• Tidak memetik bunga sembarangan</li>
+                                <li>• Kerja bakti membersihkan sekolah</li>
+                                <li>• Menghemat penggunaan air di kamar mandi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">🚯 Jenis-jenis Sampah:</h4>
+                            <div class="space-y-3">
+                                <div class="bg-green-100 p-3 rounded-lg">
+                                    <h5 class="font-semibold text-green-800">🍃 Sampah Organik (Mudah Membusuk):</h5>
+                                    <p class="text-sm text-gray-700">Sisa makanan, kulit buah, daun kering, sayuran busuk</p>
+                                </div>
+                                <div class="bg-gray-100 p-3 rounded-lg">
+                                    <h5 class="font-semibold text-gray-800">🥤 Sampah Anorganik (Sulit Membusuk):</h5>
+                                    <p class="text-sm text-gray-700">Plastik, kaleng, botol, kertas, kaca</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2">🌱 Prinsip 3R (Reduce, Reuse, Recycle):</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <span class="bg-orange-200 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">R1</span>
+                                    <div>
+                                        <p class="font-semibold text-orange-800">Reduce (Mengurangi)</p>
+                                        <p class="text-sm text-gray-700">Mengurangi penggunaan barang yang tidak perlu</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-orange-200 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">R2</span>
+                                    <div>
+                                        <p class="font-semibold text-orange-800">Reuse (Menggunakan Kembali)</p>
+                                        <p class="text-sm text-gray-700">Menggunakan barang bekas untuk keperluan lain</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-orange-200 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-1">R3</span>
+                                    <div>
+                                        <p class="font-semibold text-orange-800">Recycle (Mendaur Ulang)</p>
+                                        <p class="text-sm text-gray-700">Mengolah sampah menjadi barang baru yang berguna</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-teal-800 mb-2">🤝 Kerja Sama Menjaga Lingkungan:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Bergotong royong membersihkan lingkungan</li>
+                                <li>• Menanam pohon bersama-sama</li>
+                                <li>• Membuat bank sampah di sekolah</li>
+                                <li>• Kampanye hidup bersih kepada teman</li>
+                                <li>• Membuat kerajinan dari barang bekas</li>
+                                <li>• Lomba kebersihan antar kelas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-400">
+                            <h4 class="font-semibold text-pink-800 mb-2">✨ Manfaat Menjaga Lingkungan:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Udara menjadi bersih dan segar</li>
+                                <li>• Air tetap jernih dan sehat</li>
+                                <li>• Terhindar dari penyakit</li>
+                                <li>• Lingkungan menjadi indah dan nyaman</li>
+                                <li>• Hewan dan tumbuhan tetap lestari</li>
+                                <li>• Bumi tetap sehat untuk anak cucu kita</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                            <h4 class="font-semibold text-red-800 mb-2">⚠️ Akibat Tidak Menjaga Lingkungan:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Udara menjadi kotor dan berbau</li>
+                                <li>• Air menjadi keruh dan tercemar</li>
+                                <li>• Banyak penyakit bermunculan</li>
+                                <li>• Banjir saat musim hujan</li>
+                                <li>• Hewan dan tumbuhan punah</li>
+                                <li>• Bumi menjadi rusak</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                demonstration: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-blue-800 mb-3">🎭 Cerita: "Aksi Hijau Kelas 2B"</h4>
+                        
+                        <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                            <div class="text-center mb-3">
+                                <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center text-2xl mb-2">🌱</div>
+                                <p class="font-semibold">Kelas 2B - Penjaga Lingkungan Cilik</p>
+                            </div>
+                            
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong>Senin pagi:</strong> Bu Guru mengajak anak-anak kelas 2B untuk melihat taman sekolah. "Wah, taman kita kotor sekali ya, anak-anak. Ada sampah berserakan di mana-mana," kata Bu Guru.</p>
+                                
+                                <p><strong>Dina berkata:</strong> "Bu Guru, kasihan sekali tanaman-tanaman ini. Mereka pasti sedih melihat sampah di sekitarnya."</p>
+                                
+                                <p><strong>Riko mengusulkan:</strong> "Bagaimana kalau kita bersih-bersih bersama-sama, Bu? Kita bisa kerja sama!"</p>
+                                
+                                <p><strong>Aksi dimulai:</strong> Anak-anak membagi tugas. Ada yang mengambil sampah, ada yang menyapu, ada yang menyiram tanaman. Mereka bekerja dengan gembira.</p>
+                                
+                                <p><strong>Hari berikutnya:</strong> Anak-anak membawa botol bekas dari rumah. Mereka membuat pot tanaman dari botol plastik dan menanam bunga kecil.</p>
+                                
+                                <p><strong>Seminggu kemudian:</strong> Taman sekolah menjadi bersih dan indah. Bunga-bunga mulai bermekaran. Kepala sekolah memuji kelas 2B.</p>
+                                
+                                <div class="bg-green-50 p-3 rounded-lg mt-4">
+                                    <p><strong>Hasil yang membanggakan:</strong> "Sekarang taman kita indah sekali! Udara juga terasa lebih segar. Kita harus terus menjaga lingkungan ya, teman-teman!" kata Dina dengan bangga. Semua anak setuju dan berjanji akan selalu peduli lingkungan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-yellow-800 mb-2">💡 Pelajaran dari Cerita:</h5>
+                            <p class="text-gray-700">Dengan bekerja sama dan peduli lingkungan, kita bisa membuat tempat tinggal kita menjadi bersih, indah, dan nyaman. Setiap orang punya peran penting dalam menjaga bumi kita!</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-blue-800 mb-2">🎨 Aktivitas Seru:</h5>
+                            <div class="space-y-2 text-gray-700">
+                                <p><strong>1. Membuat Kerajinan:</strong> Buat tempat pensil dari botol bekas</p>
+                                <p><strong>2. Berkebun Mini:</strong> Tanam biji kacang hijau di gelas plastik</p>
+                                <p><strong>3. Poster Lingkungan:</strong> Gambar poster "Jaga Kebersihan"</p>
+                                <p><strong>4. Lomba Kebersihan:</strong> Siapa yang paling rajin buang sampah</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "Lingkungan adalah...",
+                        options: ["hanya tumbuhan saja", "segala sesuatu di sekitar kita", "hanya hewan saja", "hanya manusia saja"],
+                        correct: 1
+                    },
+                    {
+                        question: "Sampah organik adalah sampah yang...",
+                        options: ["sulit membusuk", "mudah membusuk", "tidak bisa membusuk", "berbahaya"],
+                        correct: 1
+                    },
+                    {
+                        question: "Contoh sampah anorganik adalah...",
+                        options: ["kulit pisang", "daun kering", "botol plastik", "sisa nasi"],
+                        correct: 2
+                    },
+                    {
+                        question: "Prinsip 3R terdiri dari...",
+                        options: ["Reduce, Reuse, Recycle", "Read, Write, Count", "Run, Jump, Walk", "Red, Green, Blue"],
+                        correct: 0
+                    },
+                    {
+                        question: "Reduce artinya...",
+                        options: ["menambah", "mengurangi", "membuang", "membeli"],
+                        correct: 1
+                    },
+                    {
+                        question: "Cara menghemat air adalah...",
+                        options: ["mandi berlama-lama", "mematikan keran saat tidak digunakan", "bermain air terus", "membiarkan keran terbuka"],
+                        correct: 1
+                    },
+                    {
+                        question: "Manfaat menjaga lingkungan adalah...",
+                        options: ["udara menjadi kotor", "air menjadi keruh", "udara menjadi bersih", "sampah bertambah"],
+                        correct: 2
+                    },
+                    {
+                        question: "Tempat sampah organik biasanya berwarna...",
+                        options: ["merah", "hijau", "biru", "kuning"],
+                        correct: 1
+                    },
+                    {
+                        question: "Akibat tidak menjaga lingkungan adalah...",
+                        options: ["udara segar", "air bersih", "terjadi banjir", "tanaman subur"],
+                        correct: 2
+                    },
+                    {
+                        question: "Cara menjaga lingkungan di sekolah adalah...",
+                        options: ["mencoret dinding", "membuang sampah sembarangan", "piket kelas", "memetik bunga"],
+                        correct: 2
+                    }
+                ]
+            },
+            2: {
+                title: "Aku Berperilaku Pancasila",
+                objectives: "Pada bab 2 ini, kalian diharapkan dapat mengenal lambang Pancasila, mengetahui bunyi sila-sila Pancasila, memahami arti dan makna lambang Pancasila, menerapkan nilai-nilai Pancasila di lingkungan rumah dan sekolah, serta mengenal perumus Pancasila.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="text-center mb-4">
+                            <div class="w-24 h-24 mx-auto bg-yellow-200 rounded-full flex items-center justify-center text-4xl mb-2">🦅</div>
+                            <h4 class="font-bold text-lg text-gray-800">Aku Berperilaku Pancasila</h4>
+                            <p class="text-red-600 font-semibold">Mengenal dan Menerapkan Nilai-nilai Pancasila</p>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">🦅 Lambang Pancasila: Garuda Pancasila</h4>
+                            <p class="text-gray-700 mb-2">Garuda Pancasila adalah lambang negara Indonesia yang memiliki makna mendalam. Garuda melambangkan kekuatan dan keagungan bangsa Indonesia.</p>
+                            <p class="text-gray-700"><strong>Perumus Pancasila:</strong> Ir. Soekarno (Bung Karno) pada tanggal 1 Juni 1945</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-3">⭐ Lima Sila Pancasila:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">1</span>
+                                    <div>
+                                        <p class="font-semibold text-blue-800">Ketuhanan Yang Maha Esa</p>
+                                        <p class="text-sm text-gray-600">Lambang: Bintang ⭐</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">2</span>
+                                    <div>
+                                        <p class="font-semibold text-blue-800">Kemanusiaan yang Adil dan Beradab</p>
+                                        <p class="text-sm text-gray-600">Lambang: Rantai ⛓️</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">3</span>
+                                    <div>
+                                        <p class="font-semibold text-blue-800">Persatuan Indonesia</p>
+                                        <p class="text-sm text-gray-600">Lambang: Pohon Beringin 🌳</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">4</span>
+                                    <div>
+                                        <p class="font-semibold text-blue-800">Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</p>
+                                        <p class="text-sm text-gray-600">Lambang: Kepala Banteng 🐂</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">5</span>
+                                    <div>
+                                        <p class="font-semibold text-blue-800">Keadilan Sosial bagi Seluruh Rakyat Indonesia</p>
+                                        <p class="text-sm text-gray-600">Lambang: Padi dan Kapas 🌾</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">🏠 Menerapkan Pancasila di Rumah:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• <strong>Sila 1:</strong> Berdoa sebelum makan dan tidur</li>
+                                <li>• <strong>Sila 2:</strong> Membantu orang tua dan adik/kakak</li>
+                                <li>• <strong>Sila 3:</strong> Menjaga kerukunan keluarga</li>
+                                <li>• <strong>Sila 4:</strong> Bermusyawarah dalam memilih acara TV</li>
+                                <li>• <strong>Sila 5:</strong> Berbagi makanan dengan saudara</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">🏫 Menerapkan Pancasila di Sekolah:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• <strong>Sila 1:</strong> Berdoa sebelum dan sesudah belajar</li>
+                                <li>• <strong>Sila 2:</strong> Menolong teman yang kesulitan</li>
+                                <li>• <strong>Sila 3:</strong> Bergotong royong membersihkan kelas</li>
+                                <li>• <strong>Sila 4:</strong> Memilih ketua kelas dengan voting</li>
+                                <li>• <strong>Sila 5:</strong> Tidak membeda-bedakan teman</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">✨ Makna Lambang Garuda Pancasila:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• <strong>17 bulu sayap:</strong> Tanggal kemerdekaan (17 Agustus)</li>
+                                <li>• <strong>8 bulu ekor:</strong> Bulan kemerdekaan (Agustus = bulan ke-8)</li>
+                                <li>• <strong>45 bulu leher:</strong> Tahun kemerdekaan (1945)</li>
+                                <li>• <strong>19 bulu di bawah perisai:</strong> Hari lahir Pancasila (1 Juni = 1+9 = 10, tapi ada 19 bulu)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                            <h4 class="font-semibold text-orange-800 mb-2">🎯 Perilaku Pancasila Sehari-hari:</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li>• Rajin beribadah sesuai agama masing-masing</li>
+                                <li>• Saling menghormati perbedaan</li>
+                                <li>• Cinta tanah air Indonesia</li>
+                                <li>• Menghargai pendapat orang lain</li>
+                                <li>• Berbagi dengan yang membutuhkan</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                demonstration: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-blue-800 mb-3">🎭 Cerita: "Sari dan Teman-teman Menerapkan Pancasila"</h4>
+                        
+                        <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                            <div class="text-center mb-3">
+                                <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center text-2xl mb-2">👧</div>
+                                <p class="font-semibold">Sari dan Teman-teman Kelas 2</p>
+                            </div>
+                            
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong>Pagi hari di sekolah:</strong> Sari dan teman-temannya memulai hari dengan berdoa bersama. Mereka menerapkan sila pertama Pancasila dengan berdoa sesuai agama masing-masing.</p>
+                                
+                                <p><strong>Saat istirahat:</strong> Sari melihat temannya, Budi, tidak membawa bekal. Dengan senang hati, Sari berbagi makanannya. "Ini contoh sila kedua, kita harus saling membantu," kata Sari.</p>
+                                
+                                <p><strong>Kerja kelompok:</strong> Ketika ada tugas kelompok, mereka bergotong royong tanpa membeda-bedakan suku atau agama. "Kita semua Indonesia!" kata Andi, menerapkan sila ketiga.</p>
+                                
+                                <p><strong>Memilih permainan:</strong> Saat akan bermain, mereka bermusyawarah untuk memilih permainan yang disukai semua orang. Ini adalah penerapan sila keempat.</p>
+                                
+                                <div class="bg-green-50 p-3 rounded-lg mt-4">
+                                    <p><strong>Pulang sekolah:</strong> Sari membantu temannya yang terjatuh dan berbagi permen dengan semua teman. "Pancasila mengajarkan kita untuk adil dan saling berbagi," kata Sari dengan bangga.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-yellow-800 mb-2">💡 Pelajaran dari Cerita:</h5>
+                            <p class="text-gray-700">Pancasila bukan hanya hafalan, tetapi harus diterapkan dalam kehidupan sehari-hari. Dengan menerapkan nilai-nilai Pancasila, kita menjadi anak Indonesia yang baik dan berbudi luhur!</p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "Siapa perumus Pancasila?",
+                        options: ["Ir. Soekarno", "Mohammad Hatta", "Ki Hajar Dewantara", "Jenderal Sudirman"],
+                        correct: 0
+                    },
+                    {
+                        question: "Lambang sila pertama Pancasila adalah...",
+                        options: ["Rantai", "Bintang", "Pohon Beringin", "Padi dan Kapas"],
+                        correct: 1
+                    },
+                    {
+                        question: "Bunyi sila ketiga Pancasila adalah...",
+                        options: ["Ketuhanan Yang Maha Esa", "Kemanusiaan yang Adil dan Beradab", "Persatuan Indonesia", "Keadilan Sosial"],
+                        correct: 2
+                    },
+                    {
+                        question: "Lambang Pancasila adalah...",
+                        options: ["Elang", "Garuda", "Rajawali", "Burung Merak"],
+                        correct: 1
+                    },
+                    {
+                        question: "Contoh menerapkan sila pertama di rumah adalah...",
+                        options: ["Bermain dengan teman", "Berdoa sebelum makan", "Membantu ibu", "Belajar dengan rajin"],
+                        correct: 1
+                    },
+                    {
+                        question: "Lambang sila kedua Pancasila adalah...",
+                        options: ["Bintang", "Rantai", "Banteng", "Padi"],
+                        correct: 1
+                    },
+                    {
+                        question: "Pancasila diperingati setiap tanggal...",
+                        options: ["17 Agustus", "1 Juni", "20 Mei", "10 November"],
+                        correct: 1
+                    },
+                    {
+                        question: "Contoh menerapkan sila keempat di sekolah adalah...",
+                        options: ["Berdoa bersama", "Memilih ketua kelas dengan voting", "Membantu teman", "Berbagi makanan"],
+                        correct: 1
+                    },
+                    {
+                        question: "Lambang sila kelima adalah...",
+                        options: ["Pohon Beringin", "Kepala Banteng", "Padi dan Kapas", "Bintang"],
+                        correct: 2
+                    },
+                    {
+                        question: "Jumlah bulu sayap Garuda Pancasila adalah...",
+                        options: ["15", "17", "19", "20"],
+                        correct: 1
+                    }
+                ]
+            }
+        };
+
+        function showHome() {
+            document.getElementById('homePage').classList.remove('hidden');
+            document.getElementById('materialPage').classList.add('hidden');
+            document.getElementById('quizPage').classList.add('hidden');
+        }
+
+        function showMaterial(materialId) {
+            currentMaterial = materialId;
+            const material = materials[materialId];
+            
+            document.getElementById('materialTitle').textContent = material.title;
+            document.getElementById('learningObjectives').textContent = material.objectives;
+            document.getElementById('materialContent').innerHTML = material.content;
+            
+            // Show demonstration if available
+            if (material.demonstration) {
+                document.getElementById('demonstration').classList.remove('hidden');
+                document.getElementById('demoContent').innerHTML = material.demonstration;
+            } else {
+                document.getElementById('demonstration').classList.add('hidden');
+            }
+            
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('materialPage').classList.remove('hidden');
+            document.getElementById('quizPage').classList.add('hidden');
+        }
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            quizScore = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('materialPage').classList.add('hidden');
+            document.getElementById('quizPage').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizNavigation').classList.remove('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const material = materials[currentMaterial];
+            const question = material.quiz[currentQuestionIndex];
+            
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = material.quiz.length;
+            document.getElementById('progressBar').style.width = ((currentQuestionIndex + 1) / material.quiz.length * 100) + '%';
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option bg-gray-100 p-3 rounded-lg cursor-pointer border-2 border-transparent hover:border-red-300';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectAnswer(index, optionDiv);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === material.quiz.length - 1 ? 'Selesai' : 'Selanjutnya';
+            
+            selectedAnswer = null;
+        }
+
+        function selectAnswer(answerIndex, optionElement) {
+            // Remove previous selection
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('bg-red-200', 'border-red-500');
+                option.classList.add('bg-gray-100', 'border-transparent');
+            });
+            
+            // Highlight selected option
+            optionElement.classList.remove('bg-gray-100', 'border-transparent');
+            optionElement.classList.add('bg-red-200', 'border-red-500');
+            
+            selectedAnswer = answerIndex;
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === null) return;
+            
+            const material = materials[currentMaterial];
+            const question = material.quiz[currentQuestionIndex];
+            
+            userAnswers[currentQuestionIndex] = selectedAnswer;
+            if (selectedAnswer === question.correct) {
+                quizScore++;
+            }
+            
+            if (currentQuestionIndex < material.quiz.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+                
+                // Restore previous answer if exists
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    const options = document.querySelectorAll('.quiz-option');
+                    selectAnswer(userAnswers[currentQuestionIndex], options[userAnswers[currentQuestionIndex]]);
+                }
+            }
+        }
+
+        function showQuizResult() {
+            const material = materials[currentMaterial];
+            const percentage = Math.round((quizScore / material.quiz.length) * 100);
+            
+            document.getElementById('finalScore').textContent = `${quizScore}/${material.quiz.length} (${percentage}%)`;
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.getElementById('quizNavigation').classList.add('hidden');
+        }
+
+        function retakeQuiz() {
+            startQuiz();
+        }
+
+        // Initialize the app
+        showHome();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9688fd99d182fdb0',t:'MTc1NDA4OTYzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
