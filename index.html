@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif - Kelas 2 SD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .modal { display: none; }
+        .modal.active { display: flex; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg rounded-b-3xl mx-4 mt-4 p-6">
+        <div class="flex items-center justify-center space-x-4">
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocLCeXUmUtnYECjh5q2MnAJLM93vDFkqvxTDRf1cVXk_tK6G9j0=s288-c-no" 
+                 alt="Logo Sekolah" class="w-16 h-16 rounded-full shadow-md">
+            <div class="text-center">
+                <h1 class="text-xl font-bold text-gray-800">SDN TAMPOJUNG TENGGINA</h1>
+                <p class="text-sm text-blue-600 font-medium">Media Pembelajaran Kelas 2</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Sekolah -->
+    <section class="mx-4 mt-6">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Ilustrasi-Sekolah-gratis.jpg" 
+                 alt="Foto Sekolah" class="w-full h-48 object-cover"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div style="display:none;" class="w-full h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
+                <div class="text-center text-white">
+                    <i class="fas fa-school text-4xl mb-2"></i>
+                    <p class="text-lg font-semibold">SDN TAMPOJUNG TENGGINA</p>
+                    <p class="text-sm">Lingkungan Belajar yang Nyaman</p>
+                </div>
+            </div>
+            <div class="p-4 text-center">
+                <h3 class="text-sm font-semibold text-gray-800">Lingkungan Belajar yang Nyaman</h3>
+                <p class="text-xs text-gray-600 mt-1">Menciptakan suasana pembelajaran yang menyenangkan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jam Real-time -->
+    <section class="mx-4 mt-6">
+        <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-2xl shadow-lg p-4 text-center card-hover">
+            <div class="flex items-center justify-center space-x-4 text-lg font-semibold">
+                <span id="currentDay">-</span>
+                <span>•</span>
+                <span id="currentDate">-</span>
+                <span>•</span>
+                <span id="currentTime" class="font-mono tracking-wider">-</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Guru -->
+    <section class="mx-4 mt-6">
+        <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
+            <div class="flex items-center space-x-4">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocJVj6K_zl7sgoyI4ZuLpuOLyDGmInjyagFHjhBhTJUjD2HIsoc=s288-c-no" 
+                     alt="Foto Guru" class="w-20 h-20 rounded-full shadow-md border-4 border-blue-200">
+                <div class="flex-1">
+                    <h2 class="text-lg font-semibold text-gray-800">Akhmad Fauzan</h2>
+                    <p class="text-sm text-gray-600 mt-1">Wali Kelas 2</p>
+                    <p class="text-sm text-blue-600 mt-2 italic">"Selamat belajar anak-anak! Mari kita belajar dengan semangat dan gembira!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Utama -->
+    <section class="mx-4 mt-6 pb-8">
+        <div class="grid grid-cols-2 gap-4">
+            <!-- Jadwal Pelajaran -->
+            <button onclick="showSchedule()" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-6 shadow-lg card-hover">
+                <i class="fas fa-calendar-alt text-3xl mb-3"></i>
+                <h3 class="font-semibold text-sm">Jadwal Pelajaran</h3>
+            </button>
+
+            <!-- Jadwal Piket -->
+            <button onclick="showPiket()" class="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 shadow-lg card-hover">
+                <i class="fas fa-broom text-3xl mb-3"></i>
+                <h3 class="font-semibold text-sm">Jadwal Piket</h3>
+            </button>
+
+            <!-- Materi Pembelajaran -->
+            <button onclick="showMateri()" class="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-2xl p-6 shadow-lg card-hover">
+                <i class="fas fa-book text-3xl mb-3"></i>
+                <h3 class="font-semibold text-sm">Materi Pembelajaran</h3>
+            </button>
+
+            <!-- Rekap Penilaian -->
+            <button onclick="window.location.href='https://s.id/kelas2-penilaian'" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl p-6 shadow-lg card-hover">
+                <i class="fas fa-chart-bar text-3xl mb-3"></i>
+                <h3 class="font-semibold text-sm">Rekap Penilaian</h3>
+            </button>
+        </div>
+    </section>
+
+    <!-- Modal Jadwal Pelajaran -->
+    <div id="scheduleModal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full max-h-[80vh] overflow-y-auto fade-in">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Jadwal Pelajaran</h2>
+                    <button onclick="closeModal('scheduleModal')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-blue-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-blue-800 mb-2">SENIN</h3>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span class="font-medium">07.00-07.30</span><span>Upacara</span></div>
+                            <div class="flex justify-between"><span class="font-medium">07.30-08.00</span><span>Pendidikan Pancasila</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.00-08.30</span><span>Pendidikan Pancasila</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.30-09.00</span><span>Pendidikan Pancasila</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.00-09.30</span><span class="text-orange-600">ISTIRAHAT</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.30-10.00</span><span>Bahasa Indonesia</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-green-800 mb-2">SELASA</h3>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span class="font-medium">07.00-07.30</span><span>Juz Amma</span></div>
+                            <div class="flex justify-between"><span class="font-medium">07.30-08.00</span><span>Pendidikan Agama Islam</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.00-08.30</span><span>Pendidikan Agama Islam</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.30-09.00</span><span>Pendidikan Agama Islam</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.00-09.30</span><span class="text-orange-600">ISTIRAHAT</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.30-10.00</span><span>Bahasa Daerah</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-purple-800 mb-2">RABU</h3>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span class="font-medium">07.00-07.30</span><span>Senam</span></div>
+                            <div class="flex justify-between"><span class="font-medium">07.30-08.00</span><span>Matematika</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.00-08.30</span><span>Matematika</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.30-09.00</span><span>Bahasa Indonesia</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.00-09.30</span><span class="text-orange-600">ISTIRAHAT</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.30-10.00</span><span>Bahasa Indonesia</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-orange-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-orange-800 mb-2">KAMIS</h3>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span class="font-medium">07.00-07.30</span><span>Juz Amma</span></div>
+                            <div class="flex justify-between"><span class="font-medium">07.30-08.00</span><span>Bahasa Indonesia</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.00-08.30</span><span>Bahasa Indonesia</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.30-09.00</span><span>Matematika</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.00-09.30</span><span class="text-orange-600">ISTIRAHAT</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.30-10.00</span><span>Matematika</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-pink-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-pink-800 mb-2">JUMAT</h3>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span class="font-medium">07.00-07.30</span><span>Surah Yasin</span></div>
+                            <div class="flex justify-between"><span class="font-medium">07.30-08.00</span><span>Senam</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.00-08.30</span><span>PJOK</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.30-09.00</span><span>PJOK</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.00-09.30</span><span class="text-orange-600">ISTIRAHAT</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.30-10.00</span><span>PJOK</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-indigo-800 mb-2">SABTU</h3>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between"><span class="font-medium">07.00-07.30</span><span>Juz Amma</span></div>
+                            <div class="flex justify-between"><span class="font-medium">07.30-08.00</span><span>Bahasa Indonesia</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.00-08.30</span><span>Bahasa Indonesia</span></div>
+                            <div class="flex justify-between"><span class="font-medium">08.30-09.00</span><span>Seni dan Budaya</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.00-09.30</span><span class="text-orange-600">ISTIRAHAT</span></div>
+                            <div class="flex justify-between"><span class="font-medium">09.30-10.00</span><span>Seni dan Budaya</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Jadwal Piket -->
+    <div id="piketModal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full max-h-[80vh] overflow-y-auto fade-in">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Jadwal Piket Kebersihan</h2>
+                    <button onclick="closeModal('piketModal')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-blue-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-blue-800">Senin</h3>
+                        <p class="text-sm text-gray-600 mt-1">• Adilatul Kholida</p>
+                        <p class="text-sm text-gray-600">• Alfan Maulana</p>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-green-800">Selasa</h3>
+                        <p class="text-sm text-gray-600 mt-1">• Atika Balqis Azizah</p>
+                        <p class="text-sm text-gray-600">• Irfan Aly Ilmi</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-purple-800">Rabu</h3>
+                        <p class="text-sm text-gray-600 mt-1">• Muhammat Ayyubi</p>
+                        <p class="text-sm text-gray-600">• Robiatul Adawiyah</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-orange-800">Kamis</h3>
+                        <p class="text-sm text-gray-600 mt-1">• Arista Adinda Zahrany</p>
+                        <p class="text-sm text-gray-600">• Moh. Nanang Agus Sayyidi</p>
+                    </div>
+                    <div class="bg-pink-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-pink-800">Jumat</h3>
+                        <p class="text-sm text-gray-600 mt-1">• Moh. Wildan Firdaus</p>
+                        <p class="text-sm text-gray-600">• Suci Evita Putri Sholehah</p>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-indigo-800">Sabtu</h3>
+                        <p class="text-sm text-gray-600 mt-1">• Mohammad Arfan Faishal</p>
+                        <p class="text-sm text-gray-600">• Siti Khofifah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Materi Pembelajaran -->
+    <div id="materiModal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full fade-in">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Materi Pembelajaran</h2>
+                    <button onclick="closeModal('materiModal')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <a href="materi/pendidikan-pancasila.html" class="block bg-red-50 hover:bg-red-100 rounded-xl p-4 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-flag text-red-600 text-xl"></i>
+                            <span class="font-medium text-gray-800">Pendidikan Pancasila</span>
+                        </div>
+                    </a>
+                    <a href="https://s.id/kelas2-bahasa-indonesia" class="block bg-blue-50 hover:bg-blue-100 rounded-xl p-4 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-language text-blue-600 text-xl"></i>
+                            <span class="font-medium text-gray-800">Bahasa Indonesia</span>
+                        </div>
+                    </a>
+                    <a href="https://s.id/kelas2-matematika" class="block bg-green-50 hover:bg-green-100 rounded-xl p-4 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-calculator text-green-600 text-xl"></i>
+                            <span class="font-medium text-gray-800">Matematika</span>
+                        </div>
+                    </a>
+                    <a href="https://s.id/kelas2-seni-rupa" class="block bg-purple-50 hover:bg-purple-100 rounded-xl p-4 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-palette text-purple-600 text-xl"></i>
+                            <span class="font-medium text-gray-800">Seni Rupa</span>
+                        </div>
+                    </a>
+                    <a href="https://s.id/kelas2-bahasa-madura" class="block bg-orange-50 hover:bg-orange-100 rounded-xl p-4 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-comments text-orange-600 text-xl"></i>
+                            <span class="font-medium text-gray-800">Bahasa Madura</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-8 rounded-t-3xl mx-4 p-6">
+        <div class="text-center space-y-2">
+            <p class="text-sm text-gray-300">© 2025 SDN Tampojung Tenggina, Kecamatan Waru</p>
+            <p class="text-sm text-gray-400">Dibuat untuk kemajuan pendidikan</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSchedule() {
+            document.getElementById('scheduleModal').classList.add('active');
+        }
+
+        function showPiket() {
+            document.getElementById('piketModal').classList.add('active');
+        }
+
+        function showMateri() {
+            document.getElementById('materiModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        // Real-time clock function
+        function updateClock() {
+            const now = new Date();
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 
+                           'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            
+            const dayName = days[now.getDay()];
+            const day = now.getDate().toString().padStart(2, '0');
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('currentDay').textContent = dayName;
+            document.getElementById('currentDate').textContent = `${day} ${month} ${year}`;
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update clock every second
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9681c6cb153a40a6',t:'MTc1NDAxMzk4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
