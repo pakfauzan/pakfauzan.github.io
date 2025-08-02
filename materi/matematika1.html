@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Matematika Kelas 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .card-shadow { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15); }
+        .quiz-correct { background: linear-gradient(135deg, #10b981, #059669); }
+        .quiz-wrong { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .demo-animation { transition: all 0.3s ease; }
+        .demo-animation:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-green-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 shadow-lg">
+        <div class="max-w-md mx-auto text-center">
+            <h1 class="text-2xl font-bold mb-2">MATEMATIKA</h1>
+            <p class="text-green-100 text-sm">Untuk Kelas 2 - Fase A</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-md mx-auto p-4">
+        <!-- Menu Materi -->
+        <div id="menuMateri" class="mt-8">
+            <h2 class="text-2xl font-bold text-green-800 mb-6 text-center">Materi Pembelajaran</h2>
+            
+            <div class="space-y-4">
+                <button onclick="showMateri(1)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            1
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Bilangan 1 sampai 1.000</h3>
+                            <p class="text-green-600 text-sm">Pelajari pengelompokan dan representasi bilangan</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="showMateri(2)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            2
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Cara Berhitung</h3>
+                            <p class="text-green-600 text-sm">Penjumlahan dan pengurangan bilangan dua angka</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="showMateri(3)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            3
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Waktu dan Durasi</h3>
+                            <p class="text-green-600 text-sm">Hubungan satuan waktu: hari, jam, menit, detik</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="showMateri(4)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            4
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Penjumlahan Bersusun</h3>
+                            <p class="text-green-600 text-sm">Penjumlahan bilangan 2 dan 3 angka dengan sifat-sifatnya</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="showMateri(5)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            5
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Pengurangan Bersusun</h3>
+                            <p class="text-green-600 text-sm">Pengurangan bilangan 2 dan 3 angka dengan hubungannya terhadap penjumlahan</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="showMateri(6)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            6
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Panjang</h3>
+                            <p class="text-green-600 text-sm">Satuan panjang milimeter (mm), sentimeter (cm), dan meter (m)</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <div class="mt-8 text-center">
+                    <a href="matematika2.html" class="inline-block bg-gradient-to-r from-yellow-100 to-yellow-200 hover:from-yellow-200 hover:to-yellow-300 text-black px-8 py-2 rounded-2xl text-md shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Lanjut ke daftar materi selanjutnya
+                    </a>
+                </div>
+
+            </div>
+            <!-- Back to Homepage Button -->
+            <div class="mt-8 text-center">
+                <a href="../" class="inline-block bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-2 rounded-2xl text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <span class="mr-2">🏠</span>
+                    Kembali ke Halaman Utama
+                </a>
+            </div>
+
+
+        </div>
+
+        <!-- Detail Materi 1: Bilangan 1-1000 -->
+        <div id="materi1" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Bilangan 1 sampai 1.000</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Mampu membilang dengan mengelompokkan benda dalam ukuran yang sama untuk tiap kelompok</li>
+                        <li>• Memahami cara merepresentasikan bilangan dengan menuliskan lambang bilangannya sampai bilangan ribuan</li>
+                        <li>• Mampu memahami ukuran relatif bilangan seperti melihat bilangan dalam ukuran puluhan atau ratusan</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <strong class="text-green-800">SATUAN (1-9)</strong>
+                            <p class="mt-2">• Bilangan paling kecil</p>
+                            <p>• Contoh: 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
+                            <p>• Seperti menghitung jari tangan</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <strong class="text-green-800">PULUHAN (10-99)</strong>
+                            <p class="mt-2">• Kelompok 10 benda</p>
+                            <p>• Contoh: 10, 20, 30, 40, 50</p>
+                            <p>• Seperti 10 jari tangan = 1 puluhan</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <strong class="text-green-800">RATUSAN (100-999)</strong>
+                            <p class="mt-2">• Kelompok 100 benda</p>
+                            <p>• Contoh: 100, 200, 300, 400, 500</p>
+                            <p>• Seperti 10 kelompok puluhan = 1 ratusan</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <strong class="text-green-800">RIBUAN (1000)</strong>
+                            <p class="mt-2">• Kelompok 1000 benda</p>
+                            <p>• 10 kelompok ratusan = 1 ribuan</p>
+                            <p>• Bilangan yang sangat besar!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎮 Demonstrasi Interaktif</h3>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-sm text-green-600 mb-3">Pilih untuk melihat pengelompokan bilangan:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showNumberDemo('satuan')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Lihat Satuan
+                            </button>
+                            <button onclick="showNumberDemo('puluhan')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Lihat Puluhan
+                            </button>
+                            <button onclick="showNumberDemo('ratusan')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Lihat Ratusan
+                            </button>
+                            <button onclick="showNumberDemo('urutan')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                                Urutkan Bilangan
+                            </button>
+                        </div>
+                        
+                        <div id="numberDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-green-200">
+                            <p class="text-center text-green-600">Pilih tombol di atas untuk melihat demonstrasi!</p>
+                        </div>
+                        
+                        <div id="sortingGame" class="hidden mt-4">
+                            <p class="text-sm text-green-700 mb-3">Urutkan bilangan dari terkecil ke terbesar:</p>
+                            <div id="numbersToSort" class="flex flex-wrap gap-2 mb-3"></div>
+                            <div id="sortedNumbers" class="flex flex-wrap gap-2 min-h-12 border-2 border-dashed border-green-300 rounded-lg p-2 bg-green-50"></div>
+                            <button onclick="checkSorting()" class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Periksa Jawaban
+                            </button>
+                            <div id="sortResult" class="mt-2 text-sm font-medium"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(1)" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                    Mulai Kuis Bilangan
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 6: Panjang -->
+        <div id="materi6" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Panjang</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Memahami satuan panjang dan arti ukurannya, sehingga mampu mengukur panjang</li>
+                        <li>• Mengetahui satuan panjang: milimeter (mm), sentimeter (cm), meter (m)</li>
+                        <li>• Dapat menggunakan alat ukur panjang dengan benar</li>
+                        <li>• Mampu mengkonversi antar satuan panjang</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <strong class="text-yellow-800">MILIMETER (mm)</strong>
+                            <p class="mt-2">• Satuan panjang terkecil yang kita pelajari</p>
+                            <p>• Sangat kecil, seperti ketebalan kertas</p>
+                            <p>• 1 cm = 10 mm</p>
+                            <p>• Contoh: ketebalan koin, lebar kuku</p>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <strong class="text-yellow-800">SENTIMETER (cm)</strong>
+                            <p class="mt-2">• Satuan yang sering digunakan sehari-hari</p>
+                            <p>• Seperti lebar jari tangan orang dewasa</p>
+                            <p>• 1 m = 100 cm</p>
+                            <p>• Contoh: panjang pensil, tinggi gelas</p>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <strong class="text-yellow-800">METER (m)</strong>
+                            <p class="mt-2">• Satuan panjang yang paling besar</p>
+                            <p>• Seperti panjang 3 langkah orang dewasa</p>
+                            <p>• 1 m = 100 cm = 1000 mm</p>
+                            <p>• Contoh: tinggi pintu, panjang meja</p>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <strong class="text-yellow-800">ALAT UKUR PANJANG</strong>
+                            <p class="mt-2">• Penggaris: untuk mengukur benda kecil (cm, mm)</p>
+                            <p>• Meteran: untuk mengukur benda besar (m, cm)</p>
+                            <p>• Jangka sorong: untuk mengukur sangat teliti (mm)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📏 Demonstrasi Interaktif</h3>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <p class="text-sm text-yellow-600 mb-3">Pilih untuk belajar tentang satuan panjang:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showLengthDemo('units')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Satuan Panjang
+                            </button>
+                            <button onclick="showLengthDemo('measuring')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Cara Mengukur
+                            </button>
+                            <button onclick="showLengthDemo('conversion')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                                Konversi Satuan
+                            </button>
+                            <button onclick="showLengthDemo('comparison')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Perbandingan
+                            </button>
+                        </div>
+                        
+                        <div id="lengthDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-yellow-200">
+                            <p class="text-center text-yellow-600">Pilih tombol di atas untuk belajar tentang panjang!</p>
+                        </div>
+                        
+                        <div id="lengthPractice" class="hidden mt-4">
+                            <p class="text-sm text-yellow-700 mb-3">Latihan Mengukur Panjang:</p>
+                            <div id="practiceLengthContainer" class="text-center mb-4"></div>
+                            <div id="lengthSteps" class="space-y-2 mb-4"></div>
+                            <div id="lengthInput" class="mb-4"></div>
+                            <div id="lengthResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(6)" class="w-full bg-yellow-500 text-white py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+                    Mulai Kuis Panjang
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 5: Pengurangan Bersusun -->
+        <div id="materi5" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Pengurangan Bersusun</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Melakukan pengurangan sebagai kebalikan dari penjumlahan berdasarkan pengalaman mengurangkan bilangan 1 angka</li>
+                        <li>• Melakukan pengurangan bilangan 2 angka dengan cara bersusun</li>
+                        <li>• Melakukan pengurangan dua bilangan yang terdiri atas tiga angka</li>
+                        <li>• Menemukan sifat-sifat pengurangan dan menerapkannya pada proses penghitungan</li>
+                        <li>• Memahami hubungan antara penjumlahan dan pengurangan serta menjelaskannya dengan kalimat matematika</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <strong class="text-red-800">PENGURANGAN BILANGAN 2 ANGKA</strong>
+                            <p class="mt-2">• Dimulai dari satuan, lalu puluhan</p>
+                            <p>• Contoh: 67 - 23 → (7-3) + (60-20) = 4 + 40 = 44</p>
+                            <p>• Gunakan cara bersusun untuk lebih mudah</p>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <strong class="text-red-800">PENGURANGAN BILANGAN 3 ANGKA</strong>
+                            <p class="mt-2">• Dimulai dari satuan, puluhan, lalu ratusan</p>
+                            <p>• Contoh: 456 - 123 = 333</p>
+                            <p>• Perhatikan teknik meminjam (borrowing) jika diperlukan</p>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <strong class="text-red-800">HUBUNGAN PENJUMLAHAN & PENGURANGAN</strong>
+                            <p class="mt-2">• Pengurangan adalah kebalikan dari penjumlahan</p>
+                            <p>• Jika a + b = c, maka c - b = a dan c - a = b</p>
+                            <p>• Contoh: 25 + 15 = 40, maka 40 - 15 = 25</p>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <strong class="text-red-800">SIFAT-SIFAT PENGURANGAN</strong>
+                            <p class="mt-2">• Pengurangan tidak komutatif: a - b ≠ b - a</p>
+                            <p>• Contoh: 10 - 3 = 7, tetapi 3 - 10 = -7 (berbeda!)</p>
+                            <p>• Urutan sangat penting dalam pengurangan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🧮 Demonstrasi Interaktif</h3>
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <p class="text-sm text-red-600 mb-3">Pilih untuk belajar pengurangan bersusun:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showSubtractionDemo('twoDigit')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Bilangan 2 Angka
+                            </button>
+                            <button onclick="showSubtractionDemo('threeDigit')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Bilangan 3 Angka
+                            </button>
+                            <button onclick="showSubtractionDemo('relationship')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                                Hubungan +/-
+                            </button>
+                            <button onclick="showSubtractionDemo('properties')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Sifat Pengurangan
+                            </button>
+                        </div>
+                        
+                        <div id="subtractionDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-red-200">
+                            <p class="text-center text-red-600">Pilih tombol di atas untuk belajar pengurangan bersusun!</p>
+                        </div>
+                        
+                        <div id="subtractionPractice" class="hidden mt-4">
+                            <p class="text-sm text-red-700 mb-3">Latihan Pengurangan Bersusun:</p>
+                            <div id="practiceSubtractionContainer" class="text-center mb-4"></div>
+                            <div id="subtractionSteps" class="space-y-2 mb-4"></div>
+                            <div id="subtractionInput" class="mb-4"></div>
+                            <div id="subtractionResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(5)" class="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors">
+                    Mulai Kuis Pengurangan Bersusun
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 4: Penjumlahan Bersusun -->
+        <div id="materi4" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Penjumlahan Bersusun</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Menjumlahkan bilangan 2 angka berdasarkan pengalaman menjumlahkan bilangan 1 angka</li>
+                        <li>• Menjumlahkan 2 bilangan 3 angka dengan menggunakan penjumlahan bersusun</li>
+                        <li>• Menemukan sifat-sifat penjumlahan dan menerapkannya pada proses penghitungan</li>
+                        <li>• Mengaplikasikan sifat komutatif dan asosiatif penjumlahan</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">PENJUMLAHAN BILANGAN 2 ANGKA</strong>
+                            <p class="mt-2">• Dimulai dari satuan, lalu puluhan</p>
+                            <p>• Contoh: 25 + 34 → (5+4) + (20+30) = 9 + 50 = 59</p>
+                            <p>• Gunakan cara bersusun untuk lebih mudah</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">PENJUMLAHAN BILANGAN 3 ANGKA</strong>
+                            <p class="mt-2">• Dimulai dari satuan, puluhan, lalu ratusan</p>
+                            <p>• Contoh: 125 + 234 = 359</p>
+                            <p>• Perhatikan teknik menyimpan (carry over)</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">SIFAT KOMUTATIF</strong>
+                            <p class="mt-2">• a + b = b + a</p>
+                            <p>• Contoh: 15 + 23 = 23 + 15 = 38</p>
+                            <p>• Urutan bilangan tidak mempengaruhi hasil</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">SIFAT ASOSIATIF</strong>
+                            <p class="mt-2">• (a + b) + c = a + (b + c)</p>
+                            <p>• Contoh: (12 + 15) + 20 = 12 + (15 + 20) = 47</p>
+                            <p>• Pengelompokan tidak mempengaruhi hasil</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🧮 Demonstrasi Interaktif</h3>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <p class="text-sm text-purple-600 mb-3">Pilih untuk belajar penjumlahan bersusun:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showAdditionDemo('twoDigit')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Bilangan 2 Angka
+                            </button>
+                            <button onclick="showAdditionDemo('threeDigit')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Bilangan 3 Angka
+                            </button>
+                            <button onclick="showAdditionDemo('commutative')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                                Sifat Komutatif
+                            </button>
+                            <button onclick="showAdditionDemo('associative')" class="bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                                Sifat Asosiatif
+                            </button>
+                        </div>
+                        
+                        <div id="additionDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-purple-200">
+                            <p class="text-center text-purple-600">Pilih tombol di atas untuk belajar penjumlahan bersusun!</p>
+                        </div>
+                        
+                        <div id="additionPractice" class="hidden mt-4">
+                            <p class="text-sm text-purple-700 mb-3">Latihan Penjumlahan Bersusun:</p>
+                            <div id="practiceAdditionContainer" class="text-center mb-4"></div>
+                            <div id="additionSteps" class="space-y-2 mb-4"></div>
+                            <div id="additionInput" class="mb-4"></div>
+                            <div id="additionResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(4)" class="w-full bg-purple-500 text-white py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                    Mulai Kuis Penjumlahan Bersusun
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 3: Waktu dan Durasi -->
+        <div id="materi3" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Waktu dan Durasi</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Memahami hubungan antara satuan waktu: hari, jam, menit, dan detik</li>
+                        <li>• Mampu mengkonversi satuan waktu dari satu bentuk ke bentuk lainnya</li>
+                        <li>• Dapat membaca jam analog dan digital dengan benar</li>
+                        <li>• Memahami konsep durasi waktu dalam kehidupan sehari-hari</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">DETIK</strong>
+                            <p class="mt-2">• Satuan waktu terkecil yang kita pelajari</p>
+                            <p>• Seperti detak jantung: detik, detik, detik...</p>
+                            <p>• 1 menit = 60 detik</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">MENIT</strong>
+                            <p class="mt-2">• Waktu untuk kegiatan pendek</p>
+                            <p>• Contoh: menyikat gigi (3 menit), makan (15 menit)</p>
+                            <p>• 1 jam = 60 menit</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">JAM</strong>
+                            <p class="mt-2">• Waktu untuk kegiatan yang lebih lama</p>
+                            <p>• Contoh: sekolah (6 jam), tidur (8 jam)</p>
+                            <p>• 1 hari = 24 jam</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">HARI</strong>
+                            <p class="mt-2">• Waktu dari pagi sampai pagi lagi</p>
+                            <p>• 1 hari = 24 jam</p>
+                            <p>• 1 minggu = 7 hari</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🕐 Demonstrasi Interaktif</h3>
+                    <div class="bg-orange-50 p-4 rounded-lg">
+                        <p class="text-sm text-orange-600 mb-3">Pilih untuk belajar tentang waktu:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showTimeDemo('clock')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Jam Analog
+                            </button>
+                            <button onclick="showTimeDemo('digital')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Jam Digital
+                            </button>
+                            <button onclick="showTimeDemo('conversion')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Konversi Waktu
+                            </button>
+                            <button onclick="showTimeDemo('duration')" class="bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                                Durasi Kegiatan
+                            </button>
+                        </div>
+                        
+                        <div id="timeDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-orange-200">
+                            <p class="text-center text-orange-600">Pilih tombol di atas untuk belajar tentang waktu!</p>
+                        </div>
+                        
+                        <div id="clockPractice" class="hidden mt-4">
+                            <p class="text-sm text-orange-700 mb-3">Latihan Membaca Jam:</p>
+                            <div id="practiceClockContainer" class="text-center mb-4"></div>
+                            <div id="clockOptions" class="grid grid-cols-2 gap-2 mb-3"></div>
+                            <div id="clockResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(3)" class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                    Mulai Kuis Waktu dan Durasi
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 2: Cara Berhitung -->
+        <div id="materi2" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Cara Berhitung</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Mampu menuliskan kalimat matematika dari permasalahan kontekstual</li>
+                        <li>• Dapat mengungkapkan proses penjumlahan bilangan dua angka</li>
+                        <li>• Dapat mengungkapkan proses pengurangan bilangan dua angka</li>
+                        <li>• Memahami cara menyelesaikan soal cerita matematika</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <strong class="text-blue-800">PENJUMLAHAN BILANGAN DUA ANGKA</strong>
+                            <p class="mt-2">• Menambahkan dua bilangan yang masing-masing terdiri dari dua angka</p>
+                            <p>• Contoh: 25 + 34 = 59</p>
+                            <p>• Dapat menggunakan cara bersusun atau cara biasa</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <strong class="text-blue-800">PENGURANGAN BILANGAN DUA ANGKA</strong>
+                            <p class="mt-2">• Mengurangi bilangan dua angka dengan bilangan dua angka</p>
+                            <p>• Contoh: 67 - 23 = 44</p>
+                            <p>• Dapat menggunakan cara bersusun atau cara biasa</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <strong class="text-blue-800">KALIMAT MATEMATIKA</strong>
+                            <p class="mt-2">• Mengubah soal cerita menjadi bentuk matematika</p>
+                            <p>• Contoh: "Andi punya 25 kelereng, diberi 15 lagi" → 25 + 15 = 40</p>
+                            <p>• Membantu memahami maksud soal dengan lebih mudah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎮 Latihan Interaktif</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-sm text-blue-600 mb-3">Pilih jenis latihan yang ingin kamu coba:</p>
+                        
+                        <div class="grid grid-cols-1 gap-3 mb-4">
+                            <button onclick="showCalculationDemo('addition')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Latihan Penjumlahan
+                            </button>
+                            <button onclick="showCalculationDemo('subtraction')" class="bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                                Latihan Pengurangan
+                            </button>
+                            <button onclick="showCalculationDemo('story')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Soal Cerita
+                            </button>
+                        </div>
+                        
+                        <div id="calculationDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-blue-200">
+                            <p class="text-center text-blue-600">Pilih tombol di atas untuk mulai berlatih!</p>
+                        </div>
+                        
+                        <div id="practiceArea" class="hidden mt-4">
+                            <div id="problemStatement" class="text-blue-800 font-medium mb-4"></div>
+                            <div id="calculationSteps" class="space-y-3 mb-4"></div>
+                            <div id="answerInput" class="mb-4"></div>
+                            <div id="practiceResult" class="text-sm font-medium"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(2)" class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                    Mulai Kuis Cara Berhitung
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection" class="hidden">
+            <button onclick="backToMateri()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Materi
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="quizTitle" class="text-xl font-bold text-green-800">Kuis</h2>
+                    <div class="text-sm text-green-600">
+                        <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="bg-green-100 rounded-full h-2 mb-4">
+                        <div id="progressBar" class="bg-green-500 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
+                    </div>
+                    
+                    <div id="questionContainer" class="mb-6">
+                        <p id="questionText" class="text-green-800 font-medium mb-4"></p>
+                        <div id="optionsContainer" class="space-y-3"></div>
+                    </div>
+                </div>
+                
+                <div id="quizResult" class="hidden text-center">
+                    <div class="mb-4">
+                        <div id="scoreCircle" class="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4"></div>
+                        <h3 class="text-xl font-bold text-green-800 mb-2">Kuis Selesai!</h3>
+                        <p id="scoreText" class="text-green-600 mb-4"></p>
+                        <p id="encouragement" class="text-green-700 font-medium"></p>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="restartQuiz()" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            Ulangi Kuis
+                        </button>
+                        <button onclick="showMenu()" class="w-full bg-green-100 text-green-700 py-3 rounded-lg font-semibold hover:bg-green-200 transition-colors">
+                            Kembali ke Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentMateri = 0;
+        let currentQuizQuestion = 0;
+        let score = 0;
+        let quizData = {};
+
+        // Quiz data untuk semua materi
+        const quizzes = {
+            1: {
+                title: "Kuis Bilangan 1-1000",
+                questions: [
+                    { q: "Bilangan mana yang paling kecil?", options: ["10", "5", "100", "50"], correct: 1 },
+                    { q: "Berapa banyak satuan dalam 1 puluhan?", options: ["5", "10", "15", "20"], correct: 1 },
+                    { q: "Bilangan mana yang termasuk ratusan?", options: ["99", "200", "50", "10"], correct: 1 },
+                    { q: "Urutkan dari terkecil: 150, 15, 500", options: ["150, 15, 500", "15, 150, 500", "500, 150, 15", "15, 500, 150"], correct: 1 },
+                    { q: "Bilangan mana yang lebih besar dari 100?", options: ["99", "50", "150", "90"], correct: 2 },
+                    { q: "Berapa banyak puluhan dalam 1 ratusan?", options: ["5", "10", "15", "20"], correct: 1 },
+                    { q: "Bilangan 1000 disebut?", options: ["Ratusan", "Puluhan", "Ribuan", "Satuan"], correct: 2 },
+                    { q: "Bilangan mana yang terbesar?", options: ["999", "100", "50", "1000"], correct: 3 },
+                    { q: "Angka 7 pada bilangan 375 menunjukkan?", options: ["Satuan", "Puluhan", "Ratusan", "Ribuan"], correct: 1 },
+                    { q: "Bilangan setelah 99 adalah?", options: ["98", "100", "101", "90"], correct: 1 }
+                ]
+            },
+            2: {
+                title: "Kuis Cara Berhitung",
+                questions: [
+                    { q: "25 + 34 = ?", options: ["58", "59", "60", "61"], correct: 1 },
+                    { q: "67 - 23 = ?", options: ["43", "44", "45", "46"], correct: 1 },
+                    { q: "Andi punya 32 kelereng, diberi 15 lagi. Berapa total kelereng Andi?", options: ["47", "48", "49", "50"], correct: 0 },
+                    { q: "Siti punya 56 permen, dimakan 24. Berapa sisa permen Siti?", options: ["31", "32", "33", "34"], correct: 1 },
+                    { q: "18 + 27 = ?", options: ["44", "45", "46", "47"], correct: 1 },
+                    { q: "73 - 29 = ?", options: ["43", "44", "45", "46"], correct: 1 },
+                    { q: "Kalimat matematika dari 'Budi punya 45 buku, dipinjam 12' adalah?", options: ["45 + 12", "45 - 12", "45 × 12", "45 ÷ 12"], correct: 1 },
+                    { q: "36 + 28 = ?", options: ["62", "63", "64", "65"], correct: 2 },
+                    { q: "85 - 37 = ?", options: ["47", "48", "49", "50"], correct: 1 },
+                    { q: "Di kelas ada 24 siswa laki-laki dan 18 siswa perempuan. Berapa total siswa?", options: ["41", "42", "43", "44"], correct: 1 }
+                ]
+            },
+            3: {
+                title: "Kuis Waktu dan Durasi",
+                questions: [
+                    { q: "1 menit = ... detik", options: ["30", "60", "90", "120"], correct: 1 },
+                    { q: "1 jam = ... menit", options: ["30", "45", "60", "90"], correct: 2 },
+                    { q: "1 hari = ... jam", options: ["12", "18", "24", "30"], correct: 2 },
+                    { q: "Jika sekarang jam 08:00, 2 jam lagi akan menunjukkan jam?", options: ["09:00", "10:00", "11:00", "12:00"], correct: 1 },
+                    { q: "Kegiatan mana yang membutuhkan waktu paling lama?", options: ["Menyikat gigi", "Makan siang", "Tidur malam", "Mandi"], correct: 2 },
+                    { q: "30 menit = ... detik", options: ["1800", "1200", "900", "600"], correct: 0 },
+                    { q: "Jika Ani mulai belajar jam 19:00 dan selesai jam 20:30, berapa lama Ani belajar?", options: ["1 jam", "1,5 jam", "2 jam", "2,5 jam"], correct: 1 },
+                    { q: "Hari apa setelah hari Selasa?", options: ["Senin", "Rabu", "Kamis", "Jumat"], correct: 1 },
+                    { q: "Berapa menit dari jam 14:15 sampai jam 14:45?", options: ["15 menit", "30 menit", "45 menit", "60 menit"], correct: 1 },
+                    { q: "Jika sekarang jam 23:00, 3 jam lagi akan menunjukkan jam?", options: ["01:00", "02:00", "03:00", "26:00"], correct: 1 }
+                ]
+            },
+            4: {
+                title: "Kuis Penjumlahan Bersusun",
+                questions: [
+                    { q: "25 + 34 = ?", options: ["58", "59", "60", "61"], correct: 1 },
+                    { q: "123 + 456 = ?", options: ["578", "579", "580", "581"], correct: 1 },
+                    { q: "Sifat komutatif penjumlahan adalah?", options: ["a + b = b + a", "a + b = a - b", "a + b = b - a", "a + b = a × b"], correct: 0 },
+                    { q: "47 + 28 = ?", options: ["74", "75", "76", "77"], correct: 1 },
+                    { q: "234 + 167 = ?", options: ["400", "401", "402", "403"], correct: 1 },
+                    { q: "Jika 15 + 23 = 38, maka 23 + 15 = ?", options: ["36", "37", "38", "39"], correct: 2 },
+                    { q: "(12 + 15) + 20 = 12 + (15 + 20). Ini adalah sifat?", options: ["Komutatif", "Asosiatif", "Distributif", "Identitas"], correct: 1 },
+                    { q: "89 + 56 = ?", options: ["144", "145", "146", "147"], correct: 1 },
+                    { q: "345 + 278 = ?", options: ["622", "623", "624", "625"], correct: 1 },
+                    { q: "Dalam penjumlahan bersusun, kita mulai dari?", options: ["Ratusan", "Puluhan", "Satuan", "Ribuan"], correct: 2 }
+                ]
+            },
+            5: {
+                title: "Kuis Pengurangan Bersusun",
+                questions: [
+                    { q: "67 - 23 = ?", options: ["43", "44", "45", "46"], correct: 1 },
+                    { q: "456 - 123 = ?", options: ["332", "333", "334", "335"], correct: 1 },
+                    { q: "Pengurangan adalah kebalikan dari?", options: ["Perkalian", "Penjumlahan", "Pembagian", "Perpangkatan"], correct: 1 },
+                    { q: "85 - 37 = ?", options: ["47", "48", "49", "50"], correct: 1 },
+                    { q: "234 - 156 = ?", options: ["77", "78", "79", "80"], correct: 1 },
+                    { q: "Jika 25 + 15 = 40, maka 40 - 15 = ?", options: ["24", "25", "26", "27"], correct: 1 },
+                    { q: "Apakah 10 - 3 sama dengan 3 - 10?", options: ["Ya, sama", "Tidak, berbeda", "Kadang sama", "Selalu sama"], correct: 1 },
+                    { q: "92 - 48 = ?", options: ["43", "44", "45", "46"], correct: 1 },
+                    { q: "567 - 289 = ?", options: ["277", "278", "279", "280"], correct: 1 },
+                    { q: "Dalam pengurangan bersusun, kita mulai dari?", options: ["Ratusan", "Puluhan", "Satuan", "Ribuan"], correct: 2 }
+                ]
+            },
+            6: {
+                title: "Kuis Panjang",
+                questions: [
+                    { q: "1 meter = ... sentimeter", options: ["10", "100", "1000", "50"], correct: 1 },
+                    { q: "1 sentimeter = ... milimeter", options: ["5", "10", "15", "20"], correct: 1 },
+                    { q: "Satuan panjang yang paling kecil adalah?", options: ["Meter", "Sentimeter", "Milimeter", "Kilometer"], correct: 2 },
+                    { q: "Alat untuk mengukur panjang pensil adalah?", options: ["Meteran", "Penggaris", "Timbangan", "Jam"], correct: 1 },
+                    { q: "50 cm = ... mm", options: ["5", "50", "500", "5000"], correct: 2 },
+                    { q: "2 meter = ... sentimeter", options: ["20", "200", "2000", "2"], correct: 1 },
+                    { q: "Tinggi pintu biasanya diukur dengan satuan?", options: ["mm", "cm", "m", "km"], correct: 2 },
+                    { q: "Ketebalan kertas biasanya diukur dengan satuan?", options: ["mm", "cm", "m", "km"], correct: 0 },
+                    { q: "150 cm = ... meter", options: ["1,5", "15", "0,15", "150"], correct: 0 },
+                    { q: "Panjang meja 120 cm. Berapa meter?", options: ["1,2", "12", "0,12", "120"], correct: 0 }
+                ]
+            }
+        };
+
+        function showMenu() {
+            document.getElementById('menuMateri').classList.remove('hidden');
+            document.getElementById('materi1').classList.add('hidden');
+            document.getElementById('materi2').classList.add('hidden');
+            document.getElementById('materi3').classList.add('hidden');
+            document.getElementById('materi4').classList.add('hidden');
+            document.getElementById('materi5').classList.add('hidden');
+            document.getElementById('materi6').classList.add('hidden');
+            document.getElementById('quizSection').classList.add('hidden');
+        }
+
+        function showMateri(num) {
+            document.getElementById('menuMateri').classList.add('hidden');
+            document.getElementById('materi1').classList.add('hidden');
+            document.getElementById('materi2').classList.add('hidden');
+            document.getElementById('materi3').classList.add('hidden');
+            document.getElementById('materi4').classList.add('hidden');
+            document.getElementById('materi5').classList.add('hidden');
+            document.getElementById('materi6').classList.add('hidden');
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('materi' + num).classList.remove('hidden');
+            currentMateri = num;
+        }
+
+        function startQuiz(materiNum) {
+            currentMateri = materiNum;
+            quizData = quizzes[materiNum];
+            currentQuizQuestion = 0;
+            score = 0;
+            
+            document.getElementById('materi' + materiNum).classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('quizTitle').textContent = quizData.title;
+            document.getElementById('totalQuestions').textContent = quizData.questions.length;
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('questionContainer').classList.remove('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizData.questions[currentQuizQuestion];
+            document.getElementById('currentQuestion').textContent = currentQuizQuestion + 1;
+            document.getElementById('questionText').textContent = question.q;
+            document.getElementById('progressBar').style.width = ((currentQuizQuestion + 1) / quizData.questions.length * 100) + '%';
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'w-full p-3 text-left bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-200';
+                button.textContent = option;
+                button.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(selectedIndex) {
+            const question = quizData.questions[currentQuizQuestion];
+            const buttons = document.querySelectorAll('#optionsContainer button');
+            
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === question.correct) {
+                    button.className = 'w-full p-3 text-left rounded-lg quiz-correct text-white';
+                } else if (index === selectedIndex && index !== question.correct) {
+                    button.className = 'w-full p-3 text-left rounded-lg quiz-wrong text-white';
+                }
+            });
+            
+            if (selectedIndex === question.correct) {
+                score++;
+            }
+            
+            setTimeout(() => {
+                currentQuizQuestion++;
+                if (currentQuizQuestion < quizData.questions.length) {
+                    showQuestion();
+                } else {
+                    showQuizResult();
+                }
+            }, 1500);
+        }
+
+        function showQuizResult() {
+            document.getElementById('questionContainer').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            
+            const percentage = Math.round((score / quizData.questions.length) * 100);
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const encouragement = document.getElementById('encouragement');
+            
+            scoreCircle.textContent = score + '/' + quizData.questions.length;
+            scoreText.textContent = `Skor kamu: ${percentage}%`;
+            
+            if (percentage >= 80) {
+                scoreCircle.className = 'w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4 quiz-correct';
+                encouragement.textContent = 'Hebat sekali! Kamu sangat pintar! 🌟';
+            } else if (percentage >= 60) {
+                scoreCircle.className = 'w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4 bg-yellow-500';
+                encouragement.textContent = 'Bagus! Terus belajar ya! 📚';
+            } else {
+                scoreCircle.className = 'w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4 quiz-wrong';
+                encouragement.textContent = 'Jangan menyerah! Coba lagi ya! 💪';
+            }
+        }
+
+        function restartQuiz() {
+            startQuiz(currentMateri);
+        }
+
+        function backToMateri() {
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('materi' + currentMateri).classList.remove('hidden');
+        }
+
+        // Fungsi untuk demonstrasi panjang
+        let currentLengthPractice = {};
+
+        function showLengthDemo(type) {
+            const demo = document.getElementById('lengthDemo');
+            const lengthPractice = document.getElementById('lengthPractice');
+            
+            lengthPractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'units') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-yellow-800 mb-3">Satuan Panjang</h4>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 p-3 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <strong class="text-blue-800">MILIMETER (mm)</strong>
+                                <span class="text-xs bg-blue-200 px-2 py-1 rounded">Terkecil</span>
+                            </div>
+                            <div class="w-2 h-1 bg-blue-500 mb-2"></div>
+                            <p class="text-xs text-blue-600">Seperti ketebalan kertas atau koin</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-3 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <strong class="text-green-800">SENTIMETER (cm)</strong>
+                                <span class="text-xs bg-green-200 px-2 py-1 rounded">Sedang</span>
+                            </div>
+                            <div class="w-8 h-2 bg-green-500 mb-2"></div>
+                            <p class="text-xs text-green-600">Seperti lebar jari atau panjang kuku</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <strong class="text-purple-800">METER (m)</strong>
+                                <span class="text-xs bg-purple-200 px-2 py-1 rounded">Terbesar</span>
+                            </div>
+                            <div class="w-full h-3 bg-purple-500 mb-2"></div>
+                            <p class="text-xs text-purple-600">Seperti tinggi pintu atau panjang meja</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-100 rounded-lg">
+                        <p class="text-xs text-yellow-700 font-bold">Ingat urutan:</p>
+                        <p class="text-xs text-yellow-600">mm (terkecil) → cm → m (terbesar)</p>
+                    </div>
+                `;
+            } else if (type === 'measuring') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-yellow-800 mb-3">Cara Mengukur Panjang</h4>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-blue-800 mb-2">📏 Menggunakan Penggaris</h5>
+                            <div class="bg-white p-3 rounded border mb-3">
+                                <div class="relative">
+                                    <div class="w-full h-6 bg-gray-200 rounded flex items-center">
+                                        ${Array.from({length: 16}, (_, i) => 
+                                            `<div class="flex-1 border-r border-gray-400 text-xs text-center ${i % 5 === 0 ? 'font-bold' : ''}">${i}</div>`
+                                        ).join('')}
+                                    </div>
+                                    <div class="w-20 h-2 bg-red-400 mt-2 ml-4"></div>
+                                </div>
+                            </div>
+                            <div class="text-xs text-blue-600 space-y-1">
+                                <p>1. Letakkan ujung benda di angka 0</p>
+                                <p>2. Lihat ujung lainnya menunjuk angka berapa</p>
+                                <p>3. Baca hasilnya (contoh: 5 cm)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-green-800 mb-2">📐 Tips Mengukur yang Benar</h5>
+                            <div class="text-xs text-green-600 space-y-1">
+                                <p>• Pastikan penggaris lurus dan tidak miring</p>
+                                <p>• Mulai dari angka 0, bukan dari ujung penggaris</p>
+                                <p>• Mata harus sejajar dengan skala yang dibaca</p>
+                                <p>• Untuk benda panjang, gunakan meteran</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startLengthPractice('measuring')" class="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Mengukur
+                    </button>
+                `;
+            } else if (type === 'conversion') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-yellow-800 mb-3">Konversi Satuan Panjang</h4>
+                    <div class="space-y-3">
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-orange-800 mb-2">Dari Besar ke Kecil (KALI)</h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center justify-between bg-white p-2 rounded">
+                                    <span>1 m → cm</span>
+                                    <span class="font-mono">1 × 100 = 100 cm</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2 rounded">
+                                    <span>1 cm → mm</span>
+                                    <span class="font-mono">1 × 10 = 10 mm</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2 rounded">
+                                    <span>1 m → mm</span>
+                                    <span class="font-mono">1 × 1000 = 1000 mm</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-purple-800 mb-2">Dari Kecil ke Besar (BAGI)</h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center justify-between bg-white p-2 rounded">
+                                    <span>100 cm → m</span>
+                                    <span class="font-mono">100 ÷ 100 = 1 m</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2 rounded">
+                                    <span>50 mm → cm</span>
+                                    <span class="font-mono">50 ÷ 10 = 5 cm</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2 rounded">
+                                    <span>2000 mm → m</span>
+                                    <span class="font-mono">2000 ÷ 1000 = 2 m</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startLengthPractice('conversion')" class="w-full mt-3 bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                        Latihan Konversi
+                    </button>
+                `;
+            } else if (type === 'comparison') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-yellow-800 mb-3">Perbandingan Ukuran</h4>
+                    <div class="space-y-3">
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-red-800 mb-3">Benda-benda di Sekitar Kita</h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between items-center bg-white p-2 rounded">
+                                    <span>📎 Klip kertas</span>
+                                    <span class="font-bold text-red-600">3 cm</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white p-2 rounded">
+                                    <span>✏️ Pensil</span>
+                                    <span class="font-bold text-red-600">18 cm</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white p-2 rounded">
+                                    <span>📚 Buku tulis</span>
+                                    <span class="font-bold text-red-600">25 cm</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white p-2 rounded">
+                                    <span>📏 Penggaris</span>
+                                    <span class="font-bold text-red-600">30 cm</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white p-2 rounded">
+                                    <span>🚪 Tinggi pintu</span>
+                                    <span class="font-bold text-red-600">2 m</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white p-2 rounded">
+                                    <span>🏫 Panjang kelas</span>
+                                    <span class="font-bold text-red-600">8 m</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-3 rounded-lg">
+                            <p class="text-xs text-green-700 font-bold">💡 Tips Mengingat:</p>
+                            <p class="text-xs text-green-600">Bandingkan dengan benda yang kamu kenal sehari-hari!</p>
+                        </div>
+                    </div>
+                    <button onclick="startLengthPractice('comparison')" class="w-full mt-3 bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                        Latihan Perbandingan
+                    </button>
+                `;
+            }
+        }
+
+        function startLengthPractice(type) {
+            const demo = document.getElementById('lengthDemo');
+            const lengthPractice = document.getElementById('lengthPractice');
+            const container = document.getElementById('practiceLengthContainer');
+            const steps = document.getElementById('lengthSteps');
+            const input = document.getElementById('lengthInput');
+            const result = document.getElementById('lengthResult');
+            
+            demo.classList.add('hidden');
+            lengthPractice.classList.remove('hidden');
+            result.innerHTML = '';
+            
+            if (type === 'measuring') {
+                const length = Math.floor(Math.random() * 12) + 3; // 3-14 cm
+                currentLengthPractice = { type: 'measuring', length, answer: length };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-yellow-700 mb-3">Ukur panjang garis merah dengan penggaris:</p>
+                        <div class="relative mb-4">
+                            <div class="w-full h-8 bg-gray-200 rounded flex items-center mb-2">
+                                ${Array.from({length: 16}, (_, i) => 
+                                    `<div class="flex-1 border-r border-gray-400 text-xs text-center ${i % 5 === 0 ? 'font-bold' : ''} ${i === 0 ? 'text-red-600' : ''}">${i}</div>`
+                                ).join('')}
+                            </div>
+                            <div class="h-3 bg-red-500 rounded" style="width: ${(length / 15) * 100}%"></div>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-yellow-50 p-3 rounded-lg text-sm">
+                        <p><strong>Cara mengukur:</strong></p>
+                        <p>1. Lihat ujung kiri garis dimulai dari angka 0</p>
+                        <p>2. Lihat ujung kanan garis berakhir di angka berapa</p>
+                        <p>3. Itulah panjang garisnya dalam cm</p>
+                    </div>
+                `;
+            } else if (type === 'conversion') {
+                const conversions = [
+                    { from: 'cm', to: 'mm', factor: 10, question: 'cm = ... mm' },
+                    { from: 'm', to: 'cm', factor: 100, question: 'm = ... cm' },
+                    { from: 'mm', to: 'cm', factor: 0.1, question: 'mm = ... cm' },
+                    { from: 'cm', to: 'm', factor: 0.01, question: 'cm = ... m' }
+                ];
+                
+                const conv = conversions[Math.floor(Math.random() * conversions.length)];
+                const num = conv.from === 'mm' ? Math.floor(Math.random() * 90) + 10 : Math.floor(Math.random() * 9) + 1;
+                const answer = conv.from === 'mm' || conv.from === 'cm' && conv.to === 'm' ? 
+                    (num * conv.factor) : (num * conv.factor);
+                
+                currentLengthPractice = { type: 'conversion', num, conv, answer };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-lg font-mono text-center">${num} ${conv.question.replace('...', '?')}</p>
+                    </div>
+                `;
+                
+                const operation = conv.factor > 1 ? 'kali' : 'bagi';
+                const factor = conv.factor > 1 ? conv.factor : (1 / conv.factor);
+                
+                steps.innerHTML = `
+                    <div class="bg-yellow-50 p-3 rounded-lg text-sm">
+                        <p><strong>Cara konversi:</strong></p>
+                        <p>Dari ${conv.from} ke ${conv.to} → ${operation} ${factor}</p>
+                        <p>${num} ${conv.from} = ${num} ${operation === 'kali' ? '×' : '÷'} ${factor} = ? ${conv.to}</p>
+                    </div>
+                `;
+            } else if (type === 'comparison') {
+                const objects = [
+                    { name: 'Pensil', length: 18, unit: 'cm' },
+                    { name: 'Penggaris', length: 30, unit: 'cm' },
+                    { name: 'Buku', length: 25, unit: 'cm' },
+                    { name: 'Klip kertas', length: 3, unit: 'cm' },
+                    { name: 'Tinggi meja', length: 75, unit: 'cm' },
+                    { name: 'Tinggi pintu', length: 2, unit: 'm' }
+                ];
+                
+                const obj1 = objects[Math.floor(Math.random() * objects.length)];
+                let obj2 = objects[Math.floor(Math.random() * objects.length)];
+                while (obj2.name === obj1.name) {
+                    obj2 = objects[Math.floor(Math.random() * objects.length)];
+                }
+                
+                // Convert to same unit for comparison
+                const length1 = obj1.unit === 'm' ? obj1.length * 100 : obj1.length;
+                const length2 = obj2.unit === 'm' ? obj2.length * 100 : obj2.length;
+                const longer = length1 > length2 ? obj1.name : obj2.name;
+                
+                currentLengthPractice = { type: 'comparison', obj1, obj2, answer: longer };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-center mb-4">Mana yang lebih panjang?</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-3 bg-blue-50 rounded">
+                                <p class="font-semibold">${obj1.name}</p>
+                                <p class="text-sm text-blue-600">${obj1.length} ${obj1.unit}</p>
+                            </div>
+                            <div class="text-center p-3 bg-green-50 rounded">
+                                <p class="font-semibold">${obj2.name}</p>
+                                <p class="text-sm text-green-600">${obj2.length} ${obj2.unit}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-yellow-50 p-3 rounded-lg text-sm">
+                        <p><strong>Tips perbandingan:</strong></p>
+                        <p>• Jika satuannya berbeda, ubah ke satuan yang sama</p>
+                        <p>• ${obj1.length} ${obj1.unit} = ${length1} cm</p>
+                        <p>• ${obj2.length} ${obj2.unit} = ${length2} cm</p>
+                        <p>• Bandingkan: ${length1} cm vs ${length2} cm</p>
+                    </div>
+                `;
+            }
+            
+            if (type === 'comparison') {
+                input.innerHTML = `
+                    <div class="flex flex-col items-center gap-3">
+                        <p class="text-sm font-medium text-yellow-800">Pilih yang lebih panjang:</p>
+                        <div class="grid grid-cols-2 gap-3 w-full">
+                            <button onclick="checkLengthAnswer('${currentLengthPractice.obj1.name}')" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                ${currentLengthPractice.obj1.name}
+                            </button>
+                            <button onclick="checkLengthAnswer('${currentLengthPractice.obj2.name}')" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                ${currentLengthPractice.obj2.name}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-yellow-800">Jawaban:</label>
+                        <input type="number" id="lengthAnswer" class="border-2 border-yellow-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?" step="0.1">
+                        <button onclick="checkLengthAnswer()" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function checkLengthAnswer(userAnswer) {
+            const resultDiv = document.getElementById('lengthResult');
+            
+            if (currentLengthPractice.type === 'comparison') {
+                const isCorrect = userAnswer === currentLengthPractice.answer;
+                
+                if (isCorrect) {
+                    resultDiv.innerHTML = `
+                        <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                            <span class="text-green-600 font-medium">🎉 Benar! ${currentLengthPractice.answer} memang lebih panjang</span>
+                            <button onclick="startLengthPractice('${currentLengthPractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                                Soal Baru
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                            <span class="text-red-600 font-medium">Belum benar. ${currentLengthPractice.answer} yang lebih panjang</span>
+                            <button onclick="startLengthPractice('${currentLengthPractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                                Coba Lagi
+                            </button>
+                        </div>
+                    `;
+                }
+            } else {
+                const inputAnswer = parseFloat(document.getElementById('lengthAnswer').value);
+                
+                if (isNaN(inputAnswer)) {
+                    resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                    return;
+                }
+                
+                const isCorrect = Math.abs(inputAnswer - currentLengthPractice.answer) < 0.01;
+                
+                if (isCorrect) {
+                    resultDiv.innerHTML = `
+                        <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                            <span class="text-green-600 font-medium">🎉 Benar! Jawabannya adalah ${currentLengthPractice.answer}</span>
+                            <button onclick="startLengthPractice('${currentLengthPractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                                Soal Baru
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                            <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${currentLengthPractice.answer}</span>
+                            <button onclick="startLengthPractice('${currentLengthPractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                                Coba Lagi
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Fungsi untuk demonstrasi pengurangan bersusun
+        let currentSubtractionPractice = {};
+
+        function showSubtractionDemo(type) {
+            const demo = document.getElementById('subtractionDemo');
+            const subtractionPractice = document.getElementById('subtractionPractice');
+            
+            subtractionPractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'twoDigit') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-red-800 mb-3">Pengurangan Bilangan 2 Angka</h4>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-blue-700 mb-3"><strong>Contoh: 67 - 23</strong></p>
+                        <div class="font-mono text-lg text-center mb-3">
+                            <div class="grid grid-cols-3 gap-1 max-w-20 mx-auto">
+                                <div></div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                                <div></div><div class="border-b-2 border-red-500 text-center">6</div><div class="border-b-2 border-red-500 text-center">7</div>
+                                <div>-</div><div class="border-b-2 border-red-500 text-center">2</div><div class="border-b-2 border-red-500 text-center">3</div>
+                                <div></div><div class="text-center font-bold text-red-600">4</div><div class="text-center font-bold text-red-600">4</div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-blue-600 space-y-1">
+                            <p><strong>Langkah 1:</strong> Satuan → 7 - 3 = 4</p>
+                            <p><strong>Langkah 2:</strong> Puluhan → 6 - 2 = 4</p>
+                            <p><strong>Hasil:</strong> 67 - 23 = 44</p>
+                        </div>
+                    </div>
+                    <button onclick="startSubtractionPractice('twoDigit')" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Bilangan 2 Angka
+                    </button>
+                `;
+            } else if (type === 'threeDigit') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-red-800 mb-3">Pengurangan Bilangan 3 Angka</h4>
+                    <div class="bg-green-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-green-700 mb-3"><strong>Contoh: 456 - 123</strong></p>
+                        <div class="font-mono text-lg text-center mb-3">
+                            <div class="grid grid-cols-4 gap-1 max-w-24 mx-auto">
+                                <div></div><div class="text-xs text-gray-500">R</div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                                <div></div><div class="border-b-2 border-red-500 text-center">4</div><div class="border-b-2 border-red-500 text-center">5</div><div class="border-b-2 border-red-500 text-center">6</div>
+                                <div>-</div><div class="border-b-2 border-red-500 text-center">1</div><div class="border-b-2 border-red-500 text-center">2</div><div class="border-b-2 border-red-500 text-center">3</div>
+                                <div></div><div class="text-center font-bold text-red-600">3</div><div class="text-center font-bold text-red-600">3</div><div class="text-center font-bold text-red-600">3</div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-green-600 space-y-1">
+                            <p><strong>Langkah 1:</strong> Satuan → 6 - 3 = 3</p>
+                            <p><strong>Langkah 2:</strong> Puluhan → 5 - 2 = 3</p>
+                            <p><strong>Langkah 3:</strong> Ratusan → 4 - 1 = 3</p>
+                            <p><strong>Hasil:</strong> 456 - 123 = 333</p>
+                        </div>
+                    </div>
+                    <button onclick="startSubtractionPractice('threeDigit')" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                        Latihan Bilangan 3 Angka
+                    </button>
+                `;
+            } else if (type === 'relationship') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-red-800 mb-3">Hubungan Penjumlahan dan Pengurangan</h4>
+                    <div class="bg-orange-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-orange-700 mb-3"><strong>Pengurangan adalah kebalikan dari penjumlahan</strong></p>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">25 + 15 = 40</p>
+                            </div>
+                            <div class="text-center text-orange-600 font-bold">MAKA</div>
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">40 - 15 = 25</p>
+                            </div>
+                            <div class="text-center text-orange-600">DAN</div>
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">40 - 25 = 15</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-orange-600 mt-3">Jika a + b = c, maka c - b = a dan c - a = b</p>
+                    </div>
+                    <button onclick="startSubtractionPractice('relationship')" class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                        Latihan Hubungan +/-
+                    </button>
+                `;
+            } else if (type === 'properties') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-red-800 mb-3">Sifat-sifat Pengurangan</h4>
+                    <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-purple-700 mb-3"><strong>Pengurangan TIDAK komutatif</strong></p>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">10 - 3 = 7</p>
+                            </div>
+                            <div class="text-center text-purple-600 font-bold">TETAPI</div>
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">3 - 10 = -7</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                            <p class="text-xs text-red-700 font-bold">⚠️ PENTING:</p>
+                            <p class="text-xs text-red-600">Urutan bilangan dalam pengurangan sangat penting!</p>
+                            <p class="text-xs text-red-600">a - b ≠ b - a (tidak sama!)</p>
+                        </div>
+                    </div>
+                    <button onclick="startSubtractionPractice('properties')" class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                        Latihan Sifat Pengurangan
+                    </button>
+                `;
+            }
+        }
+
+        function startSubtractionPractice(type) {
+            const demo = document.getElementById('subtractionDemo');
+            const subtractionPractice = document.getElementById('subtractionPractice');
+            const container = document.getElementById('practiceSubtractionContainer');
+            const steps = document.getElementById('subtractionSteps');
+            const input = document.getElementById('subtractionInput');
+            const result = document.getElementById('subtractionResult');
+            
+            demo.classList.add('hidden');
+            subtractionPractice.classList.remove('hidden');
+            result.innerHTML = '';
+            
+            if (type === 'twoDigit') {
+                const num1 = Math.floor(Math.random() * 40) + 30; // 30-69
+                const num2 = Math.floor(Math.random() * 20) + 10; // 10-29
+                currentSubtractionPractice = { type: 'twoDigit', num1, num2, answer: num1 - num2 };
+                
+                container.innerHTML = `
+                    <div class="font-mono text-xl">
+                        <div class="grid grid-cols-3 gap-1 max-w-20 mx-auto">
+                            <div></div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                            <div></div><div class="border-b-2 border-red-500 text-center">${Math.floor(num1/10)}</div><div class="border-b-2 border-red-500 text-center">${num1%10}</div>
+                            <div>-</div><div class="border-b-2 border-red-500 text-center">${Math.floor(num2/10)}</div><div class="border-b-2 border-red-500 text-center">${num2%10}</div>
+                            <div></div><div class="text-center">?</div><div class="text-center">?</div>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg text-sm">
+                        <p><strong>Langkah 1:</strong> Kurangkan satuan: ${num1%10} - ${num2%10} = ?</p>
+                        <p><strong>Langkah 2:</strong> Kurangkan puluhan: ${Math.floor(num1/10)} - ${Math.floor(num2/10)} = ?</p>
+                    </div>
+                `;
+            } else if (type === 'threeDigit') {
+                const num1 = Math.floor(Math.random() * 300) + 200; // 200-499
+                const num2 = Math.floor(Math.random() * 150) + 100; // 100-249
+                currentSubtractionPractice = { type: 'threeDigit', num1, num2, answer: num1 - num2 };
+                
+                container.innerHTML = `
+                    <div class="font-mono text-xl">
+                        <div class="grid grid-cols-4 gap-1 max-w-24 mx-auto">
+                            <div></div><div class="text-xs text-gray-500">R</div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                            <div></div><div class="border-b-2 border-red-500 text-center">${Math.floor(num1/100)}</div><div class="border-b-2 border-red-500 text-center">${Math.floor((num1%100)/10)}</div><div class="border-b-2 border-red-500 text-center">${num1%10}</div>
+                            <div>-</div><div class="border-b-2 border-red-500 text-center">${Math.floor(num2/100)}</div><div class="border-b-2 border-red-500 text-center">${Math.floor((num2%100)/10)}</div><div class="border-b-2 border-red-500 text-center">${num2%10}</div>
+                            <div></div><div class="text-center">?</div><div class="text-center">?</div><div class="text-center">?</div>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg text-sm">
+                        <p><strong>Langkah 1:</strong> Kurangkan satuan: ${num1%10} - ${num2%10} = ?</p>
+                        <p><strong>Langkah 2:</strong> Kurangkan puluhan: ${Math.floor((num1%100)/10)} - ${Math.floor((num2%100)/10)} = ?</p>
+                        <p><strong>Langkah 3:</strong> Kurangkan ratusan: ${Math.floor(num1/100)} - ${Math.floor(num2/100)} = ?</p>
+                    </div>
+                `;
+            } else if (type === 'relationship') {
+                const num1 = Math.floor(Math.random() * 20) + 10; // 10-29
+                const num2 = Math.floor(Math.random() * 15) + 5; // 5-19
+                const sum = num1 + num2;
+                currentSubtractionPractice = { type: 'relationship', num1, num2, sum, answer: num1 };
+                
+                container.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="bg-green-100 p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${num1} + ${num2} = ${sum}</p>
+                        </div>
+                        <div class="text-center text-red-600">Maka</div>
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${sum} - ${num2} = ?</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg text-sm">
+                        <p>Karena ${num1} + ${num2} = ${sum}</p>
+                        <p>Maka ${sum} - ${num2} = ${num1}</p>
+                        <p>Ini membuktikan bahwa pengurangan adalah kebalikan dari penjumlahan!</p>
+                    </div>
+                `;
+            } else if (type === 'properties') {
+                const num1 = Math.floor(Math.random() * 15) + 10; // 10-24
+                const num2 = Math.floor(Math.random() * 8) + 2; // 2-9
+                currentSubtractionPractice = { type: 'properties', num1, num2, answer1: num1 - num2, answer2: num2 - num1 };
+                
+                container.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${num1} - ${num2} = ?</p>
+                        </div>
+                        <div class="text-center text-purple-600">Apakah sama dengan</div>
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${num2} - ${num1} = ?</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg text-sm">
+                        <p><strong>Hitung:</strong> ${num1} - ${num2} = ${num1 - num2}</p>
+                        <p><strong>Bandingkan dengan:</strong> ${num2} - ${num1} = ${num2 - num1}</p>
+                        <p><strong>Kesimpulan:</strong> Hasilnya berbeda! Urutan penting dalam pengurangan.</p>
+                    </div>
+                `;
+            }
+            
+            input.innerHTML = `
+                <div class="flex items-center justify-center gap-3">
+                    <label class="text-sm font-medium text-red-800">Jawaban:</label>
+                    <input type="number" id="subtractionAnswer" class="border-2 border-red-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                    <button onclick="checkSubtractionAnswer()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                        Periksa
+                    </button>
+                </div>
+            `;
+        }
+
+        function checkSubtractionAnswer() {
+            const userAnswer = parseInt(document.getElementById('subtractionAnswer').value);
+            const resultDiv = document.getElementById('subtractionResult');
+            
+            if (isNaN(userAnswer)) {
+                resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                return;
+            }
+            
+            let isCorrect = false;
+            let correctAnswer = '';
+            
+            if (currentSubtractionPractice.type === 'properties') {
+                // For properties, we accept the first calculation result
+                isCorrect = userAnswer === currentSubtractionPractice.answer1;
+                correctAnswer = currentSubtractionPractice.answer1;
+            } else {
+                isCorrect = userAnswer === currentSubtractionPractice.answer;
+                correctAnswer = currentSubtractionPractice.answer;
+            }
+            
+            if (isCorrect) {
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                        <span class="text-green-600 font-medium">🎉 Benar! Jawabannya adalah ${correctAnswer}</span>
+                        <button onclick="startSubtractionPractice('${currentSubtractionPractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                            Soal Baru
+                        </button>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                        <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${correctAnswer}</span>
+                        <button onclick="startSubtractionPractice('${currentSubtractionPractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                            Coba Lagi
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi untuk demonstrasi penjumlahan bersusun
+        let currentAdditionPractice = {};
+
+        function showAdditionDemo(type) {
+            const demo = document.getElementById('additionDemo');
+            const additionPractice = document.getElementById('additionPractice');
+            
+            additionPractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'twoDigit') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-purple-800 mb-3">Penjumlahan Bilangan 2 Angka</h4>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-blue-700 mb-3"><strong>Contoh: 25 + 34</strong></p>
+                        <div class="font-mono text-lg text-center mb-3">
+                            <div class="grid grid-cols-3 gap-1 max-w-20 mx-auto">
+                                <div></div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                                <div></div><div class="border-b-2 border-blue-500 text-center">2</div><div class="border-b-2 border-blue-500 text-center">5</div>
+                                <div>+</div><div class="border-b-2 border-blue-500 text-center">3</div><div class="border-b-2 border-blue-500 text-center">4</div>
+                                <div></div><div class="text-center font-bold text-green-600">5</div><div class="text-center font-bold text-green-600">9</div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-blue-600 space-y-1">
+                            <p><strong>Langkah 1:</strong> Satuan → 5 + 4 = 9</p>
+                            <p><strong>Langkah 2:</strong> Puluhan → 2 + 3 = 5</p>
+                            <p><strong>Hasil:</strong> 25 + 34 = 59</p>
+                        </div>
+                    </div>
+                    <button onclick="startAdditionPractice('twoDigit')" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Bilangan 2 Angka
+                    </button>
+                `;
+            } else if (type === 'threeDigit') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-purple-800 mb-3">Penjumlahan Bilangan 3 Angka</h4>
+                    <div class="bg-green-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-green-700 mb-3"><strong>Contoh: 125 + 234</strong></p>
+                        <div class="font-mono text-lg text-center mb-3">
+                            <div class="grid grid-cols-4 gap-1 max-w-24 mx-auto">
+                                <div></div><div class="text-xs text-gray-500">R</div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                                <div></div><div class="border-b-2 border-green-500 text-center">1</div><div class="border-b-2 border-green-500 text-center">2</div><div class="border-b-2 border-green-500 text-center">5</div>
+                                <div>+</div><div class="border-b-2 border-green-500 text-center">2</div><div class="border-b-2 border-green-500 text-center">3</div><div class="border-b-2 border-green-500 text-center">4</div>
+                                <div></div><div class="text-center font-bold text-green-600">3</div><div class="text-center font-bold text-green-600">5</div><div class="text-center font-bold text-green-600">9</div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-green-600 space-y-1">
+                            <p><strong>Langkah 1:</strong> Satuan → 5 + 4 = 9</p>
+                            <p><strong>Langkah 2:</strong> Puluhan → 2 + 3 = 5</p>
+                            <p><strong>Langkah 3:</strong> Ratusan → 1 + 2 = 3</p>
+                            <p><strong>Hasil:</strong> 125 + 234 = 359</p>
+                        </div>
+                    </div>
+                    <button onclick="startAdditionPractice('threeDigit')" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                        Latihan Bilangan 3 Angka
+                    </button>
+                `;
+            } else if (type === 'commutative') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-purple-800 mb-3">Sifat Komutatif Penjumlahan</h4>
+                    <div class="bg-orange-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-orange-700 mb-3"><strong>a + b = b + a</strong></p>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">15 + 23 = 38</p>
+                            </div>
+                            <div class="text-center text-orange-600 font-bold">SAMA DENGAN</div>
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">23 + 15 = 38</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-orange-600 mt-3">Urutan bilangan tidak mempengaruhi hasil penjumlahan!</p>
+                    </div>
+                    <button onclick="startAdditionPractice('commutative')" class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                        Latihan Sifat Komutatif
+                    </button>
+                `;
+            } else if (type === 'associative') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-purple-800 mb-3">Sifat Asosiatif Penjumlahan</h4>
+                    <div class="bg-red-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-red-700 mb-3"><strong>(a + b) + c = a + (b + c)</strong></p>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">(12 + 15) + 20</p>
+                                <p class="text-center text-sm text-gray-600">= 27 + 20 = 47</p>
+                            </div>
+                            <div class="text-center text-red-600 font-bold">SAMA DENGAN</div>
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-center font-mono text-lg">12 + (15 + 20)</p>
+                                <p class="text-center text-sm text-gray-600">= 12 + 35 = 47</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-red-600 mt-3">Pengelompokan tidak mempengaruhi hasil penjumlahan!</p>
+                    </div>
+                    <button onclick="startAdditionPractice('associative')" class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                        Latihan Sifat Asosiatif
+                    </button>
+                `;
+            }
+        }
+
+        function startAdditionPractice(type) {
+            const demo = document.getElementById('additionDemo');
+            const additionPractice = document.getElementById('additionPractice');
+            const container = document.getElementById('practiceAdditionContainer');
+            const steps = document.getElementById('additionSteps');
+            const input = document.getElementById('additionInput');
+            const result = document.getElementById('additionResult');
+            
+            demo.classList.add('hidden');
+            additionPractice.classList.remove('hidden');
+            result.innerHTML = '';
+            
+            if (type === 'twoDigit') {
+                const num1 = Math.floor(Math.random() * 50) + 10; // 10-59
+                const num2 = Math.floor(Math.random() * 40) + 10; // 10-49
+                currentAdditionPractice = { type: 'twoDigit', num1, num2, answer: num1 + num2 };
+                
+                container.innerHTML = `
+                    <div class="font-mono text-xl">
+                        <div class="grid grid-cols-3 gap-1 max-w-20 mx-auto">
+                            <div></div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                            <div></div><div class="border-b-2 border-purple-500 text-center">${Math.floor(num1/10)}</div><div class="border-b-2 border-purple-500 text-center">${num1%10}</div>
+                            <div>+</div><div class="border-b-2 border-purple-500 text-center">${Math.floor(num2/10)}</div><div class="border-b-2 border-purple-500 text-center">${num2%10}</div>
+                            <div></div><div class="text-center">?</div><div class="text-center">?</div>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-purple-50 p-3 rounded-lg text-sm">
+                        <p><strong>Langkah 1:</strong> Jumlahkan satuan: ${num1%10} + ${num2%10} = ?</p>
+                        <p><strong>Langkah 2:</strong> Jumlahkan puluhan: ${Math.floor(num1/10)} + ${Math.floor(num2/10)} = ?</p>
+                    </div>
+                `;
+            } else if (type === 'threeDigit') {
+                const num1 = Math.floor(Math.random() * 300) + 100; // 100-399
+                const num2 = Math.floor(Math.random() * 200) + 100; // 100-299
+                currentAdditionPractice = { type: 'threeDigit', num1, num2, answer: num1 + num2 };
+                
+                container.innerHTML = `
+                    <div class="font-mono text-xl">
+                        <div class="grid grid-cols-4 gap-1 max-w-24 mx-auto">
+                            <div></div><div class="text-xs text-gray-500">R</div><div class="text-xs text-gray-500">P</div><div class="text-xs text-gray-500">S</div>
+                            <div></div><div class="border-b-2 border-purple-500 text-center">${Math.floor(num1/100)}</div><div class="border-b-2 border-purple-500 text-center">${Math.floor((num1%100)/10)}</div><div class="border-b-2 border-purple-500 text-center">${num1%10}</div>
+                            <div>+</div><div class="border-b-2 border-purple-500 text-center">${Math.floor(num2/100)}</div><div class="border-b-2 border-purple-500 text-center">${Math.floor((num2%100)/10)}</div><div class="border-b-2 border-purple-500 text-center">${num2%10}</div>
+                            <div></div><div class="text-center">?</div><div class="text-center">?</div><div class="text-center">?</div>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-purple-50 p-3 rounded-lg text-sm">
+                        <p><strong>Langkah 1:</strong> Jumlahkan satuan: ${num1%10} + ${num2%10} = ?</p>
+                        <p><strong>Langkah 2:</strong> Jumlahkan puluhan: ${Math.floor((num1%100)/10)} + ${Math.floor((num2%100)/10)} = ?</p>
+                        <p><strong>Langkah 3:</strong> Jumlahkan ratusan: ${Math.floor(num1/100)} + ${Math.floor(num2/100)} = ?</p>
+                    </div>
+                `;
+            } else if (type === 'commutative') {
+                const num1 = Math.floor(Math.random() * 30) + 10; // 10-39
+                const num2 = Math.floor(Math.random() * 30) + 10; // 10-39
+                currentAdditionPractice = { type: 'commutative', num1, num2, answer: num1 + num2 };
+                
+                container.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${num1} + ${num2} = ?</p>
+                        </div>
+                        <div class="text-center text-purple-600">dan</div>
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${num2} + ${num1} = ?</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-purple-50 p-3 rounded-lg text-sm">
+                        <p>Kedua penjumlahan ini akan menghasilkan jawaban yang sama!</p>
+                        <p>Ini membuktikan sifat komutatif: a + b = b + a</p>
+                    </div>
+                `;
+            } else if (type === 'associative') {
+                const num1 = Math.floor(Math.random() * 20) + 5; // 5-24
+                const num2 = Math.floor(Math.random() * 20) + 5; // 5-24
+                const num3 = Math.floor(Math.random() * 20) + 5; // 5-24
+                currentAdditionPractice = { type: 'associative', num1, num2, num3, answer: num1 + num2 + num3 };
+                
+                container.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">(${num1} + ${num2}) + ${num3} = ?</p>
+                        </div>
+                        <div class="text-center text-purple-600">dan</div>
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-center font-mono text-lg">${num1} + (${num2} + ${num3}) = ?</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-purple-50 p-3 rounded-lg text-sm">
+                        <p><strong>Cara 1:</strong> (${num1} + ${num2}) + ${num3} = ${num1 + num2} + ${num3} = ?</p>
+                        <p><strong>Cara 2:</strong> ${num1} + (${num2} + ${num3}) = ${num1} + ${num2 + num3} = ?</p>
+                        <p>Kedua cara akan menghasilkan jawaban yang sama!</p>
+                    </div>
+                `;
+            }
+            
+            input.innerHTML = `
+                <div class="flex items-center justify-center gap-3">
+                    <label class="text-sm font-medium text-purple-800">Jawaban:</label>
+                    <input type="number" id="additionAnswer" class="border-2 border-purple-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                    <button onclick="checkAdditionAnswer()" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                        Periksa
+                    </button>
+                </div>
+            `;
+        }
+
+        function checkAdditionAnswer() {
+            const userAnswer = parseInt(document.getElementById('additionAnswer').value);
+            const resultDiv = document.getElementById('additionResult');
+            
+            if (isNaN(userAnswer)) {
+                resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                return;
+            }
+            
+            if (userAnswer === currentAdditionPractice.answer) {
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                        <span class="text-green-600 font-medium">🎉 Benar! Jawabannya adalah ${currentAdditionPractice.answer}</span>
+                        <button onclick="startAdditionPractice('${currentAdditionPractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                            Soal Baru
+                        </button>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                        <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${currentAdditionPractice.answer}</span>
+                        <button onclick="startAdditionPractice('${currentAdditionPractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                            Coba Lagi
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi untuk demonstrasi bilangan
+        let sortingNumbers = [];
+        let correctOrder = [];
+
+        function showNumberDemo(type) {
+            const demo = document.getElementById('numberDemo');
+            const sortingGame = document.getElementById('sortingGame');
+            
+            sortingGame.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'satuan') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-green-800 mb-3">Bilangan Satuan (1-9)</h4>
+                    <div class="flex flex-wrap gap-2 justify-center mb-3">
+                        ${[1,2,3,4,5,6,7,8,9].map(num => 
+                            `<div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">${num}</div>`
+                        ).join('')}
+                    </div>
+                    <p class="text-sm text-green-700">Ini adalah bilangan satuan. Seperti menghitung jari tangan!</p>
+                `;
+            } else if (type === 'puluhan') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-green-800 mb-3">Bilangan Puluhan (10, 20, 30...)</h4>
+                    <div class="space-y-2 mb-3">
+                        <div class="flex items-center">
+                            <span class="text-lg font-bold text-green-800 w-8">10</span>
+                            <div class="flex gap-1 ml-2">
+                                ${Array(10).fill().map(() => '<div class="w-4 h-4 bg-green-500 rounded-full"></div>').join('')}
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-lg font-bold text-green-800 w-8">20</span>
+                            <div class="flex gap-1 ml-2">
+                                ${Array(10).fill().map(() => '<div class="w-4 h-4 bg-green-500 rounded-full"></div>').join('')}
+                                ${Array(10).fill().map(() => '<div class="w-4 h-4 bg-blue-500 rounded-full"></div>').join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-green-700">1 puluhan = 10 satuan. Seperti 10 jari tangan!</p>
+                `;
+            } else if (type === 'ratusan') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-green-800 mb-3">Bilangan Ratusan (100, 200, 300...)</h4>
+                    <div class="grid grid-cols-10 gap-1 mb-3">
+                        ${Array(100).fill().map((_, i) => 
+                            `<div class="w-3 h-3 ${i < 50 ? 'bg-purple-500' : 'bg-pink-500'} rounded-sm"></div>`
+                        ).join('')}
+                    </div>
+                    <p class="text-sm text-green-700">Ini adalah 100 kotak kecil = 1 ratusan. Sangat banyak!</p>
+                `;
+            } else if (type === 'urutan') {
+                demo.classList.add('hidden');
+                sortingGame.classList.remove('hidden');
+                startSortingGame();
+            }
+        }
+
+        function startSortingGame() {
+            // Generate random numbers
+            sortingNumbers = [];
+            while (sortingNumbers.length < 5) {
+                const num = Math.floor(Math.random() * 200) + 1;
+                if (!sortingNumbers.includes(num)) {
+                    sortingNumbers.push(num);
+                }
+            }
+            
+            correctOrder = [...sortingNumbers].sort((a, b) => a - b);
+            
+            // Shuffle the numbers
+            const shuffled = [...sortingNumbers].sort(() => Math.random() - 0.5);
+            
+            const numbersContainer = document.getElementById('numbersToSort');
+            const sortedContainer = document.getElementById('sortedNumbers');
+            const resultDiv = document.getElementById('sortResult');
+            
+            numbersContainer.innerHTML = '';
+            sortedContainer.innerHTML = '';
+            resultDiv.innerHTML = '';
+            
+            shuffled.forEach(num => {
+                const numDiv = document.createElement('div');
+                numDiv.className = 'bg-blue-500 text-white px-3 py-2 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-bold';
+                numDiv.textContent = num;
+                numDiv.draggable = true;
+                numDiv.onclick = () => moveToSorted(numDiv, num);
+                numbersContainer.appendChild(numDiv);
+            });
+        }
+
+        function moveToSorted(element, number) {
+            const sortedContainer = document.getElementById('sortedNumbers');
+            const newElement = element.cloneNode(true);
+            newElement.className = 'bg-green-500 text-white px-3 py-2 rounded-lg cursor-pointer hover:bg-green-600 transition-colors text-sm font-bold';
+            newElement.onclick = () => moveBackToUnsorted(newElement, number);
+            
+            sortedContainer.appendChild(newElement);
+            element.remove();
+        }
+
+        function moveBackToUnsorted(element, number) {
+            const numbersContainer = document.getElementById('numbersToSort');
+            const newElement = element.cloneNode(true);
+            newElement.className = 'bg-blue-500 text-white px-3 py-2 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-bold';
+            newElement.onclick = () => moveToSorted(newElement, number);
+            
+            numbersContainer.appendChild(newElement);
+            element.remove();
+        }
+
+        function checkSorting() {
+            const sortedContainer = document.getElementById('sortedNumbers');
+            const resultDiv = document.getElementById('sortResult');
+            const sortedElements = sortedContainer.children;
+            
+            if (sortedElements.length !== correctOrder.length) {
+                resultDiv.innerHTML = '<span class="text-red-600">Pindahkan semua bilangan ke kotak urutan!</span>';
+                return;
+            }
+            
+            const userOrder = Array.from(sortedElements).map(el => parseInt(el.textContent));
+            const isCorrect = userOrder.every((num, index) => num === correctOrder[index]);
+            
+            if (isCorrect) {
+                resultDiv.innerHTML = '<span class="text-green-600">🎉 Benar! Urutan bilangan sudah tepat!</span>';
+            } else {
+                resultDiv.innerHTML = `<span class="text-red-600">Belum benar. Urutan yang benar: ${correctOrder.join(', ')}</span>`;
+            }
+        }
+
+        // Fungsi untuk demonstrasi waktu dan durasi
+        function showTimeDemo(type) {
+            const demo = document.getElementById('timeDemo');
+            const clockPractice = document.getElementById('clockPractice');
+            
+            clockPractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'clock') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Jam Analog</h4>
+                    <div class="flex justify-center mb-4">
+                        <div class="relative w-32 h-32 border-4 border-orange-500 rounded-full bg-white">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-1 h-12 bg-orange-800 absolute transform -translate-y-2" style="transform-origin: bottom; transform: rotate(90deg) translateY(8px);"></div>
+                                <div class="w-0.5 h-8 bg-orange-600 absolute" style="transform-origin: bottom; transform: rotate(0deg) translateY(4px);"></div>
+                                <div class="w-2 h-2 bg-orange-800 rounded-full"></div>
+                            </div>
+                            <div class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">12</div>
+                            <div class="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs font-bold">3</div>
+                            <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">6</div>
+                            <div class="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs font-bold">9</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-orange-700 mb-3">Jam analog menunjukkan pukul 03:00</p>
+                    <div class="text-xs text-orange-600 space-y-1">
+                        <p>• Jarum pendek = jam</p>
+                        <p>• Jarum panjang = menit</p>
+                        <p>• Angka 12 di atas, 6 di bawah</p>
+                    </div>
+                    <button onclick="startClockPractice()" class="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Membaca Jam
+                    </button>
+                `;
+            } else if (type === 'digital') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Jam Digital</h4>
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-black text-green-400 px-6 py-4 rounded-lg font-mono text-2xl">
+                            15:30
+                        </div>
+                    </div>
+                    <p class="text-sm text-orange-700 mb-3">Jam digital menunjukkan pukul 15:30 (3:30 sore)</p>
+                    <div class="text-xs text-orange-600 space-y-1">
+                        <p>• Format 24 jam: 00:00 - 23:59</p>
+                        <p>• 15:30 = jam 3 sore 30 menit</p>
+                        <p>• Lebih mudah dibaca daripada jam analog</p>
+                    </div>
+                `;
+            } else if (type === 'conversion') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Konversi Satuan Waktu</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <strong class="text-purple-800">Detik ke Menit:</strong>
+                            <p>120 detik = 120 ÷ 60 = 2 menit</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <strong class="text-purple-800">Menit ke Jam:</strong>
+                            <p>180 menit = 180 ÷ 60 = 3 jam</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <strong class="text-purple-800">Jam ke Hari:</strong>
+                            <p>48 jam = 48 ÷ 24 = 2 hari</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-purple-100 rounded-lg">
+                        <p class="text-xs text-purple-700 font-medium">Ingat rumusnya:</p>
+                        <p class="text-xs text-purple-600">• Bagi 60 untuk detik→menit atau menit→jam</p>
+                        <p class="text-xs text-purple-600">• Bagi 24 untuk jam→hari</p>
+                    </div>
+                `;
+            } else if (type === 'duration') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Durasi Kegiatan Sehari-hari</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center bg-red-50 p-2 rounded">
+                            <span>🦷 Sikat gigi</span>
+                            <span class="font-bold text-red-700">3 menit</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-red-50 p-2 rounded">
+                            <span>🍽️ Makan</span>
+                            <span class="font-bold text-red-700">15-30 menit</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-red-50 p-2 rounded">
+                            <span>🚿 Mandi</span>
+                            <span class="font-bold text-red-700">10-15 menit</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-red-50 p-2 rounded">
+                            <span>📚 Sekolah</span>
+                            <span class="font-bold text-red-700">6-7 jam</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-red-50 p-2 rounded">
+                            <span>😴 Tidur</span>
+                            <span class="font-bold text-red-700">8-10 jam</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-orange-600 mt-3">Durasi ini bisa berbeda untuk setiap orang!</p>
+                `;
+            }
+        }
+
+        function startClockPractice() {
+            const demo = document.getElementById('timeDemo');
+            const clockPractice = document.getElementById('clockPractice');
+            
+            demo.classList.add('hidden');
+            clockPractice.classList.remove('hidden');
+            
+            generateClockPractice();
+        }
+
+        let currentClockTime = {};
+
+        function generateClockPractice() {
+            const hours = Math.floor(Math.random() * 12) + 1;
+            const minutes = [0, 15, 30, 45][Math.floor(Math.random() * 4)];
+            
+            currentClockTime = { hours, minutes };
+            
+            const container = document.getElementById('practiceClockContainer');
+            const hourAngle = (hours % 12) * 30 + (minutes / 60) * 30;
+            const minuteAngle = minutes * 6;
+            
+            container.innerHTML = `
+                <div class="relative w-32 h-32 border-4 border-orange-500 rounded-full bg-white mx-auto">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-1 h-10 bg-orange-800 absolute" style="transform-origin: bottom; transform: rotate(${hourAngle}deg) translateY(5px);"></div>
+                        <div class="w-0.5 h-12 bg-orange-600 absolute" style="transform-origin: bottom; transform: rotate(${minuteAngle}deg) translateY(6px);"></div>
+                        <div class="w-2 h-2 bg-orange-800 rounded-full"></div>
+                    </div>
+                    <div class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">12</div>
+                    <div class="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs font-bold">3</div>
+                    <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">6</div>
+                    <div class="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs font-bold">9</div>
+                </div>
+            `;
+            
+            const options = generateTimeOptions(hours, minutes);
+            const optionsContainer = document.getElementById('clockOptions');
+            const resultDiv = document.getElementById('clockResult');
+            
+            optionsContainer.innerHTML = '';
+            resultDiv.innerHTML = '';
+            
+            options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-orange-100 hover:bg-orange-200 p-2 rounded-lg text-sm transition-colors';
+                button.textContent = option;
+                button.onclick = () => checkClockAnswer(option, index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function generateTimeOptions(correctHours, correctMinutes) {
+            const correctTime = `${correctHours.toString().padStart(2, '0')}:${correctMinutes.toString().padStart(2, '0')}`;
+            const options = [correctTime];
+            
+            while (options.length < 4) {
+                const randomHours = Math.floor(Math.random() * 12) + 1;
+                const randomMinutes = [0, 15, 30, 45][Math.floor(Math.random() * 4)];
+                const randomTime = `${randomHours.toString().padStart(2, '0')}:${randomMinutes.toString().padStart(2, '0')}`;
+                
+                if (!options.includes(randomTime)) {
+                    options.push(randomTime);
+                }
+            }
+            
+            return options.sort(() => Math.random() - 0.5);
+        }
+
+        function checkClockAnswer(selectedTime, index) {
+            const correctTime = `${currentClockTime.hours.toString().padStart(2, '0')}:${currentClockTime.minutes.toString().padStart(2, '0')}`;
+            const resultDiv = document.getElementById('clockResult');
+            const buttons = document.querySelectorAll('#clockOptions button');
+            
+            buttons.forEach(button => button.disabled = true);
+            
+            if (selectedTime === correctTime) {
+                buttons[index].className = 'bg-green-500 text-white p-2 rounded-lg text-sm';
+                resultDiv.innerHTML = `
+                    <span class="text-green-600 font-medium">🎉 Benar! Jam menunjukkan ${correctTime}</span>
+                    <button onclick="generateClockPractice()" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                        Soal Baru
+                    </button>
+                `;
+            } else {
+                buttons[index].className = 'bg-red-500 text-white p-2 rounded-lg text-sm';
+                // Highlight correct answer
+                buttons.forEach((button, i) => {
+                    if (button.textContent === correctTime) {
+                        button.className = 'bg-green-500 text-white p-2 rounded-lg text-sm';
+                    }
+                });
+                resultDiv.innerHTML = `
+                    <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${correctTime}</span>
+                    <button onclick="generateClockPractice()" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                        Coba Lagi
+                    </button>
+                `;
+            }
+        }
+
+        // Fungsi untuk demonstrasi cara berhitung
+        let currentPractice = {};
+
+        function showCalculationDemo(type) {
+            const demo = document.getElementById('calculationDemo');
+            const practiceArea = document.getElementById('practiceArea');
+            
+            practiceArea.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'addition') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-blue-800 mb-3">Cara Penjumlahan Bilangan Dua Angka</h4>
+                    <div class="bg-green-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-green-700 mb-2"><strong>Contoh: 25 + 34</strong></p>
+                        <div class="font-mono text-lg text-center mb-2">
+                            <div>  25</div>
+                            <div>+ 34</div>
+                            <div>----</div>
+                            <div>  59</div>
+                        </div>
+                        <p class="text-xs text-green-600">Langkah: 5 + 4 = 9, lalu 2 + 3 = 5</p>
+                    </div>
+                    <button onclick="startPractice('addition')" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                        Coba Latihan Penjumlahan
+                    </button>
+                `;
+            } else if (type === 'subtraction') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-blue-800 mb-3">Cara Pengurangan Bilangan Dua Angka</h4>
+                    <div class="bg-red-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-red-700 mb-2"><strong>Contoh: 67 - 23</strong></p>
+                        <div class="font-mono text-lg text-center mb-2">
+                            <div>  67</div>
+                            <div>- 23</div>
+                            <div>----</div>
+                            <div>  44</div>
+                        </div>
+                        <p class="text-xs text-red-600">Langkah: 7 - 3 = 4, lalu 6 - 2 = 4</p>
+                    </div>
+                    <button onclick="startPractice('subtraction')" class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                        Coba Latihan Pengurangan
+                    </button>
+                `;
+            } else if (type === 'story') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-blue-800 mb-3">Cara Menyelesaikan Soal Cerita</h4>
+                    <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-purple-700 mb-2"><strong>Contoh Soal:</strong></p>
+                        <p class="text-sm mb-2">"Andi punya 32 kelereng. Temannya memberi 15 kelereng lagi. Berapa total kelereng Andi?"</p>
+                        <div class="text-sm space-y-1 text-purple-600">
+                            <p><strong>Langkah 1:</strong> Cari kata kunci → "memberi" = tambah (+)</p>
+                            <p><strong>Langkah 2:</strong> Buat kalimat matematika → 32 + 15</p>
+                            <p><strong>Langkah 3:</strong> Hitung → 32 + 15 = 47</p>
+                            <p><strong>Jawaban:</strong> Total kelereng Andi adalah 47</p>
+                        </div>
+                    </div>
+                    <button onclick="startPractice('story')" class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                        Coba Latihan Soal Cerita
+                    </button>
+                `;
+            }
+        }
+
+        function startPractice(type) {
+            const demo = document.getElementById('calculationDemo');
+            const practiceArea = document.getElementById('practiceArea');
+            const problemStatement = document.getElementById('problemStatement');
+            const calculationSteps = document.getElementById('calculationSteps');
+            const answerInput = document.getElementById('answerInput');
+            const practiceResult = document.getElementById('practiceResult');
+            
+            demo.classList.add('hidden');
+            practiceArea.classList.remove('hidden');
+            practiceResult.innerHTML = '';
+            
+            if (type === 'addition') {
+                const num1 = Math.floor(Math.random() * 50) + 10; // 10-59
+                const num2 = Math.floor(Math.random() * 30) + 10; // 10-39
+                currentPractice = { type: 'addition', num1, num2, answer: num1 + num2 };
+                
+                problemStatement.innerHTML = `<strong>Soal:</strong> ${num1} + ${num2} = ?`;
+                calculationSteps.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm text-green-700 mb-2">Cara bersusun:</p>
+                        <div class="font-mono text-center">
+                            <div>  ${num1}</div>
+                            <div>+ ${num2}</div>
+                            <div>----</div>
+                            <div>  ??</div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'subtraction') {
+                const num1 = Math.floor(Math.random() * 50) + 30; // 30-79
+                const num2 = Math.floor(Math.random() * 20) + 10; // 10-29
+                currentPractice = { type: 'subtraction', num1, num2, answer: num1 - num2 };
+                
+                problemStatement.innerHTML = `<strong>Soal:</strong> ${num1} - ${num2} = ?`;
+                calculationSteps.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg">
+                        <p class="text-sm text-red-700 mb-2">Cara bersusun:</p>
+                        <div class="font-mono text-center">
+                            <div>  ${num1}</div>
+                            <div>- ${num2}</div>
+                            <div>----</div>
+                            <div>  ??</div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'story') {
+                const stories = [
+                    { text: "Sari punya {num1} pensil. Ibunya membeli {num2} pensil lagi. Berapa total pensil Sari?", operation: '+' },
+                    { text: "Budi punya {num1} kelereng. Dia memberikan {num2} kelereng kepada adiknya. Berapa sisa kelereng Budi?", operation: '-' },
+                    { text: "Di taman ada {num1} bunga mawar. Kemudian ditanam {num2} bunga mawar lagi. Berapa total bunga mawar di taman?", operation: '+' },
+                    { text: "Ibu membeli {num1} apel. Dimakan keluarga sebanyak {num2} apel. Berapa sisa apel?", operation: '-' }
+                ];
+                
+                const story = stories[Math.floor(Math.random() * stories.length)];
+                const num1 = story.operation === '+' ? Math.floor(Math.random() * 40) + 20 : Math.floor(Math.random() * 30) + 40;
+                const num2 = Math.floor(Math.random() * 20) + 10;
+                const answer = story.operation === '+' ? num1 + num2 : num1 - num2;
+                
+                currentPractice = { type: 'story', num1, num2, answer, operation: story.operation };
+                
+                problemStatement.innerHTML = `<strong>Soal Cerita:</strong><br>${story.text.replace('{num1}', num1).replace('{num2}', num2)}`;
+                calculationSteps.innerHTML = `
+                    <div class="bg-purple-50 p-3 rounded-lg">
+                        <p class="text-sm text-purple-700 mb-2">Langkah penyelesaian:</p>
+                        <p class="text-sm">1. Buat kalimat matematika: ${num1} ${story.operation} ${num2} = ?</p>
+                        <p class="text-sm">2. Hitung hasilnya</p>
+                    </div>
+                `;
+            }
+            
+            answerInput.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <label class="text-sm font-medium text-blue-800">Jawaban:</label>
+                    <input type="number" id="practiceAnswer" class="border-2 border-blue-300 rounded-lg px-3 py-2 w-20 text-center" placeholder="?">
+                    <button onclick="checkPracticeAnswer()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Periksa
+                    </button>
+                </div>
+            `;
+        }
+
+        function checkPracticeAnswer() {
+            const userAnswer = parseInt(document.getElementById('practiceAnswer').value);
+            const resultDiv = document.getElementById('practiceResult');
+            
+            if (isNaN(userAnswer)) {
+                resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                return;
+            }
+            
+            if (userAnswer === currentPractice.answer) {
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                        <span class="text-green-600 font-medium">🎉 Benar! Jawabannya adalah ${currentPractice.answer}</span>
+                        <button onclick="startPractice('${currentPractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                            Soal Baru
+                        </button>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                        <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${currentPractice.answer}</span>
+                        <button onclick="startPractice('${currentPractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                            Coba Lagi
+                        </button>
+                    </div>
+                `;
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'968dc4596628f8ff',t:'MTc1NDEzOTcxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
