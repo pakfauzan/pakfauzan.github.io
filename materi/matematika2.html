@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Matematika Kelas 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .card-shadow { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15); }
+        .quiz-correct { background: linear-gradient(135deg, #10b981, #059669); }
+        .quiz-wrong { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .demo-animation { transition: all 0.3s ease; }
+        .demo-animation:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-green-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 shadow-lg">
+        <div class="max-w-md mx-auto text-center">
+            <h1 class="text-2xl font-bold mb-2">MATEMATIKA</h1>
+            <p class="text-green-100 text-sm">Untuk Kelas 2 - Fase A</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-md mx-auto p-4">
+        <!-- Menu Materi -->
+        <div id="menuMateri" class="mt-8">
+            <h2 class="text-2xl font-bold text-green-800 mb-6 text-center">Materi Pembelajaran</h2>
+            
+            <div class="space-y-4">
+                <button onclick="showMateri(7)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            7
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Tabel dan Grafik</h3>
+                            <p class="text-green-600 text-sm">Mengurutkan dan menyajikan data serta mengambil informasi</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="showMateri(8)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            8
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Banyaknya Air</h3>
+                            <p class="text-green-600 text-sm">Memahami satuan volume (mililiter, desiliter, liter)</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="showMateri(9)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            9
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Perkalian</h3>
+                            <p class="text-green-600 text-sm">Memahami konsep perkalian dan menghitung hasil perkalian</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <button onclick="showMateri(10)" class="w-full bg-white rounded-xl p-6 card-shadow hover:shadow-lg transition-all duration-300 text-left demo-animation">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            10
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-green-800 mb-1">Segitiga dan Segi Empat</h3>
+                            <p class="text-green-600 text-sm">Mengenal bentuk bangun datar dan unsur-unsurnya</p>
+                        </div>
+                        <div class="text-green-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="matematika1.html" class="inline-block bg-gradient-to-r from-yellow-100 to-yellow-200 hover:from-yellow-200 hover:to-yellow-300 text-black px-8 py-2 rounded-2xl text-md shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Materi sebelumnya
+                </a>
+            </div>
+            <!-- Back to Homepage Button -->
+            <div class="mt-4 text-center">
+                <a href="../" class="inline-block bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-2 rounded-2xl text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <span class="mr-2">🏠</span>
+                    Kembali ke Halaman Utama
+                </a>
+            </div>
+        </div>
+
+        <!-- Detail Materi 7: Tabel dan Grafik -->
+        <div id="materi7" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Tabel dan Grafik</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Peserta didik dapat mengurutkan dan menyajikan data dari lingkungan sekitarnya</li>
+                        <li>• Dapat mengambil informasi dari tabel atau grafik sederhana</li>
+                        <li>• Mampu membuat tabel dan grafik batang sederhana</li>
+                        <li>• Dapat membandingkan data yang disajikan dalam bentuk visual</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <strong class="text-indigo-800">TABEL DATA</strong>
+                            <p class="mt-2">• Cara menyusun data dalam baris dan kolom</p>
+                            <p>• Memudahkan membaca dan membandingkan informasi</p>
+                            <p>• Contoh: tabel jumlah siswa, nilai ulangan, dll</p>
+                            <p>• Terdiri dari judul, kolom, dan baris</p>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <strong class="text-indigo-800">GRAFIK BATANG</strong>
+                            <p class="mt-2">• Menampilkan data dalam bentuk batang/balok</p>
+                            <p>• Tinggi batang menunjukkan jumlah data</p>
+                            <p>• Mudah dibaca dan dipahami secara visual</p>
+                            <p>• Cocok untuk membandingkan beberapa kategori</p>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <strong class="text-indigo-800">MENGUMPULKAN DATA</strong>
+                            <p class="mt-2">• Mengamati dan menghitung objek di sekitar</p>
+                            <p>• Mencatat hasil pengamatan dengan rapi</p>
+                            <p>• Mengelompokkan data berdasarkan kategori</p>
+                            <p>• Contoh: warna kesukaan, jenis hewan peliharaan</p>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <strong class="text-indigo-800">MEMBACA INFORMASI</strong>
+                            <p class="mt-2">• Mencari data terbanyak dan tersedikit</p>
+                            <p>• Membandingkan antar kategori</p>
+                            <p>• Menjumlahkan total data</p>
+                            <p>• Menarik kesimpulan dari data yang ada</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📊 Demonstrasi Interaktif</h3>
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <p class="text-sm text-indigo-600 mb-3">Pilih untuk belajar tentang tabel dan grafik:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showTableDemo('table')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Membuat Tabel
+                            </button>
+                            <button onclick="showTableDemo('chart')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Grafik Batang
+                            </button>
+                            <button onclick="showTableDemo('collect')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                                Kumpulkan Data
+                            </button>
+                            <button onclick="showTableDemo('analyze')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Analisis Data
+                            </button>
+                        </div>
+                        
+                        <div id="tableDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-indigo-200">
+                            <p class="text-center text-indigo-600">Pilih tombol di atas untuk belajar tentang tabel dan grafik!</p>
+                        </div>
+                        
+                        <div id="tablePractice" class="hidden mt-4">
+                            <p class="text-sm text-indigo-700 mb-3">Latihan Tabel dan Grafik:</p>
+                            <div id="practiceTableContainer" class="text-center mb-4"></div>
+                            <div id="tableSteps" class="space-y-2 mb-4"></div>
+                            <div id="tableInput" class="mb-4"></div>
+                            <div id="tableResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(7)" class="w-full bg-indigo-500 text-white py-3 rounded-lg font-semibold hover:bg-indigo-600 transition-colors">
+                    Mulai Kuis Tabel dan Grafik
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 9: Perkalian -->
+        <div id="materi9" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Perkalian</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Memahami pengertian perkalian dan mengembangkan kemampuan perhitungan perkalian</li>
+                        <li>• Menentukan hasil perkalian 2 bilangan cacah</li>
+                        <li>• Memahami pengertian perkalian dan mampu menggunakannya</li>
+                        <li>• Dapat menyelesaikan masalah sehari-hari yang melibatkan perkalian</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">PENGERTIAN PERKALIAN</strong>
+                            <p class="mt-2">• Perkalian adalah penjumlahan berulang</p>
+                            <p>• Contoh: 3 × 4 = 3 + 3 + 3 + 3 = 12</p>
+                            <p>• Atau: 3 × 4 = 4 + 4 + 4 = 12</p>
+                            <p>• Simbol perkalian: × (kali)</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">CARA MEMBACA PERKALIAN</strong>
+                            <p class="mt-2">• 2 × 3 dibaca "dua kali tiga"</p>
+                            <p>• 5 × 4 dibaca "lima kali empat"</p>
+                            <p>• Angka pertama = pengali</p>
+                            <p>• Angka kedua = yang dikali</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">SIFAT-SIFAT PERKALIAN</strong>
+                            <p class="mt-2">• Sifat komutatif: 3 × 4 = 4 × 3</p>
+                            <p>• Perkalian dengan 0: 5 × 0 = 0</p>
+                            <p>• Perkalian dengan 1: 7 × 1 = 7</p>
+                            <p>• Hasil perkalian disebut "hasil kali"</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <strong class="text-purple-800">PERKALIAN DALAM KEHIDUPAN</strong>
+                            <p class="mt-2">• Menghitung jumlah kaki hewan</p>
+                            <p>• Menghitung total barang dalam kotak</p>
+                            <p>• Menghitung uang kembalian</p>
+                            <p>• Menghitung luas persegi panjang sederhana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">✖️ Demonstrasi Interaktif</h3>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <p class="text-sm text-purple-600 mb-3">Pilih untuk belajar tentang perkalian:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showMultiplyDemo('concept')" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                                Konsep Perkalian
+                            </button>
+                            <button onclick="showMultiplyDemo('visual')" class="bg-pink-500 text-white p-3 rounded-lg hover:bg-pink-600 transition-colors text-sm">
+                                Perkalian Visual
+                            </button>
+                            <button onclick="showMultiplyDemo('table')" class="bg-indigo-500 text-white p-3 rounded-lg hover:bg-indigo-600 transition-colors text-sm">
+                                Tabel Perkalian
+                            </button>
+                            <button onclick="showMultiplyDemo('problem')" class="bg-violet-500 text-white p-3 rounded-lg hover:bg-violet-600 transition-colors text-sm">
+                                Soal Cerita
+                            </button>
+                        </div>
+                        
+                        <div id="multiplyDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-purple-200">
+                            <p class="text-center text-purple-600">Pilih tombol di atas untuk belajar tentang perkalian!</p>
+                        </div>
+                        
+                        <div id="multiplyPractice" class="hidden mt-4">
+                            <p class="text-sm text-purple-700 mb-3">Latihan Perkalian:</p>
+                            <div id="practiceMultiplyContainer" class="text-center mb-4"></div>
+                            <div id="multiplySteps" class="space-y-2 mb-4"></div>
+                            <div id="multiplyInput" class="mb-4"></div>
+                            <div id="multiplyResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(9)" class="w-full bg-purple-500 text-white py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                    Mulai Kuis Perkalian
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 8: Banyaknya Air -->
+        <div id="materi8" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Banyaknya Air</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Peserta didik dapat memahami satuan volume (mililiter, desiliter, liter)</li>
+                        <li>• Dapat mengukur dan membandingkan volume air</li>
+                        <li>• Mampu mengkonversi antar satuan volume sederhana</li>
+                        <li>• Dapat menyelesaikan masalah sehari-hari tentang volume air</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <strong class="text-cyan-800">MILILITER (ml)</strong>
+                            <p class="mt-2">• Satuan terkecil untuk mengukur volume air</p>
+                            <p>• Digunakan untuk cairan dalam jumlah sedikit</p>
+                            <p>• Contoh: obat sirup, parfum, tetes mata</p>
+                            <p>• 1 sendok teh ≈ 5 ml</p>
+                        </div>
+                        
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <strong class="text-cyan-800">DESILITER (dl)</strong>
+                            <p class="mt-2">• Satuan menengah untuk mengukur volume air</p>
+                            <p>• 1 desiliter = 100 mililiter</p>
+                            <p>• Contoh: gelas kecil, cangkir</p>
+                            <p>• Jarang digunakan dalam kehidupan sehari-hari</p>
+                        </div>
+                        
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <strong class="text-cyan-800">LITER (l)</strong>
+                            <p class="mt-2">• Satuan terbesar untuk mengukur volume air</p>
+                            <p>• 1 liter = 10 desiliter = 1000 mililiter</p>
+                            <p>• Contoh: botol air minum, susu kotak</p>
+                            <p>• Paling sering digunakan sehari-hari</p>
+                        </div>
+                        
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <strong class="text-cyan-800">KONVERSI SATUAN</strong>
+                            <p class="mt-2">• 1 liter = 10 desiliter</p>
+                            <p>• 1 liter = 1000 mililiter</p>
+                            <p>• 1 desiliter = 100 mililiter</p>
+                            <p>• Ingat: semakin kecil satuan, angkanya semakin besar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">💧 Demonstrasi Interaktif</h3>
+                    <div class="bg-cyan-50 p-4 rounded-lg">
+                        <p class="text-sm text-cyan-600 mb-3">Pilih untuk belajar tentang satuan volume:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showVolumeDemo('units')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Satuan Volume
+                            </button>
+                            <button onclick="showVolumeDemo('convert')" class="bg-cyan-500 text-white p-3 rounded-lg hover:bg-cyan-600 transition-colors text-sm">
+                                Konversi Satuan
+                            </button>
+                            <button onclick="showVolumeDemo('measure')" class="bg-teal-500 text-white p-3 rounded-lg hover:bg-teal-600 transition-colors text-sm">
+                                Mengukur Volume
+                            </button>
+                            <button onclick="showVolumeDemo('compare')" class="bg-indigo-500 text-white p-3 rounded-lg hover:bg-indigo-600 transition-colors text-sm">
+                                Membandingkan
+                            </button>
+                        </div>
+                        
+                        <div id="volumeDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-cyan-200">
+                            <p class="text-center text-cyan-600">Pilih tombol di atas untuk belajar tentang volume air!</p>
+                        </div>
+                        
+                        <div id="volumePractice" class="hidden mt-4">
+                            <p class="text-sm text-cyan-700 mb-3">Latihan Volume Air:</p>
+                            <div id="practiceVolumeContainer" class="text-center mb-4"></div>
+                            <div id="volumeSteps" class="space-y-2 mb-4"></div>
+                            <div id="volumeInput" class="mb-4"></div>
+                            <div id="volumeResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(8)" class="w-full bg-cyan-500 text-white py-3 rounded-lg font-semibold hover:bg-cyan-600 transition-colors">
+                    Mulai Kuis Banyaknya Air
+                </button>
+            </div>
+        </div>
+
+        <!-- Detail Materi 10: Segitiga dan Segi Empat -->
+        <div id="materi10" class="hidden">
+            <button onclick="showMenu()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Menu
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">Segitiga dan Segi Empat</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">🎯 Tujuan Pembelajaran</h3>
+                    <ul class="text-green-600 space-y-2 text-sm">
+                        <li>• Melalui kegiatan mengamati dan menyusun bentuk benda, peserta didik dapat memperhatikan unsur-unsur yang menyusun suatu bangun datar</li>
+                        <li>• Membuat garis lurus</li>
+                        <li>• Mempelajari, menggambar, dan membuat bentuk segitiga, segi empat, dll</li>
+                        <li>• Mengenali sudut siku-siku, persegi panjang, dan segitiga siku-siku</li>
+                        <li>• Menggambar, membuat, dan menata bentuk persegi panjang dan segitiga siku-siku pada bidang datar</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📚 Materi Pembelajaran</h3>
+                    <div class="text-green-600 space-y-4 text-sm">
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">UNSUR-UNSUR BANGUN DATAR</strong>
+                            <p class="mt-2">• Sisi: garis yang membatasi bangun datar</p>
+                            <p>• Sudut: pertemuan dua sisi</p>
+                            <p>• Titik sudut: ujung pertemuan sisi</p>
+                            <p>• Garis lurus: garis yang tidak bengkok</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">SEGITIGA</strong>
+                            <p class="mt-2">• Bangun datar dengan 3 sisi</p>
+                            <p>• Memiliki 3 sudut dan 3 titik sudut</p>
+                            <p>• Segitiga siku-siku: memiliki 1 sudut siku-siku (90°)</p>
+                            <p>• Contoh: atap rumah, penggaris segitiga</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">SEGI EMPAT</strong>
+                            <p class="mt-2">• Bangun datar dengan 4 sisi</p>
+                            <p>• Memiliki 4 sudut dan 4 titik sudut</p>
+                            <p>• Jenis: persegi, persegi panjang, jajar genjang</p>
+                            <p>• Contoh: buku, papan tulis, jendela</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <strong class="text-orange-800">SUDUT SIKU-SIKU</strong>
+                            <p class="mt-2">• Sudut yang besarnya 90 derajat</p>
+                            <p>• Berbentuk seperti sudut kotak</p>
+                            <p>• Persegi dan persegi panjang memiliki 4 sudut siku-siku</p>
+                            <p>• Dapat diukur dengan penggaris siku-siku</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-green-700 mb-3">📐 Demonstrasi Interaktif</h3>
+                    <div class="bg-orange-50 p-4 rounded-lg">
+                        <p class="text-sm text-orange-600 mb-3">Pilih untuk belajar tentang bangun datar:</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <button onclick="showShapeDemo('elements')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                                Unsur Bangun Datar
+                            </button>
+                            <button onclick="showShapeDemo('triangle')" class="bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                                Segitiga
+                            </button>
+                            <button onclick="showShapeDemo('rectangle')" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                Segi Empat
+                            </button>
+                            <button onclick="showShapeDemo('angle')" class="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                Sudut Siku-siku
+                            </button>
+                        </div>
+                        
+                        <div id="shapeDemo" class="mt-4 p-4 bg-white rounded-lg border-2 border-orange-200">
+                            <p class="text-center text-orange-600">Pilih tombol di atas untuk belajar tentang bangun datar!</p>
+                        </div>
+                        
+                        <div id="shapePractice" class="hidden mt-4">
+                            <p class="text-sm text-orange-700 mb-3">Latihan Bangun Datar:</p>
+                            <div id="practiceShapeContainer" class="text-center mb-4"></div>
+                            <div id="shapeSteps" class="space-y-2 mb-4"></div>
+                            <div id="shapeInput" class="mb-4"></div>
+                            <div id="shapeResult" class="text-sm font-medium text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz(10)" class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                    Mulai Kuis Segitiga dan Segi Empat
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection" class="hidden">
+            <button onclick="backToMateri()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                ← Kembali ke Materi
+            </button>
+            
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="quizTitle" class="text-xl font-bold text-green-800">Kuis</h2>
+                    <div class="text-sm text-green-600">
+                        <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="bg-green-100 rounded-full h-2 mb-4">
+                        <div id="progressBar" class="bg-green-500 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
+                    </div>
+                    
+                    <div id="questionContainer" class="mb-6">
+                        <p id="questionText" class="text-green-800 font-medium mb-4"></p>
+                        <div id="optionsContainer" class="space-y-3"></div>
+                    </div>
+                </div>
+                
+                <div id="quizResult" class="hidden text-center">
+                    <div class="mb-4">
+                        <div id="scoreCircle" class="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4"></div>
+                        <h3 class="text-xl font-bold text-green-800 mb-2">Kuis Selesai!</h3>
+                        <p id="scoreText" class="text-green-600 mb-4"></p>
+                        <p id="encouragement" class="text-green-700 font-medium"></p>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="restartQuiz()" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            Ulangi Kuis
+                        </button>
+                        <button onclick="showMenu()" class="w-full bg-green-100 text-green-700 py-3 rounded-lg font-semibold hover:bg-green-200 transition-colors">
+                            Kembali ke Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentMateri = 0;
+        let currentQuizQuestion = 0;
+        let score = 0;
+        let quizData = {};
+
+        // Quiz data untuk semua materi
+        const quizzes = {
+            7: {
+                title: "Kuis Tabel dan Grafik",
+                questions: [
+                    { q: "Tabel digunakan untuk?", options: ["Bermain", "Menyusun data", "Menggambar", "Menulis"], correct: 1 },
+                    { q: "Dalam grafik batang, tinggi batang menunjukkan?", options: ["Warna", "Jumlah data", "Ukuran kertas", "Nama"], correct: 1 },
+                    { q: "Data yang paling banyak disebut?", options: ["Minimum", "Maksimum", "Rata-rata", "Total"], correct: 1 },
+                    { q: "Jika grafik menunjukkan: Apel=5, Jeruk=3, Pisang=7. Buah mana yang paling banyak?", options: ["Apel", "Jeruk", "Pisang", "Sama"], correct: 2 },
+                    { q: "Tabel terdiri dari?", options: ["Baris saja", "Kolom saja", "Baris dan kolom", "Gambar"], correct: 2 },
+                    { q: "Untuk mengumpulkan data, kita perlu?", options: ["Tidur", "Mengamati dan menghitung", "Bermain", "Menyanyi"], correct: 1 },
+                    { q: "Grafik batang cocok untuk?", options: ["Menulis cerita", "Membandingkan data", "Menggambar", "Bermain"], correct: 1 },
+                    { q: "Jika tabel menunjukkan: Merah=4, Biru=6, Hijau=2. Total warna ada?", options: ["10", "12", "8", "14"], correct: 1 },
+                    { q: "Data yang paling sedikit disebut?", options: ["Maksimum", "Minimum", "Total", "Rata-rata"], correct: 1 },
+                    { q: "Judul tabel berguna untuk?", options: ["Hiasan", "Menjelaskan isi tabel", "Warna", "Ukuran"], correct: 1 }
+                ]
+            },
+            8: {
+                title: "Kuis Banyaknya Air",
+                questions: [
+                    { q: "Satuan terkecil untuk mengukur volume air adalah?", options: ["Liter", "Mililiter", "Desiliter", "Kiloliter"], correct: 1 },
+                    { q: "1 liter sama dengan berapa mililiter?", options: ["10 ml", "100 ml", "1000 ml", "10000 ml"], correct: 2 },
+                    { q: "1 desiliter sama dengan berapa mililiter?", options: ["10 ml", "100 ml", "1000 ml", "50 ml"], correct: 1 },
+                    { q: "Botol air minum biasanya berukuran?", options: ["500 ml", "5 ml", "50 ml", "5000 ml"], correct: 0 },
+                    { q: "Satuan yang paling sering digunakan sehari-hari adalah?", options: ["Mililiter", "Liter", "Desiliter", "Kiloliter"], correct: 1 },
+                    { q: "2 liter sama dengan berapa mililiter?", options: ["200 ml", "20 ml", "2000 ml", "20000 ml"], correct: 2 },
+                    { q: "Obat sirup biasanya diukur dengan satuan?", options: ["Liter", "Mililiter", "Desiliter", "Kiloliter"], correct: 1 },
+                    { q: "500 ml sama dengan berapa liter?", options: ["5 liter", "0,5 liter", "50 liter", "0,05 liter"], correct: 1 },
+                    { q: "Gelas kecil biasanya berisi sekitar?", options: ["1 liter", "100 ml", "10 ml", "1000 ml"], correct: 1 },
+                    { q: "1 liter sama dengan berapa desiliter?", options: ["1 dl", "10 dl", "100 dl", "1000 dl"], correct: 1 }
+                ]
+            },
+            9: {
+                title: "Kuis Perkalian",
+                questions: [
+                    { q: "3 × 4 sama dengan?", options: ["7", "12", "10", "14"], correct: 1 },
+                    { q: "Perkalian adalah?", options: ["Pengurangan berulang", "Penjumlahan berulang", "Pembagian berulang", "Campuran"], correct: 1 },
+                    { q: "2 × 5 = ?", options: ["7", "10", "8", "12"], correct: 1 },
+                    { q: "Jika ada 4 kotak, setiap kotak berisi 3 apel. Total apel ada?", options: ["7", "12", "10", "15"], correct: 1 },
+                    { q: "5 × 0 = ?", options: ["5", "0", "1", "10"], correct: 1 },
+                    { q: "6 × 1 = ?", options: ["1", "6", "7", "0"], correct: 1 },
+                    { q: "3 × 3 = ?", options: ["6", "9", "12", "15"], correct: 1 },
+                    { q: "Ayam memiliki 2 kaki. Jika ada 4 ayam, total kaki ada?", options: ["6", "8", "10", "12"], correct: 1 },
+                    { q: "7 × 2 = ?", options: ["9", "14", "12", "16"], correct: 1 },
+                    { q: "4 × 4 = ?", options: ["8", "16", "12", "20"], correct: 1 }
+                ]
+            },
+            10: {
+                title: "Kuis Segitiga dan Segi Empat",
+                questions: [
+                    { q: "Segitiga memiliki berapa sisi?", options: ["2", "3", "4", "5"], correct: 1 },
+                    { q: "Segi empat memiliki berapa sudut?", options: ["3", "4", "5", "6"], correct: 1 },
+                    { q: "Sudut siku-siku besarnya?", options: ["45°", "90°", "180°", "360°"], correct: 1 },
+                    { q: "Persegi memiliki berapa sudut siku-siku?", options: ["1", "2", "3", "4"], correct: 3 },
+                    { q: "Garis yang tidak bengkok disebut?", options: ["Garis lengkung", "Garis lurus", "Garis patah", "Garis spiral"], correct: 1 },
+                    { q: "Pertemuan dua sisi disebut?", options: ["Titik", "Garis", "Sudut", "Sisi"], correct: 2 },
+                    { q: "Contoh benda berbentuk segitiga adalah?", options: ["Buku", "Atap rumah", "Meja", "Pintu"], correct: 1 },
+                    { q: "Persegi panjang memiliki sisi yang berhadapan?", options: ["Berbeda", "Sama panjang", "Lebih pendek", "Lebih panjang"], correct: 1 },
+                    { q: "Segitiga siku-siku memiliki berapa sudut siku-siku?", options: ["0", "1", "2", "3"], correct: 1 },
+                    { q: "Bangun datar dibatasi oleh?", options: ["Titik", "Sisi", "Sudut", "Warna"], correct: 1 }
+                ]
+            }
+        };
+
+        function showMenu() {
+            document.getElementById('menuMateri').classList.remove('hidden');
+            document.getElementById('materi7').classList.add('hidden');
+            document.getElementById('materi8').classList.add('hidden');
+            document.getElementById('materi9').classList.add('hidden');
+            document.getElementById('materi10').classList.add('hidden');
+            document.getElementById('quizSection').classList.add('hidden');
+        }
+
+        function showMateri(num) {
+            // Hide all sections first
+            document.getElementById('menuMateri').classList.add('hidden');
+            document.getElementById('materi7').classList.add('hidden');
+            document.getElementById('materi8').classList.add('hidden');
+            document.getElementById('materi9').classList.add('hidden');
+            document.getElementById('materi10').classList.add('hidden');
+            document.getElementById('quizSection').classList.add('hidden');
+            
+            // Show only the selected material
+            document.getElementById('materi' + num).classList.remove('hidden');
+            currentMateri = num;
+        }
+
+        function startQuiz(materiNum) {
+            currentMateri = materiNum;
+            quizData = quizzes[materiNum];
+            currentQuizQuestion = 0;
+            score = 0;
+            
+            document.getElementById('materi' + materiNum).classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('quizTitle').textContent = quizData.title;
+            document.getElementById('totalQuestions').textContent = quizData.questions.length;
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('questionContainer').classList.remove('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizData.questions[currentQuizQuestion];
+            document.getElementById('currentQuestion').textContent = currentQuizQuestion + 1;
+            document.getElementById('questionText').textContent = question.q;
+            document.getElementById('progressBar').style.width = ((currentQuizQuestion + 1) / quizData.questions.length * 100) + '%';
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'w-full p-3 text-left bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-200';
+                button.textContent = option;
+                button.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(selectedIndex) {
+            const question = quizData.questions[currentQuizQuestion];
+            const buttons = document.querySelectorAll('#optionsContainer button');
+            
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === question.correct) {
+                    button.className = 'w-full p-3 text-left rounded-lg quiz-correct text-white';
+                } else if (index === selectedIndex && index !== question.correct) {
+                    button.className = 'w-full p-3 text-left rounded-lg quiz-wrong text-white';
+                }
+            });
+            
+            if (selectedIndex === question.correct) {
+                score++;
+            }
+            
+            setTimeout(() => {
+                currentQuizQuestion++;
+                if (currentQuizQuestion < quizData.questions.length) {
+                    showQuestion();
+                } else {
+                    showQuizResult();
+                }
+            }, 1500);
+        }
+
+        function showQuizResult() {
+            document.getElementById('questionContainer').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            
+            const percentage = Math.round((score / quizData.questions.length) * 100);
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const encouragement = document.getElementById('encouragement');
+            
+            scoreCircle.textContent = score + '/' + quizData.questions.length;
+            scoreText.textContent = `Skor kamu: ${percentage}%`;
+            
+            if (percentage >= 80) {
+                scoreCircle.className = 'w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4 quiz-correct';
+                encouragement.textContent = 'Hebat sekali! Kamu sangat pintar! 🌟';
+            } else if (percentage >= 60) {
+                scoreCircle.className = 'w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4 bg-yellow-500';
+                encouragement.textContent = 'Bagus! Terus belajar ya! 📚';
+            } else {
+                scoreCircle.className = 'w-24 h-24 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-4 quiz-wrong';
+                encouragement.textContent = 'Jangan menyerah! Coba lagi ya! 💪';
+            }
+        }
+
+        function restartQuiz() {
+            startQuiz(currentMateri);
+        }
+
+        function backToMateri() {
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('materi' + currentMateri).classList.remove('hidden');
+        }
+
+        // Fungsi untuk demonstrasi bangun datar
+        let currentShapePractice = {};
+
+        function showShapeDemo(type) {
+            const demo = document.getElementById('shapeDemo');
+            const shapePractice = document.getElementById('shapePractice');
+            
+            shapePractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'elements') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Unsur-unsur Bangun Datar</h4>
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-orange-800 mb-3">🔍 Bagian-bagian Bangun Datar</h5>
+                            
+                            <div class="bg-white p-4 rounded border mb-3">
+                                <div class="flex justify-center mb-4">
+                                    <svg width="120" height="100" viewBox="0 0 120 100" class="border border-gray-300 rounded">
+                                        <!-- Segitiga -->
+                                        <polygon points="60,20 20,80 100,80" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+                                        <!-- Label titik sudut -->
+                                        <circle cx="60" cy="20" r="3" fill="#dc2626"/>
+                                        <circle cx="20" cy="80" r="3" fill="#dc2626"/>
+                                        <circle cx="100" cy="80" r="3" fill="#dc2626"/>
+                                        <!-- Label sisi -->
+                                        <text x="35" y="55" font-size="10" fill="#1f2937">Sisi</text>
+                                        <text x="80" y="55" font-size="10" fill="#1f2937">Sisi</text>
+                                        <text x="55" y="95" font-size="10" fill="#1f2937">Sisi</text>
+                                        <!-- Label sudut -->
+                                        <text x="55" y="15" font-size="8" fill="#dc2626">Sudut</text>
+                                    </svg>
+                                </div>
+                                <div class="text-xs space-y-2">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded mr-2"></div>
+                                        <span><strong>Sisi:</strong> Garis yang membatasi bangun</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-red-600 rounded-full mr-2"></div>
+                                        <span><strong>Titik Sudut:</strong> Ujung pertemuan sisi</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-1 bg-gray-700 mr-2"></div>
+                                        <span><strong>Sudut:</strong> Pertemuan dua sisi</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-white p-3 rounded border text-center">
+                                    <div class="text-2xl mb-2">📐</div>
+                                    <p class="text-xs font-semibold text-orange-800">GARIS LURUS</p>
+                                    <p class="text-xs text-orange-600">Tidak bengkok</p>
+                                </div>
+                                <div class="bg-white p-3 rounded border text-center">
+                                    <div class="text-2xl mb-2">📏</div>
+                                    <p class="text-xs font-semibold text-orange-800">SISI</p>
+                                    <p class="text-xs text-orange-600">Pembatas bangun</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startShapePractice('elements')" class="w-full mt-3 bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                        Latihan Mengenal Unsur
+                    </button>
+                `;
+            } else if (type === 'triangle') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Segitiga</h4>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-red-800 mb-3">🔺 Mengenal Segitiga</h5>
+                            
+                            <div class="bg-white p-4 rounded border mb-3">
+                                <div class="flex justify-center space-x-6 mb-4">
+                                    <div class="text-center">
+                                        <svg width="80" height="70" viewBox="0 0 80 70">
+                                            <polygon points="40,10 15,60 65,60" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+                                        </svg>
+                                        <p class="text-xs mt-1 text-red-700">Segitiga Biasa</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <svg width="80" height="70" viewBox="0 0 80 70">
+                                            <polygon points="15,10 15,60 65,60" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+                                            <rect x="10" y="55" width="10" height="10" fill="none" stroke="#2563eb" stroke-width="1"/>
+                                        </svg>
+                                        <p class="text-xs mt-1 text-blue-700">Segitiga Siku-siku</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-xs space-y-2">
+                                    <p><strong>Ciri-ciri Segitiga:</strong></p>
+                                    <p>• Memiliki 3 sisi</p>
+                                    <p>• Memiliki 3 sudut</p>
+                                    <p>• Memiliki 3 titik sudut</p>
+                                    <p>• Segitiga siku-siku memiliki 1 sudut 90°</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-sm font-semibold text-red-800 mb-2">Contoh Benda Segitiga:</p>
+                                <div class="grid grid-cols-4 gap-2 text-center">
+                                    <div>
+                                        <div class="text-2xl">🏠</div>
+                                        <p class="text-xs">Atap</p>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl">📐</div>
+                                        <p class="text-xs">Penggaris</p>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl">🎪</div>
+                                        <p class="text-xs">Tenda</p>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl">🍕</div>
+                                        <p class="text-xs">Pizza</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startShapePractice('triangle')" class="w-full mt-3 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                        Latihan Segitiga
+                    </button>
+                `;
+            } else if (type === 'rectangle') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Segi Empat</h4>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-blue-800 mb-3">⬜ Mengenal Segi Empat</h5>
+                            
+                            <div class="bg-white p-4 rounded border mb-3">
+                                <div class="flex justify-center space-x-6 mb-4">
+                                    <div class="text-center">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <rect x="10" y="10" width="40" height="40" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+                                        </svg>
+                                        <p class="text-xs mt-1 text-blue-700">Persegi</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <svg width="80" height="60" viewBox="0 0 80 60">
+                                            <rect x="10" y="15" width="60" height="30" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+                                        </svg>
+                                        <p class="text-xs mt-1 text-yellow-700">Persegi Panjang</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-xs space-y-2">
+                                    <p><strong>Ciri-ciri Segi Empat:</strong></p>
+                                    <p>• Memiliki 4 sisi</p>
+                                    <p>• Memiliki 4 sudut</p>
+                                    <p>• Memiliki 4 titik sudut</p>
+                                    <p>• Persegi: semua sisi sama panjang</p>
+                                    <p>• Persegi panjang: sisi berhadapan sama panjang</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-sm font-semibold text-blue-800 mb-2">Contoh Benda Segi Empat:</p>
+                                <div class="grid grid-cols-4 gap-2 text-center">
+                                    <div>
+                                        <div class="text-2xl">📚</div>
+                                        <p class="text-xs">Buku</p>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl">🪟</div>
+                                        <p class="text-xs">Jendela</p>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl">📱</div>
+                                        <p class="text-xs">HP</p>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl">🖼️</div>
+                                        <p class="text-xs">Foto</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startShapePractice('rectangle')" class="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Segi Empat
+                    </button>
+                `;
+            } else if (type === 'angle') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-orange-800 mb-3">Sudut Siku-siku</h4>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-green-800 mb-3">📐 Mengenal Sudut Siku-siku</h5>
+                            
+                            <div class="bg-white p-4 rounded border mb-3">
+                                <div class="flex justify-center mb-4">
+                                    <svg width="120" height="100" viewBox="0 0 120 100">
+                                        <!-- Sudut siku-siku -->
+                                        <line x1="20" y1="80" x2="80" y2="80" stroke="#059669" stroke-width="3"/>
+                                        <line x1="20" y1="80" x2="20" y2="20" stroke="#059669" stroke-width="3"/>
+                                        <!-- Tanda sudut siku-siku -->
+                                        <rect x="15" y="70" width="10" height="10" fill="none" stroke="#059669" stroke-width="2"/>
+                                        <!-- Label -->
+                                        <text x="25" y="50" font-size="12" fill="#059669">90°</text>
+                                        <text x="45" y="95" font-size="10" fill="#1f2937">Sudut Siku-siku</text>
+                                    </svg>
+                                </div>
+                                
+                                <div class="text-xs space-y-2">
+                                    <p><strong>Ciri-ciri Sudut Siku-siku:</strong></p>
+                                    <p>• Besarnya tepat 90 derajat (90°)</p>
+                                    <p>• Berbentuk seperti sudut kotak</p>
+                                    <p>• Dapat diukur dengan penggaris siku-siku</p>
+                                    <p>• Ditandai dengan kotak kecil di sudutnya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded border">
+                                    <p class="text-sm font-semibold text-green-800 mb-2">Bangun dengan Sudut Siku-siku:</p>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="text-center">
+                                            <svg width="50" height="50" viewBox="0 0 50 50">
+                                                <rect x="10" y="10" width="30" height="30" fill="#86efac" stroke="#059669" stroke-width="2"/>
+                                                <rect x="8" y="38" width="6" height="6" fill="none" stroke="#059669" stroke-width="1"/>
+                                            </svg>
+                                            <p class="text-xs mt-1">Persegi: 4 sudut siku-siku</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <svg width="50" height="50" viewBox="0 0 50 50">
+                                                <polygon points="10,10 10,40 40,40" fill="#86efac" stroke="#059669" stroke-width="2"/>
+                                                <rect x="8" y="38" width="4" height="4" fill="none" stroke="#059669" stroke-width="1"/>
+                                            </svg>
+                                            <p class="text-xs mt-1">Segitiga siku-siku: 1 sudut siku-siku</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border">
+                                    <p class="text-sm font-semibold text-green-800 mb-2">Contoh di Sekitar Kita:</p>
+                                    <div class="grid grid-cols-4 gap-2 text-center">
+                                        <div>
+                                            <div class="text-2xl">📐</div>
+                                            <p class="text-xs">Penggaris</p>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl">📱</div>
+                                            <p class="text-xs">Sudut HP</p>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl">🪟</div>
+                                            <p class="text-xs">Sudut Jendela</p>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl">📚</div>
+                                            <p class="text-xs">Sudut Buku</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startShapePractice('angle')" class="w-full mt-3 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                        Latihan Sudut Siku-siku
+                    </button>
+                `;
+            }
+        }
+
+        function startShapePractice(type) {
+            const demo = document.getElementById('shapeDemo');
+            const shapePractice = document.getElementById('shapePractice');
+            const container = document.getElementById('practiceShapeContainer');
+            const steps = document.getElementById('shapeSteps');
+            const input = document.getElementById('shapeInput');
+            const result = document.getElementById('shapeResult');
+            
+            demo.classList.add('hidden');
+            shapePractice.classList.remove('hidden');
+            result.innerHTML = '';
+            
+            if (type === 'elements') {
+                const shapes = [
+                    { name: 'Segitiga', sides: 3, angles: 3, vertices: 3 },
+                    { name: 'Persegi', sides: 4, angles: 4, vertices: 4 },
+                    { name: 'Persegi Panjang', sides: 4, angles: 4, vertices: 4 }
+                ];
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                currentShapePractice = { type: 'elements', shape, question: 'sides' };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-orange-700 mb-3">Perhatikan bangun datar ini:</p>
+                        <div class="text-center p-4 bg-orange-50 rounded-lg">
+                            <div class="text-lg font-bold text-orange-800 mb-2">${shape.name}</div>
+                            ${shape.name === 'Segitiga' ? 
+                                '<svg width="80" height="70" viewBox="0 0 80 70" class="mx-auto"><polygon points="40,10 15,60 65,60" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/></svg>' :
+                                shape.name === 'Persegi' ?
+                                '<svg width="60" height="60" viewBox="0 0 60 60" class="mx-auto"><rect x="10" y="10" width="40" height="40" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/></svg>' :
+                                '<svg width="80" height="60" viewBox="0 0 80 60" class="mx-auto"><rect x="10" y="15" width="60" height="30" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/></svg>'
+                            }
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-orange-50 p-3 rounded-lg text-sm">
+                        <p><strong>Pertanyaan:</strong> ${shape.name} memiliki berapa sisi?</p>
+                        <p>Hitung garis yang membatasi bangun datar!</p>
+                    </div>
+                `;
+                
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-orange-800">Jumlah sisi:</label>
+                        <input type="number" id="shapeAnswer" class="border-2 border-orange-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                        <button onclick="checkShapeAnswer()" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            } else if (type === 'triangle') {
+                const questions = [
+                    { q: 'Segitiga memiliki berapa sisi?', answer: 3 },
+                    { q: 'Segitiga memiliki berapa sudut?', answer: 3 },
+                    { q: 'Segitiga siku-siku memiliki berapa sudut siku-siku?', answer: 1 }
+                ];
+                const question = questions[Math.floor(Math.random() * questions.length)];
+                currentShapePractice = { type: 'triangle', question: question.q, answer: question.answer };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-red-700 mb-3">Jawab pertanyaan tentang segitiga:</p>
+                        <div class="text-center p-4 bg-red-50 rounded-lg">
+                            <svg width="80" height="70" viewBox="0 0 80 70" class="mx-auto mb-2">
+                                <polygon points="40,10 15,60 65,60" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+                            </svg>
+                            <p class="text-sm font-semibold text-red-800">${question.q}</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg text-sm">
+                        <p><strong>Tips:</strong> Perhatikan gambar segitiga di atas!</p>
+                        <p>Hitung dengan teliti sesuai pertanyaan.</p>
+                    </div>
+                `;
+                
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-red-800">Jawaban:</label>
+                        <input type="number" id="shapeAnswer" class="border-2 border-red-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                        <button onclick="checkShapeAnswer()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            } else if (type === 'rectangle') {
+                const shapes = ['Persegi', 'Persegi Panjang'];
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                currentShapePractice = { type: 'rectangle', shape, answer: 4 };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-blue-700 mb-3">Berapa sudut siku-siku yang dimiliki ${shape}?</p>
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            ${shape === 'Persegi' ?
+                                '<svg width="60" height="60" viewBox="0 0 60 60" class="mx-auto mb-2"><rect x="10" y="10" width="40" height="40" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/><rect x="8" y="48" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/><rect x="48" y="48" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/><rect x="8" y="8" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/><rect x="48" y="8" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/></svg>' :
+                                '<svg width="80" height="60" viewBox="0 0 80 60" class="mx-auto mb-2"><rect x="10" y="15" width="60" height="30" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/><rect x="8" y="43" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/><rect x="68" y="43" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/><rect x="8" y="13" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/><rect x="68" y="13" width="4" height="4" fill="none" stroke="#2563eb" stroke-width="1"/></svg>'
+                            }
+                            <p class="text-sm font-semibold text-blue-800">${shape}</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-blue-50 p-3 rounded-lg text-sm">
+                        <p><strong>Petunjuk:</strong> Lihat kotak kecil di setiap sudut!</p>
+                        <p>Kotak kecil menandakan sudut siku-siku (90°).</p>
+                    </div>
+                `;
+                
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-blue-800">Jumlah sudut siku-siku:</label>
+                        <input type="number" id="shapeAnswer" class="border-2 border-blue-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                        <button onclick="checkShapeAnswer()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            } else if (type === 'angle') {
+                const items = [
+                    { name: 'Persegi', angles: 4 },
+                    { name: 'Persegi Panjang', angles: 4 },
+                    { name: 'Segitiga Siku-siku', angles: 1 }
+                ];
+                const item = items[Math.floor(Math.random() * items.length)];
+                currentShapePractice = { type: 'angle', item, answer: item.angles };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-green-700 mb-3">${item.name} memiliki berapa sudut siku-siku?</p>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            ${item.name === 'Persegi' ?
+                                '<svg width="60" height="60" viewBox="0 0 60 60" class="mx-auto mb-2"><rect x="15" y="15" width="30" height="30" fill="#86efac" stroke="#059669" stroke-width="2"/><rect x="13" y="43" width="4" height="4" fill="none" stroke="#059669" stroke-width="1"/></svg>' :
+                                item.name === 'Persegi Panjang' ?
+                                '<svg width="80" height="60" viewBox="0 0 80 60" class="mx-auto mb-2"><rect x="15" y="20" width="50" height="20" fill="#86efac" stroke="#059669" stroke-width="2"/><rect x="13" y="38" width="4" height="4" fill="none" stroke="#059669" stroke-width="1"/></svg>' :
+                                '<svg width="70" height="60" viewBox="0 0 70 60" class="mx-auto mb-2"><polygon points="15,15 15,45 55,45" fill="#86efac" stroke="#059669" stroke-width="2"/><rect x="13" y="43" width="4" height="4" fill="none" stroke="#059669" stroke-width="1"/></svg>'
+                            }
+                            <p class="text-sm font-semibold text-green-800">${item.name}</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg text-sm">
+                        <p><strong>Ingat:</strong> Sudut siku-siku = 90°</p>
+                        <p>Ditandai dengan kotak kecil di sudutnya.</p>
+                    </div>
+                `;
+                
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-green-800">Jumlah sudut siku-siku:</label>
+                        <input type="number" id="shapeAnswer" class="border-2 border-green-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                        <button onclick="checkShapeAnswer()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function checkShapeAnswer() {
+            const resultDiv = document.getElementById('shapeResult');
+            const inputAnswer = parseInt(document.getElementById('shapeAnswer').value);
+            
+            if (isNaN(inputAnswer)) {
+                resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                return;
+            }
+            
+            const correctAnswer = currentShapePractice.answer || currentShapePractice.shape?.sides;
+            const isCorrect = inputAnswer === correctAnswer;
+            
+            if (isCorrect) {
+                let explanation = '';
+                if (currentShapePractice.type === 'elements') {
+                    explanation = `${currentShapePractice.shape.name} memiliki ${correctAnswer} sisi`;
+                } else if (currentShapePractice.type === 'triangle') {
+                    explanation = `Benar! ${currentShapePractice.question.replace('?', '')} adalah ${correctAnswer}`;
+                } else if (currentShapePractice.type === 'rectangle') {
+                    explanation = `${currentShapePractice.shape} memiliki ${correctAnswer} sudut siku-siku`;
+                } else if (currentShapePractice.type === 'angle') {
+                    explanation = `${currentShapePractice.item.name} memiliki ${correctAnswer} sudut siku-siku`;
+                }
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                        <span class="text-green-600 font-medium">🎉 Benar! ${explanation}</span>
+                        <button onclick="startShapePractice('${currentShapePractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                            Soal Baru
+                        </button>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                        <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${correctAnswer}</span>
+                        <button onclick="startShapePractice('${currentShapePractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                            Coba Lagi
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi untuk demonstrasi tabel dan grafik (existing functions)
+        let currentTablePractice = {};
+        let currentVolumePractice = {};
+        let currentMultiplyPractice = {};
+
+        function showTableDemo(type) {
+            const demo = document.getElementById('tableDemo');
+            const tablePractice = document.getElementById('tablePractice');
+            
+            tablePractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'table') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-indigo-800 mb-3">Membuat Tabel Data</h4>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-blue-800 mb-3">📋 Contoh Tabel: Buah Kesukaan</h5>
+                            <div class="bg-white p-3 rounded border overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead>
+                                        <tr class="bg-blue-100">
+                                            <th class="border border-blue-300 p-2 text-left">Nama Buah</th>
+                                            <th class="border border-blue-300 p-2 text-center">Jumlah Siswa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-blue-300 p-2">🍎 Apel</td>
+                                            <td class="border border-blue-300 p-2 text-center">8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-blue-300 p-2">🍌 Pisang</td>
+                                            <td class="border border-blue-300 p-2 text-center">12</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-blue-300 p-2">🍊 Jeruk</td>
+                                            <td class="border border-blue-300 p-2 text-center">6</td>
+                                        </tr>
+                                        <tr class="bg-blue-50">
+                                            <td class="border border-blue-300 p-2 font-bold">Total</td>
+                                            <td class="border border-blue-300 p-2 text-center font-bold">26</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-xs text-blue-600 mt-3 space-y-1">
+                                <p><strong>Bagian tabel:</strong></p>
+                                <p>• Judul: menjelaskan isi tabel</p>
+                                <p>• Kolom: bagian vertikal (atas-bawah)</p>
+                                <p>• Baris: bagian horizontal (kiri-kanan)</p>
+                                <p>• Data: informasi dalam setiap kotak</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startTablePractice('table')" class="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Membuat Tabel
+                    </button>
+                `;
+            } else if (type === 'chart') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-indigo-800 mb-3">Grafik Batang</h4>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-green-800 mb-3">📊 Contoh Grafik: Hewan Peliharaan</h5>
+                            <div class="bg-white p-4 rounded border">
+                                <div class="flex items-end justify-center space-x-4 h-32 mb-3">
+                                    <div class="flex flex-col items-center">
+                                        <div class="bg-red-500 w-8 flex items-end justify-center text-white text-xs font-bold" style="height: 60px;">6</div>
+                                        <span class="text-xs mt-1">🐱 Kucing</span>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="bg-blue-500 w-8 flex items-end justify-center text-white text-xs font-bold" style="height: 80px;">8</div>
+                                        <span class="text-xs mt-1">🐶 Anjing</span>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="bg-yellow-500 w-8 flex items-end justify-center text-white text-xs font-bold" style="height: 40px;">4</div>
+                                        <span class="text-xs mt-1">🐦 Burung</span>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="bg-green-500 w-8 flex items-end justify-center text-white text-xs font-bold" style="height: 20px;">2</div>
+                                        <span class="text-xs mt-1">🐠 Ikan</span>
+                                    </div>
+                                </div>
+                                <div class="text-center text-sm font-semibold text-green-800">Jumlah Hewan Peliharaan</div>
+                            </div>
+                            <div class="text-xs text-green-600 mt-3 space-y-1">
+                                <p><strong>Cara membaca grafik:</strong></p>
+                                <p>• Tinggi batang = jumlah data</p>
+                                <p>• Anjing paling banyak (8 ekor)</p>
+                                <p>• Ikan paling sedikit (2 ekor)</p>
+                                <p>• Total: 6+8+4+2 = 20 hewan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startTablePractice('chart')" class="w-full mt-3 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors text-sm">
+                        Latihan Membaca Grafik
+                    </button>
+                `;
+            }
+        }
+
+        function startTablePractice(type) {
+            const demo = document.getElementById('tableDemo');
+            const tablePractice = document.getElementById('tablePractice');
+            const container = document.getElementById('practiceTableContainer');
+            const steps = document.getElementById('tableSteps');
+            const input = document.getElementById('tableInput');
+            const result = document.getElementById('tableResult');
+            
+            demo.classList.add('hidden');
+            tablePractice.classList.remove('hidden');
+            result.innerHTML = '';
+            
+            if (type === 'table') {
+                const subjects = ['Matematika', 'Bahasa Indonesia', 'IPA', 'IPS'];
+                const scores = subjects.map(() => Math.floor(Math.random() * 30) + 70);
+                currentTablePractice = { type: 'table', subjects, scores, total: scores.reduce((a, b) => a + b, 0) };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-indigo-700 mb-3">Lengkapi tabel nilai Ani:</p>
+                        <table class="w-full text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-indigo-100">
+                                    <th class="border border-indigo-300 p-2 text-left">Mata Pelajaran</th>
+                                    <th class="border border-indigo-300 p-2 text-center">Nilai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${subjects.map((subject, i) => `
+                                    <tr>
+                                        <td class="border border-indigo-300 p-2">${subject}</td>
+                                        <td class="border border-indigo-300 p-2 text-center">${scores[i]}</td>
+                                    </tr>
+                                `).join('')}
+                                <tr class="bg-indigo-50">
+                                    <td class="border border-indigo-300 p-2 font-bold">Total Nilai</td>
+                                    <td class="border border-indigo-300 p-2 text-center font-bold">?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-indigo-50 p-3 rounded-lg text-sm">
+                        <p><strong>Cara menghitung total:</strong></p>
+                        <p>Jumlahkan semua nilai: ${scores[0]} + ${scores[1]} + ${scores[2]} + ${scores[3]} = ?</p>
+                    </div>
+                `;
+                
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-indigo-800">Total Nilai:</label>
+                        <input type="number" id="tableAnswer" class="border-2 border-indigo-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                        <button onclick="checkTableAnswer()" class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function checkTableAnswer(userAnswer) {
+            const resultDiv = document.getElementById('tableResult');
+            
+            if (currentTablePractice.type === 'chart') {
+                const isCorrect = userAnswer === currentTablePractice.answer;
+                
+                if (isCorrect) {
+                    resultDiv.innerHTML = `
+                        <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                            <span class="text-green-600 font-medium">🎉 Benar! ${currentTablePractice.answer} memang yang paling disukai</span>
+                            <button onclick="startTablePractice('${currentTablePractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                                Soal Baru
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                            <span class="text-red-600 font-medium">Belum benar. ${currentTablePractice.answer} yang paling disukai</span>
+                            <button onclick="startTablePractice('${currentTablePractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                                Coba Lagi
+                            </button>
+                        </div>
+                    `;
+                }
+            } else {
+                const inputAnswer = parseInt(document.getElementById('tableAnswer').value);
+                
+                if (isNaN(inputAnswer)) {
+                    resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                    return;
+                }
+                
+                const correctAnswer = currentTablePractice.total;
+                const isCorrect = inputAnswer === correctAnswer;
+                
+                if (isCorrect) {
+                    resultDiv.innerHTML = `
+                        <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                            <span class="text-green-600 font-medium">🎉 Benar! Total nilai adalah ${correctAnswer}</span>
+                            <button onclick="startTablePractice('${currentTablePractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                                Soal Baru
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                            <span class="text-red-600 font-medium">Belum benar. Total nilai yang tepat adalah ${correctAnswer}</span>
+                            <button onclick="startTablePractice('${currentTablePractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                                Coba Lagi
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Fungsi untuk demonstrasi perkalian (existing functions)
+        function showMultiplyDemo(type) {
+            const demo = document.getElementById('multiplyDemo');
+            const multiplyPractice = document.getElementById('multiplyPractice');
+            
+            multiplyPractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'concept') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-purple-800 mb-3">Konsep Perkalian</h4>
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-purple-800 mb-3">🔢 Perkalian = Penjumlahan Berulang</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded border">
+                                    <p class="font-semibold text-purple-700 mb-2">Contoh: 3 × 4</p>
+                                    <div class="text-sm space-y-1">
+                                        <p class="text-purple-600">Cara 1: 3 + 3 + 3 + 3 = 12</p>
+                                        <p class="text-purple-600">Cara 2: 4 + 4 + 4 = 12</p>
+                                        <p class="text-purple-600">Jadi: 3 × 4 = 12</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border">
+                                    <p class="font-semibold text-purple-700 mb-2">Visualisasi dengan Titik:</p>
+                                    <div class="text-center">
+                                        <div class="grid grid-cols-4 gap-1 w-fit mx-auto mb-2">
+                                            ${Array(12).fill('•').map(() => '<div class="w-4 h-4 bg-purple-400 rounded-full"></div>').join('')}
+                                        </div>
+                                        <p class="text-xs text-purple-600">3 baris × 4 kolom = 12 titik</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border">
+                                    <p class="font-semibold text-purple-700 mb-2">Sifat Komutatif:</p>
+                                    <div class="text-sm text-purple-600">
+                                        <p>3 × 4 = 4 × 3 = 12</p>
+                                        <p class="text-xs mt-1">Urutan tidak mengubah hasil!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startMultiplyPractice('concept')" class="w-full mt-3 bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                        Latihan Konsep Perkalian
+                    </button>
+                `;
+            }
+        }
+
+        function startMultiplyPractice(type) {
+            const demo = document.getElementById('multiplyDemo');
+            const multiplyPractice = document.getElementById('multiplyPractice');
+            const container = document.getElementById('practiceMultiplyContainer');
+            const steps = document.getElementById('multiplySteps');
+            const input = document.getElementById('multiplyInput');
+            const result = document.getElementById('multiplyResult');
+            
+            demo.classList.add('hidden');
+            multiplyPractice.classList.remove('hidden');
+            result.innerHTML = '';
+            
+            if (type === 'concept') {
+                const a = Math.floor(Math.random() * 4) + 2;
+                const b = Math.floor(Math.random() * 4) + 2;
+                currentMultiplyPractice = { type: 'concept', a, b, answer: a * b };
+                
+                container.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg border">
+                        <p class="text-sm text-purple-700 mb-3">Hitung hasil perkalian ini:</p>
+                        <div class="text-center p-4 bg-purple-50 rounded-lg">
+                            <p class="text-2xl font-bold text-purple-800">${a} × ${b} = ?</p>
+                        </div>
+                    </div>
+                `;
+                
+                steps.innerHTML = `
+                    <div class="bg-purple-50 p-3 rounded-lg text-sm">
+                        <p><strong>Cara menghitung:</strong></p>
+                        <p>${a} × ${b} = ${Array(a).fill(`${b}`).join(' + ')} = ?</p>
+                        <p>Atau: ${Array(b).fill(`${a}`).join(' + ')} = ?</p>
+                    </div>
+                `;
+                
+                input.innerHTML = `
+                    <div class="flex items-center justify-center gap-3">
+                        <label class="text-sm font-medium text-purple-800">Jawaban:</label>
+                        <input type="number" id="multiplyAnswer" class="border-2 border-purple-300 rounded-lg px-3 py-2 w-24 text-center" placeholder="?">
+                        <button onclick="checkMultiplyAnswer()" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm">
+                            Periksa
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function checkMultiplyAnswer() {
+            const resultDiv = document.getElementById('multiplyResult');
+            const inputAnswer = parseInt(document.getElementById('multiplyAnswer').value);
+            
+            if (isNaN(inputAnswer)) {
+                resultDiv.innerHTML = '<span class="text-orange-600">Masukkan jawaban terlebih dahulu!</span>';
+                return;
+            }
+            
+            const correctAnswer = currentMultiplyPractice.answer;
+            const isCorrect = inputAnswer === correctAnswer;
+            
+            if (isCorrect) {
+                let explanation = `${currentMultiplyPractice.a} × ${currentMultiplyPractice.b} = ${correctAnswer}`;
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                        <span class="text-green-600 font-medium">🎉 Benar! ${explanation}</span>
+                        <button onclick="startMultiplyPractice('${currentMultiplyPractice.type}')" class="ml-3 bg-green-500 text-white px-3 py-1 rounded text-xs hover:bg-green-600 transition-colors">
+                            Soal Baru
+                        </button>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                        <span class="text-red-600 font-medium">Belum benar. Jawaban yang tepat adalah ${correctAnswer}</span>
+                        <button onclick="startMultiplyPractice('${currentMultiplyPractice.type}')" class="ml-3 bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 transition-colors">
+                            Coba Lagi
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi untuk demonstrasi volume air (existing functions)
+        function showVolumeDemo(type) {
+            const demo = document.getElementById('volumeDemo');
+            const volumePractice = document.getElementById('volumePractice');
+            
+            volumePractice.classList.add('hidden');
+            demo.classList.remove('hidden');
+            
+            if (type === 'units') {
+                demo.innerHTML = `
+                    <h4 class="font-semibold text-cyan-800 mb-3">Satuan Volume Air</h4>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-blue-800 mb-3">💧 Mengenal Satuan Volume</h5>
+                            <div class="grid grid-cols-3 gap-3 mb-4">
+                                <div class="bg-white p-3 rounded border text-center">
+                                    <div class="text-2xl mb-2">🥄</div>
+                                    <p class="text-xs font-semibold text-blue-800">MILILITER (ml)</p>
+                                    <p class="text-xs text-blue-600">Satuan terkecil</p>
+                                    <p class="text-xs text-blue-600">Contoh: 5 ml</p>
+                                </div>
+                                <div class="bg-white p-3 rounded border text-center">
+                                    <div class="text-2xl mb-2">☕</div>
+                                    <p class="text-xs font-semibold text-cyan-800">DESILITER (dl)</p>
+                                    <p class="text-xs text-cyan-600">Satuan menengah</p>
+                                    <p class="text-xs text-cyan-600">Contoh: 1 dl</p>
+                                </div>
+                                <div class="bg-white p-3 rounded border text-center">
+                                    <div class="text-2xl mb-2">🍼</div>
+                                    <p class="text-xs font-semibold text-teal-800">LITER (l)</p>
+                                    <p class="text-xs text-teal-600">Satuan terbesar</p>
+                                    <p class="text-xs text-teal-600">Contoh: 1 l</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded border">
+                                <p class="text-sm font-semibold text-blue-800 mb-2">Contoh dalam kehidupan sehari-hari:</p>
+                                <div class="text-xs space-y-1">
+                                    <p>• Sendok teh sirup obat = 5 ml</p>
+                                    <p>• Gelas kecil air = 1 dl = 100 ml</p>
+                                    <p>• Botol air minum = 500 ml = 0,5 l</p>
+                                    <p>• Susu kotak = 1 liter = 1000 ml</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="startVolumePractice('units')" class="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                        Latihan Mengenal Satuan
+                    </button>
+                `;
+            }
+        }
+
+        function startVolumePractice(type) {
+            // Implementation for volume practice
+        }
+
+        function checkVolumeAnswer(userAnswer) {
+            // Implementation for checking volume answers
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'968e5f17779d821c',t:'MTc1NDE0NjA1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
