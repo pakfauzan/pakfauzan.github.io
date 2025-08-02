@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Bahasa Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .quiz-option { transition: all 0.2s ease; }
+        .quiz-option:hover { background-color: #e0f2fe; }
+        .quiz-option.selected { background-color: #81d4fa; color: #01579b; }
+        .quiz-option.correct { background-color: #c8e6c9; color: #2e7d32; }
+        .quiz-option.incorrect { background-color: #ffcdd2; color: #c62828; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 shadow-lg">
+        <div class="max-w-md mx-auto text-center">
+            <h1 class="text-2xl font-bold mb-2">Bahasa Indonesia</h1>
+            <p class="text-blue-100 text-sm">Untuk Kelas 2 - Fase A</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-md mx-auto p-4">
+        <!-- Home Page -->
+        <div id="homePage" class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">Daftar Materi</h2>
+            
+            <!-- Materi 1 -->
+            <div class="bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-pink-200" onclick="showMaterial(1)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">1</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Mengenal Perasaan</h3>
+                        <p class="text-gray-600 text-sm">Belajar tentang berbagai macam perasaan</p>
+                    </div>
+                    <div class="text-pink-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 2 -->
+            <div class="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-green-200" onclick="showMaterial(2)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">2</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Menjaga Kesehatan</h3>
+                        <p class="text-gray-600 text-sm">Belajar cara menjaga tubuh tetap sehat</p>
+                    </div>
+                    <div class="text-green-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 3 -->
+            <div class="bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-orange-200" onclick="showMaterial(3)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">3</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Berhati-hati di mana saja</h3>
+                        <p class="text-gray-600 text-sm">Belajar cara bersikap aman di berbagai tempat</p>
+                    </div>
+                    <div class="text-orange-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 4 -->
+            <div class="bg-gradient-to-r from-indigo-100 to-purple-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-indigo-200" onclick="showMaterial(4)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">4</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Keluargaku Unik</h3>
+                        <p class="text-gray-600 text-sm">Belajar tentang keunikan setiap keluarga</p>
+                    </div>
+                    <div class="text-indigo-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 5 -->
+            <div class="bg-gradient-to-r from-teal-100 to-cyan-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-teal-200" onclick="showMaterial(5)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">5</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Berteman dalam Keragaman</h3>
+                        <p class="text-gray-600 text-sm">Belajar berteman dengan siapa saja</p>
+                    </div>
+                    <div class="text-teal-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 6 -->
+            <div class="bg-gradient-to-r from-emerald-100 to-green-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-emerald-200" onclick="showMaterial(6)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">6</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Sayang Lingkungan</h3>
+                        <p class="text-gray-600 text-sm">Belajar menjaga dan menyayangi lingkungan</p>
+                    </div>
+                    <div class="text-emerald-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 7 -->
+            <div class="bg-gradient-to-r from-rose-100 to-pink-100 rounded-2xl shadow-lg p-6 card-hover cursor-pointer border border-rose-200" onclick="showMaterial(7)">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md">7</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1">Hobi yang Jadi Prestasi</h3>
+                        <p class="text-gray-600 text-sm">Belajar tentang hobi yang bisa menjadi prestasi</p>
+                    </div>
+                    <div class="text-rose-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to Homepage Button -->
+            <div class="mt-8 text-center">
+                <a href="../" class="inline-block bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 border-2 border-gray-500">
+                    <span class="mr-2">🏠</span>
+                    Kembali ke Halaman Utama
+                </a>
+            </div>
+        </div>
+
+        <!-- Material Detail Page -->
+        <div id="materialPage" class="hidden">
+            <button onclick="showHome()" class="mb-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">← Kembali</button>
+            
+            <div id="materialContent"></div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quizPage" class="hidden">
+            <button onclick="showMaterial(currentMaterial)" class="mb-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">← Kembali ke Materi</button>
+            
+            <!-- Quiz Section -->
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Kuis Pembelajaran</h3>
+                <div id="quizContent"></div>
+                <div class="mt-6 flex justify-between items-center">
+                    <button id="prevBtn" onclick="prevQuestion()" class="bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-md transition-all duration-300 transform hover:scale-105">Sebelumnya</button>
+                    <span id="questionCounter" class="text-sm text-gray-600 font-medium bg-gray-100 px-3 py-1 rounded-full"></span>
+                    <button id="nextBtn" onclick="nextQuestion()" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-md transition-all duration-300 transform hover:scale-105">Selanjutnya</button>
+                </div>
+                <div id="quizResult" class="hidden mt-6 p-6 bg-gradient-to-r from-green-100 to-emerald-100 rounded-2xl text-center border border-green-200 shadow-lg">
+                    <h4 class="font-bold text-green-800 text-lg mb-2">🎉 Hasil Kuis</h4>
+                    <p id="scoreText" class="text-green-700 mb-4"></p>
+                    <div class="space-y-3">
+                        <button onclick="restartQuiz()" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-md transition-all duration-300 transform hover:scale-105">🔄 Ulangi Kuis</button>
+                        <button onclick="showMaterial(currentMaterial)" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-md transition-all duration-300 transform hover:scale-105">📚 Kembali ke Materi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentMaterial = 1;
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizStarted = false;
+
+        const materials = {
+            1: {
+                title: "Mengenal Perasaan",
+                objective: "Kalian dapat menceritakan pengalaman tentang berbagai perasaan, menyimpulkan perasaan tokoh cerita, dan mengaitkan pesan cerita dengan pengalaman pribadi",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Apa itu Perasaan?</h4>
+                        <p class="text-gray-700">Perasaan adalah hal yang kita rasakan di dalam hati. Setiap orang memiliki berbagai macam perasaan setiap hari.</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Macam-macam Perasaan:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-yellow-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">😊</div>
+                                <div class="text-lg font-bold text-yellow-600">SENANG</div>
+                                <div class="text-sm text-yellow-500">Bahagia, gembira</div>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">😢</div>
+                                <div class="text-lg font-bold text-blue-600">SEDIH</div>
+                                <div class="text-sm text-blue-500">Kecewa, murung</div>
+                            </div>
+                            <div class="bg-red-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">😠</div>
+                                <div class="text-lg font-bold text-red-600">MARAH</div>
+                                <div class="text-sm text-red-500">Kesal, jengkel</div>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">😨</div>
+                                <div class="text-lg font-bold text-purple-600">TAKUT</div>
+                                <div class="text-sm text-purple-500">Cemas, khawatir</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cerita Pendek: "Hari Pertama Sekolah Ani"</h4>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-800 text-sm leading-relaxed">
+                                Ani bangun pagi dengan perasaan <strong>senang</strong> karena hari ini adalah hari pertama sekolah. 
+                                Mama sudah menyiapkan tas baru yang cantik. Tapi ketika sampai di sekolah, Ani melihat banyak 
+                                anak yang tidak dikenalnya. Ani mulai merasa <strong>takut</strong> dan ingin pulang. 
+                                Untungnya, Bu Guru sangat ramah dan mengajak Ani bermain dengan teman-teman baru. 
+                                Akhirnya Ani merasa <strong>senang</strong> lagi dan punya banyak teman baru.
+                            </p>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Kapan Kita Merasakan Perasaan Ini?</h4>
+                        <div class="space-y-2">
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">😊</span>
+                                <div>
+                                    <strong>SENANG:</strong> Saat bermain, dapat hadiah, bertemu teman
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">😢</span>
+                                <div>
+                                    <strong>SEDIH:</strong> Saat mainan rusak, berpisah dengan teman
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">😠</span>
+                                <div>
+                                    <strong>MARAH:</strong> Saat diganggu, tidak boleh main
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">😨</span>
+                                <div>
+                                    <strong>TAKUT:</strong> Saat gelap, mendengar suara keras
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2">Tips Mengenali Perasaan:</h4>
+                            <ol class="text-orange-700 text-sm space-y-1">
+                                <li>1. Perhatikan ekspresi wajah</li>
+                                <li>2. Dengarkan nada bicara</li>
+                                <li>3. Lihat gerakan tubuh</li>
+                                <li>4. Tanyakan pada diri sendiri: "Apa yang aku rasakan?"</li>
+                            </ol>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Perasaan Ani saat bangun pagi adalah...", options: ["Sedih", "Senang", "Marah", "Takut"], correct: 1 },
+                    { question: "Mengapa Ani merasa takut di sekolah?", options: ["Guru galak", "Tidak ada teman", "Sekolah gelap", "Tas hilang"], correct: 1 },
+                    { question: "Siapa yang membantu Ani merasa senang lagi?", options: ["Mama", "Papa", "Bu Guru", "Teman"], correct: 2 },
+                    { question: "Perasaan apa yang ditunjukkan dengan emoji 😢?", options: ["Senang", "Sedih", "Marah", "Takut"], correct: 1 },
+                    { question: "Kapan kita biasanya merasa senang?", options: ["Saat bermain", "Saat dimarahi", "Saat sakit", "Saat kesepian"], correct: 0 },
+                    { question: "Ekspresi wajah orang marah biasanya...", options: ["Tersenyum", "Menangis", "Cemberut", "Tertawa"], correct: 2 },
+                    { question: "Apa yang harus kita lakukan saat merasa takut?", options: ["Lari", "Berteriak", "Minta bantuan", "Bersembunyi"], correct: 2 },
+                    { question: "Perasaan Ani di akhir cerita adalah...", options: ["Sedih", "Takut", "Senang", "Marah"], correct: 2 },
+                    { question: "Berapa macam perasaan utama yang dipelajari?", options: ["3", "4", "5", "6"], correct: 1 },
+                    { question: "Cara mengenali perasaan orang lain adalah dengan melihat...", options: ["Baju", "Sepatu", "Ekspresi wajah", "Rambut"], correct: 2 }
+                ]
+            },
+            2: {
+                title: "Menjaga Kesehatan",
+                objective: "Kalian dapat membaca kata-kata yang sering ditemui sehari-hari, menuliskan kalimat dengan kombinasi subjek, predikat, dan objek, serta menceritakan sebuah kejadian secara runtut dengan bantuan gambar",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Mengapa Kita Harus Menjaga Kesehatan?</h4>
+                        <p class="text-gray-700">Kesehatan adalah hal yang sangat penting. Dengan tubuh yang sehat, kita bisa bermain, belajar, dan melakukan kegiatan dengan senang.</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Cara Menjaga Kesehatan:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🚿</div>
+                                <div class="text-lg font-bold text-blue-600">MANDI</div>
+                                <div class="text-sm text-blue-500">Bersih dan segar</div>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🥗</div>
+                                <div class="text-lg font-bold text-green-600">MAKAN SEHAT</div>
+                                <div class="text-sm text-green-500">Sayur dan buah</div>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🏃</div>
+                                <div class="text-lg font-bold text-yellow-600">OLAHRAGA</div>
+                                <div class="text-sm text-yellow-500">Tubuh kuat</div>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">😴</div>
+                                <div class="text-lg font-bold text-purple-600">TIDUR CUKUP</div>
+                                <div class="text-sm text-purple-500">Istirahat yang baik</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cerita Bergambar: "Hari Sehat Budi"</h4>
+                        <div class="space-y-3">
+                            <div class="bg-blue-50 p-4 rounded-lg flex items-center space-x-3">
+                                <div class="text-4xl">🌅</div>
+                                <div>
+                                    <div class="font-semibold text-blue-800">Pagi Hari</div>
+                                    <p class="text-blue-700 text-sm"><strong>Budi</strong> bangun pagi. <strong>Budi</strong> mandi dengan <strong>sabun</strong>.</p>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg flex items-center space-x-3">
+                                <div class="text-4xl">🍳</div>
+                                <div>
+                                    <div class="font-semibold text-green-800">Sarapan</div>
+                                    <p class="text-green-700 text-sm"><strong>Mama</strong> memasak <strong>telur</strong>. <strong>Budi</strong> makan <strong>sayuran</strong>.</p>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg flex items-center space-x-3">
+                                <div class="text-4xl">⚽</div>
+                                <div>
+                                    <div class="font-semibold text-yellow-800">Siang Hari</div>
+                                    <p class="text-yellow-700 text-sm"><strong>Budi</strong> bermain <strong>bola</strong>. <strong>Teman-teman</strong> berlari bersama.</p>
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg flex items-center space-x-3">
+                                <div class="text-4xl">🌙</div>
+                                <div>
+                                    <div class="font-semibold text-purple-800">Malam Hari</div>
+                                    <p class="text-purple-700 text-sm"><strong>Budi</strong> tidur <strong>nyenyak</strong>. <strong>Budi</strong> bermimpi indah.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Kata-kata Sehari-hari tentang Kesehatan:</h4>
+                        <div class="grid grid-cols-3 gap-2 text-sm">
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">mandi</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">makan</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">tidur</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">sehat</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">bersih</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">kuat</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">sayur</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">buah</div>
+                            <div class="bg-gray-100 p-2 rounded text-center font-medium">air</div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Contoh Kalimat (Subjek + Predikat + Objek):</h4>
+                        <div class="space-y-2">
+                            <div class="bg-blue-50 p-3 rounded">
+                                <span class="font-bold text-blue-600">Andi</span> 
+                                <span class="font-bold text-green-600">makan</span> 
+                                <span class="font-bold text-orange-600">apel</span>
+                                <div class="text-xs text-gray-600 mt-1">Subjek + Predikat + Objek</div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <span class="font-bold text-blue-600">Sari</span> 
+                                <span class="font-bold text-green-600">minum</span> 
+                                <span class="font-bold text-orange-600">susu</span>
+                                <div class="text-xs text-gray-600 mt-1">Subjek + Predikat + Objek</div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <span class="font-bold text-blue-600">Ibu</span> 
+                                <span class="font-bold text-green-600">memasak</span> 
+                                <span class="font-bold text-orange-600">sayur</span>
+                                <div class="text-xs text-gray-600 mt-1">Subjek + Predikat + Objek</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2">Tips Hidup Sehat:</h4>
+                            <ol class="text-orange-700 text-sm space-y-1">
+                                <li>1. Mandi 2 kali sehari</li>
+                                <li>2. Sikat gigi setelah makan</li>
+                                <li>3. Makan sayur dan buah</li>
+                                <li>4. Minum air putih yang cukup</li>
+                                <li>5. Tidur 8-10 jam sehari</li>
+                                <li>6. Bermain dan berolahraga</li>
+                            </ol>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Apa yang dilakukan Budi di pagi hari?", options: ["Tidur", "Mandi", "Bermain", "Makan"], correct: 1 },
+                    { question: "Siapa yang memasak telur untuk Budi?", options: ["Papa", "Mama", "Kakak", "Nenek"], correct: 1 },
+                    { question: "Apa yang dimakan Budi saat sarapan?", options: ["Permen", "Sayuran", "Kue", "Es krim"], correct: 1 },
+                    { question: "Permainan apa yang dilakukan Budi siang hari?", options: ["Bola", "Boneka", "Puzzle", "Gambar"], correct: 0 },
+                    { question: "Dalam kalimat 'Andi makan apel', kata 'Andi' adalah...", options: ["Predikat", "Subjek", "Objek", "Keterangan"], correct: 1 },
+                    { question: "Dalam kalimat 'Sari minum susu', kata 'minum' adalah...", options: ["Subjek", "Predikat", "Objek", "Keterangan"], correct: 1 },
+                    { question: "Berapa kali kita harus mandi dalam sehari?", options: ["1 kali", "2 kali", "3 kali", "4 kali"], correct: 1 },
+                    { question: "Makanan sehat yang baik untuk tubuh adalah...", options: ["Permen", "Sayur dan buah", "Coklat", "Keripik"], correct: 1 },
+                    { question: "Berapa jam kita harus tidur setiap hari?", options: ["4-5 jam", "6-7 jam", "8-10 jam", "12 jam"], correct: 2 },
+                    { question: "Apa manfaat olahraga untuk tubuh?", options: ["Membuat lelah", "Membuat sakit", "Membuat kuat", "Membuat lapar"], correct: 2 }
+                ]
+            },
+            4: {
+                title: "Keluargaku Unik",
+                objective: "Kalian dapat membedakan informasi yang bersifat fakta dan opini pada cerita, belajar menulis kalimat berisi informasi dengan menggunakan kata kunci sesuai topik, serta dapat menunggu giliran bicara, menanggapi komentar teman, dan bertanya ketika berdiskusi",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Apa itu Keluarga Unik?</h4>
+                        <p class="text-gray-700">Setiap keluarga memiliki keunikan tersendiri. Ada yang besar, ada yang kecil, ada yang tinggal bersama kakek nenek, dan ada yang tidak. Semua keluarga istimewa dengan caranya masing-masing.</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Perbedaan Fakta dan Opini:</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <div class="text-lg font-bold text-blue-600 mb-2">📊 FAKTA</div>
+                                <div class="text-sm text-blue-700 mb-2">Informasi yang benar dan dapat dibuktikan</div>
+                                <div class="space-y-1 text-sm">
+                                    <div>• Keluarga Andi terdiri dari 5 orang</div>
+                                    <div>• Papa bekerja sebagai guru</div>
+                                    <div>• Rumah kami berwarna putih</div>
+                                    <div>• Adik berusia 4 tahun</div>
+                                </div>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <div class="text-lg font-bold text-green-600 mb-2">💭 OPINI</div>
+                                <div class="text-sm text-green-700 mb-2">Pendapat atau perasaan seseorang</div>
+                                <div class="space-y-1 text-sm">
+                                    <div>• Keluarga kami paling bahagia</div>
+                                    <div>• Papa adalah yang terbaik</div>
+                                    <div>• Rumah kami sangat indah</div>
+                                    <div>• Adik sangat lucu</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cerita: "Keluarga Besar Sari"</h4>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <p class="text-yellow-800 text-sm leading-relaxed mb-3">
+                                Sari tinggal bersama Papa, Mama, Kakek, Nenek, dan dua adiknya. <span class="bg-blue-200 px-1 rounded">Keluarga Sari terdiri dari 7 orang.</span> Rumah mereka memiliki halaman yang luas dengan pohon mangga. <span class="bg-blue-200 px-1 rounded">Di halaman ada 3 pohon mangga.</span>
+                            </p>
+                            <p class="text-yellow-800 text-sm leading-relaxed mb-3">
+                                Setiap pagi, Kakek bercerita tentang masa lalu. <span class="bg-green-200 px-1 rounded">Menurut Sari, cerita Kakek sangat menarik.</span> Nenek pandai memasak kue tradisional. <span class="bg-blue-200 px-1 rounded">Nenek membuat kue setiap hari Minggu.</span> <span class="bg-green-200 px-1 rounded">Sari pikir kue Nenek paling enak di dunia.</span>
+                            </p>
+                            <p class="text-yellow-800 text-sm leading-relaxed">
+                                Adik-adik Sari suka bermain di halaman. <span class="bg-blue-200 px-1 rounded">Adik pertama berusia 6 tahun, adik kedua berusia 3 tahun.</span> <span class="bg-green-200 px-1 rounded">Sari merasa keluarganya paling hebat.</span>
+                            </p>
+                            <div class="mt-3 text-xs text-yellow-600">
+                                <div>🔵 Biru = Fakta | 🟢 Hijau = Opini</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Menulis Kalimat dengan Kata Kunci:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-purple-800 mb-2">Topik: Anggota Keluarga</h5>
+                                <div class="text-sm space-y-1">
+                                    <div><strong>Kata kunci:</strong> Papa, Mama, kakak, adik, kakek, nenek</div>
+                                    <div><strong>Contoh kalimat:</strong></div>
+                                    <div>• <strong>Papa</strong> saya bekerja di kantor setiap hari.</div>
+                                    <div>• <strong>Mama</strong> memasak makanan lezat untuk keluarga.</div>
+                                    <div>• <strong>Kakak</strong> membantu saya mengerjakan PR.</div>
+                                </div>
+                            </div>
+                            <div class="bg-pink-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-pink-800 mb-2">Topik: Kegiatan Keluarga</h5>
+                                <div class="text-sm space-y-1">
+                                    <div><strong>Kata kunci:</strong> makan bersama, bermain, berlibur, belajar</div>
+                                    <div><strong>Contoh kalimat:</strong></div>
+                                    <div>• Keluarga kami <strong>makan bersama</strong> setiap malam.</div>
+                                    <div>• Kami suka <strong>bermain</strong> di taman pada sore hari.</div>
+                                    <div>• Setiap libur, kami <strong>berlibur</strong> ke rumah nenek.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Aturan Berdiskusi yang Baik:</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="bg-blue-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">✋</span>
+                                <div>
+                                    <strong>Menunggu Giliran:</strong> Angkat tangan sebelum bicara, tunggu sampai dipanggil
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">👂</span>
+                                <div>
+                                    <strong>Mendengarkan:</strong> Perhatikan saat teman bicara, jangan memotong pembicaraan
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">💬</span>
+                                <div>
+                                    <strong>Menanggapi:</strong> "Saya setuju dengan...", "Menurut saya...", "Saya ingin menambahkan..."
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">❓</span>
+                                <div>
+                                    <strong>Bertanya:</strong> "Boleh saya bertanya?", "Apa maksud dari...?", "Bisakah dijelaskan lagi?"
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Contoh Diskusi Kelas:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                    <strong>Guru:</strong> "Siapa yang mau bercerita tentang keluarganya?"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                    <strong>Andi:</strong> *mengangkat tangan* "Bu, saya mau bercerita!"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-yellow-500">
+                                    <strong>Sari:</strong> "Saya setuju dengan Andi. Keluarga memang istimewa. Boleh saya bertanya, Andi? Berapa orang anggota keluargamu?"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-purple-500">
+                                    <strong>Budi:</strong> "Menurut saya, setiap keluarga punya keunikan. Saya ingin menambahkan, keluarga saya suka berkebun bersama."
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Jenis-jenis Keluarga:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-red-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">👨‍👩‍👧‍👦</div>
+                                <div class="text-lg font-bold text-red-600">KELUARGA INTI</div>
+                                <div class="text-sm text-red-500">Papa, Mama, Anak</div>
+                            </div>
+                            <div class="bg-orange-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">👨‍👩‍👧‍👦👴👵</div>
+                                <div class="text-lg font-bold text-orange-600">KELUARGA BESAR</div>
+                                <div class="text-sm text-orange-500">Dengan kakek, nenek, paman, bibi</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2">Tips Menjadi Anggota Keluarga yang Baik:</h4>
+                            <ol class="text-indigo-700 text-sm space-y-1">
+                                <li>1. Saling menyayangi dan menghormati</li>
+                                <li>2. Membantu pekerjaan rumah sesuai kemampuan</li>
+                                <li>3. Bercerita tentang kegiatan di sekolah</li>
+                                <li>4. Mendengarkan nasihat orang tua</li>
+                                <li>5. Bermain dan belajar bersama</li>
+                                <li>6. Menjaga keharmonisan keluarga</li>
+                            </ol>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Manakah yang termasuk FAKTA tentang keluarga Sari?", options: ["Keluarga Sari paling hebat", "Keluarga Sari terdiri dari 7 orang", "Cerita Kakek sangat menarik", "Kue Nenek paling enak"], correct: 1 },
+                    { question: "Manakah yang termasuk OPINI dalam cerita?", options: ["Di halaman ada 3 pohon mangga", "Nenek membuat kue setiap Minggu", "Sari merasa keluarganya paling hebat", "Adik pertama berusia 6 tahun"], correct: 2 },
+                    { question: "Kata kunci yang tepat untuk topik 'Anggota Keluarga' adalah...", options: ["makan, minum, tidur", "Papa, Mama, kakak, adik", "rumah, sekolah, pasar", "senang, sedih, marah"], correct: 1 },
+                    { question: "Cara yang benar saat ingin berbicara dalam diskusi adalah...", options: ["Langsung bicara", "Berteriak keras", "Mengangkat tangan dulu", "Memotong pembicaraan teman"], correct: 2 },
+                    { question: "Contoh kalimat menanggapi dalam diskusi yang baik adalah...", options: ["Kamu salah!", "Saya setuju dengan pendapat Andi", "Diam saja!", "Tidak mau dengar"], correct: 1 },
+                    { question: "Yang termasuk keluarga inti adalah...", options: ["Papa, Mama, anak", "Papa, Mama, anak, kakek, nenek", "Hanya Papa dan Mama", "Semua saudara"], correct: 0 },
+                    { question: "Cara bertanya yang sopan dalam diskusi adalah...", options: ["Apa sih maksudmu?", "Boleh saya bertanya?", "Kamu tidak tahu ya?", "Salah semua!"], correct: 1 },
+                    { question: "Manakah yang merupakan FAKTA?", options: ["Mama paling cantik", "Papa paling pintar", "Adik berusia 4 tahun", "Rumah kami paling bagus"], correct: 2 },
+                    { question: "Saat teman sedang bercerita, kita harus...", options: ["Berbicara juga", "Mendengarkan dengan baik", "Bermain sendiri", "Keluar kelas"], correct: 1 },
+                    { question: "Keluarga besar adalah keluarga yang...", options: ["Hanya terdiri dari 2 orang", "Tinggal dengan kakek nenek juga", "Tidak ada anak", "Hanya ada Papa"], correct: 1 }
+                ]
+            },
+            5: {
+                title: "Berteman dalam Keragaman",
+                objective: "Kalian dapat menuliskan kalimat dengan menggunakan tanda koma dan dapat mengelompokkan kata kunci dari bacaan pada pengatur grafis sederhana",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Apa itu Keragaman?</h4>
+                        <p class="text-gray-700">Keragaman berarti perbedaan. Di sekitar kita ada teman-teman yang berbeda suku, agama, warna kulit, dan kebiasaan. Semua perbedaan ini membuat dunia menjadi indah dan menarik.</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Penggunaan Tanda Koma (,) dalam Kalimat:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-blue-800 mb-2">1. Memisahkan kata dalam daftar:</h5>
+                                <div class="space-y-1 text-sm">
+                                    <div>• Di kelas ada Andi<strong>,</strong> Sari<strong>,</strong> Budi<strong>,</strong> dan Rina.</div>
+                                    <div>• Kami suka bermain bola<strong>,</strong> kelereng<strong>,</strong> dan petak umpet.</div>
+                                    <div>• Buah kesukaanku adalah apel<strong>,</strong> jeruk<strong>,</strong> dan pisang.</div>
+                                </div>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-green-800 mb-2">2. Sebelum kata 'dan' dalam kalimat panjang:</h5>
+                                <div class="space-y-1 text-sm">
+                                    <div>• Kami bermain di taman<strong>,</strong> dan pulang saat sore.</div>
+                                    <div>• Sari membaca buku<strong>,</strong> dan Andi menulis cerita.</div>
+                                    <div>• Papa pergi ke kantor<strong>,</strong> dan Mama memasak di dapur.</div>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-yellow-800 mb-2">3. Setelah kata sapaan:</h5>
+                                <div class="space-y-1 text-sm">
+                                    <div>• Selamat pagi<strong>,</strong> Bu Guru!</div>
+                                    <div>• Halo<strong>,</strong> teman-teman!</div>
+                                    <div>• Terima kasih<strong>,</strong> Andi.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Bacaan: "Teman-teman di Kelas 2A"</h4>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <p class="text-purple-800 text-sm leading-relaxed mb-3">
+                                Di kelas 2A ada banyak teman yang beragam. Ada Andi yang berasal dari Jawa, Sari dari Sumatra, Budi dari Bali, dan Rina dari Papua. Mereka memiliki warna kulit yang berbeda-beda. Andi berkulit sawo matang, Sari berkulit putih, Budi berkulit kuning langsat, dan Rina berkulit hitam manis.
+                            </p>
+                            <p class="text-purple-800 text-sm leading-relaxed mb-3">
+                                Setiap hari mereka bermain bersama dengan gembira. Andi suka bermain sepak bola, Sari gemar menggambar, Budi pandai menari, dan Rina jago bernyanyi. Meskipun berbeda-beda, mereka selalu rukun dan saling membantu.
+                            </p>
+                            <p class="text-purple-800 text-sm leading-relaxed">
+                                Saat istirahat, mereka sering berbagi bekal. Andi membawa gudeg, Sari membawa rendang, Budi membawa lawar, dan Rina membawa papeda. Semua makanan itu enak dan mereka saling mencoba. "Wah, enak sekali!" kata mereka sambil tertawa bersama.
+                            </p>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Pengatur Grafis: Mengelompokkan Kata Kunci</h4>
+                        <div class="space-y-4">
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-red-800 mb-3 text-center">👥 NAMA TEMAN</h5>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Andi</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Sari</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Budi</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Rina</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-orange-800 mb-3 text-center">🏝️ ASAL DAERAH</h5>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Jawa</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Sumatra</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Bali</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Papua</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-green-800 mb-3 text-center">🎨 KEGEMARAN</h5>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Sepak bola</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Menggambar</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Menari</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Bernyanyi</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-blue-800 mb-3 text-center">🍛 MAKANAN KHAS</h5>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Gudeg</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Rendang</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Lawar</div>
+                                    <div class="bg-white p-2 rounded text-center text-sm font-medium">Papeda</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cara Berteman dengan Siapa Saja:</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="bg-pink-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">😊</span>
+                                <div>
+                                    <strong>Ramah dan Sopan:</strong> Sapa dengan senyum, ucapkan "Halo, apa kabar?"
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">👂</span>
+                                <div>
+                                    <strong>Mendengarkan:</strong> Dengarkan cerita teman, jangan memotong pembicaraan
+                                </div>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">🤝</span>
+                                <div>
+                                    <strong>Saling Membantu:</strong> Bantu teman yang kesulitan, berbagi mainan
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">🎮</span>
+                                <div>
+                                    <strong>Bermain Bersama:</strong> Ajak bermain, ikut permainan teman
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-2xl">❤️</span>
+                                <div>
+                                    <strong>Menghargai Perbedaan:</strong> Tidak mengejek, menghormati kebiasaan teman
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Contoh Kalimat dengan Tanda Koma:</h4>
+                        <div class="space-y-2">
+                            <div class="bg-gray-100 p-3 rounded">
+                                <div class="text-sm">Teman-temanku adalah Andi<strong>,</strong> Sari<strong>,</strong> Budi<strong>,</strong> dan Rina.</div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded">
+                                <div class="text-sm">Kami bermain bersama<strong>,</strong> dan selalu rukun.</div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded">
+                                <div class="text-sm">Selamat pagi<strong>,</strong> teman-teman!</div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded">
+                                <div class="text-sm">Makanan khas daerah kami adalah gudeg<strong>,</strong> rendang<strong>,</strong> dan sate.</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Keragaman di Indonesia:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-red-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🏝️</div>
+                                <div class="text-lg font-bold text-red-600">SUKU</div>
+                                <div class="text-sm text-red-500">Jawa, Sunda, Batak, dll</div>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🗣️</div>
+                                <div class="text-lg font-bold text-blue-600">BAHASA</div>
+                                <div class="text-sm text-blue-500">Indonesia, daerah</div>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🕌</div>
+                                <div class="text-lg font-bold text-green-600">AGAMA</div>
+                                <div class="text-sm text-green-500">Islam, Kristen, Hindu, dll</div>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🍛</div>
+                                <div class="text-lg font-bold text-yellow-600">MAKANAN</div>
+                                <div class="text-sm text-yellow-500">Gudeg, rendang, sate</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-teal-800 mb-2">Manfaat Berteman dalam Keragaman:</h4>
+                            <ol class="text-teal-700 text-sm space-y-1">
+                                <li>1. Belajar hal-hal baru dari teman</li>
+                                <li>2. Mengenal budaya dan makanan daerah lain</li>
+                                <li>3. Belajar bahasa daerah teman</li>
+                                <li>4. Menjadi lebih toleran dan menghargai perbedaan</li>
+                                <li>5. Memiliki banyak teman dari berbagai daerah</li>
+                                <li>6. Membuat hidup lebih berwarna dan menyenangkan</li>
+                            </ol>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Tanda koma digunakan untuk memisahkan kata dalam...", options: ["Kalimat tanya", "Daftar", "Kalimat seru", "Kalimat perintah"], correct: 1 },
+                    { question: "Penulisan yang benar adalah...", options: ["Andi Sari dan Budi", "Andi, Sari dan Budi", "Andi, Sari, dan Budi", "Andi Sari, dan Budi"], correct: 2 },
+                    { question: "Andi berasal dari daerah...", options: ["Sumatra", "Jawa", "Bali", "Papua"], correct: 1 },
+                    { question: "Kegemaran Sari adalah...", options: ["Sepak bola", "Menggambar", "Menari", "Bernyanyi"], correct: 1 },
+                    { question: "Makanan khas yang dibawa Budi adalah...", options: ["Gudeg", "Rendang", "Lawar", "Papeda"], correct: 2 },
+                    { question: "Dalam kalimat 'Selamat pagi, Bu Guru!', tanda koma digunakan setelah...", options: ["Kata sapaan", "Kata tanya", "Kata seru", "Kata perintah"], correct: 0 },
+                    { question: "Yang termasuk keragaman di Indonesia adalah...", options: ["Suku dan bahasa", "Warna rambut", "Tinggi badan", "Berat badan"], correct: 0 },
+                    { question: "Cara berteman yang baik adalah...", options: ["Mengejek perbedaan", "Menghargai perbedaan", "Menghindari teman", "Pilih-pilih teman"], correct: 1 },
+                    { question: "Rina pandai...", options: ["Sepak bola", "Menggambar", "Menari", "Bernyanyi"], correct: 3 },
+                    { question: "Manfaat berteman dalam keragaman adalah...", options: ["Belajar hal baru", "Menjadi sombong", "Tidak punya teman", "Selalu bertengkar"], correct: 0 }
+                ]
+            },
+            6: {
+                title: "Sayang Lingkungan",
+                objective: "Kalian dapat mengingat kembali informasi kunci dari bacaan yang dibacakan, menyebutkan perbedaan pada gambar, dan berbicara menggunakan kalimat imbauan dan ajakan",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Apa itu Lingkungan?</h4>
+                        <p class="text-gray-700">Lingkungan adalah segala sesuatu yang ada di sekitar kita. Mulai dari udara, air, tanah, tumbuhan, hewan, dan tempat tinggal kita. Kita harus menjaga lingkungan agar tetap bersih dan sehat.</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Bacaan: "Taman yang Berubah"</h4>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-800 text-sm leading-relaxed mb-3">
+                                <strong>Dahulu</strong>, di dekat rumah Andi ada sebuah taman yang sangat indah. Taman itu penuh dengan <strong>pohon-pohon hijau</strong>, <strong>bunga-bunga berwarna-warni</strong>, dan <strong>rumput yang rapi</strong>. Di taman itu juga ada <strong>kolam kecil</strong> dengan <strong>air yang jernih</strong>. Banyak <strong>burung</strong> dan <strong>kupu-kupu</strong> yang bermain di sana. Udara di taman sangat <strong>segar dan sejuk</strong>.
+                            </p>
+                            <p class="text-green-800 text-sm leading-relaxed mb-3">
+                                Setiap pagi, Andi suka bermain di taman bersama teman-temannya. Mereka berlari-lari di atas rumput, melihat ikan di kolam, dan mendengarkan kicauan burung. Taman itu menjadi tempat favorit anak-anak untuk bermain.
+                            </p>
+                            <p class="text-green-800 text-sm leading-relaxed">
+                                <strong>Sekarang</strong>, taman itu sudah berubah. Banyak <strong>sampah berserakan</strong> di mana-mana. <strong>Air kolam menjadi keruh</strong> dan berbau tidak sedap. <strong>Pohon-pohon mulai layu</strong> karena tidak terawat. <strong>Burung-burung sudah tidak datang lagi</strong>. Andi merasa sedih melihat perubahan ini.
+                            </p>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Informasi Kunci dari Bacaan:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-blue-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-blue-800 mb-2">🌟 DAHULU (Kondisi Baik)</h5>
+                                <ul class="text-blue-700 text-sm space-y-1">
+                                    <li>• Pohon-pohon hijau</li>
+                                    <li>• Bunga berwarna-warni</li>
+                                    <li>• Rumput rapi</li>
+                                    <li>• Air kolam jernih</li>
+                                    <li>• Ada burung dan kupu-kupu</li>
+                                    <li>• Udara segar dan sejuk</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-red-800 mb-2">😢 SEKARANG (Kondisi Buruk)</h5>
+                                <ul class="text-red-700 text-sm space-y-1">
+                                    <li>• Sampah berserakan</li>
+                                    <li>• Air kolam keruh dan bau</li>
+                                    <li>• Pohon-pohon layu</li>
+                                    <li>• Tidak terawat</li>
+                                    <li>• Burung tidak datang lagi</li>
+                                    <li>• Andi merasa sedih</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Perbedaan Gambar Lingkungan:</h4>
+                        <div class="space-y-4">
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-yellow-800 mb-3 text-center">🔍 Temukan Perbedaannya!</h5>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded border">
+                                        <h6 class="font-semibold text-green-600 mb-2 text-center">Lingkungan Bersih</h6>
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-green-500">🌳</span>
+                                                <span>Pohon hijau dan rindang</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-blue-500">💧</span>
+                                                <span>Air sungai jernih</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-yellow-500">🌸</span>
+                                                <span>Bunga bermekaran</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-purple-500">🦋</span>
+                                                <span>Kupu-kupu terbang</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-red-500">🐦</span>
+                                                <span>Burung berkicau</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded border">
+                                        <h6 class="font-semibold text-red-600 mb-2 text-center">Lingkungan Kotor</h6>
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-brown-500">🍂</span>
+                                                <span>Pohon layu dan kering</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-gray-500">🌊</span>
+                                                <span>Air sungai keruh</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-black">🗑️</span>
+                                                <span>Sampah berserakan</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-gray-500">💨</span>
+                                                <span>Asap dan bau tidak sedap</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-gray-500">❌</span>
+                                                <span>Tidak ada hewan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Kalimat Imbauan dan Ajakan:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-orange-800 mb-2">📢 KALIMAT IMBAUAN</h5>
+                                <p class="text-orange-700 text-sm mb-2">Kalimat yang berisi perintah atau nasihat untuk melakukan sesuatu</p>
+                                <div class="space-y-1 text-sm">
+                                    <div>• <strong>Buanglah sampah pada tempatnya!</strong></div>
+                                    <div>• <strong>Jangan membuang sampah ke sungai!</strong></div>
+                                    <div>• <strong>Hemat air saat mandi!</strong></div>
+                                    <div>• <strong>Matikan lampu jika tidak digunakan!</strong></div>
+                                    <div>• <strong>Rawatlah tanaman di sekitar rumah!</strong></div>
+                                </div>
+                            </div>
+                            <div class="bg-purple-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-purple-800 mb-2">🤝 KALIMAT AJAKAN</h5>
+                                <p class="text-purple-700 text-sm mb-2">Kalimat yang mengajak orang lain untuk melakukan sesuatu bersama-sama</p>
+                                <div class="space-y-1 text-sm">
+                                    <div>• <strong>Ayo kita bersih-bersih taman!</strong></div>
+                                    <div>• <strong>Mari kita tanam pohon bersama!</strong></div>
+                                    <div>• <strong>Yuk, kita pisahkan sampah organik dan anorganik!</strong></div>
+                                    <div>• <strong>Ayo kita jaga kebersihan sekolah!</strong></div>
+                                    <div>• <strong>Mari kita hemat listrik di rumah!</strong></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cara Menjaga Lingkungan:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-green-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🗑️</div>
+                                <div class="text-lg font-bold text-green-600">BUANG SAMPAH</div>
+                                <div class="text-sm text-green-500">Pada tempatnya</div>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">💧</div>
+                                <div class="text-lg font-bold text-blue-600">HEMAT AIR</div>
+                                <div class="text-sm text-blue-500">Jangan boros</div>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🌱</div>
+                                <div class="text-lg font-bold text-yellow-600">TANAM POHON</div>
+                                <div class="text-sm text-yellow-500">Hijaukan bumi</div>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">♻️</div>
+                                <div class="text-lg font-bold text-purple-600">DAUR ULANG</div>
+                                <div class="text-sm text-purple-500">Kurangi sampah</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Contoh Dialog Mengajak Menjaga Lingkungan:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                    <strong>Andi:</strong> "Teman-teman, <strong>ayo kita bersih-bersih halaman sekolah!</strong>"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                    <strong>Sari:</strong> "Ide bagus! <strong>Mari kita kumpulkan sampah-sampah ini!</strong>"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-yellow-500">
+                                    <strong>Budi:</strong> "<strong>Jangan lupa pisahkan sampah plastik dan kertas ya!</strong>"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-purple-500">
+                                    <strong>Rina:</strong> "<strong>Yuk, kita tanam bunga di pot-pot kosong ini!</strong>"
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-red-500">
+                                    <strong>Guru:</strong> "Bagus sekali! <strong>Rawatlah tanaman ini dengan baik!</strong>"
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Manfaat Lingkungan Bersih:</h4>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🫁</span>
+                                <div>
+                                    <strong>Udara Segar:</strong> Kita bisa bernapas dengan lega
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">💪</span>
+                                <div>
+                                    <strong>Tubuh Sehat:</strong> Tidak mudah sakit karena lingkungan bersih
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">😊</span>
+                                <div>
+                                    <strong>Hati Senang:</strong> Pemandangan indah membuat bahagia
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🐦</span>
+                                <div>
+                                    <strong>Hewan Betah:</strong> Burung dan kupu-kupu suka datang
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Jenis-jenis Sampah:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-green-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-green-800 mb-2">🍃 ORGANIK</h5>
+                                <div class="text-green-700 text-sm space-y-1">
+                                    <div>• Sisa makanan</div>
+                                    <div>• Daun kering</div>
+                                    <div>• Kulit buah</div>
+                                    <div>• Dapat membusuk</div>
+                                </div>
+                            </div>
+                            <div class="bg-red-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-red-800 mb-2">🥤 ANORGANIK</h5>
+                                <div class="text-red-700 text-sm space-y-1">
+                                    <div>• Plastik</div>
+                                    <div>• Kaleng</div>
+                                    <div>• Kaca</div>
+                                    <div>• Sulit membusuk</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-emerald-800 mb-2">Tips Menjadi Anak Peduli Lingkungan:</h4>
+                            <ol class="text-emerald-700 text-sm space-y-1">
+                                <li>1. Selalu buang sampah pada tempatnya</li>
+                                <li>2. Hemat air saat mencuci tangan dan mandi</li>
+                                <li>3. Matikan lampu dan kipas saat tidak digunakan</li>
+                                <li>4. Gunakan kedua sisi kertas untuk menulis</li>
+                                <li>5. Bawa botol minum sendiri ke sekolah</li>
+                                <li>6. Ikut menanam dan merawat tanaman</li>
+                                <li>7. Ajak teman dan keluarga untuk peduli lingkungan</li>
+                            </ol>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Apa yang membuat taman menjadi indah dahulu?", options: ["Sampah berserakan", "Pohon-pohon hijau dan bunga berwarna-warni", "Air keruh", "Tidak ada burung"], correct: 1 },
+                    { question: "Mengapa burung-burung tidak datang lagi ke taman?", options: ["Karena taman kotor dan tidak terawat", "Karena terlalu ramai", "Karena cuaca buruk", "Karena tidak ada makanan"], correct: 0 },
+                    { question: "Apa perbedaan air kolam dahulu dan sekarang?", options: ["Dahulu keruh, sekarang jernih", "Dahulu jernih, sekarang keruh dan bau", "Tidak ada perbedaan", "Dahulu bau, sekarang jernih"], correct: 1 },
+                    { question: "Manakah yang termasuk kalimat imbauan?", options: ["Ayo kita bersih-bersih!", "Mari kita tanam pohon!", "Buanglah sampah pada tempatnya!", "Yuk, kita jaga lingkungan!"], correct: 2 },
+                    { question: "Manakah yang termasuk kalimat ajakan?", options: ["Jangan buang sampah sembarangan!", "Hemat air saat mandi!", "Mari kita tanam pohon bersama!", "Rawatlah tanaman dengan baik!"], correct: 2 },
+                    { question: "Sampah organik adalah sampah yang...", options: ["Sulit membusuk", "Dapat membusuk", "Terbuat dari plastik", "Terbuat dari kaca"], correct: 1 },
+                    { question: "Contoh sampah anorganik adalah...", options: ["Sisa makanan", "Daun kering", "Kulit buah", "Botol plastik"], correct: 3 },
+                    { question: "Manfaat lingkungan bersih adalah...", options: ["Udara kotor", "Mudah sakit", "Udara segar dan tubuh sehat", "Banyak sampah"], correct: 2 },
+                    { question: "Cara menghemat listrik adalah...", options: ["Nyalakan lampu terus", "Matikan lampu jika tidak digunakan", "Buka semua kipas", "Gunakan listrik sebanyak-banyaknya"], correct: 1 },
+                    { question: "Apa yang dirasakan Andi melihat perubahan taman?", options: ["Senang", "Sedih", "Marah", "Takut"], correct: 1 }
+                ]
+            },
+            7: {
+                title: "Hobi yang Jadi Prestasi",
+                objective: "Kalian dapat menjelaskan informasi dalam bacaan dan membaca kata-kata yang sering ditemui",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Apa itu Hobi?</h4>
+                        <p class="text-gray-700">Hobi adalah kegiatan yang kita sukai dan lakukan di waktu luang. Hobi membuat kita senang dan bahagia. Jika kita tekun berlatih, hobi bisa menjadi prestasi yang membanggakan!</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Bacaan: "Rina Si Penari Kecil"</h4>
+                        <div class="bg-rose-50 p-4 rounded-lg">
+                            <p class="text-rose-800 text-sm leading-relaxed mb-3">
+                                <strong>Rina</strong> adalah anak kelas 2 yang sangat suka <strong>menari</strong>. Setiap hari sepulang sekolah, Rina selalu <strong>berlatih menari</strong> di rumah. Mama mendukung hobi Rina dengan <strong>mendaftarkannya ke sanggar tari</strong>.
+                            </p>
+                            <p class="text-rose-800 text-sm leading-relaxed mb-3">
+                                Di sanggar tari, Rina belajar berbagai <strong>gerakan tari tradisional</strong>. Guru tari mengajarkan Rina tari Saman, tari Kecak, dan tari Pendet. Rina <strong>berlatih dengan tekun</strong> setiap hari Selasa dan Kamis. Ia tidak pernah mengeluh meski kadang merasa lelah.
+                            </p>
+                            <p class="text-rose-800 text-sm leading-relaxed mb-3">
+                                Setelah <strong>berlatih selama 6 bulan</strong>, Rina mengikuti <strong>lomba tari tingkat kecamatan</strong>. Rina menampilkan tari Pendet dengan sangat indah. Gerakannya luwes dan ekspresinya ceria. Para juri terkesan dengan penampilan Rina.
+                            </p>
+                            <p class="text-rose-800 text-sm leading-relaxed">
+                                Akhirnya, Rina <strong>menjadi juara 1</strong> dalam lomba tersebut. Rina mendapat <strong>piala emas</strong> dan <strong>sertifikat</strong>. Papa dan Mama sangat bangga. Hobi menari Rina berhasil menjadi prestasi yang membanggakan. Sekarang Rina semakin semangat berlatih untuk lomba yang lebih besar.
+                            </p>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Informasi Penting dari Bacaan:</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="bg-blue-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-blue-800 mb-2">👤 Tokoh Utama</h5>
+                                <p class="text-blue-700 text-sm">Rina, anak kelas 2 yang suka menari</p>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-green-800 mb-2">💃 Hobi</h5>
+                                <p class="text-green-700 text-sm">Menari (tari tradisional: Saman, Kecak, Pendet)</p>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-yellow-800 mb-2">📅 Jadwal Latihan</h5>
+                                <p class="text-yellow-700 text-sm">Setiap hari Selasa dan Kamis di sanggar tari</p>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-purple-800 mb-2">⏰ Lama Berlatih</h5>
+                                <p class="text-purple-700 text-sm">6 bulan sebelum mengikuti lomba</p>
+                            </div>
+                            <div class="bg-orange-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-orange-800 mb-2">🏆 Prestasi</h5>
+                                <p class="text-orange-700 text-sm">Juara 1 lomba tari tingkat kecamatan</p>
+                            </div>
+                            <div class="bg-red-100 p-3 rounded-lg">
+                                <h5 class="font-semibold text-red-800 mb-2">🎁 Hadiah</h5>
+                                <p class="text-red-700 text-sm">Piala emas dan sertifikat</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Kata-kata yang Sering Ditemui:</h4>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">hobi</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">menari</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">berlatih</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">sanggar</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">lomba</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">juara</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">piala</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">prestasi</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">tekun</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">semangat</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">bangga</div>
+                            <div class="bg-gray-100 p-2 rounded text-center text-sm font-medium">sertifikat</div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Macam-macam Hobi yang Bisa Jadi Prestasi:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-pink-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🎨</div>
+                                <div class="text-lg font-bold text-pink-600">MELUKIS</div>
+                                <div class="text-sm text-pink-500">Lomba lukis, pameran</div>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🎵</div>
+                                <div class="text-lg font-bold text-blue-600">MENYANYI</div>
+                                <div class="text-sm text-blue-500">Kontes menyanyi</div>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">⚽</div>
+                                <div class="text-lg font-bold text-green-600">OLAHRAGA</div>
+                                <div class="text-sm text-green-500">Pertandingan, turnamen</div>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">📚</div>
+                                <div class="text-lg font-bold text-yellow-600">MEMBACA</div>
+                                <div class="text-sm text-yellow-500">Lomba bercerita</div>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">💃</div>
+                                <div class="text-lg font-bold text-purple-600">MENARI</div>
+                                <div class="text-sm text-purple-500">Lomba tari</div>
+                            </div>
+                            <div class="bg-orange-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">✍️</div>
+                                <div class="text-lg font-bold text-orange-600">MENULIS</div>
+                                <div class="text-sm text-orange-500">Lomba puisi, cerpen</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Langkah-langkah Mengembangkan Hobi:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-indigo-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">1</span>
+                                <div>
+                                    <strong>Temukan Hobi:</strong> Cari tahu apa yang kamu sukai
+                                </div>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">2</span>
+                                <div>
+                                    <strong>Berlatih Rutin:</strong> Lakukan secara teratur dan tekun
+                                </div>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">3</span>
+                                <div>
+                                    <strong>Cari Guru:</strong> Belajar dari orang yang ahli
+                                </div>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">4</span>
+                                <div>
+                                    <strong>Ikut Lomba:</strong> Uji kemampuan dengan berkompetisi
+                                </div>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">5</span>
+                                <div>
+                                    <strong>Terus Belajar:</strong> Jangan pernah berhenti berkembang
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cerita Inspiratif Lainnya:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-cyan-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-cyan-800 mb-2">🎨 Budi Si Pelukis Cilik</h5>
+                                <p class="text-cyan-700 text-sm">Budi suka melukis sejak kecil. Ia berlatih melukis pemandangan setiap hari. Setelah 1 tahun, lukisan Budi dipamerkan di sekolah dan mendapat pujian dari semua orang.</p>
+                            </div>
+                            <div class="bg-teal-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-teal-800 mb-2">⚽ Andi Si Pemain Bola</h5>
+                                <p class="text-teal-700 text-sm">Andi gemar bermain sepak bola. Ia berlatih di lapangan setiap sore. Ketekunan Andi membuahkan hasil, ia terpilih menjadi kapten tim sepak bola sekolah.</p>
+                            </div>
+                            <div class="bg-emerald-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-emerald-800 mb-2">🎵 Sari Si Penyanyi Kecil</h5>
+                                <p class="text-emerald-700 text-sm">Sari memiliki suara yang merdu. Ia rajin berlatih menyanyi di paduan suara sekolah. Sari berhasil menjadi solois dalam pertunjukan hari kemerdekaan.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Manfaat Memiliki Hobi:</h4>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">😊</span>
+                                <div>
+                                    <strong>Membuat Bahagia:</strong> Hobi membuat hati senang dan gembira
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🧠</span>
+                                <div>
+                                    <strong>Mengasah Otak:</strong> Hobi melatih kreativitas dan kecerdasan
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">👥</span>
+                                <div>
+                                    <strong>Menambah Teman:</strong> Bertemu orang dengan hobi yang sama
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🏆</span>
+                                <div>
+                                    <strong>Meraih Prestasi:</strong> Hobi bisa menjadi kebanggaan
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">💪</span>
+                                <div>
+                                    <strong>Melatih Disiplin:</strong> Belajar tekun dan tidak mudah menyerah
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Sikap yang Harus Dimiliki:</h4>
+                        <div class="space-y-2">
+                            <div class="bg-green-50 p-3 rounded border-l-4 border-green-500">
+                                <strong class="text-green-800">TEKUN:</strong> <span class="text-green-700">Berlatih terus menerus tanpa mudah menyerah</span>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-500">
+                                <strong class="text-blue-800">SABAR:</strong> <span class="text-blue-700">Tidak terburu-buru, hasil yang baik butuh waktu</span>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500">
+                                <strong class="text-yellow-800">SEMANGAT:</strong> <span class="text-yellow-700">Selalu bersemangat dalam berlatih</span>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded border-l-4 border-purple-500">
+                                <strong class="text-purple-800">PERCAYA DIRI:</strong> <span class="text-purple-700">Yakin dengan kemampuan diri sendiri</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-rose-800 mb-2">Pesan Penting:</h4>
+                            <p class="text-rose-700 text-sm leading-relaxed">
+                                Setiap anak memiliki bakat dan hobi yang berbeda-beda. Yang terpenting adalah menemukan apa yang kita sukai, lalu berlatih dengan tekun. Ingat, tidak ada yang instan! Semua prestasi membutuhkan kerja keras dan kesabaran. Jangan takut untuk mencoba hal baru dan jangan menyerah saat menghadapi kesulitan. Dengan dukungan keluarga dan guru, hobi kalian pasti bisa menjadi prestasi yang membanggakan!
+                            </p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Siapa nama anak yang suka menari dalam cerita?", options: ["Sari", "Rina", "Ani", "Budi"], correct: 1 },
+                    { question: "Apa hobi utama Rina?", options: ["Melukis", "Menyanyi", "Menari", "Menulis"], correct: 2 },
+                    { question: "Berapa lama Rina berlatih sebelum ikut lomba?", options: ["3 bulan", "6 bulan", "1 tahun", "2 tahun"], correct: 1 },
+                    { question: "Kapan jadwal latihan Rina di sanggar?", options: ["Senin dan Rabu", "Selasa dan Kamis", "Rabu dan Jumat", "Sabtu dan Minggu"], correct: 1 },
+                    { question: "Tari apa yang ditampilkan Rina saat lomba?", options: ["Tari Saman", "Tari Kecak", "Tari Pendet", "Tari Jaipong"], correct: 2 },
+                    { question: "Juara berapa yang diraih Rina?", options: ["Juara 3", "Juara 2", "Juara 1", "Juara harapan"], correct: 2 },
+                    { question: "Hadiah apa yang diterima Rina?", options: ["Piala perak", "Piala emas dan sertifikat", "Uang", "Medali"], correct: 1 },
+                    { question: "Siapa yang mendukung hobi Rina?", options: ["Guru", "Teman", "Mama", "Kakak"], correct: 2 },
+                    { question: "Sikap apa yang harus dimiliki untuk mengembangkan hobi?", options: ["Malas", "Tekun", "Sombong", "Mudah menyerah"], correct: 1 },
+                    { question: "Apa manfaat memiliki hobi?", options: ["Membuat sedih", "Membuat malas", "Membuat bahagia dan bisa meraih prestasi", "Membuat lelah"], correct: 2 }
+                ]
+            },
+            3: {
+                title: "Berhati-hati di mana saja",
+                objective: "Kalian dapat berbicara dengan volume yang tepat sesuai keadaan dan tempat bicara, menyimpulkan nama tempat berdasarkan informasi berupa ciri-ciri tertentu, menulis 'di' sebagai kata depan dan awalan dengan benar, serta menulis cerita dengan alur awal, tengah, dan akhir",
+                content: `
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-800">Mengapa Kita Harus Berhati-hati?</h4>
+                        <p class="text-gray-700">Berhati-hati berarti waspada dan menjaga diri agar tetap aman. Di setiap tempat, kita harus tahu cara bersikap yang benar.</p>
+                        
+                        <h4 class="font-semibold text-gray-800">Volume Bicara yang Tepat:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-green-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🤫</div>
+                                <div class="text-lg font-bold text-green-600">BERBISIK</div>
+                                <div class="text-sm text-green-500">Di perpustakaan, rumah sakit</div>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">😊</div>
+                                <div class="text-lg font-bold text-blue-600">NORMAL</div>
+                                <div class="text-sm text-blue-500">Di rumah, sekolah</div>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">📢</div>
+                                <div class="text-lg font-bold text-yellow-600">KERAS</div>
+                                <div class="text-sm text-yellow-500">Di lapangan, panggil dari jauh</div>
+                            </div>
+                            <div class="bg-red-100 p-3 rounded-lg text-center">
+                                <div class="text-3xl mb-2">🚨</div>
+                                <div class="text-lg font-bold text-red-600">BERTERIAK</div>
+                                <div class="text-sm text-red-500">Saat bahaya, minta tolong</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Mengenal Tempat dari Ciri-cirinya:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <div class="font-semibold text-blue-800 mb-2">🏥 Rumah Sakit</div>
+                                <p class="text-blue-700 text-sm">Ciri-ciri: Ada dokter dan perawat, banyak obat, tempat tenang, ada ambulans</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <div class="font-semibold text-green-800 mb-2">🏫 Sekolah</div>
+                                <p class="text-green-700 text-sm">Ciri-ciri: Ada guru dan murid, papan tulis, meja kursi, lapangan bermain</p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <div class="font-semibold text-yellow-800 mb-2">🏪 Pasar</div>
+                                <p class="text-yellow-700 text-sm">Ciri-ciri: Banyak pedagang, jual sayur buah, ramai, ada uang kembalian</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <div class="font-semibold text-purple-800 mb-2">📚 Perpustakaan</div>
+                                <p class="text-purple-700 text-sm">Ciri-ciri: Banyak buku, tempat sunyi, ada rak buku, orang membaca</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Penggunaan Kata "DI" yang Benar:</h4>
+                        <div class="space-y-3">
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-orange-800 mb-2">DI sebagai Kata Depan (ditulis terpisah):</h5>
+                                <div class="space-y-1 text-sm">
+                                    <div>• <strong>di</strong> rumah (menunjukkan tempat)</div>
+                                    <div>• <strong>di</strong> sekolah (menunjukkan tempat)</div>
+                                    <div>• <strong>di</strong> pasar (menunjukkan tempat)</div>
+                                    <div>• <strong>di</strong> atas meja (menunjukkan tempat)</div>
+                                </div>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-red-800 mb-2">DI sebagai Awalan (ditulis menyatu):</h5>
+                                <div class="space-y-1 text-sm">
+                                    <div>• <strong>di</strong>makan (dimakan oleh kucing)</div>
+                                    <div>• <strong>di</strong>baca (dibaca oleh adik)</div>
+                                    <div>• <strong>di</strong>tulis (ditulis oleh guru)</div>
+                                    <div>• <strong>di</strong>beli (dibeli oleh mama)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Cerita dengan Alur Lengkap: "Perjalanan Aman Sinta"</h4>
+                        <div class="space-y-3">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <div class="font-semibold text-green-800 mb-2">🌅 AWAL</div>
+                                <p class="text-green-700 text-sm">Pagi hari, Sinta bersiap pergi ke sekolah. Mama mengingatkan Sinta untuk berhati-hati <strong>di</strong> jalan. "Jangan lupa lihat kiri kanan sebelum menyeberang," kata Mama. Sinta mengangguk dan berjanji akan hati-hati.</p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <div class="font-semibold text-yellow-800 mb-2">⚡ TENGAH</div>
+                                <p class="text-yellow-700 text-sm">Saat <strong>di</strong> perjalanan, Sinta melihat bola menggelinding ke jalan raya. Seorang anak kecil hendak mengejarnya. Sinta segera berteriak dengan suara keras, "AWAS! JANGAN KE JALAN!" Anak itu berhenti. Sinta membantu mengambil bola dengan aman.</p>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <div class="font-semibold text-blue-800 mb-2">🌟 AKHIR</div>
+                                <p class="text-blue-700 text-sm">Sinta tiba <strong>di</strong> sekolah dengan selamat. Guru memuji Sinta karena telah membantu anak kecil tadi. <strong>Di</strong> kelas, Sinta menceritakan pengalamannya dengan suara normal. Semua teman belajar tentang pentingnya berhati-hati <strong>di</strong> jalan.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-gray-800">Aturan Keselamatan di Berbagai Tempat:</h4>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🚸</span>
+                                <div>
+                                    <strong>Di Jalan:</strong> Lihat kiri kanan, jalan di trotoar, patuhi rambu
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🏊</span>
+                                <div>
+                                    <strong>Di Kolam:</strong> Jangan berenang sendirian, pakai pelampung
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">🔥</span>
+                                <div>
+                                    <strong>Di Dapur:</strong> Jangan main api, hati-hati benda tajam
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded flex items-center space-x-3">
+                                <span class="text-2xl">👥</span>
+                                <div>
+                                    <strong>Di Keramaian:</strong> Jangan terpisah dari orang tua
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">Nomor Penting untuk Keadaan Darurat:</h4>
+                            <div class="text-red-700 text-sm space-y-1">
+                                <div>🚨 <strong>Polisi:</strong> 110</div>
+                                <div>🚑 <strong>Ambulans:</strong> 118</div>
+                                <div>🚒 <strong>Pemadam Kebakaran:</strong> 113</div>
+                                <div>📞 <strong>Ingat nomor HP orang tua!</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    { question: "Di tempat mana kita harus berbicara dengan berbisik?", options: ["Lapangan", "Perpustakaan", "Pasar", "Jalan raya"], correct: 1 },
+                    { question: "Ciri-ciri rumah sakit adalah...", options: ["Ada guru dan murid", "Ada dokter dan perawat", "Ada pedagang", "Ada banyak buku"], correct: 1 },
+                    { question: "Penulisan yang benar adalah...", options: ["dirumah", "di rumah", "di-rumah", "diRumah"], correct: 1 },
+                    { question: "Kata 'dimakan' menggunakan 'di' sebagai...", options: ["Kata depan", "Awalan", "Akhiran", "Kata sambung"], correct: 1 },
+                    { question: "Pada bagian AWAL cerita, siapa yang mengingatkan Sinta?", options: ["Papa", "Mama", "Guru", "Teman"], correct: 1 },
+                    { question: "Apa yang dilakukan Sinta saat melihat anak kecil hendak ke jalan?", options: ["Diam saja", "Berteriak keras", "Berbisik", "Berlari"], correct: 1 },
+                    { question: "Di bagian AKHIR cerita, di mana Sinta menceritakan pengalamannya?", options: ["Di rumah", "Di jalan", "Di kelas", "Di pasar"], correct: 2 },
+                    { question: "Nomor telepon untuk memanggil ambulans adalah...", options: ["110", "113", "118", "119"], correct: 2 },
+                    { question: "Saat di kolam renang, kita harus...", options: ["Berenang sendirian", "Tidak pakai pelampung", "Pakai pelampung", "Main air saja"], correct: 2 },
+                    { question: "Volume bicara yang tepat di lapangan adalah...", options: ["Berbisik", "Normal", "Keras", "Tidak boleh bicara"], correct: 2 }
+                ]
+            }
+        };
+
+        function showMaterial(materialId) {
+            currentMaterial = materialId;
+            const material = materials[materialId];
+            
+            // Hide all pages
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('quizPage').classList.add('hidden');
+            document.getElementById('materialPage').classList.remove('hidden');
+            
+            document.getElementById('materialContent').innerHTML = `
+                <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+                    <h2 class="text-xl font-bold text-gray-800 mb-3">${material.title}</h2>
+                    <div class="bg-blue-50 p-3 rounded-lg mb-4">
+                        <h3 class="font-semibold text-blue-800 text-sm mb-1">Tujuan Pembelajaran:</h3>
+                        <p class="text-blue-700 text-sm">${material.objective}</p>
+                    </div>
+                    <div class="prose prose-sm max-w-none">
+                        ${material.content}
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button onclick="showQuizPage()" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">
+                            🎯 Mulai Kuis
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showHome() {
+            document.getElementById('homePage').classList.remove('hidden');
+            document.getElementById('materialPage').classList.add('hidden');
+            document.getElementById('quizPage').classList.add('hidden');
+            resetQuiz();
+        }
+
+        function showQuizPage() {
+            document.getElementById('materialPage').classList.add('hidden');
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('quizPage').classList.remove('hidden');
+            initQuiz();
+        }
+
+        function initQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizStarted = false;
+            document.getElementById('quizResult').classList.add('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const material = materials[currentMaterial];
+            const question = material.quiz[currentQuestion];
+            
+            document.getElementById('quizContent').innerHTML = `
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-3">Soal ${currentQuestion + 1}:</h4>
+                    <p class="text-gray-700 mb-4">${question.question}</p>
+                    <div class="space-y-2">
+                        ${question.options.map((option, index) => `
+                            <div class="quiz-option p-3 rounded-lg border cursor-pointer" onclick="selectAnswer(${index})">
+                                ${String.fromCharCode(65 + index)}. ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('questionCounter').textContent = `${currentQuestion + 1} / ${material.quiz.length}`;
+            document.getElementById('prevBtn').style.display = currentQuestion === 0 ? 'none' : 'block';
+            document.getElementById('nextBtn').textContent = currentQuestion === material.quiz.length - 1 ? 'Selesai' : 'Selanjutnya';
+            
+            // Show previous answer if exists
+            if (userAnswers[currentQuestion] !== undefined) {
+                const options = document.querySelectorAll('.quiz-option');
+                options[userAnswers[currentQuestion]].classList.add('selected');
+            }
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestion] = answerIndex;
+            document.querySelectorAll('.quiz-option').forEach(option => option.classList.remove('selected'));
+            document.querySelectorAll('.quiz-option')[answerIndex].classList.add('selected');
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < materials[currentMaterial].quiz.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function showQuizResult() {
+            const material = materials[currentMaterial];
+            let correctAnswers = 0;
+            
+            for (let i = 0; i < material.quiz.length; i++) {
+                if (userAnswers[i] === material.quiz[i].correct) {
+                    correctAnswers++;
+                }
+            }
+            
+            const score = Math.round((correctAnswers / material.quiz.length) * 100);
+            let message = '';
+            
+            if (score >= 80) {
+                message = 'Hebat! Kamu sudah menguasai materi ini dengan baik!';
+            } else if (score >= 60) {
+                message = 'Bagus! Terus belajar untuk hasil yang lebih baik!';
+            } else {
+                message = 'Jangan menyerah! Coba baca materi lagi dan ulangi kuis.';
+            }
+            
+            document.getElementById('scoreText').innerHTML = `
+                <div class="text-2xl font-bold mb-2">${correctAnswers}/${material.quiz.length}</div>
+                <div class="text-lg mb-2">Skor: ${score}%</div>
+                <div>${message}</div>
+            `;
+            
+            document.getElementById('quizContent').style.display = 'none';
+            document.querySelector('.mt-6.flex.justify-between').style.display = 'none';
+            document.getElementById('quizResult').classList.remove('hidden');
+        }
+
+        function restartQuiz() {
+            document.getElementById('quizContent').style.display = 'block';
+            document.querySelector('.mt-6.flex.justify-between').style.display = 'flex';
+            initQuiz();
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizStarted = false;
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'968a9452904f90b2',t:'MTc1NDEwNjI5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
