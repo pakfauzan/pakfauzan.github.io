@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Bahasa Madura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-orange {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 50%, #f12711 100%);
+        }
+        
+        .gradient-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-card-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gradient-card-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .gradient-card-4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .gradient-card-5 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-option:hover {
+            transform: scale(1.02);
+        }
+        
+        .correct {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .incorrect {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-orange text-white py-8 px-4 text-center shadow-lg">
+        <h1 class="text-2xl md:text-3xl font-bold mb-2">Bahasa Madura</h1>
+        <p class="text-sm md:text-base opacity-90">Untuk Kelas 2 - Fase A</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6 max-w-md">
+        <!-- Home Page -->
+        <div id="homePage" class="space-y-4">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">Pilih Materi Pembelajaran</h2>
+            
+            <!-- Materi 1 -->
+            <div class="gradient-card rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(1)">
+                <div class="flex items-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <span class="font-bold text-sm">1</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold">Sapaan dalam Bahasa Madura</h3>
+                        <p class="text-sm opacity-90">Belajar cara menyapa dalam bahasa Madura</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 2 -->
+            <div class="gradient-card-2 rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(2)">
+                <div class="flex items-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <span class="font-bold text-sm">2</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold">Anggota Keluarga</h3>
+                        <p class="text-sm opacity-90">Mengenal nama anggota keluarga</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 3 -->
+            <div class="gradient-card-3 rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(3)">
+                <div class="flex items-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <span class="font-bold text-sm">3</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold">Angka 1-10</h3>
+                        <p class="text-sm opacity-90">Belajar menghitung dalam bahasa Madura</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 4 -->
+            <div class="gradient-card-4 rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(4)">
+                <div class="flex items-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <span class="font-bold text-sm">4</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold">Warna-warna</h3>
+                        <p class="text-sm opacity-90">Mengenal nama warna dalam bahasa Madura</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 5 -->
+            <div class="gradient-card-5 rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(5)">
+                <div class="flex items-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <span class="font-bold text-sm">5</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold">Hewan-hewan</h3>
+                        <p class="text-sm opacity-90">Belajar nama hewan dalam bahasa Madura</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 py-6 max-w-md">
+                <a href="../" class="block w-full bg-gray-600 hover:bg-gray-700 text-white text-center py-3 rounded-xl font-semibold transition-colors">
+                    🏠 Kembali ke Menu Utama
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Material Detail Page -->
+        <div id="materialPage" class="hidden">
+            <div class="flex items-center mb-4">
+                <button onclick="showHome()" class="bg-orange-500 text-white px-3 py-2 rounded-lg mr-3 hover:bg-orange-600 transition-colors">
+                    ← Kembali
+                </button>
+                <h2 id="materialTitle" class="text-lg font-semibold text-gray-800"></h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Tujuan Pembelajaran -->
+                <div class="bg-white rounded-xl p-4 shadow-md">
+                    <h3 class="font-semibold text-orange-600 mb-2">🎯 Tujuan Pembelajaran</h3>
+                    <div id="learningObjectives" class="text-gray-700 text-sm"></div>
+                </div>
+
+                <!-- Materi Pembelajaran -->
+                <div class="bg-white rounded-xl p-4 shadow-md">
+                    <h3 class="font-semibold text-blue-600 mb-3">📚 Materi Pembelajaran</h3>
+                    <div id="learningMaterial" class="text-gray-700 text-sm space-y-3"></div>
+                </div>
+
+                <!-- Demonstrasi -->
+                <div id="demonstrationSection" class="bg-white rounded-xl p-4 shadow-md">
+                    <h3 class="font-semibold text-green-600 mb-3">🎭 Demonstrasi</h3>
+                    <div id="demonstration" class="space-y-2"></div>
+                </div>
+
+                <!-- Tombol Kuis -->
+                <button onclick="startQuiz()" class="w-full gradient-orange text-white py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity">
+                    🧩 Mulai Kuis (10 Soal)
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quizPage" class="hidden">
+            <div class="flex items-center justify-between mb-4">
+                <button onclick="showMaterialFromQuiz()" class="bg-gray-500 text-white px-3 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                    ← Kembali
+                </button>
+                <div class="text-sm text-gray-600">
+                    Soal <span id="currentQuestion">1</span> dari <span id="totalQuestions">10</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-4 shadow-md mb-4">
+                <h3 id="questionText" class="font-semibold text-gray-800 mb-4"></h3>
+                <div id="optionsContainer" class="space-y-2"></div>
+            </div>
+
+            <div class="flex justify-between">
+                <button id="prevBtn" onclick="previousQuestion()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors" disabled>
+                    Sebelumnya
+                </button>
+                <button id="nextBtn" onclick="nextQuestion()" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" disabled>
+                    Selanjutnya
+                </button>
+            </div>
+
+            <div id="quizResult" class="hidden mt-6 bg-white rounded-xl p-4 shadow-md text-center">
+                <h3 class="font-bold text-xl mb-2">🎉 Kuis Selesai!</h3>
+                <p class="text-lg mb-4">Skor Anda: <span id="finalScore" class="font-bold text-orange-600"></span></p>
+                <button onclick="restartQuiz()" class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                    Ulangi Kuis
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentMaterial = 1;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+
+        const materials = {
+            1: {
+                title: "Sapaan dalam Bahasa Madura",
+                objectives: [
+                    "Siswa dapat menyebutkan berbagai sapaan dalam bahasa Madura",
+                    "Siswa dapat menggunakan sapaan yang tepat sesuai waktu",
+                    "Siswa dapat mempraktikkan sapaan dalam kehidupan sehari-hari"
+                ],
+                content: [
+                    "<strong>Sapaan Sehari-hari:</strong>",
+                    "• <strong>Salamet è bâjâ laggu</strong> = Selamat pagi",
+                    "• <strong>Salamet è bâjâ siang</strong> = Selamat siang", 
+                    "• <strong>Salamet è bâjâ sore</strong> = Selamat sore",
+                    "• <strong>Salamet è bâjâ malem</strong> = Selamat malam",
+                    "",
+                    "<strong>Sapaan Umum:</strong>",
+                    "• <strong>Halo</strong> = Halo (bisa digunakan kapan saja)",
+                    "• <strong>Apa kabar?</strong> = Bagaimana kabarnya?",
+                    "• <strong>Sampun pundi?</strong> = Sudah bagaimana?",
+                    "",
+                    "<strong>Cara Menggunakan:</strong>",
+                    "Gunakan sapaan sesuai dengan waktu. Misalnya 'Salamet è bâjâ laggu' digunakan dari pagi hingga jam 10 pagi."
+                ],
+                demonstration: [
+                    "🌅 Pagi (06:00-10:00): 'Salamet è bâjâ laggu, Bu Guru!'",
+                    "☀️ Siang (10:00-15:00): 'Salamet è bâjâ siang, Pak!'", 
+                    "🌇 Sore (15:00-18:00): 'Salamet è bâjâ sore, Kanca!'",
+                    "🌙 Malam (18:00-06:00): 'Salamet è bâjâ malem, Bapa'!'"
+                ],
+                quiz: [
+                    {
+                        question: "Sapaan yang tepat untuk pagi hari adalah...",
+                        options: ["Salamet è bâjâ laggu", "Salamet è bâjâ are", "Salamet è bâjâ asar", "Salamet è bâjâ malem"],
+                        correct: 0
+                    },
+                    {
+                        question: "Arti dari 'Salamet è bâjâ sore' adalah...",
+                        options: ["Selamat pagi", "Selamat siang", "Selamat sore", "Selamat malam"],
+                        correct: 2
+                    },
+                    {
+                        question: "Kapan kita menggunakan 'Salamet è bâjâ malem'?",
+                        options: ["Pagi hari", "Siang hari", "Sore hari", "Malam hari"],
+                        correct: 3
+                    },
+                    {
+                        question: "Sapaan yang bisa digunakan kapan saja adalah...",
+                        options: ["Salamet è bâjâ laggu", "Halo", "Salamet è bâjâ malem", "Salamet è bâjâ asar"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Apa kabar?' dalam bahasa Madura adalah...",
+                        options: ["De' remma kabârâ?", "Sugeng enjing", "Halo", "Sugeng dalu"],
+                        correct: 0
+                    },
+                    {
+                        question: "Jam berapa kita menggunakan 'Salamet è bâjâ siang'?",
+                        options: ["06:00-10:00", "10:00-15:00", "15:00-18:00", "18:00-06:00"],
+                        correct: 1
+                    },
+                    {
+                        question: "Sapaan untuk sore hari adalah...",
+                        options: ["Salamet è bâjâ laggu", "Salamet è bâjâ siang", "Salamet è bâjâ sore", "Halo"],
+                        correct: 2
+                    },
+                    {
+                        question: "Yang bukan sapaan dalam bahasa Madura adalah...",
+                        options: ["Salamet è bâjâ laggu", "Selamat pagi", "Salamet è bâjâ siang", "Salamet è bâjâ sore"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Salamet è bâjâ siang' adalah...",
+                        options: ["Selamat pagi", "Selamat siang", "Selamat sore", "Selamat malam"],
+                        correct: 1
+                    },
+                    {
+                        question: "Sapaan yang tepat saat bertemu teman di malam hari adalah...",
+                        options: ["Salamet è bâjâ laggu", "Salamet è bâjâ siang", "Salamet è bâjâ sore", "Salamet è bâjâ malem"],
+                        correct: 3
+                    }
+                ]
+            },
+            2: {
+                title: "Anggota Keluarga",
+                objectives: [
+                    "Siswa dapat menyebutkan nama anggota keluarga dalam bahasa Madura",
+                    "Siswa dapat mengenali hubungan kekerabatan",
+                    "Siswa dapat memperkenalkan anggota keluarganya"
+                ],
+                content: [
+                    "<strong>Anggota Keluarga Inti:</strong>",
+                    "• <strong>Bapak</strong> = Rama",
+                    "• <strong>Ibu</strong> = Ebhu",
+                    "• <strong>Kakak laki-laki</strong> = Kaka'",
+                    "• <strong>Kakak perempuan</strong> = Yu",
+                    "• <strong>Adik</strong> = Alè'",
+                    "",
+                    "<strong>Keluarga Besar:</strong>",
+                    "• <strong>Kakek</strong> = Emba Lakè'",
+                    "• <strong>Nenek</strong> = Emba Bini'",
+                    "• <strong>Paman</strong> = Anom",
+                    "• <strong>Bibi</strong> = Nyannyah",
+                    "• <strong>Sepupu</strong> = Sepopoh",
+                    "",
+                    "<strong>Contoh Kalimat:</strong>",
+                    "'Anèka keluarga kaulâ = Ini keluarga saya"
+                ],
+                demonstration: [
+                    "👨 Rama kaulâ asmana èpon Pak Joko",
+                    "👩 Ebhu kaulâ asmana èpon Bu Siti", 
+                    "👦 Kaka' kaulâ asmana èpon Andi",
+                    "👧 Nyannyah kaulâ asmana èpon Rina",
+                    "👶 Alè' kaulâ asmana èpon Dika"
+                ],
+                quiz: [
+                    {
+                        question: "Bahasa Madura untuk 'Ayah' adalah...",
+                        options: ["Emak", "Rama", "Kakang", "Eyang"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Ebhu' adalah...",
+                        options: ["Ayah", "Ibu", "Kakak", "Adik"],
+                        correct: 1
+                    },
+                    {
+                        question: "Kakak laki-laki dalam bahasa Madura disebut...",
+                        options: ["Kaka'", "Mbakyu", "Adi", "Bapak"],
+                        correct: 0
+                    },
+                    {
+                        question: "Arti dari 'Yu' adalah...",
+                        options: ["Adik perempuan", "Kakak perempuan", "Ibu", "Bibi"],
+                        correct: 1
+                    },
+                    {
+                        question: "Bahasa Madura untuk 'Adik' adalah...",
+                        options: ["Kakang", "Mbakyu", "Alè'", "Misan"],
+                        correct: 2
+                    },
+                    {
+                        question: "Kakek dalam bahasa Madura disebut...",
+                        options: ["Eyang putri", "Mbah Lakè'", "Pakde", "Bude"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Emba bini'' adalah...",
+                        options: ["Kakek", "Nenek", "Paman", "Bibi"],
+                        correct: 1
+                    },
+                    {
+                        question: "Bahasa Madura untuk 'Sepupu' adalah...",
+                        options: ["Adi", "Kakang", "Spopoh", "Pakde"],
+                        correct: 2
+                    },
+                    {
+                        question: "Arti dari 'Anom' adalah...",
+                        options: ["Paman", "Bibi", "Kakek", "Nenek"],
+                        correct: 0
+                    },
+                    {
+                        question: "Yang bukan anggota keluarga inti adalah...",
+                        options: ["Rama", "Ebhu", "Ale'", "Anom"],
+                        correct: 3
+                    }
+                ]
+            },
+            3: {
+                title: "Angka 1-10",
+                objectives: [
+                    "Siswa dapat menyebutkan angka 1-10 dalam bahasa Madura",
+                    "Siswa dapat menghitung benda menggunakan bahasa Madura",
+                    "Siswa dapat menggunakan angka dalam kalimat sederhana"
+                ],
+                content: [
+                    "<strong>Angka 1-10 dalam Bahasa Madura:</strong>",
+                    "• <strong>1</strong> = Settong",
+                    "• <strong>2</strong> = Dhuwa",
+                    "• <strong>3</strong> = Tello",
+                    "• <strong>4</strong> = Empa'",
+                    "• <strong>5</strong> = Lèma'",
+                    "• <strong>6</strong> = Enem",
+                    "• <strong>7</strong> = Petto",
+                    "• <strong>8</strong> = Ballu'",
+                    "• <strong>9</strong> = Sanga",
+                    "• <strong>10</strong> = Sapolo",
+                    "",
+                    "<strong>Cara Menghitung:</strong>",
+                    "Untuk menghitung benda, kita bisa mengatakan:",
+                    "'Settong apel' = Satu apel",
+                    "'Dhuwa buku' = Dua buku"
+                ],
+                demonstration: [
+                    "✋ Settong tangan (satu tangan)",
+                    "👀 Dhuwa mata (dua mata)",
+                    "🍎 Tello apel (tiga apel)",
+                    "📚 Empa' buku (empat buku)",
+                    "🌟 Lèma' bintang (lima bintang)"
+                ],
+                quiz: [
+                    {
+                        question: "Angka 1 dalam bahasa Madura adalah...",
+                        options: ["Settong", "Dhuwa", "Tello", "Empat"],
+                        correct: 0
+                    },
+                    {
+                        question: "Arti dari 'Dhuwa' adalah...",
+                        options: ["1", "2", "3", "4"],
+                        correct: 1
+                    },
+                    {
+                        question: "Angka 5 dalam bahasa Madura adalah...",
+                        options: ["Empat", "Lema", "Enem", "Petto"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Petto' adalah...",
+                        options: ["6", "7", "8", "9"],
+                        correct: 1
+                    },
+                    {
+                        question: "Angka 10 dalam bahasa Madura adalah...",
+                        options: ["Sanga", "Balu", "Sapolo", "Enem"],
+                        correct: 2
+                    },
+                    {
+                        question: "Arti dari 'Tello' adalah...",
+                        options: ["2", "3", "4", "5"],
+                        correct: 1
+                    },
+                    {
+                        question: "Angka 8 dalam bahasa Madura adalah...",
+                        options: ["Petto", "Balu", "Sanga", "Sapolo"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Enem' adalah...",
+                        options: ["5", "6", "7", "8"],
+                        correct: 1
+                    },
+                    {
+                        question: "Angka 4 dalam bahasa Madura adalah...",
+                        options: ["Tello", "Empat", "Lema", "Enem"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Sanga' adalah...",
+                        options: ["7", "8", "9", "10"],
+                        correct: 2
+                    }
+                ]
+            },
+            4: {
+                title: "Warna-warna",
+                objectives: [
+                    "Siswa dapat menyebutkan nama warna dalam bahasa Madura",
+                    "Siswa dapat mengenali warna di sekitar",
+                    "Siswa dapat mendeskripsikan benda berdasarkan warnanya"
+                ],
+                content: [
+                    "<strong>Warna-warna dalam Bahasa Madura:</strong>",
+                    "• <strong>Merah</strong> = Mèra",
+                    "• <strong>Putih</strong> = Potè",
+                    "• <strong>Hitam</strong> = Celleng",
+                    "• <strong>Kuning</strong> = Konèng",
+                    "• <strong>Hijau</strong> = Ejhu",
+                    "• <strong>Biru</strong> = Bhiru",
+                    "• <strong>Ungu</strong> = Ungu",
+                    "• <strong>Coklat</strong> = Coklat",
+                    "",
+                    "<strong>Contoh Penggunaan:</strong>",
+                    "'Baju mèra' = Baju merah",
+                    "'Daun ejhu' = Daun hijau",
+                    "'Langi' bhiru' = Langit biru"
+                ],
+                demonstration: [
+                    "🍎 Apel bernanah mèra (Apel warnanya merah)",
+                    "☁️ Awan bernanah potè (Awan warnanya putih)",
+                    "🌱 Rebbha barnanah ejhu (Rumput warnanya hijau)",
+                    "🌞 Mata arè barnanah konèng (Matahari warnanya kuning)",
+                    "🌌 Malem barnanah celleng (Malam warnanya hitam)"
+                ],
+                quiz: [
+                    {
+                        question: "Warna merah dalam bahasa Madura adalah...",
+                        options: ["Mèra", "Potè", "Celleng", "Konèng"],
+                        correct: 0
+                    },
+                    {
+                        question: "Arti dari 'Potè' adalah...",
+                        options: ["Hitam", "Putih", "Kuning", "Hijau"],
+                        correct: 1
+                    },
+                    {
+                        question: "Warna hijau dalam bahasa Madura adalah...",
+                        options: ["Koneng", "Ejhu", "Biru", "Ungu"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Celleng' adalah...",
+                        options: ["Putih", "Hitam", "Abu-abu", "Coklat"],
+                        correct: 1
+                    },
+                    {
+                        question: "Warna kuning dalam bahasa Madura adalah...",
+                        options: ["Abang", "Pote", "Konèng", "Ejo"],
+                        correct: 2
+                    },
+                    {
+                        question: "Warna daun biasanya...",
+                        options: ["Abang", "Ejhu", "Koneng", "Celleng"],
+                        correct: 1
+                    },
+                    {
+                        question: "Warna matahari biasanya...",
+                        options: ["Konèng", "Abang", "Pote", "Biru"],
+                        correct: 0
+                    },
+                    {
+                        question: "Arti dari 'Ejhu' adalah...",
+                        options: ["Kuning", "Hijau", "Biru", "Ungu"],
+                        correct: 1
+                    },
+                    {
+                        question: "Warna awan biasanya...",
+                        options: ["Celleng", "Abang", "Potè", "Koneng"],
+                        correct: 2
+                    },
+                    {
+                        question: "Yang bukan nama warna dalam bahasa Madura adalah...",
+                        options: ["Mèra", "Potè", "Apel", "Ejhu"],
+                        correct: 2
+                    }
+                ]
+            },
+            5: {
+                title: "Hewan-hewan",
+                objectives: [
+                    "Siswa dapat menyebutkan nama hewan dalam bahasa Madura",
+                    "Siswa dapat mengenali hewan di sekitar",
+                    "Siswa dapat mendeskripsikan ciri-ciri hewan"
+                ],
+                content: [
+                    "<strong>Hewan Peliharaan:</strong>",
+                    "• <strong>Kucing</strong> = Kocèng",
+                    "• <strong>Anjing</strong> = Patè'",
+                    "• <strong>Ayam</strong> = Ajem",
+                    "• <strong>Sapi</strong> = Sapè",
+                    "• <strong>Kambing</strong> = Embi'",
+                    "",
+                    "<strong>Hewan Liar:</strong>",
+                    "• <strong>Gajah</strong> = Ghajha",
+                    "• <strong>Harimau</strong> = Macan",
+                    "• <strong>Burung</strong> = Mano'",
+                    "• <strong>Ikan</strong> = Juko'",
+                    "• <strong>Kerbau</strong> = Kerbhuy",
+                    "",
+                    "<strong>Suara Hewan:</strong>",
+                    "Kocèng monyèna 'meong-meong'",
+                    "Ajem monyèna 'kukuruyuk'"
+                ],
+                demonstration: [
+                    "🐱 Kocèng senneng ngakan jhuko' (Kucing suka makan ikan)",
+                    "🐕 Patè' èsto ka tuanah (Anjing setia pada tuannya)",
+                    "🐔 Ajem a tellor saben arè (Ayam bertelur setiap hari)",
+                    "🦆 Etèk senneng aèng (Itik suka air)",
+                    "🐐 Embi' ngakan rebbha (Kambing makan rumput)"
+                ],
+                quiz: [
+                    {
+                        question: "Kucing dalam bahasa Madura adalah...",
+                        options: ["Kocèng", "Patè'", "Manok", "Bebek"],
+                        correct: 0
+                    },
+                    {
+                        question: "Arti dari 'Patè'' adalah...",
+                        options: ["Kucing", "Anjing", "Ayam", "Bebek"],
+                        correct: 1
+                    },
+                    {
+                        question: "Ayam dalam bahasa Madura adalah...",
+                        options: ["Meong", "Asu", "Ajem", "Embe"],
+                        correct: 2
+                    },
+                    {
+                        question: "Arti dari 'Embi'' adalah...",
+                        options: ["Sapi", "Kambing", "Kerbau", "Domba"],
+                        correct: 1
+                    },
+                    {
+                        question: "Ikan dalam bahasa Madura adalah...",
+                        options: ["Jhuko'", "Manok", "Bebek", "Kebo"],
+                        correct: 0
+                    },
+                    {
+                        question: "Harimau dalam bahasa Madura adalah...",
+                        options: ["Gajah", "Macan", "Kebo", "Asu"],
+                        correct: 1
+                    },
+                    {
+                        question: "Arti dari 'Kerbhuy' adalah...",
+                        options: ["Sapi", "Kambing", "Kerbau", "Gajah"],
+                        correct: 2
+                    },
+                    {
+                        question: "Hewan yang bunyi 'meong-meong' adalah...",
+                        options: ["Patè'", "Kocèng", "Manok", "Bebek"],
+                        correct: 1
+                    },
+                    {
+                        question: "Hewan yang suka makan rumput adalah...",
+                        options: ["Koceng", "Pate'", "Embe", "Jukok"],
+                        correct: 2
+                    },
+                    {
+                        question: "Yang bukan hewan peliharaan adalah...",
+                        options: ["Koceng", "Sape", "Manok", "Macan"],
+                        correct: 3
+                    }
+                ]
+            }
+        };
+
+        function showMaterial(materialId) {
+            currentMaterial = materialId;
+            const material = materials[materialId];
+            
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('materialPage').classList.remove('hidden');
+            document.getElementById('quizPage').classList.add('hidden');
+            
+            document.getElementById('materialTitle').textContent = material.title;
+            
+            // Tujuan Pembelajaran
+            const objectivesHtml = material.objectives.map(obj => `<li class="mb-1">• ${obj}</li>`).join('');
+            document.getElementById('learningObjectives').innerHTML = `<ul>${objectivesHtml}</ul>`;
+            
+            // Materi Pembelajaran
+            const contentHtml = material.content.map(content => {
+                if (content === '') return '<br>';
+                return `<p class="mb-2">${content}</p>`;
+            }).join('');
+            document.getElementById('learningMaterial').innerHTML = contentHtml;
+            
+            // Demonstrasi
+            const demonstrationHtml = material.demonstration.map(demo => 
+                `<div class="bg-gray-50 p-3 rounded-lg mb-2 text-sm">${demo}</div>`
+            ).join('');
+            document.getElementById('demonstration').innerHTML = demonstrationHtml;
+        }
+
+        function showHome() {
+            document.getElementById('homePage').classList.remove('hidden');
+            document.getElementById('materialPage').classList.add('hidden');
+            document.getElementById('quizPage').classList.add('hidden');
+        }
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            
+            document.getElementById('materialPage').classList.add('hidden');
+            document.getElementById('quizPage').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const material = materials[currentMaterial];
+            const question = material.quiz[currentQuestionIndex];
+            
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = material.quiz.length;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsHtml = question.options.map((option, index) => 
+                `<button class="quiz-option w-full p-3 text-left bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="selectAnswer(${index})">${option}</button>`
+            ).join('');
+            document.getElementById('optionsContainer').innerHTML = optionsHtml;
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === material.quiz.length - 1 ? 'Selesai' : 'Selanjutnya';
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            
+            // Visual feedback
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((option, index) => {
+                option.classList.remove('correct', 'incorrect');
+                if (index === answerIndex) {
+                    if (index === materials[currentMaterial].quiz[currentQuestionIndex].correct) {
+                        option.classList.add('correct');
+                    } else {
+                        option.classList.add('incorrect');
+                    }
+                } else if (index === materials[currentMaterial].quiz[currentQuestionIndex].correct) {
+                    option.classList.add('correct');
+                }
+                option.disabled = true;
+            });
+            
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < materials[currentMaterial].quiz.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+                
+                // Restore previous answer if exists
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    selectAnswer(userAnswers[currentQuestionIndex]);
+                }
+            }
+        }
+
+        function finishQuiz() {
+            // Calculate score
+            score = 0;
+            const quiz = materials[currentMaterial].quiz;
+            for (let i = 0; i < quiz.length; i++) {
+                if (userAnswers[i] === quiz[i].correct) {
+                    score++;
+                }
+            }
+            
+            document.getElementById('finalScore').textContent = `${score}/${quiz.length}`;
+            document.getElementById('quizResult').classList.remove('hidden');
+            
+            // Hide question area
+            document.querySelector('.bg-white.rounded-xl.p-4.shadow-md.mb-4').style.display = 'none';
+            document.querySelector('.flex.justify-between').style.display = 'none';
+        }
+
+        function restartQuiz() {
+            document.querySelector('.bg-white.rounded-xl.p-4.shadow-md.mb-4').style.display = 'block';
+            document.querySelector('.flex.justify-between').style.display = 'flex';
+            startQuiz();
+        }
+
+        function showMaterialFromQuiz() {
+            showMaterial(currentMaterial);
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'969297fe3346896e',t:'MTc1NDE5MDMzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
