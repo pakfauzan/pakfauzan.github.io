@@ -1,0 +1,2772 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Seni Rupa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-purple {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .gradient-pink {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .gradient-green {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .gradient-orange {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-option {
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            transform: scale(1.02);
+        }
+        
+        .quiz-option.correct {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+        }
+        
+        .quiz-option.incorrect {
+            background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+            color: white;
+        }
+        
+        .demo-canvas {
+            border: 3px dashed #e5e7eb;
+            border-radius: 12px;
+            background: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <div class="gradient-purple text-white p-6 text-center">
+        <h1 class="text-2xl font-bold mb-2">Seni Rupa</h1>
+        <p class="text-sm opacity-90">Untuk Kelas 2 - Fase A</p>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainPage" class="p-4 space-y-4">
+        <!-- Daftar Materi Heading -->
+        <div class="text-center mb-6">
+            <h2 class="text-xl font-semibold text-black">Daftar Materi</h2>
+        </div>
+        
+        <!-- Materi 1 -->
+        <div class="gradient-blue rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(1)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Bermain dengan Garis, Bidang, dan Warna</h3>
+                    <p class="text-sm opacity-90">Mengenal unsur-unsur seni rupa</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 2 -->
+        <div class="gradient-pink rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(2)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Berpendapat Mengenai Karya Seni Rupa</h3>
+                    <p class="text-sm opacity-90">Mengungkapkan pendapat tentang karya seni</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 3 -->
+        <div class="bg-gradient-to-r from-green-400 to-blue-600  rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(3)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Menggali Ide untuk Berkarya</h3>
+                    <p class="text-sm opacity-90">Mencari sumber gagasan untuk berkarya seni</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 4 -->
+        <div class="bg-gradient-to-r from-orange-400 to-rose-600  rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(4)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">4</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Eksplorasi Teknik, Alat, dan Bahan</h3>
+                    <p class="text-sm opacity-90">Memilih teknik, alat, dan bahan berkarya</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 5 -->
+        <div class="gradient-purple rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(5)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">5</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Berkarya Seni Dua dan Tiga Dimensi</h3>
+                    <p class="text-sm opacity-90">Langkah-langkah berkarya seni 2D dan 3D</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 6 -->
+        <div class="gradient-blue rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(6)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">6</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Berkreasi Karya Seni Rupa</h3>
+                    <p class="text-sm opacity-90">Membuat karya 2D dan 3D dengan teknik pilihan</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 7 -->
+        <div class="gradient-pink rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(7)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">7</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Pengalaman dan Perasaan Berkreasi</h3>
+                    <p class="text-sm opacity-90">Menceritakan pengalaman dan perasaan berkreasi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi 8 -->
+        <div class="bg-gradient-to-r from-green-400 to-blue-600  rounded-xl p-4 text-white card-hover cursor-pointer" onclick="showMaterial(8)">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center font-bold">8</div>
+                <div>
+                    <h3 class="font-semibold text-lg">Hal Baik dari Sebuah Karya Seni</h3>
+                    <p class="text-sm opacity-90">Menjelaskan dampak karya seni pada diri sendiri</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Main Button -->
+        <div class="mt-8 text-center">
+            <a href="../" class="inline-block bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                🏠 Kembali ke Halaman Utama
+            </a>
+        </div>
+    </div>
+
+    <!-- Material Detail Pages -->
+    <!-- Material 8 Detail -->
+    <div id="material8" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-green text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Hal Baik dari Sebuah Karya Seni</h2>
+            
+            <div class="gradient-orange rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-gray-800 mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-gray-700">Menjelaskan dampak suatu karya pada dirinya.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">1. Apa itu Dampak Karya Seni?</h4>
+                        <p class="text-gray-700 mb-3">Dampak karya seni adalah pengaruh atau efek yang kita rasakan setelah melihat, membuat, atau menikmati sebuah karya seni.</p>
+                        
+                        <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                            <h5 class="font-medium text-blue-700 mb-2">🌟 Contoh Dampak Positif:</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Merasa senang dan bahagia</li>
+                                <li>• Menjadi lebih kreatif</li>
+                                <li>• Belajar hal-hal baru</li>
+                                <li>• Merasa tenang dan damai</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">2. Dampak pada Perasaan</h4>
+                        <p class="text-gray-700 mb-3">Karya seni dapat mempengaruhi perasaan kita dengan berbagai cara:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-green-700 mb-2">😊 Perasaan Positif</h5>
+                                <div class="space-y-1 text-sm text-gray-700">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-yellow-500">🌟</span>
+                                        <span><strong>Bahagia:</strong> Melihat warna cerah</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-blue-500">😌</span>
+                                        <span><strong>Tenang:</strong> Melihat pemandangan alam</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-purple-500">✨</span>
+                                        <span><strong>Kagum:</strong> Melihat karya yang indah</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-pink-500">💖</span>
+                                        <span><strong>Cinta:</strong> Melihat gambar keluarga</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-green-700 mb-2">🤔 Perasaan Reflektif</h5>
+                                <div class="space-y-1 text-sm text-gray-700">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-orange-500">🤔</span>
+                                        <span><strong>Penasaran:</strong> Ingin tahu lebih banyak</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-green-500">💭</span>
+                                        <span><strong>Terinspirasi:</strong> Ingin membuat serupa</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-indigo-500">🧠</span>
+                                        <span><strong>Berpikir:</strong> Memahami makna karya</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-red-500">❤️</span>
+                                        <span><strong>Empati:</strong> Merasakan pesan karya</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">3. Dampak pada Pembelajaran</h4>
+                        <p class="text-gray-700 mb-3">Karya seni juga membantu kita belajar banyak hal:</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-yellow-100 rounded-full w-8 h-8 flex items-center justify-center text-yellow-700 font-bold text-sm">1</div>
+                                <div>
+                                    <h6 class="font-medium text-yellow-700">Belajar Warna dan Bentuk</h6>
+                                    <p class="text-sm text-gray-600">Mengenal berbagai warna, bentuk, dan pola yang ada di karya seni</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-yellow-100 rounded-full w-8 h-8 flex items-center justify-center text-yellow-700 font-bold text-sm">2</div>
+                                <div>
+                                    <h6 class="font-medium text-yellow-700">Mengenal Budaya</h6>
+                                    <p class="text-sm text-gray-600">Memahami budaya dan tradisi dari berbagai daerah melalui seni</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-yellow-100 rounded-full w-8 h-8 flex items-center justify-center text-yellow-700 font-bold text-sm">3</div>
+                                <div>
+                                    <h6 class="font-medium text-yellow-700">Mengembangkan Kreativitas</h6>
+                                    <p class="text-sm text-gray-600">Mendapat ide-ide baru untuk membuat karya sendiri</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-yellow-100 rounded-full w-8 h-8 flex items-center justify-center text-yellow-700 font-bold text-sm">4</div>
+                                <div>
+                                    <h6 class="font-medium text-yellow-700">Melatih Konsentrasi</h6>
+                                    <p class="text-sm text-gray-600">Belajar fokus dan memperhatikan detail-detail kecil</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">4. Dampak pada Perilaku</h4>
+                        <p class="text-gray-700 mb-3">Karya seni yang baik dapat mempengaruhi perilaku kita menjadi lebih baik:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-purple-700 mb-2">🌱 Perilaku Positif</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Lebih menghargai keindahan</li>
+                                    <li>• Menjadi lebih sabar dan teliti</li>
+                                    <li>• Suka berbagi dengan teman</li>
+                                    <li>• Lebih peduli lingkungan</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-purple-700 mb-2">🎨 Kebiasaan Kreatif</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Suka menggambar dan mewarnai</li>
+                                    <li>• Gemar membuat kerajinan</li>
+                                    <li>• Senang mengunjungi pameran</li>
+                                    <li>• Rajin berlatih seni</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-pink-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-pink-800 mb-2">5. Cara Menjelaskan Dampak Karya Seni</h4>
+                        <p class="text-gray-700 mb-3">Untuk menjelaskan dampak karya seni pada diri kita, ikuti langkah-langkah ini:</p>
+                        
+                        <div class="space-y-2">
+                            <div class="bg-white p-3 rounded border-l-4 border-pink-500">
+                                <h6 class="font-medium text-pink-700 mb-1">1. Ceritakan Perasaan</h6>
+                                <p class="text-sm text-gray-600">"Saat melihat lukisan ini, saya merasa..."</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-pink-500">
+                                <h6 class="font-medium text-pink-700 mb-1">2. Jelaskan Alasannya</h6>
+                                <p class="text-sm text-gray-600">"Karena warnanya cerah dan gambarnya indah..."</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-pink-500">
+                                <h6 class="font-medium text-pink-700 mb-1">3. Bagikan Pembelajaran</h6>
+                                <p class="text-sm text-gray-600">"Dari karya ini saya belajar bahwa..."</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-pink-500">
+                                <h6 class="font-medium text-pink-700 mb-1">4. Ceritakan Pengaruhnya</h6>
+                                <p class="text-sm text-gray-600">"Setelah melihat ini, saya jadi ingin..."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-red-800 mb-2">6. Contoh Penjelasan Dampak</h4>
+                        <div class="bg-white p-4 rounded border-l-4 border-red-500">
+                            <h5 class="font-medium text-red-700 mb-2">📖 Contoh Lengkap:</h5>
+                            <p class="text-sm text-gray-700 italic leading-relaxed">
+                                "Saat melihat lukisan pemandangan gunung ini, saya merasa sangat tenang dan damai. Warna hijau dan biru yang lembut membuat mata saya nyaman. Dari lukisan ini saya belajar bahwa alam itu sangat indah dan harus kita jaga. Setelah melihat lukisan ini, saya jadi ingin belajar melukis pemandangan juga dan lebih sering bermain di taman untuk menikmati keindahan alam."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">🎨 Galeri Karya Seni - Rasakan Dampaknya!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-3">Pilih karya seni yang ingin kamu amati:</h4>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <button onclick="viewArtwork('nature')" class="artwork-btn bg-green-100 hover:bg-green-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🌿 Lukisan Alam
+                            </button>
+                            <button onclick="viewArtwork('family')" class="artwork-btn bg-blue-100 hover:bg-blue-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                👨‍👩‍👧‍👦 Gambar Keluarga
+                            </button>
+                            <button onclick="viewArtwork('animal')" class="artwork-btn bg-yellow-100 hover:bg-yellow-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🐱 Patung Hewan
+                            </button>
+                            <button onclick="viewArtwork('abstract')" class="artwork-btn bg-purple-100 hover:bg-purple-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🎨 Karya Abstrak
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="artworkViewer" class="hidden">
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <div id="artworkDisplay" class="text-center mb-4"></div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-medium text-gray-800 mb-2">Bagaimana perasaanmu saat melihat karya ini?</h5>
+                                    <div class="grid grid-cols-2 gap-2 mb-3">
+                                        <button onclick="selectFeeling('senang')" class="feeling-btn bg-yellow-100 hover:bg-yellow-200 p-2 rounded text-sm transition-colors">😊 Senang</button>
+                                        <button onclick="selectFeeling('tenang')" class="feeling-btn bg-blue-100 hover:bg-blue-200 p-2 rounded text-sm transition-colors">😌 Tenang</button>
+                                        <button onclick="selectFeeling('kagum')" class="feeling-btn bg-purple-100 hover:bg-purple-200 p-2 rounded text-sm transition-colors">😮 Kagum</button>
+                                        <button onclick="selectFeeling('terinspirasi')" class="feeling-btn bg-green-100 hover:bg-green-200 p-2 rounded text-sm transition-colors">✨ Terinspirasi</button>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-medium text-gray-800 mb-2">Jelaskan dampak karya ini pada dirimu:</h5>
+                                    <div class="bg-yellow-50 p-3 rounded-lg mb-3">
+                                        <p class="text-sm text-yellow-800 mb-2">💡 <strong>Tips menjelaskan dampak:</strong></p>
+                                        <ul class="text-xs text-yellow-700 space-y-1">
+                                            <li>• Mulai dengan "Saat melihat karya ini, saya merasa..."</li>
+                                            <li>• Jelaskan mengapa kamu merasakan hal tersebut</li>
+                                            <li>• Ceritakan apa yang kamu pelajari</li>
+                                            <li>• Bagikan apa yang ingin kamu lakukan setelah melihat karya ini</li>
+                                        </ul>
+                                    </div>
+                                    <textarea id="impactExplanation" class="w-full p-3 border rounded-lg resize-none" rows="4" placeholder="Contoh: Saat melihat lukisan alam ini, saya merasa sangat tenang karena warnanya hijau dan sejuk. Saya belajar bahwa alam itu indah dan harus dijaga. Setelah melihat ini, saya ingin belajar melukis pemandangan juga..."></textarea>
+                                    <button onclick="shareImpactExplanation()" class="mt-3 gradient-green text-white px-4 py-2 rounded-lg font-medium">Bagikan Penjelasan Dampak</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="impactResult" class="hidden bg-green-50 border border-green-200 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="text-2xl">🌟</div>
+                                <div>
+                                    <p class="text-green-800 font-medium">Penjelasan dampak yang luar biasa!</p>
+                                    <p class="text-green-700 text-sm mt-1">Kamu sudah belajar cara menjelaskan dampak karya seni pada diri sendiri dengan sangat baik. Terus nikmati keindahan seni di sekitarmu!</p>
+                                    <div class="mt-3 p-3 bg-white rounded border-l-4 border-green-500">
+                                        <p class="text-sm text-gray-700"><strong>Dampak yang kamu rasakan:</strong></p>
+                                        <p id="sharedImpact" class="text-sm text-gray-600 mt-1 italic"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(8)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 7 Detail -->
+    <div id="material7" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-pink text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Pengalaman dan Perasaan Berkreasi Seni Rupa</h2>
+            
+            <div class="gradient-green rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-white mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-white opacity-90">Menceritakan pengalaman dan perasaan mengenai proses berkreasi diri.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-pink-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-pink-800 mb-2">1. Apa itu Pengalaman Berkreasi?</h4>
+                        <p class="text-gray-700 mb-3">Pengalaman berkreasi adalah semua hal yang kita alami saat membuat karya seni, mulai dari persiapan hingga karya selesai.</p>
+                        
+                        <div class="bg-white p-3 rounded border-l-4 border-pink-500">
+                            <h5 class="font-medium text-pink-700 mb-2">🌟 Contoh Pengalaman Berkreasi:</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Saat pertama kali memegang kuas untuk melukis</li>
+                                <li>• Ketika mencampur warna dan mendapat warna baru</li>
+                                <li>• Saat membentuk plastisin menjadi hewan lucu</li>
+                                <li>• Ketika melihat hasil karya yang sudah selesai</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">2. Perasaan Saat Berkreasi</h4>
+                        <p class="text-gray-700 mb-3">Saat berkreasi, kita bisa merasakan berbagai perasaan yang berbeda-beda.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-blue-700 mb-2">😊 Perasaan Positif</h5>
+                                <div class="space-y-1 text-sm text-gray-700">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-yellow-500">🌟</span>
+                                        <span><strong>Senang:</strong> Saat berhasil membuat sesuatu</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-green-500">✨</span>
+                                        <span><strong>Bangga:</strong> Melihat hasil karya sendiri</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-blue-500">🎨</span>
+                                        <span><strong>Kreatif:</strong> Menemukan ide baru</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-purple-500">🌈</span>
+                                        <span><strong>Bebas:</strong> Mengekspresikan diri</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-blue-700 mb-2">😅 Perasaan Tantangan</h5>
+                                <div class="space-y-1 text-sm text-gray-700">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-orange-500">🤔</span>
+                                        <span><strong>Bingung:</strong> Saat tidak tahu cara mulai</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-red-500">😤</span>
+                                        <span><strong>Kesal:</strong> Ketika hasil tidak sesuai</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-gray-500">😰</span>
+                                        <span><strong>Cemas:</strong> Takut membuat kesalahan</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-indigo-500">💪</span>
+                                        <span><strong>Semangat:</strong> Ingin mencoba lagi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">3. Cara Menceritakan Pengalaman</h4>
+                        <p class="text-gray-700 mb-3">Ada beberapa cara untuk menceritakan pengalaman berkreasi dengan baik:</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">1</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Ceritakan Langkah-langkah</h6>
+                                    <p class="text-sm text-gray-600">"Pertama saya siapkan alat, lalu saya mulai menggambar..."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">2</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Ungkapkan Perasaan</h6>
+                                    <p class="text-sm text-gray-600">"Saya merasa senang ketika warna-warnanya bercampur..."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">3</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Bagikan Kesulitan</h6>
+                                    <p class="text-sm text-gray-600">"Yang sulit adalah saat menggambar mata, tapi akhirnya berhasil..."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">4</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Ceritakan Hasil Akhir</h6>
+                                    <p class="text-sm text-gray-600">"Hasilnya membuat saya bangga dan ingin berkreasi lagi..."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">4. Manfaat Menceritakan Pengalaman</h4>
+                        <p class="text-gray-700 mb-3">Menceritakan pengalaman berkreasi memiliki banyak manfaat:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">🧠 Untuk Diri Sendiri:</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Mengingat proses belajar</li>
+                                    <li>• Mengenali perasaan diri</li>
+                                    <li>• Meningkatkan kepercayaan diri</li>
+                                    <li>• Memotivasi untuk berkreasi lagi</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">👥 Untuk Orang Lain:</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Menginspirasi teman-teman</li>
+                                    <li>• Berbagi tips dan trik</li>
+                                    <li>• Membangun persahabatan</li>
+                                    <li>• Saling mendukung berkreasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">5. Contoh Cerita Pengalaman</h4>
+                        <div class="bg-white p-4 rounded border-l-4 border-purple-500">
+                            <h5 class="font-medium text-purple-700 mb-2">📖 Contoh Cerita Lengkap:</h5>
+                            <p class="text-sm text-gray-700 italic leading-relaxed">
+                                "Kemarin saya membuat lukisan bunga matahari. Pertama-tama saya merasa bingung karena tidak tahu harus mulai dari mana. Tapi setelah guru menjelaskan, saya mulai menggambar lingkaran besar untuk bunga. Saat mewarnai dengan kuning, saya merasa senang sekali karena warnanya cerah seperti matahari sungguhan. Yang paling sulit adalah menggambar kelopak-kelopak kecil, tangan saya sampai pegal! Tapi ketika selesai, saya merasa sangat bangga. Lukisan saya terlihat indah dan mama juga memuji. Sekarang saya ingin mencoba melukis bunga yang lain!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📝 Jurnal Pengalaman Berkreasi!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-3">Pilih jenis karya yang pernah kamu buat:</h4>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <button onclick="startExperienceJournal('drawing')" class="experience-btn bg-blue-100 hover:bg-blue-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                ✏️ Menggambar
+                            </button>
+                            <button onclick="startExperienceJournal('painting')" class="experience-btn bg-green-100 hover:bg-green-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🎨 Melukis
+                            </button>
+                            <button onclick="startExperienceJournal('sculpture')" class="experience-btn bg-purple-100 hover:bg-purple-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🏺 Membentuk
+                            </button>
+                            <button onclick="startExperienceJournal('craft')" class="experience-btn bg-orange-100 hover:bg-orange-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                ✂️ Kerajinan
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="experienceJournal" class="hidden">
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h5 class="font-medium text-gray-800 mb-3">Jurnal Pengalaman Berkreasi:</h5>
+                            <div id="journalQuestions" class="space-y-4"></div>
+                            
+                            <div class="mt-6">
+                                <h6 class="font-medium text-gray-800 mb-2">Cerita Lengkap Pengalamanmu:</h6>
+                                <div class="bg-yellow-50 p-3 rounded-lg mb-3">
+                                    <p class="text-sm text-yellow-800 mb-2">💡 <strong>Tips menulis cerita:</strong></p>
+                                    <ul class="text-xs text-yellow-700 space-y-1">
+                                        <li>• Mulai dengan "Kemarin/Tadi saya..."</li>
+                                        <li>• Ceritakan langkah-langkah yang dilakukan</li>
+                                        <li>• Ungkapkan perasaan di setiap langkah</li>
+                                        <li>• Akhiri dengan kesan dan rencana selanjutnya</li>
+                                    </ul>
+                                </div>
+                                <textarea id="fullStory" class="w-full p-3 border rounded-lg resize-none" rows="6" placeholder="Tulis cerita lengkap pengalaman berkreasi mu di sini..."></textarea>
+                                <button onclick="shareFullExperience()" class="mt-3 gradient-pink text-white px-4 py-2 rounded-lg font-medium">Bagikan Pengalaman Lengkap</button>
+                            </div>
+                        </div>
+                        
+                        <div id="experienceResult" class="hidden bg-green-50 border border-green-200 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="text-2xl">🌟</div>
+                                <div>
+                                    <p class="text-green-800 font-medium">Cerita pengalaman yang luar biasa!</p>
+                                    <p class="text-green-700 text-sm mt-1">Kamu sudah belajar cara menceritakan pengalaman berkreasi dengan sangat baik. Terus berkreasi dan bagikan pengalamanmu!</p>
+                                    <div class="mt-3 p-3 bg-white rounded border-l-4 border-green-500">
+                                        <p class="text-sm text-gray-700"><strong>Pengalaman yang kamu bagikan:</strong></p>
+                                        <p id="sharedExperience" class="text-sm text-gray-600 mt-1 italic"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(7)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 6 Detail -->
+    <div id="material6" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-blue text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Berkreasi Karya Seni Rupa</h2>
+            
+            <div class="gradient-pink rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-white mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-white opacity-90">Membuat karya dua dan tiga dimensi dengan menggunakan teknik yang dipilih.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">1. Memilih Teknik Berkarya</h4>
+                        <p class="text-gray-700 mb-3">Sebelum berkreasi, kita harus memilih teknik yang sesuai dengan ide dan kemampuan kita.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                <h5 class="font-medium text-blue-700 mb-2">🎨 Teknik Karya 2D</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Menggambar:</strong> Menggunakan pensil, krayon</li>
+                                    <li>• <strong>Melukis:</strong> Menggunakan cat air, cat poster</li>
+                                    <li>• <strong>Kolase:</strong> Menempel potongan kertas</li>
+                                    <li>• <strong>Mozaik:</strong> Menyusun potongan kecil</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                <h5 class="font-medium text-blue-700 mb-2">🏗️ Teknik Karya 3D</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Membentuk:</strong> Menggunakan plastisin, tanah liat</li>
+                                    <li>• <strong>Konstruksi:</strong> Menyusun dari kardus, kayu</li>
+                                    <li>• <strong>Merakit:</strong> Menggabungkan bagian-bagian</li>
+                                    <li>• <strong>Origami:</strong> Melipat kertas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">2. Proses Berkreasi</h4>
+                        <p class="text-gray-700 mb-3">Berkreasi adalah proses mewujudkan ide menjadi karya nyata dengan teknik yang dipilih.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">1</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Tentukan Ide</h6>
+                                    <p class="text-sm text-gray-600">Pilih apa yang ingin dibuat (hewan, tumbuhan, benda, dll)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">2</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Pilih Teknik</h6>
+                                    <p class="text-sm text-gray-600">Sesuaikan teknik dengan ide dan bahan yang tersedia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">3</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Mulai Berkarya</h6>
+                                    <p class="text-sm text-gray-600">Ikuti langkah-langkah teknik yang dipilih dengan sabar</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded flex items-start space-x-3">
+                                <div class="bg-green-100 rounded-full w-8 h-8 flex items-center justify-center text-green-700 font-bold text-sm">4</div>
+                                <div>
+                                    <h6 class="font-medium text-green-700">Evaluasi Hasil</h6>
+                                    <p class="text-sm text-gray-600">Lihat hasil karya dan pikirkan apa yang bisa diperbaiki</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">3. Contoh Proyek Kreatif</h4>
+                        <p class="text-gray-700 mb-3">Berikut beberapa ide proyek yang bisa kamu coba dengan berbagai teknik:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">📄 Proyek 2D</h5>
+                                <div class="space-y-2 text-sm text-gray-700">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-blue-500">🎨</span>
+                                        <span><strong>Lukisan Pemandangan:</strong> Cat air + kuas</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-green-500">✂️</span>
+                                        <span><strong>Kolase Hewan:</strong> Kertas warna + lem</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-purple-500">✏️</span>
+                                        <span><strong>Gambar Keluarga:</strong> Pensil + krayon</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">📦 Proyek 3D</h5>
+                                <div class="space-y-2 text-sm text-gray-700">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-red-500">🏺</span>
+                                        <span><strong>Patung Hewan:</strong> Plastisin + alat bentuk</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-orange-500">📦</span>
+                                        <span><strong>Rumah Mini:</strong> Kardus + gunting + lem</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-pink-500">🎭</span>
+                                        <span><strong>Boneka Kertas:</strong> Origami + hiasan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">4. Tips Berkreasi yang Sukses</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-purple-700 mb-2">💡 Sebelum Mulai:</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Siapkan semua alat dan bahan</li>
+                                    <li>• Buat sketsa atau rencana sederhana</li>
+                                    <li>• Pilih tempat kerja yang nyaman</li>
+                                    <li>• Tentukan waktu yang cukup</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-purple-700 mb-2">🎨 Saat Berkarya:</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Sabar dan tidak terburu-buru</li>
+                                    <li>• Berani bereksperimen</li>
+                                    <li>• Jangan takut membuat kesalahan</li>
+                                    <li>• Nikmati proses berkreasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">🎨 Studio Kreasi Virtual!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-3">Pilih proyek yang ingin kamu buat:</h4>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <button onclick="startCreativeProject('painting')" class="creative-btn bg-blue-100 hover:bg-blue-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🎨 Lukisan Digital
+                            </button>
+                            <button onclick="startCreativeProject('collage')" class="creative-btn bg-green-100 hover:bg-green-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                ✂️ Kolase Virtual
+                            </button>
+                            <button onclick="startCreativeProject('sculpture')" class="creative-btn bg-purple-100 hover:bg-purple-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🏺 Patung 3D
+                            </button>
+                            <button onclick="startCreativeProject('construction')" class="creative-btn bg-orange-100 hover:bg-orange-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🏗️ Konstruksi
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="creativeStudio" class="hidden">
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h5 class="font-medium text-gray-800 mb-3">Studio Kreasi:</h5>
+                            <div id="studioContent" class="space-y-3"></div>
+                            
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700">Progress Kreasi:</span>
+                                    <span id="creativeProgress" class="text-sm text-gray-600">0%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2">
+                                    <div id="creativeProgressBar" class="bg-purple-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 space-y-2">
+                                <p class="text-sm font-medium text-gray-800">Ceritakan proses kreatifmu:</p>
+                                <textarea id="creativeProcess" class="w-full p-3 border rounded-lg resize-none" rows="3" placeholder="Contoh: Saya memilih teknik melukis karena ingin membuat pemandangan yang indah. Prosesnya sangat menyenangkan..."></textarea>
+                                <button onclick="shareCreativeProcess()" class="gradient-purple text-white px-4 py-2 rounded-lg font-medium">Bagikan Proses Kreatif</button>
+                            </div>
+                        </div>
+                        
+                        <div id="creativeFeedback" class="hidden bg-green-50 border border-green-200 rounded-lg p-3">
+                            <p class="text-green-800 font-medium">Proses kreatif yang luar biasa! 🎨</p>
+                            <p class="text-green-700 text-sm mt-1">Kamu sudah berhasil membuat karya dengan teknik pilihanmu sendiri!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(6)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 5 Detail -->
+    <div id="material5" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-purple text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Berkarya Seni Dua dan Tiga Dimensi</h2>
+            
+            <div class="gradient-blue rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-white mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-white opacity-90">Mempraktikkan langkah-langkah berkarya seni dua atau tiga dimensi.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">1. Langkah-langkah Berkarya Seni 2D</h4>
+                        <p class="text-gray-700 mb-3">Karya 2D adalah karya yang memiliki panjang dan lebar saja (datar).</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                <h5 class="font-medium text-blue-700 mb-2">📝 Langkah 1: Persiapan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Siapkan alat: pensil, krayon, atau kuas</li>
+                                    <li>• Siapkan bahan: kertas, cat, atau kertas warna</li>
+                                    <li>• Tentukan tempat kerja yang nyaman dan terang</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                <h5 class="font-medium text-blue-700 mb-2">💡 Langkah 2: Membuat Sketsa</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Gambar bentuk dasar dengan pensil tipis</li>
+                                    <li>• Mulai dari bentuk sederhana (lingkaran, kotak)</li>
+                                    <li>• Jangan takut salah, sketsa bisa diperbaiki</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                <h5 class="font-medium text-blue-700 mb-2">🎨 Langkah 3: Mewarnai/Menyelesaikan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Pilih warna yang sesuai dengan ide</li>
+                                    <li>• Warnai dari area yang besar ke kecil</li>
+                                    <li>• Tambahkan detail terakhir</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">2. Langkah-langkah Berkarya Seni 3D</h4>
+                        <p class="text-gray-700 mb-3">Karya 3D adalah karya yang memiliki panjang, lebar, dan tinggi (bervolume).</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                <h5 class="font-medium text-green-700 mb-2">🛠️ Langkah 1: Persiapan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Siapkan alat: gunting, lem, alat bentuk</li>
+                                    <li>• Siapkan bahan: plastisin, kardus, atau botol bekas</li>
+                                    <li>• Siapkan alas kerja yang aman</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                <h5 class="font-medium text-green-700 mb-2">🏗️ Langkah 2: Membentuk Dasar</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Buat bentuk dasar sesuai rencana</li>
+                                    <li>• Bentuk bagian-bagian utama terlebih dahulu</li>
+                                    <li>• Pastikan bentuk kuat dan stabil</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                <h5 class="font-medium text-green-700 mb-2">✨ Langkah 3: Menambah Detail</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Tambahkan bagian-bagian kecil</li>
+                                    <li>• Beri warna atau hiasan</li>
+                                    <li>• Periksa dan perbaiki jika perlu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">3. Tips Berkarya yang Baik</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">🎯 Untuk Karya 2D:</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Mulai dari tengah kertas</li>
+                                    <li>• Gunakan warna kontras</li>
+                                    <li>• Jangan terburu-buru</li>
+                                    <li>• Bersihkan alat setelah pakai</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">📦 Untuk Karya 3D:</h5>
+                                <ul class="text-xs text-gray-700 space-y-1">
+                                    <li>• Buat bagian besar dulu</li>
+                                    <li>• Gunakan lem secukupnya</li>
+                                    <li>• Tunggu kering sebelum lanjut</li>
+                                    <li>• Simpan di tempat aman</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">4. Contoh Proyek Sederhana</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-purple-700 mb-2">📄 Proyek 2D: Gambar Rumah</h5>
+                                <p class="text-sm text-gray-700">Sketsa → Gambar atap, dinding, pintu → Warnai → Tambah detail (jendela, taman)</p>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-purple-700 mb-2">📦 Proyek 3D: Mobil dari Kardus</h5>
+                                <p class="text-sm text-gray-700">Potong kardus → Bentuk badan mobil → Pasang roda → Cat dan hiasi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">🎨 Simulator Langkah Berkarya!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-3">Pilih jenis karya yang ingin kamu buat:</h4>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <button onclick="startProject('2d')" class="project-btn bg-blue-100 hover:bg-blue-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                📄 Proyek 2D
+                            </button>
+                            <button onclick="startProject('3d')" class="project-btn bg-green-100 hover:bg-green-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                📦 Proyek 3D
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="projectSteps" class="hidden">
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h5 class="font-medium text-gray-800 mb-3">Langkah-langkah berkarya:</h5>
+                            <div id="stepsContent" class="space-y-3"></div>
+                            
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700">Progress:</span>
+                                    <span id="stepProgress" class="text-sm text-gray-600">0/3</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2">
+                                    <div id="projectProgressBar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 space-y-2">
+                                <p class="text-sm font-medium text-gray-800">Ceritakan pengalaman berkarya mu:</p>
+                                <textarea id="projectExperience" class="w-full p-3 border rounded-lg resize-none" rows="3" placeholder="Contoh: Saya senang membuat gambar rumah. Langkah yang paling seru adalah mewarnai..."></textarea>
+                                <button onclick="shareExperience()" class="gradient-blue text-white px-4 py-2 rounded-lg font-medium">Bagikan Pengalaman</button>
+                            </div>
+                        </div>
+                        
+                        <div id="experienceFeedback" class="hidden bg-green-50 border border-green-200 rounded-lg p-3">
+                            <p class="text-green-800 font-medium">Pengalaman yang menarik! 🎨</p>
+                            <p class="text-green-700 text-sm mt-1">Kamu sudah memahami langkah-langkah berkarya seni dengan baik!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(5)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 4 Detail -->
+    <div id="material4" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-orange text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Eksplorasi Teknik, Alat, dan Bahan</h2>
+            
+            <div class="gradient-purple rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-white mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-white opacity-90">Memilih teknik, alat, dan bahan untuk menciptakan karya dua atau tiga dimensi.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">1. Teknik Berkarya Seni</h4>
+                        <p class="text-gray-700 mb-3">Teknik adalah cara atau metode yang digunakan untuk membuat karya seni.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-blue-700 mb-2">🎨 Teknik untuk Karya 2D:</h5>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="bg-blue-50 p-2 rounded">✏️ Menggambar</div>
+                                    <div class="bg-blue-50 p-2 rounded">🖌️ Melukis</div>
+                                    <div class="bg-blue-50 p-2 rounded">✂️ Kolase</div>
+                                    <div class="bg-blue-50 p-2 rounded">📄 Mozaik</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-blue-700 mb-2">🏗️ Teknik untuk Karya 3D:</h5>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="bg-blue-50 p-2 rounded">🏺 Membentuk</div>
+                                    <div class="bg-blue-50 p-2 rounded">📦 Konstruksi</div>
+                                    <div class="bg-blue-50 p-2 rounded">🎭 Merakit</div>
+                                    <div class="bg-blue-50 p-2 rounded">🎨 Memahat</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">2. Alat-alat Berkarya</h4>
+                        <p class="text-gray-700 mb-3">Alat adalah benda yang membantu kita membuat karya seni.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-green-700 mb-2">🖊️ Alat Menggambar & Melukis:</h5>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="bg-green-50 p-2 rounded">✏️ Pensil</div>
+                                    <div class="bg-green-50 p-2 rounded">🖍️ Krayon</div>
+                                    <div class="bg-green-50 p-2 rounded">🖌️ Kuas</div>
+                                    <div class="bg-green-50 p-2 rounded">🖊️ Spidol</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-green-700 mb-2">🔧 Alat Membentuk & Merakit:</h5>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="bg-green-50 p-2 rounded">✂️ Gunting</div>
+                                    <div class="bg-green-50 p-2 rounded">🧴 Lem</div>
+                                    <div class="bg-green-50 p-2 rounded">📏 Penggaris</div>
+                                    <div class="bg-green-50 p-2 rounded">🔨 Alat bentuk</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">3. Bahan-bahan Berkarya</h4>
+                        <p class="text-gray-700 mb-3">Bahan adalah material yang digunakan untuk membuat karya seni.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">📄 Bahan untuk Karya 2D:</h5>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="bg-yellow-50 p-2 rounded">📄 Kertas</div>
+                                    <div class="bg-yellow-50 p-2 rounded">🎨 Cat air</div>
+                                    <div class="bg-yellow-50 p-2 rounded">🌈 Cat poster</div>
+                                    <div class="bg-yellow-50 p-2 rounded">📰 Kertas koran</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-yellow-700 mb-2">🧱 Bahan untuk Karya 3D:</h5>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="bg-yellow-50 p-2 rounded">🏺 Plastisin</div>
+                                    <div class="bg-yellow-50 p-2 rounded">📦 Kardus</div>
+                                    <div class="bg-yellow-50 p-2 rounded">🧱 Balok kayu</div>
+                                    <div class="bg-yellow-50 p-2 rounded">🥤 Botol bekas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">4. Cara Memilih yang Tepat</h4>
+                        <div class="space-y-2 text-gray-700">
+                            <p>• 🎯 <strong>Sesuaikan dengan ide:</strong> Pilih yang cocok dengan karya yang ingin dibuat</p>
+                            <p>• 🛡️ <strong>Aman digunakan:</strong> Pastikan alat dan bahan aman untuk anak-anak</p>
+                            <p>• 💰 <strong>Mudah didapat:</strong> Gunakan bahan yang mudah ditemukan di sekitar</p>
+                            <p>• 🎨 <strong>Sesuai kemampuan:</strong> Pilih teknik yang bisa dikuasai dengan baik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">🛠️ Simulator Pemilihan Teknik, Alat, dan Bahan!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-3">Pilih jenis karya yang ingin kamu buat:</h4>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <button onclick="selectArtType('2d')" class="art-type-btn bg-blue-100 hover:bg-blue-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                📄 Karya 2D
+                            </button>
+                            <button onclick="selectArtType('3d')" class="art-type-btn bg-green-100 hover:bg-green-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                📦 Karya 3D
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="artTypeResult" class="hidden">
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h5 class="font-medium text-gray-800 mb-3">Rekomendasi untuk karyamu:</h5>
+                            <div id="recommendationContent" class="space-y-3"></div>
+                            
+                            <div class="mt-4 space-y-2">
+                                <p class="text-sm font-medium text-gray-800">Ceritakan mengapa kamu memilih kombinasi ini:</p>
+                                <textarea id="choiceReason" class="w-full p-3 border rounded-lg resize-none" rows="3" placeholder="Contoh: Saya memilih teknik menggambar dengan pensil dan kertas karena saya ingin membuat gambar rumah yang detail..."></textarea>
+                                <button onclick="shareChoice()" class="gradient-blue text-white px-4 py-2 rounded-lg font-medium">Bagikan Pilihan</button>
+                            </div>
+                        </div>
+                        
+                        <div id="choiceFeedback" class="hidden bg-green-50 border border-green-200 rounded-lg p-3">
+                            <p class="text-green-800 font-medium">Pilihan yang tepat! 🎯</p>
+                            <p class="text-green-700 text-sm mt-1">Kamu sudah belajar cara memilih teknik, alat, dan bahan yang sesuai!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(4)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 3 Detail -->
+    <div id="material3" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-green text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Menggali Ide untuk Berkarya</h2>
+            
+            <div class="gradient-orange rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-gray-800 mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-gray-700">Menceritakan sumber gagasan untuk menciptakan karya dua atau tiga dimensi.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">1. Apa itu Ide atau Gagasan?</h4>
+                        <p class="text-gray-700 mb-3">Ide adalah pikiran atau rencana yang muncul di kepala kita untuk membuat sesuatu. Seperti ketika kamu ingin menggambar kucing karena melihat kucing yang lucu!</p>
+                        <div class="bg-white p-3 rounded border-l-4 border-yellow-500">
+                            <p class="text-gray-700 text-sm">💡 <strong>Contoh:</strong> "Aku ingin menggambar rumah karena rumahku berwarna merah yang cantik!"</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">2. Sumber Ide dari Alam</h4>
+                        <p class="text-gray-700 mb-3">Alam di sekitar kita penuh dengan ide menarik untuk berkarya!</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="bg-white p-2 rounded flex items-center">🌸 Bunga-bunga</div>
+                            <div class="bg-white p-2 rounded flex items-center">🦋 Kupu-kupu</div>
+                            <div class="bg-white p-2 rounded flex items-center">🌳 Pohon besar</div>
+                            <div class="bg-white p-2 rounded flex items-center">🌈 Pelangi</div>
+                            <div class="bg-white p-2 rounded flex items-center">⭐ Bintang</div>
+                            <div class="bg-white p-2 rounded flex items-center">🌊 Ombak laut</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">3. Sumber Ide dari Kehidupan Sehari-hari</h4>
+                        <p class="text-gray-700 mb-3">Benda-benda di sekitar kita juga bisa jadi inspirasi!</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="bg-white p-2 rounded flex items-center">🏠 Rumah</div>
+                            <div class="bg-white p-2 rounded flex items-center">🚗 Mobil</div>
+                            <div class="bg-white p-2 rounded flex items-center">🧸 Mainan</div>
+                            <div class="bg-white p-2 rounded flex items-center">👕 Baju favorit</div>
+                            <div class="bg-white p-2 rounded flex items-center">🍎 Makanan</div>
+                            <div class="bg-white p-2 rounded flex items-center">👨‍👩‍👧‍👦 Keluarga</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">4. Sumber Ide dari Perasaan</h4>
+                        <p class="text-gray-700 mb-3">Perasaan kita juga bisa menjadi sumber ide yang menarik!</p>
+                        <div class="space-y-2">
+                            <div class="bg-white p-2 rounded flex items-center">😊 Senang → Gambar dengan warna cerah</div>
+                            <div class="bg-white p-2 rounded flex items-center">😴 Tenang → Gambar pemandangan damai</div>
+                            <div class="bg-white p-2 rounded flex items-center">🎉 Gembira → Gambar pesta atau perayaan</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-red-800 mb-2">5. Karya 2 Dimensi vs 3 Dimensi</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-red-700 mb-2">📄 Karya 2 Dimensi</h5>
+                                <p class="text-sm text-gray-700 mb-2">Karya yang datar (panjang x lebar)</p>
+                                <div class="text-xs space-y-1">
+                                    <div>• Gambar di kertas</div>
+                                    <div>• Lukisan</div>
+                                    <div>• Kolase</div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-3 rounded">
+                                <h5 class="font-medium text-red-700 mb-2">📦 Karya 3 Dimensi</h5>
+                                <p class="text-sm text-gray-700 mb-2">Karya yang memiliki volume (panjang x lebar x tinggi)</p>
+                                <div class="text-xs space-y-1">
+                                    <div>• Patung dari plastisin</div>
+                                    <div>• Kerajinan dari kardus</div>
+                                    <div>• Origami</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">💡 Mari Cari Ide Berkarya!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-3">Pilih sumber ide yang menarik menurutmu:</h4>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <button onclick="selectIdeaSource('alam')" class="idea-btn bg-green-100 hover:bg-green-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🌿 Alam
+                            </button>
+                            <button onclick="selectIdeaSource('sehari-hari')" class="idea-btn bg-blue-100 hover:bg-blue-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                🏠 Sehari-hari
+                            </button>
+                            <button onclick="selectIdeaSource('perasaan')" class="idea-btn bg-purple-100 hover:bg-purple-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                💭 Perasaan
+                            </button>
+                            <button onclick="selectIdeaSource('imajinasi')" class="idea-btn bg-pink-100 hover:bg-pink-200 p-3 rounded-lg text-sm font-medium transition-colors">
+                                ✨ Imajinasi
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="ideaResult" class="hidden">
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h5 class="font-medium text-gray-800 mb-2">Ide yang muncul:</h5>
+                            <div id="ideaContent" class="text-gray-700 mb-3"></div>
+                            <div class="space-y-2">
+                                <p class="text-sm font-medium text-gray-800">Ceritakan ide karyamu:</p>
+                                <textarea id="ideaStory" class="w-full p-3 border rounded-lg resize-none" rows="3" placeholder="Contoh: Saya ingin membuat gambar kupu-kupu karena tadi saya melihat kupu-kupu yang cantik di taman..."></textarea>
+                                <button onclick="shareIdea()" class="gradient-blue text-white px-4 py-2 rounded-lg font-medium">Bagikan Ide</button>
+                            </div>
+                        </div>
+                        
+                        <div id="ideaFeedback" class="hidden bg-green-50 border border-green-200 rounded-lg p-3">
+                            <p class="text-green-800 font-medium">Ide yang kreatif! 🌟</p>
+                            <p class="text-green-700 text-sm mt-1">Sekarang kamu sudah tahu cara mencari ide untuk berkarya seni!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(3)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 1 Detail -->
+    <div id="material1" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-blue text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Bermain dengan Garis, Bidang, dan Warna</h2>
+            
+            <div class="gradient-green rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-gray-800 mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-gray-700">Mengelompokkan unsur rupa (garis, bidang, warna) yang ada di lingkungan sekitar berdasarkan hasil pengamatan.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">1. Garis</h4>
+                        <p class="text-gray-700 mb-3">Garis adalah jejak yang dibuat oleh pensil, krayon, atau alat gambar lainnya. Garis bisa lurus, lengkung, zigzag, atau bergelombang.</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="bg-white p-2 rounded">📏 Garis Lurus</div>
+                            <div class="bg-white p-2 rounded">🌊 Garis Lengkung</div>
+                            <div class="bg-white p-2 rounded">⚡ Garis Zigzag</div>
+                            <div class="bg-white p-2 rounded">〰️ Garis Bergelombang</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">2. Bidang</h4>
+                        <p class="text-gray-700 mb-3">Bidang adalah area yang dibatasi oleh garis. Bidang memiliki panjang dan lebar.</p>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="bg-white p-2 rounded">⬜ Persegi</div>
+                            <div class="bg-white p-2 rounded">🔴 Lingkaran</div>
+                            <div class="bg-white p-2 rounded">🔺 Segitiga</div>
+                            <div class="bg-white p-2 rounded">🔶 Belah Ketupat</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">3. Warna</h4>
+                        <p class="text-gray-700 mb-3">Warna membuat gambar menjadi indah dan menarik. Ada warna primer, sekunder, dan tersier.</p>
+                        <div class="grid grid-cols-3 gap-2 text-sm">
+                            <div class="bg-red-200 p-2 rounded text-center">🔴 Merah</div>
+                            <div class="bg-blue-200 p-2 rounded text-center">🔵 Biru</div>
+                            <div class="bg-yellow-200 p-2 rounded text-center">🟡 Kuning</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">🎨 Mari Berlatih Menggambar!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <canvas id="drawingCanvas" class="demo-canvas w-full h-64 cursor-crosshair"></canvas>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <button onclick="setDrawingMode('line')" class="bg-blue-500 text-white px-3 py-1 rounded text-sm">Garis</button>
+                        <button onclick="setDrawingMode('circle')" class="bg-green-500 text-white px-3 py-1 rounded text-sm">Lingkaran</button>
+                        <button onclick="setDrawingMode('square')" class="bg-purple-500 text-white px-3 py-1 rounded text-sm">Persegi</button>
+                        <button onclick="clearCanvas()" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Hapus</button>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <button onclick="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full border-2 border-gray-300"></button>
+                        <button onclick="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full border-2 border-gray-300"></button>
+                        <button onclick="setColor('green')" class="w-8 h-8 bg-green-500 rounded-full border-2 border-gray-300"></button>
+                        <button onclick="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full border-2 border-gray-300"></button>
+                        <button onclick="setColor('purple')" class="w-8 h-8 bg-purple-500 rounded-full border-2 border-gray-300"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(1)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Material 2 Detail -->
+    <div id="material2" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-4">
+            <button onclick="showMain()" class="gradient-pink text-white px-4 py-2 rounded-lg mb-4 font-medium">← Kembali</button>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Berpendapat Mengenai Karya Seni Rupa</h2>
+            
+            <div class="gradient-green rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-gray-800 mb-2">🎯 Tujuan Pembelajaran</h3>
+                <p class="text-gray-700">Menyampaikan pendapat mengenai sebuah karya seni rupa atau benda di lingkungan sehari-hari.</p>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">📚 Materi Pembelajaran</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-pink-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-pink-800 mb-2">1. Apa itu Pendapat?</h4>
+                        <p class="text-gray-700">Pendapat adalah pikiran atau perasaan kita tentang sesuatu. Setiap orang bisa memiliki pendapat yang berbeda, dan itu tidak apa-apa!</p>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">2. Cara Melihat Karya Seni</h4>
+                        <div class="space-y-2 text-gray-700">
+                            <p>• 👀 <strong>Lihat</strong> - Apa yang kamu lihat?</p>
+                            <p>• 💭 <strong>Pikirkan</strong> - Apa yang kamu rasakan?</p>
+                            <p>• 🗣️ <strong>Ceritakan</strong> - Bagikan pendapatmu!</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">3. Kata-kata untuk Berpendapat</h4>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="bg-white p-2 rounded">😊 Indah</div>
+                            <div class="bg-white p-2 rounded">🌈 Berwarna-warni</div>
+                            <div class="bg-white p-2 rounded">✨ Menarik</div>
+                            <div class="bg-white p-2 rounded">😮 Unik</div>
+                            <div class="bg-white p-2 rounded">🎨 Kreatif</div>
+                            <div class="bg-white p-2 rounded">💖 Bagus</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">4. Contoh Berpendapat</h4>
+                        <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                            <p class="text-gray-700 italic">"Menurut saya, gambar ini indah karena warnanya cerah dan membuat saya senang!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="mb-6">
+                <h3 class="font-semibold text-xl text-gray-800 mb-4">🖼️ Mari Berlatih Berpendapat!</h3>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="bg-white rounded-lg p-4 mb-4 text-center">
+                        <svg width="200" height="150" class="mx-auto">
+                            <rect x="20" y="20" width="160" height="110" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+                            <circle cx="60" cy="50" r="15" fill="#FFD700"/>
+                            <polygon points="100,80 120,110 80,110" fill="#228B22"/>
+                            <rect x="95" y="110" width="10" height="20" fill="#8B4513"/>
+                            <circle cx="140" cy="60" r="8" fill="#FF69B4"/>
+                            <circle cx="155" cy="75" r="6" fill="#FF1493"/>
+                            <circle cx="130" cy="80" r="7" fill="#FF69B4"/>
+                        </svg>
+                        <p class="text-sm text-gray-600 mt-2">Gambar Pemandangan Sederhana</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <p class="font-medium text-gray-800">Apa pendapatmu tentang gambar di atas?</p>
+                        <textarea id="opinionText" class="w-full p-3 border rounded-lg resize-none" rows="3" placeholder="Tulis pendapatmu di sini... Contoh: Saya suka gambar ini karena..."></textarea>
+                        <button onclick="shareOpinion()" class="gradient-blue text-white px-4 py-2 rounded-lg font-medium">Bagikan Pendapat</button>
+                        <div id="opinionResult" class="hidden bg-green-50 border border-green-200 rounded-lg p-3">
+                            <p class="text-green-800 font-medium">Pendapat yang bagus! 👏</p>
+                            <p class="text-green-700 text-sm mt-1">Kamu sudah belajar cara menyampaikan pendapat dengan baik!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button -->
+            <button onclick="startQuiz(2)" class="gradient-orange text-white w-full py-3 rounded-lg font-semibold text-lg">
+                🧩 Mulai Kuis (10 Soal)
+            </button>
+        </div>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quizSection" class="hidden p-4">
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <button onclick="exitQuiz()" class="text-gray-600 font-medium">← Keluar</button>
+                <div class="text-sm text-gray-600">
+                    Soal <span id="currentQuestion">1</span> dari <span id="totalQuestions">10</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <div class="bg-gray-200 rounded-full h-2 mb-4">
+                    <div id="progressBar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
+                </div>
+                
+                <h3 id="questionText" class="text-lg font-semibold text-gray-800 mb-4"></h3>
+                
+                <div id="questionOptions" class="space-y-3">
+                    <!-- Options will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div id="quizResult" class="hidden text-center">
+                <div class="text-6xl mb-4">🎉</div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Selamat!</h3>
+                <p class="text-gray-600 mb-4">Kamu telah menyelesaikan kuis dengan skor:</p>
+                <div class="text-4xl font-bold text-blue-600 mb-6"><span id="finalScore">0</span>/10</div>
+                <button onclick="restartQuiz()" class="gradient-blue text-white px-6 py-3 rounded-lg font-medium mr-2">Ulangi Kuis</button>
+                <button onclick="exitQuiz()" class="bg-gray-500 text-white px-6 py-3 rounded-lg font-medium">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentMaterial = 1;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let quizData = {};
+        
+        // Drawing variables
+        let canvas, ctx;
+        let isDrawing = false;
+        let drawingMode = 'line';
+        let currentColor = 'black';
+
+        // Quiz data for both materials
+        const quizQuestions = {
+            1: [
+                {
+                    question: "Apa yang dimaksud dengan garis?",
+                    options: ["Jejak yang dibuat oleh pensil", "Warna yang indah", "Bentuk bulat", "Suara yang keras"],
+                    correct: 0
+                },
+                {
+                    question: "Manakah yang termasuk jenis garis?",
+                    options: ["Garis merah", "Garis lurus", "Garis besar", "Garis mahal"],
+                    correct: 1
+                },
+                {
+                    question: "Bidang memiliki...",
+                    options: ["Suara dan warna", "Panjang dan lebar", "Rasa dan bau", "Berat dan ringan"],
+                    correct: 1
+                },
+                {
+                    question: "Bentuk lingkaran termasuk jenis...",
+                    options: ["Garis", "Bidang", "Warna", "Suara"],
+                    correct: 1
+                },
+                {
+                    question: "Warna primer terdiri dari...",
+                    options: ["Hijau, ungu, orange", "Merah, biru, kuning", "Hitam, putih, abu-abu", "Pink, coklat, silver"],
+                    correct: 1
+                },
+                {
+                    question: "Garis zigzag berbentuk seperti...",
+                    options: ["Lurus", "Bulat", "Bergerigi", "Kotak"],
+                    correct: 2
+                },
+                {
+                    question: "Untuk membuat gambar yang indah, kita memerlukan...",
+                    options: ["Garis, bidang, dan warna", "Makanan dan minuman", "Buku dan tas", "Sepatu dan baju"],
+                    correct: 0
+                },
+                {
+                    question: "Bentuk segitiga memiliki... sudut",
+                    options: ["2", "3", "4", "5"],
+                    correct: 1
+                },
+                {
+                    question: "Warna yang membuat gambar menjadi menarik adalah...",
+                    options: ["Warna cerah", "Warna gelap", "Semua warna", "Tidak ada warna"],
+                    correct: 2
+                },
+                {
+                    question: "Alat yang bisa digunakan untuk membuat garis adalah...",
+                    options: ["Sendok", "Pensil", "Piring", "Gelas"],
+                    correct: 1
+                }
+            ],
+            2: [
+                {
+                    question: "Apa yang dimaksud dengan pendapat?",
+                    options: ["Makanan enak", "Pikiran atau perasaan kita", "Baju yang bagus", "Mainan baru"],
+                    correct: 1
+                },
+                {
+                    question: "Ketika melihat karya seni, hal pertama yang harus kita lakukan adalah...",
+                    options: ["Tidur", "Makan", "Melihat dengan baik", "Berlari"],
+                    correct: 2
+                },
+                {
+                    question: "Setiap orang boleh memiliki pendapat yang...",
+                    options: ["Sama", "Berbeda", "Jelek", "Mahal"],
+                    correct: 1
+                },
+                {
+                    question: "Kata yang bisa digunakan untuk berpendapat tentang karya seni adalah...",
+                    options: ["Lapar", "Indah", "Capek", "Dingin"],
+                    correct: 1
+                },
+                {
+                    question: "Cara yang baik untuk menyampaikan pendapat adalah dengan...",
+                    options: ["Berteriak", "Berbicara sopan", "Diam saja", "Menangis"],
+                    correct: 1
+                },
+                {
+                    question: "Karya seni yang berwarna-warni membuat kita merasa...",
+                    options: ["Sedih", "Senang", "Marah", "Takut"],
+                    correct: 1
+                },
+                {
+                    question: "Ketika berpendapat, kita harus...",
+                    options: ["Jujur", "Bohong", "Diam", "Tidur"],
+                    correct: 0
+                },
+                {
+                    question: "Contoh benda seni rupa di sekitar kita adalah...",
+                    options: ["Nasi", "Lukisan", "Air", "Angin"],
+                    correct: 1
+                },
+                {
+                    question: "Pendapat yang baik dimulai dengan kata...",
+                    options: ["Menurut saya", "Saya tidak tahu", "Saya bosan", "Saya lapar"],
+                    correct: 0
+                },
+                {
+                    question: "Tujuan berpendapat tentang karya seni adalah untuk...",
+                    options: ["Mengkritik", "Berbagi perasaan", "Menyakiti", "Mengejek"],
+                    correct: 1
+                }
+            ],
+            3: [
+                {
+                    question: "Apa yang dimaksud dengan ide atau gagasan?",
+                    options: ["Makanan enak", "Pikiran untuk membuat sesuatu", "Baju yang bagus", "Permainan seru"],
+                    correct: 1
+                },
+                {
+                    question: "Manakah yang termasuk sumber ide dari alam?",
+                    options: ["Televisi", "Bunga-bunga", "Komputer", "Sepatu"],
+                    correct: 1
+                },
+                {
+                    question: "Benda di kehidupan sehari-hari yang bisa jadi inspirasi adalah...",
+                    options: ["Rumah", "Angin", "Suara", "Cahaya"],
+                    correct: 0
+                },
+                {
+                    question: "Karya seni 2 dimensi memiliki...",
+                    options: ["Panjang, lebar, tinggi", "Panjang dan lebar saja", "Tinggi saja", "Lebar saja"],
+                    correct: 1
+                },
+                {
+                    question: "Contoh karya seni 3 dimensi adalah...",
+                    options: ["Gambar di kertas", "Lukisan", "Patung dari plastisin", "Foto"],
+                    correct: 2
+                },
+                {
+                    question: "Perasaan senang bisa menginspirasi kita untuk membuat karya dengan warna...",
+                    options: ["Gelap", "Cerah", "Hitam", "Abu-abu"],
+                    correct: 1
+                },
+                {
+                    question: "Kupu-kupu yang cantik bisa menjadi sumber ide dari...",
+                    options: ["Alam", "Teknologi", "Makanan", "Pakaian"],
+                    correct: 0
+                },
+                {
+                    question: "Origami termasuk karya seni...",
+                    options: ["1 dimensi", "2 dimensi", "3 dimensi", "4 dimensi"],
+                    correct: 2
+                },
+                {
+                    question: "Untuk menceritakan sumber gagasan, kita harus...",
+                    options: ["Diam saja", "Bercerita dengan jelas", "Menangis", "Tidur"],
+                    correct: 1
+                },
+                {
+                    question: "Ide terbaik untuk berkarya seni datang dari...",
+                    options: ["Pengamatan di sekitar kita", "Menonton TV saja", "Tidur terus", "Tidak melakukan apa-apa"],
+                    correct: 0
+                }
+            ],
+            4: [
+                {
+                    question: "Apa yang dimaksud dengan teknik dalam berkarya seni?",
+                    options: ["Warna yang bagus", "Cara atau metode membuat karya", "Alat yang mahal", "Bahan yang banyak"],
+                    correct: 1
+                },
+                {
+                    question: "Manakah yang termasuk teknik untuk karya 2D?",
+                    options: ["Membentuk", "Menggambar", "Merakit", "Memahat"],
+                    correct: 1
+                },
+                {
+                    question: "Alat yang digunakan untuk menggambar adalah...",
+                    options: ["Piring", "Pensil", "Sendok", "Gelas"],
+                    correct: 1
+                },
+                {
+                    question: "Bahan yang cocok untuk membuat karya 3D adalah...",
+                    options: ["Kertas tipis", "Plastisin", "Cat air", "Krayon"],
+                    correct: 1
+                },
+                {
+                    question: "Teknik kolase menggunakan...",
+                    options: ["Potongan kertas yang ditempel", "Cat yang dicampur", "Tanah liat", "Kayu yang dipahat"],
+                    correct: 0
+                },
+                {
+                    question: "Untuk membuat patung, teknik yang digunakan adalah...",
+                    options: ["Melukis", "Membentuk", "Menggambar", "Kolase"],
+                    correct: 1
+                },
+                {
+                    question: "Kuas digunakan untuk teknik...",
+                    options: ["Membentuk", "Melukis", "Menggunting", "Menempel"],
+                    correct: 1
+                },
+                {
+                    question: "Bahan yang aman untuk anak-anak adalah...",
+                    options: ["Bahan beracun", "Bahan tajam", "Plastisin dan kertas", "Bahan berbahaya"],
+                    correct: 2
+                },
+                {
+                    question: "Dalam memilih alat dan bahan, yang penting diperhatikan adalah...",
+                    options: ["Harga yang mahal", "Keamanan dan kesesuaian", "Warna yang menarik", "Ukuran yang besar"],
+                    correct: 1
+                },
+                {
+                    question: "Kardus bekas bisa digunakan untuk membuat karya...",
+                    options: ["2 dimensi saja", "3 dimensi", "Tidak bisa digunakan", "Hanya untuk menulis"],
+                    correct: 1
+                }
+            ],
+            5: [
+                {
+                    question: "Langkah pertama dalam berkarya seni 2D adalah...",
+                    options: ["Mewarnai", "Persiapan alat dan bahan", "Membuat detail", "Menggambar besar"],
+                    correct: 1
+                },
+                {
+                    question: "Karya seni 2D memiliki dimensi...",
+                    options: ["Panjang saja", "Panjang dan lebar", "Panjang, lebar, tinggi", "Tinggi saja"],
+                    correct: 1
+                },
+                {
+                    question: "Dalam membuat sketsa, sebaiknya dimulai dari...",
+                    options: ["Detail kecil", "Bentuk dasar", "Warna", "Hiasan"],
+                    correct: 1
+                },
+                {
+                    question: "Karya seni 3D memiliki...",
+                    options: ["Volume/berisi", "Datar saja", "Tipis", "Tidak bervolume"],
+                    correct: 0
+                },
+                {
+                    question: "Langkah terakhir dalam berkarya 2D adalah...",
+                    options: ["Persiapan", "Sketsa", "Menambah detail", "Membeli alat"],
+                    correct: 2
+                },
+                {
+                    question: "Untuk karya 3D, yang harus dibuat pertama adalah...",
+                    options: ["Detail kecil", "Hiasan", "Bentuk dasar", "Warna"],
+                    correct: 2
+                },
+                {
+                    question: "Tempat kerja yang baik untuk berkarya adalah...",
+                    options: ["Gelap", "Terang dan nyaman", "Berisik", "Sempit"],
+                    correct: 1
+                },
+                {
+                    question: "Dalam mewarnai karya 2D, sebaiknya dimulai dari...",
+                    options: ["Area kecil ke besar", "Area besar ke kecil", "Sembarang", "Dari pinggir"],
+                    correct: 1
+                },
+                {
+                    question: "Untuk membuat karya 3D yang kuat, perlu...",
+                    options: ["Bentuk yang stabil", "Warna cerah", "Ukuran besar", "Bahan mahal"],
+                    correct: 0
+                },
+                {
+                    question: "Setelah selesai berkarya, yang harus dilakukan adalah...",
+                    options: ["Langsung tidur", "Membersihkan alat", "Bermain", "Menonton TV"],
+                    correct: 1
+                }
+            ],
+            6: [
+                {
+                    question: "Apa yang dimaksud dengan berkreasi dalam seni rupa?",
+                    options: ["Meniru karya orang lain", "Mewujudkan ide menjadi karya nyata", "Membeli karya seni", "Melihat karya seni"],
+                    correct: 1
+                },
+                {
+                    question: "Langkah pertama dalam berkreasi adalah...",
+                    options: ["Membeli alat mahal", "Menentukan ide", "Langsung membuat", "Meniru orang lain"],
+                    correct: 1
+                },
+                {
+                    question: "Teknik kolase menggunakan...",
+                    options: ["Cat air", "Potongan kertas yang ditempel", "Plastisin", "Pensil"],
+                    correct: 1
+                },
+                {
+                    question: "Untuk membuat patung, teknik yang tepat adalah...",
+                    options: ["Melukis", "Membentuk", "Kolase", "Menggambar"],
+                    correct: 1
+                },
+                {
+                    question: "Origami termasuk teknik untuk karya...",
+                    options: ["2 dimensi", "3 dimensi", "1 dimensi", "4 dimensi"],
+                    correct: 1
+                },
+                {
+                    question: "Dalam berkreasi, yang paling penting adalah...",
+                    options: ["Alat yang mahal", "Proses dan ketekunan", "Hasil yang sempurna", "Meniru orang lain"],
+                    correct: 1
+                },
+                {
+                    question: "Sebelum mulai berkreasi, kita harus...",
+                    options: ["Langsung mulai", "Menyiapkan alat dan bahan", "Menonton TV", "Tidur dulu"],
+                    correct: 1
+                },
+                {
+                    question: "Sikap yang baik saat berkreasi adalah...",
+                    options: ["Terburu-buru", "Sabar dan teliti", "Malas-malasan", "Tidak peduli"],
+                    correct: 1
+                },
+                {
+                    question: "Jika membuat kesalahan saat berkreasi, sebaiknya...",
+                    options: ["Menyerah", "Marah-marah", "Belajar dan memperbaiki", "Menangis"],
+                    correct: 2
+                },
+                {
+                    question: "Tujuan berkreasi seni rupa adalah untuk...",
+                    options: ["Pamer ke orang lain", "Mengekspresikan diri dan berlatih", "Mendapat nilai bagus saja", "Menghabiskan waktu"],
+                    correct: 1
+                }
+            ],
+            7: [
+                {
+                    question: "Apa yang dimaksud dengan pengalaman berkreasi?",
+                    options: ["Membeli alat seni", "Semua hal yang dialami saat membuat karya", "Melihat karya orang lain", "Menonton video seni"],
+                    correct: 1
+                },
+                {
+                    question: "Perasaan apa yang muncul saat berhasil menyelesaikan karya?",
+                    options: ["Sedih", "Bangga", "Takut", "Bosan"],
+                    correct: 1
+                },
+                {
+                    question: "Cara yang baik untuk menceritakan pengalaman adalah...",
+                    options: ["Diam saja", "Ceritakan langkah-langkah dan perasaan", "Hanya bilang 'bagus'", "Tidak perlu diceritakan"],
+                    correct: 1
+                },
+                {
+                    question: "Ketika mengalami kesulitan saat berkreasi, perasaan yang wajar adalah...",
+                    options: ["Senang", "Kesal atau bingung", "Tidak peduli", "Mengantuk"],
+                    correct: 1
+                },
+                {
+                    question: "Manfaat menceritakan pengalaman berkreasi adalah...",
+                    options: ["Membuang waktu", "Menginspirasi dan berbagi", "Membuat orang bosan", "Tidak ada manfaatnya"],
+                    correct: 1
+                },
+                {
+                    question: "Saat pertama kali memegang kuas, perasaan yang mungkin muncul adalah...",
+                    options: ["Bingung atau excited", "Marah", "Tidak merasakan apa-apa", "Mengantuk"],
+                    correct: 0
+                },
+                {
+                    question: "Dalam menceritakan pengalaman, kita sebaiknya...",
+                    options: ["Hanya cerita yang bagus saja", "Jujur tentang semua perasaan", "Berbohong supaya terdengar hebat", "Tidak usah detail"],
+                    correct: 1
+                },
+                {
+                    question: "Pengalaman berkreasi yang paling berharga adalah...",
+                    options: ["Yang hasilnya sempurna", "Proses belajar dan perasaan yang dialami", "Yang cepat selesai", "Yang mudah dikerjakan"],
+                    correct: 1
+                },
+                {
+                    question: "Ketika menceritakan pengalaman, kita mulai dengan...",
+                    options: ["Langsung ke hasil akhir", "Ceritakan dari awal proses", "Keluhan saja", "Tidak perlu urutan"],
+                    correct: 1
+                },
+                {
+                    question: "Tujuan menceritakan pengalaman berkreasi adalah untuk...",
+                    options: ["Pamer hasil karya", "Berbagi dan menginspirasi", "Mengkritik orang lain", "Mencari pujian"],
+                    correct: 1
+                }
+            ],
+            8: [
+                {
+                    question: "Apa yang dimaksud dengan dampak karya seni?",
+                    options: ["Harga karya seni", "Pengaruh yang kita rasakan dari karya seni", "Ukuran karya seni", "Warna karya seni"],
+                    correct: 1
+                },
+                {
+                    question: "Contoh dampak positif dari melihat karya seni adalah...",
+                    options: ["Merasa sedih", "Merasa senang dan bahagia", "Merasa marah", "Merasa takut"],
+                    correct: 1
+                },
+                {
+                    question: "Warna cerah pada karya seni biasanya membuat kita merasa...",
+                    options: ["Sedih", "Bahagia", "Takut", "Marah"],
+                    correct: 1
+                },
+                {
+                    question: "Lukisan pemandangan alam dapat membuat kita merasa...",
+                    options: ["Gelisah", "Tenang dan damai", "Bingung", "Kesal"],
+                    correct: 1
+                },
+                {
+                    question: "Salah satu hal yang bisa kita pelajari dari karya seni adalah...",
+                    options: ["Cara memasak", "Warna dan bentuk", "Cara berlari", "Cara tidur"],
+                    correct: 1
+                },
+                {
+                    question: "Karya seni dapat membantu mengembangkan...",
+                    options: ["Kekuatan fisik", "Kreativitas", "Nafsu makan", "Tinggi badan"],
+                    correct: 1
+                },
+                {
+                    question: "Untuk menjelaskan dampak karya seni, kita mulai dengan...",
+                    options: ["Mengkritik karya", "Menceritakan perasaan kita", "Menghitung harga", "Mengukur ukuran"],
+                    correct: 1
+                },
+                {
+                    question: "Setelah melihat karya seni yang indah, kita biasanya ingin...",
+                    options: ["Tidur", "Membuat karya serupa", "Makan", "Berlari"],
+                    correct: 1
+                },
+                {
+                    question: "Dampak karya seni pada perilaku yang positif adalah...",
+                    options: ["Menjadi malas", "Lebih menghargai keindahan", "Suka berkelahi", "Tidak peduli lingkungan"],
+                    correct: 1
+                },
+                {
+                    question: "Tujuan menjelaskan dampak karya seni adalah untuk...",
+                    options: ["Mengkritik seniman", "Memahami pengaruh seni pada diri kita", "Mencari kesalahan", "Membuat orang bosan"],
+                    correct: 1
+                }
+            ]
+        };
+
+        // Initialize drawing canvas
+        function initCanvas() {
+            canvas = document.getElementById('drawingCanvas');
+            if (canvas) {
+                ctx = canvas.getContext('2d');
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', draw);
+                canvas.addEventListener('mouseup', stopDrawing);
+                canvas.addEventListener('touchstart', handleTouch);
+                canvas.addEventListener('touchmove', handleTouch);
+                canvas.addEventListener('touchend', stopDrawing);
+            }
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (drawingMode === 'line') {
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+            }
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ctx.strokeStyle = currentColor;
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            
+            if (drawingMode === 'line') {
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+        }
+
+        function stopDrawing(e) {
+            if (!isDrawing) return;
+            isDrawing = false;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (drawingMode === 'circle') {
+                ctx.strokeStyle = currentColor;
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(x, y, 30, 0, 2 * Math.PI);
+                ctx.stroke();
+            } else if (drawingMode === 'square') {
+                ctx.strokeStyle = currentColor;
+                ctx.lineWidth = 3;
+                ctx.strokeRect(x - 25, y - 25, 50, 50);
+            }
+        }
+
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+
+        function setDrawingMode(mode) {
+            drawingMode = mode;
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Navigation functions
+        function showMain() {
+            document.getElementById('mainPage').classList.remove('hidden');
+            document.getElementById('material1').classList.add('hidden');
+            document.getElementById('material2').classList.add('hidden');
+            document.getElementById('material3').classList.add('hidden');
+            document.getElementById('material4').classList.add('hidden');
+            document.getElementById('material5').classList.add('hidden');
+            document.getElementById('material6').classList.add('hidden');
+            document.getElementById('material7').classList.add('hidden');
+            document.getElementById('material8').classList.add('hidden');
+            document.getElementById('quizSection').classList.add('hidden');
+        }
+
+        function showMaterial(materialNum) {
+            currentMaterial = materialNum;
+            document.getElementById('mainPage').classList.add('hidden');
+            document.getElementById('material1').classList.add('hidden');
+            document.getElementById('material2').classList.add('hidden');
+            document.getElementById('material3').classList.add('hidden');
+            document.getElementById('material4').classList.add('hidden');
+            document.getElementById('material5').classList.add('hidden');
+            document.getElementById('material6').classList.add('hidden');
+            document.getElementById('material7').classList.add('hidden');
+            document.getElementById('material8').classList.add('hidden');
+            document.getElementById('quizSection').classList.add('hidden');
+            
+            document.getElementById('material' + materialNum).classList.remove('hidden');
+            
+            if (materialNum === 1) {
+                setTimeout(initCanvas, 100);
+            }
+        }
+
+        // Opinion sharing function
+        function shareOpinion() {
+            const opinion = document.getElementById('opinionText').value.trim();
+            const result = document.getElementById('opinionResult');
+            
+            if (opinion.length > 10) {
+                result.classList.remove('hidden');
+                document.getElementById('opinionText').value = '';
+            } else {
+                alert('Coba tulis pendapat yang lebih panjang ya! 😊');
+            }
+        }
+
+        // Quiz functions
+        function startQuiz(materialNum) {
+            currentMaterial = materialNum;
+            currentQuestionIndex = 0;
+            score = 0;
+            
+            document.getElementById('material' + materialNum).classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const questions = quizQuestions[currentMaterial];
+            const question = questions[currentQuestionIndex];
+            
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = questions.length;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+            
+            const optionsContainer = document.getElementById('questionOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'quiz-option w-full p-4 text-left bg-gray-50 hover:bg-gray-100 rounded-lg border border-gray-200';
+                button.textContent = option;
+                button.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(selectedIndex) {
+            const questions = quizQuestions[currentMaterial];
+            const question = questions[currentQuestionIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach((option, index) => {
+                option.onclick = null;
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            if (selectedIndex === question.correct) {
+                score++;
+            }
+            
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion();
+                } else {
+                    showQuizResult();
+                }
+            }, 1500);
+        }
+
+        function showQuizResult() {
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.querySelector('#quizSection .mb-6').classList.add('hidden');
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('quizResult').classList.add('hidden');
+            document.querySelector('#quizSection .mb-6').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function exitQuiz() {
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('material' + currentMaterial).classList.remove('hidden');
+        }
+
+        // Material 3 specific functions
+        function selectIdeaSource(source) {
+            const ideaData = {
+                'alam': {
+                    title: '🌿 Sumber Ide dari Alam',
+                    ideas: ['Menggambar bunga matahari yang besar', 'Membuat kolase daun-daun kering', 'Melukis pemandangan gunung', 'Membentuk hewan dari plastisin']
+                },
+                'sehari-hari': {
+                    title: '🏠 Sumber Ide dari Kehidupan Sehari-hari',
+                    ideas: ['Menggambar rumah impian', 'Membuat miniatur mobil dari kardus', 'Melukis keluarga tercinta', 'Membentuk makanan favorit dari plastisin']
+                },
+                'perasaan': {
+                    title: '💭 Sumber Ide dari Perasaan',
+                    ideas: ['Menggambar dengan warna cerah saat senang', 'Melukis pemandangan tenang saat damai', 'Membuat karya penuh warna saat gembira', 'Menggambar hal-hal yang membuat bahagia']
+                },
+                'imajinasi': {
+                    title: '✨ Sumber Ide dari Imajinasi',
+                    ideas: ['Menggambar kastil di awan', 'Membuat robot dari kardus bekas', 'Melukis dunia bawah laut ajaib', 'Membentuk monster lucu dari plastisin']
+                }
+            };
+            
+            const selectedIdea = ideaData[source];
+            const randomIdea = selectedIdea.ideas[Math.floor(Math.random() * selectedIdea.ideas.length)];
+            
+            document.getElementById('ideaContent').innerHTML = `
+                <div class="bg-blue-50 p-3 rounded-lg">
+                    <h6 class="font-medium text-blue-800">${selectedIdea.title}</h6>
+                    <p class="text-blue-700 mt-1">${randomIdea}</p>
+                </div>
+            `;
+            
+            document.getElementById('ideaResult').classList.remove('hidden');
+            document.getElementById('ideaFeedback').classList.add('hidden');
+            document.getElementById('ideaStory').value = '';
+        }
+
+        function shareIdea() {
+            const story = document.getElementById('ideaStory').value.trim();
+            const feedback = document.getElementById('ideaFeedback');
+            
+            if (story.length > 15) {
+                feedback.classList.remove('hidden');
+                document.getElementById('ideaStory').value = '';
+            } else {
+                alert('Coba ceritakan ide karyamu lebih detail ya! 😊');
+            }
+        }
+
+        // Material 4 specific functions
+        function selectArtType(type) {
+            const artTypeData = {
+                '2d': {
+                    title: '📄 Rekomendasi untuk Karya 2D',
+                    techniques: ['Menggambar', 'Melukis', 'Kolase', 'Mozaik'],
+                    tools: ['Pensil', 'Krayon', 'Kuas', 'Gunting'],
+                    materials: ['Kertas', 'Cat air', 'Kertas warna', 'Lem']
+                },
+                '3d': {
+                    title: '📦 Rekomendasi untuk Karya 3D',
+                    techniques: ['Membentuk', 'Konstruksi', 'Merakit', 'Memahat'],
+                    tools: ['Alat bentuk', 'Gunting', 'Lem', 'Penggaris'],
+                    materials: ['Plastisin', 'Kardus', 'Botol bekas', 'Balok kayu']
+                }
+            };
+            
+            const selectedType = artTypeData[type];
+            const randomTechnique = selectedType.techniques[Math.floor(Math.random() * selectedType.techniques.length)];
+            const randomTool = selectedType.tools[Math.floor(Math.random() * selectedType.tools.length)];
+            const randomMaterial = selectedType.materials[Math.floor(Math.random() * selectedType.materials.length)];
+            
+            document.getElementById('recommendationContent').innerHTML = `
+                <div class="bg-blue-50 p-3 rounded-lg">
+                    <h6 class="font-medium text-blue-800 mb-2">${selectedType.title}</h6>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-blue-200 px-2 py-1 rounded text-blue-800 font-medium">Teknik:</span>
+                            <span class="text-blue-700">${randomTechnique}</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-green-200 px-2 py-1 rounded text-green-800 font-medium">Alat:</span>
+                            <span class="text-green-700">${randomTool}</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-yellow-200 px-2 py-1 rounded text-yellow-800 font-medium">Bahan:</span>
+                            <span class="text-yellow-700">${randomMaterial}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('artTypeResult').classList.remove('hidden');
+            document.getElementById('choiceFeedback').classList.add('hidden');
+            document.getElementById('choiceReason').value = '';
+        }
+
+        function shareChoice() {
+            const reason = document.getElementById('choiceReason').value.trim();
+            const feedback = document.getElementById('choiceFeedback');
+            
+            if (reason.length > 20) {
+                feedback.classList.remove('hidden');
+                document.getElementById('choiceReason').value = '';
+            } else {
+                alert('Coba jelaskan alasan pilihanmu lebih detail ya! 😊');
+            }
+        }
+
+        // Material 5 specific functions
+        let currentStep = 0;
+        let totalSteps = 3;
+        
+        function startProject(type) {
+            currentStep = 0;
+            const projectData = {
+                '2d': {
+                    title: '📄 Proyek Karya 2D',
+                    steps: [
+                        {
+                            title: '📝 Langkah 1: Persiapan',
+                            content: 'Siapkan pensil, kertas, dan krayon. Pilih tempat yang terang dan nyaman untuk berkarya.',
+                            icon: '🛠️'
+                        },
+                        {
+                            title: '💡 Langkah 2: Membuat Sketsa',
+                            content: 'Gambar bentuk dasar dengan pensil tipis. Mulai dari bentuk sederhana seperti lingkaran atau kotak.',
+                            icon: '✏️'
+                        },
+                        {
+                            title: '🎨 Langkah 3: Mewarnai & Detail',
+                            content: 'Warnai gambar dari area besar ke kecil. Tambahkan detail terakhir untuk mempercantik karya.',
+                            icon: '🌈'
+                        }
+                    ]
+                },
+                '3d': {
+                    title: '📦 Proyek Karya 3D',
+                    steps: [
+                        {
+                            title: '🛠️ Langkah 1: Persiapan',
+                            content: 'Siapkan plastisin, gunting, lem, dan kardus. Pastikan alas kerja aman dan bersih.',
+                            icon: '🔧'
+                        },
+                        {
+                            title: '🏗️ Langkah 2: Membentuk Dasar',
+                            content: 'Buat bentuk dasar yang kuat dan stabil. Bentuk bagian-bagian utama terlebih dahulu.',
+                            icon: '🏗️'
+                        },
+                        {
+                            title: '✨ Langkah 3: Menambah Detail',
+                            content: 'Tambahkan bagian-bagian kecil dan hiasan. Beri warna atau dekorasi sesuai keinginan.',
+                            icon: '🎭'
+                        }
+                    ]
+                }
+            };
+            
+            const selectedProject = projectData[type];
+            const stepsContainer = document.getElementById('stepsContent');
+            stepsContainer.innerHTML = '';
+            
+            selectedProject.steps.forEach((step, index) => {
+                const stepElement = document.createElement('div');
+                stepElement.className = `step-item bg-gray-50 p-3 rounded-lg border-2 ${index === 0 ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`;
+                stepElement.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <div class="text-2xl">${step.icon}</div>
+                        <div class="flex-1">
+                            <h6 class="font-medium text-gray-800 mb-1">${step.title}</h6>
+                            <p class="text-sm text-gray-600">${step.content}</p>
+                            <button onclick="completeStep(${index})" class="mt-2 text-xs bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition-colors">
+                                ${index === 0 ? 'Mulai Langkah' : index < currentStep ? 'Selesai ✓' : 'Lanjut Langkah'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                stepsContainer.appendChild(stepElement);
+            });
+            
+            updateProgress();
+            document.getElementById('projectSteps').classList.remove('hidden');
+            document.getElementById('experienceFeedback').classList.add('hidden');
+            document.getElementById('projectExperience').value = '';
+        }
+        
+        function completeStep(stepIndex) {
+            if (stepIndex === currentStep) {
+                currentStep++;
+                updateProgress();
+                updateStepVisuals();
+            }
+        }
+        
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('projectProgressBar').style.width = progress + '%';
+            document.getElementById('stepProgress').textContent = `${currentStep}/${totalSteps}`;
+        }
+        
+        function updateStepVisuals() {
+            const stepItems = document.querySelectorAll('.step-item');
+            stepItems.forEach((item, index) => {
+                const button = item.querySelector('button');
+                if (index < currentStep) {
+                    item.className = 'step-item bg-green-50 p-3 rounded-lg border-2 border-green-500';
+                    button.textContent = 'Selesai ✓';
+                    button.className = 'mt-2 text-xs bg-green-500 text-white px-3 py-1 rounded';
+                } else if (index === currentStep) {
+                    item.className = 'step-item bg-blue-50 p-3 rounded-lg border-2 border-blue-500';
+                    button.textContent = 'Lanjut Langkah';
+                    button.className = 'mt-2 text-xs bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition-colors';
+                } else {
+                    item.className = 'step-item bg-gray-50 p-3 rounded-lg border-2 border-gray-200';
+                    button.textContent = 'Belum Aktif';
+                    button.className = 'mt-2 text-xs bg-gray-400 text-white px-3 py-1 rounded cursor-not-allowed';
+                }
+            });
+        }
+        
+        function shareExperience() {
+            const experience = document.getElementById('projectExperience').value.trim();
+            const feedback = document.getElementById('experienceFeedback');
+            
+            if (experience.length > 20) {
+                feedback.classList.remove('hidden');
+                document.getElementById('projectExperience').value = '';
+            } else {
+                alert('Coba ceritakan pengalaman berkarya mu lebih detail ya! 😊');
+            }
+        }
+
+        // Material 6 specific functions
+        let creativeSteps = 0;
+        let totalCreativeSteps = 4;
+        
+        function startCreativeProject(type) {
+            creativeSteps = 0;
+            const projectData = {
+                'painting': {
+                    title: '🎨 Lukisan Digital',
+                    description: 'Membuat lukisan dengan teknik digital',
+                    steps: [
+                        { title: 'Pilih Tema', content: 'Tentukan apa yang ingin dilukis (pemandangan, hewan, dll)', icon: '💡' },
+                        { title: 'Siapkan Canvas', content: 'Buat area lukisan dan pilih warna dasar', icon: '🖼️' },
+                        { title: 'Lukis Bentuk Dasar', content: 'Gambar bentuk-bentuk utama dengan kuas besar', icon: '🖌️' },
+                        { title: 'Tambah Detail', content: 'Berikan detail dan sentuhan akhir pada lukisan', icon: '✨' }
+                    ]
+                },
+                'collage': {
+                    title: '✂️ Kolase Virtual',
+                    description: 'Membuat kolase dengan menempel potongan-potongan',
+                    steps: [
+                        { title: 'Pilih Tema', content: 'Tentukan gambar apa yang akan dibuat dengan kolase', icon: '🎯' },
+                        { title: 'Siapkan Bahan', content: 'Kumpulkan potongan kertas warna-warni', icon: '📄' },
+                        { title: 'Susun Potongan', content: 'Tempel potongan sesuai dengan rencana', icon: '🧩' },
+                        { title: 'Rapikan Hasil', content: 'Periksa dan perbaiki bagian yang kurang rapi', icon: '🎨' }
+                    ]
+                },
+                'sculpture': {
+                    title: '🏺 Patung 3D',
+                    description: 'Membentuk patung dengan teknik modeling',
+                    steps: [
+                        { title: 'Pilih Objek', content: 'Tentukan hewan atau benda yang akan dibuat', icon: '🎯' },
+                        { title: 'Bentuk Dasar', content: 'Buat bentuk dasar dengan plastisin', icon: '🏗️' },
+                        { title: 'Tambah Detail', content: 'Bentuk bagian-bagian kecil seperti mata, hidung', icon: '👁️' },
+                        { title: 'Finishing', content: 'Haluskan permukaan dan beri warna jika perlu', icon: '🎨' }
+                    ]
+                },
+                'construction': {
+                    title: '🏗️ Konstruksi',
+                    description: 'Membangun karya 3D dengan teknik konstruksi',
+                    steps: [
+                        { title: 'Rancang Desain', content: 'Buat sketsa bangunan atau kendaraan yang akan dibuat', icon: '📐' },
+                        { title: 'Potong Bahan', content: 'Potong kardus sesuai dengan ukuran yang dibutuhkan', icon: '✂️' },
+                        { title: 'Rakit Bagian', content: 'Gabungkan potongan-potongan dengan lem', icon: '🔧' },
+                        { title: 'Dekorasi', content: 'Hias dengan cat atau kertas warna', icon: '🌈' }
+                    ]
+                }
+            };
+            
+            const selectedProject = projectData[type];
+            const studioContainer = document.getElementById('studioContent');
+            studioContainer.innerHTML = `
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <h6 class="font-medium text-blue-800 mb-2">${selectedProject.title}</h6>
+                    <p class="text-sm text-blue-700">${selectedProject.description}</p>
+                </div>
+                <div class="space-y-3" id="creativeStepsList"></div>
+            `;
+            
+            const stepsList = document.getElementById('creativeStepsList');
+            selectedProject.steps.forEach((step, index) => {
+                const stepElement = document.createElement('div');
+                stepElement.className = `creative-step bg-gray-50 p-3 rounded-lg border-2 ${index === 0 ? 'border-purple-500 bg-purple-50' : 'border-gray-200'}`;
+                stepElement.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <div class="text-2xl">${step.icon}</div>
+                        <div class="flex-1">
+                            <h6 class="font-medium text-gray-800 mb-1">${step.title}</h6>
+                            <p class="text-sm text-gray-600 mb-2">${step.content}</p>
+                            <button onclick="completeCreativeStep(${index})" class="text-xs bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600 transition-colors">
+                                ${index === 0 ? 'Mulai Langkah' : index < creativeSteps ? 'Selesai ✓' : 'Lanjut Langkah'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                stepsList.appendChild(stepElement);
+            });
+            
+            updateCreativeProgress();
+            document.getElementById('creativeStudio').classList.remove('hidden');
+            document.getElementById('creativeFeedback').classList.add('hidden');
+            document.getElementById('creativeProcess').value = '';
+        }
+        
+        function completeCreativeStep(stepIndex) {
+            if (stepIndex === creativeSteps) {
+                creativeSteps++;
+                updateCreativeProgress();
+                updateCreativeStepVisuals();
+            }
+        }
+        
+        function updateCreativeProgress() {
+            const progress = (creativeSteps / totalCreativeSteps) * 100;
+            document.getElementById('creativeProgressBar').style.width = progress + '%';
+            document.getElementById('creativeProgress').textContent = Math.round(progress) + '%';
+        }
+        
+        function updateCreativeStepVisuals() {
+            const stepItems = document.querySelectorAll('.creative-step');
+            stepItems.forEach((item, index) => {
+                const button = item.querySelector('button');
+                if (index < creativeSteps) {
+                    item.className = 'creative-step bg-green-50 p-3 rounded-lg border-2 border-green-500';
+                    button.textContent = 'Selesai ✓';
+                    button.className = 'text-xs bg-green-500 text-white px-3 py-1 rounded';
+                } else if (index === creativeSteps) {
+                    item.className = 'creative-step bg-purple-50 p-3 rounded-lg border-2 border-purple-500';
+                    button.textContent = 'Lanjut Langkah';
+                    button.className = 'text-xs bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600 transition-colors';
+                } else {
+                    item.className = 'creative-step bg-gray-50 p-3 rounded-lg border-2 border-gray-200';
+                    button.textContent = 'Belum Aktif';
+                    button.className = 'text-xs bg-gray-400 text-white px-3 py-1 rounded cursor-not-allowed';
+                }
+            });
+        }
+        
+        function shareCreativeProcess() {
+            const process = document.getElementById('creativeProcess').value.trim();
+            const feedback = document.getElementById('creativeFeedback');
+            
+            if (process.length > 25) {
+                feedback.classList.remove('hidden');
+                document.getElementById('creativeProcess').value = '';
+            } else {
+                alert('Coba ceritakan proses kreatifmu lebih detail ya! 😊');
+            }
+        }
+
+        // Material 7 specific functions
+        function startExperienceJournal(type) {
+            const journalData = {
+                'drawing': {
+                    title: '✏️ Pengalaman Menggambar',
+                    questions: [
+                        { q: 'Apa yang kamu gambar?', placeholder: 'Contoh: Saya menggambar rumah dengan taman...' },
+                        { q: 'Bagaimana perasaanmu saat mulai menggambar?', placeholder: 'Contoh: Awalnya saya merasa bingung...' },
+                        { q: 'Apa bagian yang paling sulit?', placeholder: 'Contoh: Yang sulit adalah menggambar atap...' },
+                        { q: 'Bagaimana perasaanmu saat selesai?', placeholder: 'Contoh: Saya merasa bangga dan senang...' }
+                    ]
+                },
+                'painting': {
+                    title: '🎨 Pengalaman Melukis',
+                    questions: [
+                        { q: 'Apa yang kamu lukis?', placeholder: 'Contoh: Saya melukis pemandangan pantai...' },
+                        { q: 'Warna apa yang paling kamu suka pakai?', placeholder: 'Contoh: Saya suka warna biru karena...' },
+                        { q: 'Apa yang terjadi saat mencampur warna?', placeholder: 'Contoh: Saat mencampur biru dan kuning jadi hijau...' },
+                        { q: 'Bagaimana perasaanmu dengan hasil lukisan?', placeholder: 'Contoh: Lukisan saya terlihat indah dan...' }
+                    ]
+                },
+                'sculpture': {
+                    title: '🏺 Pengalaman Membentuk',
+                    questions: [
+                        { q: 'Apa yang kamu bentuk?', placeholder: 'Contoh: Saya membentuk hewan kucing dari plastisin...' },
+                        { q: 'Bagaimana rasanya memegang plastisin?', placeholder: 'Contoh: Plastisinnya lembut dan mudah dibentuk...' },
+                        { q: 'Bagian mana yang paling sulit dibentuk?', placeholder: 'Contoh: Yang sulit adalah membuat telinga kucing...' },
+                        { q: 'Apa yang kamu rasakan saat karya selesai?', placeholder: 'Contoh: Saya senang karena kucingnya lucu...' }
+                    ]
+                },
+                'craft': {
+                    title: '✂️ Pengalaman Berkerajinan',
+                    questions: [
+                        { q: 'Kerajinan apa yang kamu buat?', placeholder: 'Contoh: Saya membuat bunga dari kertas...' },
+                        { q: 'Alat apa saja yang kamu gunakan?', placeholder: 'Contoh: Saya pakai gunting, lem, dan kertas warna...' },
+                        { q: 'Apa bagian yang paling menyenangkan?', placeholder: 'Contoh: Yang seru adalah saat menggunting pola...' },
+                        { q: 'Siapa yang memuji hasil karyamu?', placeholder: 'Contoh: Mama dan papa bilang bunga saya cantik...' }
+                    ]
+                }
+            };
+            
+            const selectedJournal = journalData[type];
+            const questionsContainer = document.getElementById('journalQuestions');
+            questionsContainer.innerHTML = `
+                <div class="bg-blue-50 p-3 rounded-lg mb-4">
+                    <h6 class="font-medium text-blue-800">${selectedJournal.title}</h6>
+                    <p class="text-sm text-blue-700">Jawab pertanyaan-pertanyaan berikut untuk membuat jurnal pengalamanmu!</p>
+                </div>
+            `;
+            
+            selectedJournal.questions.forEach((item, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'space-y-2';
+                questionDiv.innerHTML = `
+                    <label class="block text-sm font-medium text-gray-700">${index + 1}. ${item.q}</label>
+                    <textarea class="journal-answer w-full p-2 border rounded-lg resize-none text-sm" rows="2" placeholder="${item.placeholder}"></textarea>
+                `;
+                questionsContainer.appendChild(questionDiv);
+            });
+            
+            document.getElementById('experienceJournal').classList.remove('hidden');
+            document.getElementById('experienceResult').classList.add('hidden');
+            document.getElementById('fullStory').value = '';
+        }
+        
+        function shareFullExperience() {
+            const story = document.getElementById('fullStory').value.trim();
+            const answers = document.querySelectorAll('.journal-answer');
+            let hasAnswers = false;
+            
+            answers.forEach(answer => {
+                if (answer.value.trim().length > 5) {
+                    hasAnswers = true;
+                }
+            });
+            
+            if (story.length > 30 && hasAnswers) {
+                document.getElementById('sharedExperience').textContent = story;
+                document.getElementById('experienceResult').classList.remove('hidden');
+                document.getElementById('fullStory').value = '';
+                
+                // Clear all answers
+                answers.forEach(answer => {
+                    answer.value = '';
+                });
+            } else {
+                alert('Coba jawab beberapa pertanyaan dan tulis cerita yang lebih panjang ya! 😊');
+            }
+        }
+
+        // Material 8 specific functions
+        let selectedFeeling = '';
+        
+        function viewArtwork(type) {
+            const artworkData = {
+                'nature': {
+                    title: '🌿 Lukisan Pemandangan Alam',
+                    description: 'Lukisan indah dengan gunung hijau, langit biru, dan sungai yang jernih',
+                    svg: `<svg width="300" height="200" class="mx-auto border-2 border-gray-300 rounded-lg">
+                        <rect width="300" height="200" fill="#87CEEB"/>
+                        <polygon points="50,120 150,60 250,120 250,200 50,200" fill="#228B22"/>
+                        <polygon points="100,140 200,80 280,140 280,200 100,200" fill="#32CD32"/>
+                        <circle cx="80" cy="40" r="20" fill="#FFD700"/>
+                        <rect x="0" y="160" width="300" height="40" fill="#4169E1"/>
+                        <polygon points="120,200 130,180 140,200" fill="#8B4513"/>
+                        <circle cx="125" cy="175" r="8" fill="#228B22"/>
+                    </svg>`
+                },
+                'family': {
+                    title: '👨‍👩‍👧‍👦 Gambar Keluarga Bahagia',
+                    description: 'Gambar keluarga yang sedang bermain di taman dengan senyuman ceria',
+                    svg: `<svg width="300" height="200" class="mx-auto border-2 border-gray-300 rounded-lg">
+                        <rect width="300" height="200" fill="#98FB98"/>
+                        <circle cx="80" cy="80" r="15" fill="#FDBCB4"/>
+                        <rect x="70" y="95" width="20" height="30" fill="#FF6347"/>
+                        <rect x="65" y="125" width="10" height="20" fill="#000080"/>
+                        <rect x="85" y="125" width="10" height="20" fill="#000080"/>
+                        <circle cx="130" cy="75" r="18" fill="#FDBCB4"/>
+                        <rect x="118" y="93" width="24" height="35" fill="#FF1493"/>
+                        <rect x="115" y="128" width="12" height="22" fill="#8B4513"/>
+                        <rect x="133" y="128" width="12" height="22" fill="#8B4513"/>
+                        <circle cx="200" cy="100" r="12" fill="#FDBCB4"/>
+                        <rect x="192" y="112" width="16" height="25" fill="#00CED1"/>
+                        <circle cx="250" cy="105" r="10" fill="#FDBCB4"/>
+                        <rect x="245" y="115" width="10" height="20" fill="#FFB6C1"/>
+                        <circle cx="150" cy="50" r="25" fill="#FFD700"/>
+                    </svg>`
+                },
+                'animal': {
+                    title: '🐱 Patung Kucing Lucu',
+                    description: 'Patung kucing kecil yang dibuat dari tanah liat dengan detail yang menggemaskan',
+                    svg: `<svg width="300" height="200" class="mx-auto border-2 border-gray-300 rounded-lg">
+                        <rect width="300" height="200" fill="#F5F5DC"/>
+                        <ellipse cx="150" cy="130" rx="40" ry="30" fill="#FFA500"/>
+                        <circle cx="150" cy="100" r="25" fill="#FFA500"/>
+                        <polygon points="135,85 140,75 145,85" fill="#FFA500"/>
+                        <polygon points="155,85 160,75 165,85" fill="#FFA500"/>
+                        <circle cx="140" cy="95" r="3" fill="#000"/>
+                        <circle cx="160" cy="95" r="3" fill="#000"/>
+                        <polygon points="148,105 152,105 150,108" fill="#FF69B4"/>
+                        <path d="M 145 110 Q 150 115 155 110" stroke="#000" stroke-width="2" fill="none"/>
+                        <ellipse cx="130" cy="140" rx="8" ry="15" fill="#FFA500"/>
+                        <ellipse cx="170" cy="140" rx="8" ry="15" fill="#FFA500"/>
+                        <ellipse cx="135" cy="160" rx="6" ry="12" fill="#FFA500"/>
+                        <ellipse cx="165" cy="160" rx="6" ry="12" fill="#FFA500"/>
+                        <path d="M 190 120 Q 210 125 205 140" stroke="#FFA500" stroke-width="4" fill="none"/>
+                    </svg>`
+                },
+                'abstract': {
+                    title: '🎨 Karya Seni Abstrak',
+                    description: 'Karya abstrak dengan bentuk-bentuk geometris dan warna-warna cerah yang menarik',
+                    svg: `<svg width="300" height="200" class="mx-auto border-2 border-gray-300 rounded-lg">
+                        <rect width="300" height="200" fill="#FFFFFF"/>
+                        <circle cx="80" cy="60" r="30" fill="#FF6B6B" opacity="0.8"/>
+                        <rect x="140" y="40" width="50" height="50" fill="#4ECDC4" opacity="0.7"/>
+                        <polygon points="220,50 250,80 220,110 190,80" fill="#45B7D1" opacity="0.8"/>
+                        <circle cx="60" cy="140" r="25" fill="#96CEB4" opacity="0.9"/>
+                        <rect x="120" y="120" width="40" height="60" fill="#FFEAA7" opacity="0.8"/>
+                        <polygon points="200,130 240,140 230,170 190,160" fill="#DDA0DD" opacity="0.7"/>
+                        <circle cx="250" cy="160" r="20" fill="#FFB6C1" opacity="0.8"/>
+                        <rect x="20" y="100" width="30" height="30" fill="#98D8C8" opacity="0.6" transform="rotate(45 35 115)"/>
+                    </svg>`
+                }
+            };
+            
+            const selectedArtwork = artworkData[type];
+            document.getElementById('artworkDisplay').innerHTML = `
+                <div class="mb-4">
+                    <h5 class="font-medium text-gray-800 mb-2">${selectedArtwork.title}</h5>
+                    <p class="text-sm text-gray-600 mb-3">${selectedArtwork.description}</p>
+                    ${selectedArtwork.svg}
+                </div>
+            `;
+            
+            document.getElementById('artworkViewer').classList.remove('hidden');
+            document.getElementById('impactResult').classList.add('hidden');
+            document.getElementById('impactExplanation').value = '';
+            selectedFeeling = '';
+            
+            // Reset feeling buttons
+            document.querySelectorAll('.feeling-btn').forEach(btn => {
+                btn.classList.remove('bg-green-200', 'font-bold');
+            });
+        }
+        
+        function selectFeeling(feeling) {
+            selectedFeeling = feeling;
+            
+            // Reset all buttons
+            document.querySelectorAll('.feeling-btn').forEach(btn => {
+                btn.classList.remove('bg-green-200', 'font-bold');
+            });
+            
+            // Highlight selected button
+            event.target.classList.add('bg-green-200', 'font-bold');
+        }
+        
+        function shareImpactExplanation() {
+            const explanation = document.getElementById('impactExplanation').value.trim();
+            
+            if (explanation.length > 30 && selectedFeeling) {
+                document.getElementById('sharedImpact').textContent = explanation;
+                document.getElementById('impactResult').classList.remove('hidden');
+                document.getElementById('impactExplanation').value = '';
+                selectedFeeling = '';
+                
+                // Reset feeling buttons
+                document.querySelectorAll('.feeling-btn').forEach(btn => {
+                    btn.classList.remove('bg-green-200', 'font-bold');
+                });
+            } else {
+                alert('Pilih perasaanmu dulu dan tulis penjelasan dampak yang lebih detail ya! 😊');
+            }
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // App is ready
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9692737ab61eab61',t:'MTc1NDE4ODgzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
