@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis PPKn - Pendidikan Pancasila dan Kewarganegaraan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-shadow { box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .level-lots { background: linear-gradient(135deg, #4ade80, #22c55e); }
+        .level-mots { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+        .level-hots { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .progress-bar { transition: width 0.3s ease; }
+        .question-card { transform: translateY(20px); opacity: 0; animation: slideIn 0.5s ease forwards; }
+        @keyframes slideIn { to { transform: translateY(0); opacity: 1; } }
+        .correct-answer { background: linear-gradient(135deg, #10b981, #059669); }
+        .wrong-answer { background: linear-gradient(135deg, #ef4444, #dc2626); }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="gradient-bg min-h-screen">
+        <!-- Header -->
+        <div class="bg-white/10 backdrop-blur-sm border-b border-white/20">
+            <div class="max-w-4xl mx-auto px-6 py-4">
+                <h1 class="text-2xl font-bold text-white text-center">🇮🇩 Kuis PPKn - Pendidikan Pancasila dan Kewarganegaraan</h1>
+                <p class="text-white/80 text-center mt-2">Uji pengetahuan Anda tentang Pancasila, Tokoh Nasional, dan Kewarganegaraan</p>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <!-- Topic Selection Screen -->
+            <div id="topicSelection" class="space-y-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-white mb-4">Pilih Topik Kuis</h2>
+                    <p class="text-white/80">Setiap topik memiliki jumlah soal dan tingkat kesulitan yang berbeda</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all cursor-pointer" onclick="startQuiz('pancasila')">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">1</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">Pancasila dan UUD 1945</h3>
+                                <p class="text-gray-600 text-sm">15 Soal • LOTS, MOTS, HOTS</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">Sila-sila Pancasila, simbol Garuda, nilai-nilai dalam kehidupan, dan UUD 1945</p>
+                    </div>
+
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all cursor-pointer" onclick="startQuiz('tokoh')">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">2</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">Tokoh Nasional & Perjuangan</h3>
+                                <p class="text-gray-600 text-sm">15 Soal • LOTS, MOTS, HOTS</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">Pahlawan kemerdekaan, peran tokoh nasional, dan semangat perjuangan</p>
+                    </div>
+
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all cursor-pointer" onclick="startQuiz('kebhinekaan')">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">3</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">Kebhinekaan & Wawasan Kebangsaan</h3>
+                                <p class="text-gray-600 text-sm">15 Soal • LOTS, MOTS, HOTS</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">Bhinneka Tunggal Ika, toleransi, persatuan, dan budaya Indonesia</p>
+                    </div>
+
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all cursor-pointer" onclick="startQuiz('nkri')">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">4</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">NKRI & Geografi Indonesia</h3>
+                                <p class="text-gray-600 text-sm">15 Soal • LOTS, MOTS, HOTS</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">Pulau-pulau Indonesia, provinsi, TNI-Polri, dan keutuhan NKRI</p>
+                    </div>
+
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all cursor-pointer" onclick="startQuiz('hak')">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">5</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">Hak & Kewajiban Warga Negara</h3>
+                                <p class="text-gray-600 text-sm">10 Soal • LOTS, MOTS, HOTS</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">Hak anak, kewajiban warga sekolah, dan tanggung jawab</p>
+                    </div>
+
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all cursor-pointer" onclick="startQuiz('global')">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">6</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">Isu Global & Nasionalisme</h3>
+                                <p class="text-gray-600 text-sm">10 Soal • LOTS, MOTS, HOTS</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">Globalisasi, teknologi, lingkungan, dan cinta tanah air</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quizScreen" class="hidden">
+                <!-- Progress Bar -->
+                <div class="bg-white/20 rounded-full h-3 mb-6">
+                    <div id="progressBar" class="progress-bar bg-white rounded-full h-3" style="width: 0%"></div>
+                </div>
+
+                <!-- Question Counter and Level -->
+                <div class="flex justify-between items-center mb-6">
+                    <div class="text-white font-semibold">
+                        <span id="questionCounter">Soal 1 dari 15</span>
+                    </div>
+                    <div id="levelBadge" class="px-4 py-2 rounded-full text-white font-semibold text-sm level-lots">
+                        LOTS
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div id="questionCard" class="bg-white/95 backdrop-blur-sm rounded-xl p-8 card-shadow question-card mb-6">
+                    <h3 id="questionText" class="text-xl font-semibold text-gray-800 mb-6 leading-relaxed">
+                        <!-- Question will be inserted here -->
+                    </h3>
+
+                    <div id="answersContainer" class="space-y-4">
+                        <!-- Answers will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between">
+                    <button id="backBtn" onclick="goBack()" class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                        ← Kembali ke Topik
+                    </button>
+                    <button id="nextBtn" onclick="nextQuestion()" class="bg-white hover:bg-gray-100 text-gray-800 px-8 py-3 rounded-lg font-semibold transition-all opacity-50 cursor-not-allowed" disabled>
+                        Selanjutnya →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="resultsScreen" class="hidden text-center">
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl p-8 card-shadow">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Kuis Selesai!</h2>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <div class="text-2xl font-bold text-green-600" id="correctCount">0</div>
+                            <div class="text-green-700">Benar</div>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-4">
+                            <div class="text-2xl font-bold text-red-600" id="wrongCount">0</div>
+                            <div class="text-red-700">Salah</div>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="text-2xl font-bold text-blue-600" id="scorePercentage">0%</div>
+                            <div class="text-blue-700">Skor</div>
+                        </div>
+                    </div>
+
+                    <div id="scoreMessage" class="text-lg text-gray-700 mb-6"></div>
+
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="restartQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                            🔄 Ulangi Kuis
+                        </button>
+                        <button onclick="goHome()" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                            🏠 Pilih Topik Lain
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data structure
+        const quizData = {
+            pancasila: {
+                title: "Pancasila dan UUD 1945",
+                questions: [
+                    // LOTS Questions (5)
+                    { question: "Sebutkan sila pertama Pancasila!", answers: ["Ketuhanan Yang Maha Esa", "Kemanusiaan yang Adil dan Beradab", "Persatuan Indonesia", "Kerakyatan yang Dipimpin oleh Hikmat"], correct: 0, level: "LOTS" },
+                    { question: "Apa bunyi sila kedua Pancasila?", answers: ["Ketuhanan Yang Maha Esa", "Kemanusiaan yang Adil dan Beradab", "Persatuan Indonesia", "Keadilan Sosial"], correct: 1, level: "LOTS" },
+                    { question: "Siapa yang merancang lambang Garuda Pancasila?", answers: ["Sultan Hamid II", "Ir. Soekarno", "Drs. Moh. Hatta", "Mr. Soepomo"], correct: 0, level: "LOTS" },
+                    { question: "Kapan UUD 1945 pertama kali disahkan?", answers: ["17 Agustus 1945", "18 Agustus 1945", "19 Agustus 1945", "20 Agustus 1945"], correct: 1, level: "LOTS" },
+                    { question: "Berapa jumlah pasal dalam UUD 1945 sebelum amandemen?", answers: ["37 pasal", "45 pasal", "50 pasal", "73 pasal"], correct: 0, level: "LOTS" },
+                    
+                    // MOTS Questions (5)
+                    { question: "Apa makna simbol padi dan kapas pada lambang Garuda Pancasila?", answers: ["Kemakmuran rakyat", "Keadilan sosial", "Persatuan bangsa", "Ketahanan pangan"], correct: 1, level: "MOTS" },
+                    { question: "Mengapa Pancasila disebut sebagai dasar negara Indonesia?", answers: ["Karena dibuat oleh founding fathers", "Karena menjadi pedoman hidup berbangsa dan bernegara", "Karena tertulis dalam UUD 1945", "Karena disahkan oleh PPKI"], correct: 1, level: "MOTS" },
+                    { question: "Apa isi pokok Pembukaan UUD 1945 alinea keempat?", answers: ["Proklamasi kemerdekaan", "Dasar negara Pancasila", "Tujuan negara", "Bentuk pemerintahan"], correct: 2, level: "MOTS" },
+                    { question: "Apa makna rantai emas pada lambang Garuda Pancasila?", answers: ["Persatuan yang kokoh", "Kemanusiaan yang adil", "Kemakmuran rakyat", "Musyawarah mufakat"], correct: 0, level: "MOTS" },
+                    { question: "Mengapa UUD 1945 mengalami amandemen?", answers: ["Untuk menyesuaikan dengan perkembangan zaman", "Karena ada kesalahan penulisan", "Atas permintaan rakyat", "Karena tekanan internasional"], correct: 0, level: "MOTS" },
+                    
+                    // HOTS Questions (5)
+                    { question: "Bagaimana cara menerapkan nilai sila pertama Pancasila dalam kehidupan sehari-hari di sekolah yang memiliki siswa dari berbagai agama?", answers: ["Memisahkan siswa berdasarkan agama", "Menghormati perbedaan dan tidak memaksakan keyakinan", "Hanya mengajarkan satu agama", "Melarang praktik keagamaan di sekolah"], correct: 1, level: "HOTS" },
+                    { question: "Seorang siswa melihat temannya di-bully karena berbeda suku. Tindakan apa yang paling mencerminkan nilai Pancasila?", answers: ["Diam saja agar tidak ikut bermasalah", "Membela teman dan menjelaskan pentingnya persatuan", "Melaporkan ke guru saja", "Ikut mem-bully agar diterima kelompok"], correct: 1, level: "HOTS" },
+                    { question: "Mengapa nilai-nilai Pancasila masih relevan di era digital saat ini?", answers: ["Karena sudah menjadi tradisi", "Karena nilai-nilai universal yang dapat menghadapi tantangan zaman", "Karena diwajibkan oleh pemerintah", "Karena tidak ada alternatif lain"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana cara mengatasi konflik antar siswa dengan menerapkan nilai sila keempat Pancasila?", answers: ["Memihak yang lebih kuat", "Melakukan voting untuk menentukan pemenang", "Menggunakan musyawarah untuk mencari solusi bersama", "Membiarkan mereka menyelesaikan sendiri"], correct: 2, level: "HOTS" },
+                    { question: "Analisis mengapa Pancasila dapat menjadi pemersatu bangsa Indonesia yang beragam!", answers: ["Karena dibuat oleh orang Indonesia", "Karena nilai-nilainya mencerminkan kepribadian dan cita-cita bangsa Indonesia", "Karena mudah dihafalkan", "Karena tertulis dalam bahasa Indonesia"], correct: 1, level: "HOTS" }
+                ]
+            },
+            tokoh: {
+                title: "Tokoh Nasional dan Perjuangan Kemerdekaan",
+                questions: [
+                    // LOTS Questions (5)
+                    { question: "Siapa proklamator kemerdekaan Indonesia?", answers: ["Soekarno dan Hatta", "Soekarno dan Sjahrir", "Hatta dan Sjahrir", "Soekarno dan Soepomo"], correct: 0, level: "LOTS" },
+                    { question: "Siapa yang dijuluki 'Bapak Pendidikan Nasional'?", answers: ["R.A. Kartini", "Ki Hajar Dewantara", "Dr. Wahidin Sudirohusodo", "Douwes Dekker"], correct: 1, level: "LOTS" },
+                    { question: "Kapan Indonesia memproklamasikan kemerdekaan?", answers: ["17 Agustus 1945", "18 Agustus 1945", "19 Agustus 1945", "20 Agustus 1945"], correct: 0, level: "LOTS" },
+                    { question: "Siapa yang menjahit bendera Merah Putih pertama?", answers: ["R.A. Kartini", "Fatmawati", "Cut Nyak Dhien", "Dewi Sartika"], correct: 1, level: "LOTS" },
+                    { question: "Peristiwa apa yang terjadi pada tanggal 10 November 1945?", answers: ["Proklamasi kemerdekaan", "Pertempuran Surabaya", "Konferensi Asia Afrika", "Serangan Umum 1 Maret"], correct: 1, level: "LOTS" },
+                    
+                    // MOTS Questions (5)
+                    { question: "Apa peran Bung Karno dalam perjuangan kemerdekaan Indonesia?", answers: ["Hanya sebagai proklamator", "Pemimpin pergerakan nasional dan proklamator", "Diplomat internasional", "Panglima perang"], correct: 1, level: "MOTS" },
+                    { question: "Mengapa Ki Hajar Dewantara mendirikan Taman Siswa?", answers: ["Untuk mencari keuntungan", "Untuk memberikan pendidikan yang sesuai dengan kepribadian bangsa", "Atas perintah pemerintah kolonial", "Untuk menyaingi sekolah Belanda"], correct: 1, level: "MOTS" },
+                    { question: "Apa makna Hari Kemerdekaan 17 Agustus bagi bangsa Indonesia?", answers: ["Hari libur nasional", "Hari bersejarah lahirnya bangsa Indonesia yang merdeka", "Hari peringatan proklamator", "Hari raya keagamaan"], correct: 1, level: "MOTS" },
+                    { question: "Bagaimana peran pemuda dalam Peristiwa Rengasdengklok?", answers: ["Menculik Soekarno-Hatta", "Mendorong Soekarno-Hatta untuk segera memproklamasikan kemerdekaan", "Melawan Jepang", "Menyiapkan naskah proklamasi"], correct: 1, level: "MOTS" },
+                    { question: "Apa kontribusi R.A. Kartini bagi perjuangan bangsa Indonesia?", answers: ["Memimpin perang", "Memperjuangkan emansipasi wanita dan pendidikan", "Mendirikan partai politik", "Menjadi diplomat"], correct: 1, level: "MOTS" },
+                    
+                    // HOTS Questions (5)
+                    { question: "Bandingkan perjuangan Soekarno dan Hatta dalam meraih kemerdekaan Indonesia!", answers: ["Soekarno lebih penting dari Hatta", "Keduanya saling melengkapi: Soekarno sebagai orator dan Hatta sebagai pemikir ekonomi", "Hatta lebih berperan dari Soekarno", "Keduanya memiliki peran yang sama persis"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana nilai perjuangan para pahlawan dapat diterapkan dalam semangat belajar siswa masa kini?", answers: ["Dengan menghafal nama-nama pahlawan", "Dengan pantang menyerah, disiplin, dan cinta tanah air dalam belajar", "Dengan meniru gaya hidup pahlawan", "Dengan selalu berperang"], correct: 1, level: "HOTS" },
+                    { question: "Mengapa perjuangan kemerdekaan memerlukan persatuan dari berbagai golongan masyarakat?", answers: ["Karena musuh lebih kuat", "Karena persatuan menciptakan kekuatan yang lebih besar untuk menghadapi penjajah", "Karena diperintahkan pemimpin", "Karena tradisi nenek moyang"], correct: 1, level: "HOTS" },
+                    { question: "Analisis mengapa semangat juang para pahlawan masih relevan di era modern!", answers: ["Karena masih ada penjajahan fisik", "Karena semangat juang diperlukan untuk menghadapi tantangan pembangunan dan kemajuan bangsa", "Karena sudah menjadi kebiasaan", "Karena diwajibkan dalam kurikulum"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana cara menghargai jasa para pahlawan dalam kehidupan sehari-hari?", answers: ["Hanya pada hari kemerdekaan saja", "Dengan meneladani nilai-nilai perjuangan mereka dalam belajar dan berkarya", "Dengan membangun monumen", "Dengan menghafalkan biografinya"], correct: 1, level: "HOTS" }
+                ]
+            },
+            kebhinekaan: {
+                title: "Kebhinekaan dan Wawasan Kebangsaan",
+                questions: [
+                    // LOTS Questions (5)
+                    { question: "Apa arti semboyan 'Bhinneka Tunggal Ika'?", answers: ["Berbeda-beda tetapi tetap satu", "Satu untuk semua", "Bersatu kita teguh", "Gotong royong"], correct: 0, level: "LOTS" },
+                    { question: "Sebutkan salah satu suku bangsa di Pulau Jawa!", answers: ["Batak", "Dayak", "Sunda", "Bugis"], correct: 2, level: "LOTS" },
+                    { question: "Lagu 'Yamko Rambe Yamko' berasal dari daerah mana?", answers: ["Sumatera", "Kalimantan", "Papua", "Sulawesi"], correct: 2, level: "LOTS" },
+                    { question: "Bahasa daerah apa yang digunakan di Bali?", answers: ["Bahasa Jawa", "Bahasa Bali", "Bahasa Sasak", "Bahasa Sunda"], correct: 1, level: "LOTS" },
+                    { question: "Tari Kecak berasal dari daerah mana?", answers: ["Jawa Tengah", "Bali", "Sumatera Barat", "Sulawesi Selatan"], correct: 1, level: "LOTS" },
+                    
+                    // MOTS Questions (5)
+                    { question: "Mengapa Indonesia disebut negara multikultural?", answers: ["Karena wilayahnya luas", "Karena memiliki beragam suku, budaya, bahasa, dan agama", "Karena penduduknya banyak", "Karena berbentuk kepulauan"], correct: 1, level: "MOTS" },
+                    { question: "Apa yang dimaksud dengan sikap toleransi?", answers: ["Sikap acuh tak acuh", "Sikap menghargai dan menghormati perbedaan", "Sikap memaksakan kehendak", "Sikap menutup diri"], correct: 1, level: "MOTS" },
+                    { question: "Bagaimana cara menjaga persatuan di lingkungan sekolah?", answers: ["Berteman hanya dengan suku yang sama", "Menghormati perbedaan dan bekerja sama", "Menghindari teman yang berbeda", "Membuat kelompok berdasarkan asal daerah"], correct: 1, level: "MOTS" },
+                    { question: "Apa manfaat keberagaman budaya Indonesia?", answers: ["Membuat negara terpecah", "Memperkaya khazanah budaya dan menjadi daya tarik wisata", "Menyulitkan komunikasi", "Menimbulkan konflik"], correct: 1, level: "MOTS" },
+                    { question: "Mengapa Pancasila cocok untuk Indonesia yang beragam?", answers: ["Karena mudah diingat", "Karena nilai-nilainya dapat mempersatukan keberagaman", "Karena dibuat oleh orang Indonesia", "Karena singkat dan padat"], correct: 1, level: "MOTS" },
+                    
+                    // HOTS Questions (5)
+                    { question: "Di kelas Anda ada siswa dari berbagai daerah yang sering bertengkar karena perbedaan budaya. Solusi terbaik adalah?", answers: ["Memisahkan mereka", "Mengadakan dialog dan kegiatan untuk saling mengenal budaya masing-masing", "Melaporkan ke kepala sekolah", "Membiarkan mereka menyelesaikan sendiri"], correct: 1, level: "HOTS" },
+                    { question: "Mengapa persatuan sangat penting bagi Indonesia di era globalisasi?", answers: ["Untuk melawan negara lain", "Untuk menghadapi tantangan global dengan kekuatan bersama", "Karena tradisi nenek moyang", "Karena diperintahkan pemerintah"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana cara melestarikan budaya daerah di tengah arus modernisasi?", answers: ["Melarang teknologi modern", "Mengintegrasikan nilai budaya dengan perkembangan zaman", "Mengisolasi budaya dari pengaruh luar", "Hanya mempelajari budaya asing"], correct: 1, level: "HOTS" },
+                    { question: "Analisis dampak positif keberagaman Indonesia bagi pembangunan nasional!", answers: ["Memperlambat pembangunan", "Menciptakan inovasi dan kreativitas dari perpaduan berbagai budaya", "Menimbulkan konflik", "Mempersulit komunikasi"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana peran generasi muda dalam menjaga persatuan dan kesatuan bangsa?", answers: ["Hanya tugas pemerintah", "Menjadi agen pemersatu dengan menghargai perbedaan dan berkarya untuk bangsa", "Menghindari perbedaan", "Fokus pada kepentingan daerah saja"], correct: 1, level: "HOTS" }
+                ]
+            },
+            nkri: {
+                title: "NKRI dan Geografi Indonesia",
+                questions: [
+                    // LOTS Questions (5)
+                    { question: "Sebutkan lima pulau besar di Indonesia!", answers: ["Sumatera, Jawa, Kalimantan, Sulawesi, Papua", "Sumatera, Jawa, Bali, Lombok, Flores", "Jawa, Madura, Bali, Lombok, Sumbawa", "Kalimantan, Sulawesi, Maluku, Papua, Timor"], correct: 0, level: "LOTS" },
+                    { question: "Apa ibu kota provinsi Jawa Barat?", answers: ["Jakarta", "Bandung", "Semarang", "Surabaya"], correct: 1, level: "LOTS" },
+                    { question: "Indonesia berbentuk negara apa?", answers: ["Federasi", "Kesatuan", "Konfederasi", "Monarki"], correct: 1, level: "LOTS" },
+                    { question: "Apa kepanjangan dari TNI?", answers: ["Tentara Nasional Indonesia", "Tentara Negara Indonesia", "Tentara Nusantara Indonesia", "Tentara Negeri Indonesia"], correct: 0, level: "LOTS" },
+                    { question: "Berapa jumlah provinsi di Indonesia saat ini?", answers: ["33 provinsi", "34 provinsi", "35 provinsi", "36 provinsi"], correct: 1, level: "LOTS" },
+                    
+                    // MOTS Questions (5)
+                    { question: "Mengapa Indonesia disebut negara kepulauan?", answers: ["Karena dikelilingi laut", "Karena terdiri dari ribuan pulau yang dipisahkan laut", "Karena berbentuk pulau", "Karena memiliki pantai yang panjang"], correct: 1, level: "MOTS" },
+                    { question: "Apa tugas utama TNI?", answers: ["Menjaga keamanan dalam negeri", "Mempertahankan kedaulatan negara dari ancaman luar", "Mengatur lalu lintas", "Menangkap penjahat"], correct: 1, level: "MOTS" },
+                    { question: "Apa perbedaan tugas TNI dan Polri?", answers: ["Tidak ada perbedaan", "TNI untuk pertahanan, Polri untuk keamanan dan ketertiban", "TNI untuk darat, Polri untuk laut", "TNI untuk perang, Polri untuk damai"], correct: 1, level: "MOTS" },
+                    { question: "Mengapa letak geografis Indonesia sangat strategis?", answers: ["Karena wilayahnya luas", "Karena berada di antara dua benua dan dua samudra", "Karena memiliki banyak pulau", "Karena iklimnya tropis"], correct: 1, level: "MOTS" },
+                    { question: "Apa yang dimaksud dengan wawasan nusantara?", answers: ["Pengetahuan tentang pulau", "Cara pandang bangsa Indonesia tentang diri dan lingkungannya", "Peta Indonesia", "Sejarah Indonesia"], correct: 1, level: "MOTS" },
+                    
+                    // HOTS Questions (5)
+                    { question: "Mengapa menjaga keutuhan NKRI sangat penting bagi bangsa Indonesia?", answers: ["Karena tradisi nenek moyang", "Karena keutuhan wilayah menjamin kesejahteraan dan keamanan bangsa", "Karena perintah pemerintah", "Karena takut dijajah lagi"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana cara generasi muda berkontribusi dalam menjaga NKRI?", answers: ["Hanya tugas TNI/Polri", "Belajar dengan baik, berkarya, dan tidak terprovokasi isu yang memecah belah", "Ikut berperang", "Menjadi tentara"], correct: 1, level: "HOTS" },
+                    { question: "Analisis tantangan yang dihadapi Indonesia sebagai negara kepulauan!", answers: ["Tidak ada tantangan", "Kesulitan komunikasi, transportasi, dan pemerataan pembangunan", "Hanya masalah cuaca", "Terlalu banyak wisatawan"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana peran teknologi dalam memperkuat persatuan NKRI?", answers: ["Teknologi tidak berperan", "Memudahkan komunikasi dan koordinasi antar daerah", "Hanya untuk hiburan", "Membuat orang malas"], correct: 1, level: "HOTS" },
+                    { question: "Mengapa semua warga negara harus memiliki rasa cinta tanah air?", answers: ["Karena diwajibkan undang-undang", "Karena cinta tanah air mendorong partisipasi dalam pembangunan bangsa", "Karena takut dihukum", "Karena ikut-ikutan"], correct: 1, level: "HOTS" }
+                ]
+            },
+            hak: {
+                title: "Hak dan Kewajiban Warga Negara",
+                questions: [
+                    // LOTS Questions (3)
+                    { question: "Sebutkan contoh hak anak di sekolah!", answers: ["Mendapat pendidikan yang layak", "Membayar SPP", "Mengerjakan PR", "Mematuhi tata tertib"], correct: 0, level: "LOTS" },
+                    { question: "Apa kewajiban siswa terhadap guru?", answers: ["Memberi hadiah", "Menghormati dan mematuhi", "Berteman akrab", "Mengkritik"], correct: 1, level: "LOTS" },
+                    { question: "Contoh hak warga negara Indonesia adalah?", answers: ["Membayar pajak", "Mendapat perlindungan hukum", "Menjaga lingkungan", "Mengikuti pemilu"], correct: 1, level: "LOTS" },
+                    
+                    // MOTS Questions (3)
+                    { question: "Mengapa setiap hak selalu disertai dengan kewajiban?", answers: ["Karena aturan pemerintah", "Karena hak dan kewajiban saling berkaitan untuk menciptakan keseimbangan", "Karena tradisi", "Karena takut chaos"], correct: 1, level: "MOTS" },
+                    { question: "Apa yang terjadi jika seseorang hanya menuntut hak tanpa melaksanakan kewajiban?", answers: ["Akan bahagia", "Akan terjadi ketidakseimbangan dan konflik dalam masyarakat", "Tidak ada masalah", "Akan dipuji"], correct: 1, level: "MOTS" },
+                    { question: "Bagaimana cara mengatasi pelanggaran hak di sekolah?", answers: ["Diam saja", "Melaporkan kepada pihak yang berwenang dan mencari solusi", "Membalas dendam", "Mengabaikan"], correct: 1, level: "MOTS" },
+                    
+                    // HOTS Questions (4)
+                    { question: "Seorang siswa tidak mengerjakan tugas kelompok tetapi menuntut nilai yang sama. Analisis pelanggaran hak dan kewajiban yang terjadi!", answers: ["Tidak ada pelanggaran", "Siswa tersebut melanggar kewajiban tetapi menuntut hak", "Hanya melanggar hak", "Hanya melanggar kewajiban"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana sikap warga negara yang baik dalam menggunakan hak kebebasan berpendapat?", answers: ["Bebas mengatakan apa saja", "Menyampaikan pendapat dengan santun dan bertanggung jawab", "Tidak perlu berpendapat", "Hanya setuju dengan pemerintah"], correct: 1, level: "HOTS" },
+                    { question: "Mengapa penting memahami hubungan antara hak dan tanggung jawab sejak dini?", answers: ["Untuk lulus ujian", "Untuk membentuk karakter yang seimbang dan bertanggung jawab", "Karena diperintahkan guru", "Untuk menghindari masalah"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana cara menyeimbangkan hak pribadi dengan kepentingan bersama?", answers: ["Mengutamakan hak pribadi", "Mengutamakan kepentingan bersama", "Menggunakan hak pribadi tanpa merugikan kepentingan bersama", "Tidak peduli keduanya"], correct: 2, level: "HOTS" }
+                ]
+            },
+            global: {
+                title: "Isu Global dan Semangat Nasionalisme",
+                questions: [
+                    // LOTS Questions (3)
+                    { question: "Sebutkan contoh isu global yang berkaitan dengan lingkungan!", answers: ["Pemanasan global", "Kemiskinan", "Terorisme", "Korupsi"], correct: 0, level: "LOTS" },
+                    { question: "Apa yang dimaksud dengan globalisasi?", answers: ["Proses mendunia dalam berbagai aspek kehidupan", "Proses pembangunan", "Proses modernisasi", "Proses demokratisasi"], correct: 0, level: "LOTS" },
+                    { question: "Contoh dampak positif teknologi adalah?", answers: ["Cyberbullying", "Memudahkan komunikasi dan akses informasi", "Kecanduan game", "Hoax"], correct: 1, level: "LOTS" },
+                    
+                    // MOTS Questions (3)
+                    { question: "Bagaimana globalisasi mempengaruhi budaya Indonesia?", answers: ["Tidak berpengaruh", "Dapat mengikis budaya lokal jika tidak dilestarikan", "Hanya pengaruh positif", "Menghilangkan semua budaya"], correct: 1, level: "MOTS" },
+                    { question: "Apa peran Indonesia dalam mengatasi isu global?", answers: ["Tidak berperan", "Berpartisipasi aktif dalam kerjasama internasional", "Hanya sebagai penonton", "Mengisolasi diri"], correct: 1, level: "MOTS" },
+                    { question: "Mengapa semangat nasionalisme masih diperlukan di era global?", answers: ["Untuk melawan negara lain", "Untuk menjaga identitas bangsa di tengah arus globalisasi", "Karena tradisi", "Karena ketinggalan zaman"], correct: 1, level: "MOTS" },
+                    
+                    // HOTS Questions (4)
+                    { question: "Bagaimana cara mengatasi dampak negatif globalisasi terhadap generasi muda?", answers: ["Melarang teknologi", "Menguatkan pendidikan karakter dan filter informasi", "Mengisolasi diri", "Mengikuti semua tren global"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana menunjukkan semangat cinta tanah air di era digital?", answers: ["Tidak menggunakan produk asing", "Mempromosikan budaya Indonesia melalui media digital", "Menghindari teknologi", "Hanya menggunakan bahasa Indonesia"], correct: 1, level: "HOTS" },
+                    { question: "Analisis bagaimana penggunaan teknologi dapat mencerminkan karakter bangsa!", answers: ["Teknologi tidak berkaitan dengan karakter", "Menggunakan teknologi secara bijak dan produktif sesuai nilai Pancasila", "Teknologi merusak karakter", "Karakter tidak penting"], correct: 1, level: "HOTS" },
+                    { question: "Bagaimana generasi muda dapat berkontribusi dalam mengatasi isu global sambil tetap mencintai Indonesia?", answers: ["Fokus hanya pada masalah lokal", "Berpartisipasi dalam solusi global dengan tetap menjunjung nilai-nilai Indonesia", "Mengabaikan isu global", "Meniru negara lain sepenuhnya"], correct: 1, level: "HOTS" }
+                ]
+            }
+        };
+
+        // Quiz state
+        let currentTopic = '';
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let userAnswers = [];
+
+        // Start quiz for selected topic
+        function startQuiz(topic) {
+            currentTopic = topic;
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedAnswer = null;
+            userAnswers = [];
+            
+            document.getElementById('topicSelection').classList.add('hidden');
+            document.getElementById('quizScreen').classList.remove('hidden');
+            
+            showQuestion();
+        }
+
+        // Show current question
+        function showQuestion() {
+            const questions = quizData[currentTopic].questions;
+            const question = questions[currentQuestionIndex];
+            
+            // Update progress
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Update counter
+            document.getElementById('questionCounter').textContent = 
+                `Soal ${currentQuestionIndex + 1} dari ${questions.length}`;
+            
+            // Update level badge
+            const levelBadge = document.getElementById('levelBadge');
+            levelBadge.textContent = question.level;
+            levelBadge.className = `px-4 py-2 rounded-full text-white font-semibold text-sm level-${question.level.toLowerCase()}`;
+            
+            // Show question
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Show answers
+            const answersContainer = document.getElementById('answersContainer');
+            answersContainer.innerHTML = '';
+            
+            question.answers.forEach((answer, index) => {
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 rounded-lg p-4 cursor-pointer transition-all';
+                answerDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center mr-4 font-semibold">
+                            ${String.fromCharCode(65 + index)}
+                        </div>
+                        <span class="text-gray-800">${answer}</span>
+                    </div>
+                `;
+                
+                answerDiv.onclick = () => selectAnswer(index, answerDiv);
+                answersContainer.appendChild(answerDiv);
+            });
+            
+            // Reset next button
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.disabled = true;
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            selectedAnswer = null;
+        }
+
+        // Select answer
+        function selectAnswer(index, element) {
+            // Remove previous selection
+            document.querySelectorAll('#answersContainer > div').forEach(div => {
+                div.classList.remove('border-blue-500', 'bg-blue-50');
+                div.classList.add('border-gray-200', 'bg-gray-50');
+            });
+            
+            // Highlight selected answer
+            element.classList.remove('border-gray-200', 'bg-gray-50');
+            element.classList.add('border-blue-500', 'bg-blue-50');
+            
+            selectedAnswer = index;
+            
+            // Enable next button
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        // Next question
+        function nextQuestion() {
+            if (selectedAnswer === null) return;
+            
+            const questions = quizData[currentTopic].questions;
+            const currentQuestion = questions[currentQuestionIndex];
+            
+            // Store answer
+            userAnswers.push({
+                question: currentQuestion.question,
+                selectedAnswer: selectedAnswer,
+                correctAnswer: currentQuestion.correctAnswer,
+                isCorrect: selectedAnswer === currentQuestion.correct
+            });
+            
+            // Update score
+            if (selectedAnswer === currentQuestion.correct) {
+                score++;
+            }
+            
+            // Move to next question or show results
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show results
+        function showResults() {
+            document.getElementById('quizScreen').classList.add('hidden');
+            document.getElementById('resultsScreen').classList.remove('hidden');
+            
+            const totalQuestions = quizData[currentTopic].questions.length;
+            const percentage = Math.round((score / totalQuestions) * 100);
+            
+            document.getElementById('correctCount').textContent = score;
+            document.getElementById('wrongCount').textContent = totalQuestions - score;
+            document.getElementById('scorePercentage').textContent = percentage + '%';
+            
+            // Score message
+            let message = '';
+            if (percentage >= 90) {
+                message = '🌟 Luar biasa! Anda sangat menguasai materi ini!';
+            } else if (percentage >= 80) {
+                message = '👏 Bagus sekali! Pengetahuan Anda sudah baik!';
+            } else if (percentage >= 70) {
+                message = '👍 Cukup baik! Terus belajar untuk hasil yang lebih baik!';
+            } else if (percentage >= 60) {
+                message = '📚 Perlu belajar lebih giat lagi. Semangat!';
+            } else {
+                message = '💪 Jangan menyerah! Pelajari kembali materinya dan coba lagi!';
+            }
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            startQuiz(currentTopic);
+        }
+
+        // Go back to topic selection
+        function goBack() {
+            document.getElementById('quizScreen').classList.add('hidden');
+            document.getElementById('topicSelection').classList.remove('hidden');
+        }
+
+        // Go to home
+        function goHome() {
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('topicSelection').classList.remove('hidden');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a2604a17c7585b',t:'MTc1NDM1NTgyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
