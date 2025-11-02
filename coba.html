@@ -232,13 +232,18 @@
         const WIN_SCORE = 5;
         const MIN_OPERAND = 2;
         const MAX_OPERAND = 10;
-        const MAX_INPUT_LENGTH = 3; // Max answer for 10x10 is 100.
+        const MAX_INPUT_LENGTH = 3; // Jawaban maksimal untuk 10x10 adalah 100.
 
         let gameState = {
-            score: 0, // Range: -WIN_SCORE to +WIN_SCORE. P1 wins at 5, P2 wins at -5.
-            question: { a: 0, b: 0, answer: 0 },
-            p1: { input: "", submitted: false, time: 0 },
-            p2: { input: "", submitted: false, time: 0 },
+            score: 0, // Rentang: -WIN_SCORE hingga +WIN_SCORE. P1 menang pada 5, P2 menang pada -5.
+            p1: { 
+                input: "", submitted: false, time: 0, isCorrect: false,
+                question: { a: 0, b: 0, answer: 0 } // Soal spesifik P1
+            },
+            p2: { 
+                input: "", submitted: false, time: 0, isCorrect: false,
+                question: { a: 0, b: 0, answer: 0 } // Soal spesifik P2
+            },
             roundActive: false
         };
 
@@ -255,6 +260,15 @@
         const questionP2 = document.getElementById('question-p2');
 
         /**
+         * Fungsi pembantu untuk menghasilkan soal perkalian acak.
+         */
+        function generateQuestion() {
+            const a = Math.floor(Math.random() * (MAX_OPERAND - MIN_OPERAND + 1)) + MIN_OPERAND;
+            const b = Math.floor(Math.random() * (MAX_OPERAND - MIN_OPERAND + 1)) + MIN_OPERAND;
+            return { a, b, answer: a * b };
+        }
+
+        /**
          * Menginisialisasi status game dan memulai putaran pertama.
          */
         function startGame() {
@@ -263,7 +277,7 @@
             startButtonArea.classList.add('hidden');
             uiP1.classList.remove('hidden');
             uiP2.classList.remove('hidden');
-            gameMessage.innerHTML = "Putaran 1 dimulai! Jawab secepatnya!";
+            gameMessage.innerHTML = "Putaran 1 dimulai! Jawab soal Anda secepatnya!";
             newRound();
         }
 
@@ -272,16 +286,18 @@
          */
         function newRound() {
             gameState.roundActive = true;
-            // 1. Generate soal baru (2x2 sampai 10x10)
-            const a = Math.floor(Math.random() * (MAX_OPERAND - MIN_OPERAND + 1)) + MIN_OPERAND;
-            const b = Math.floor(Math.random() * (MAX_OPERAND - MIN_OPERAND + 1)) + MIN_OPERAND;
-            gameState.question = { a, b, answer: a * b };
+            
+            // 1. Generate soal baru untuk setiap pemain (Soal berbeda)
+            gameState.p1 = { 
+                input: "", submitted: false, time: 0, isCorrect: false,
+                question: generateQuestion() 
+            };
+            gameState.p2 = { 
+                input: "", submitted: false, time: 0, isCorrect: false,
+                question: generateQuestion()
+            };
 
-            // 2. Reset status pemain
-            gameState.p1 = { input: "", submitted: false, time: 0 };
-            gameState.p2 = { input: "", submitted: false, time: 0 };
-
-            // 3. Update UI
+            // 2. Update UI
             updateUI();
         }
 
@@ -289,33 +305,31 @@
          * Mengupdate semua tampilan di layar.
          */
         function updateUI() {
-            // Update Soal
-            const qText = `${gameState.question.a} &times; ${gameState.question.b} = ?`;
-            questionP1.innerHTML = qText;
-            questionP2.innerHTML = qText;
+            // Update Soal - Gunakan soal spesifik untuk setiap pemain
+            const qTextP1 = `${gameState.p1.question.a} &times; ${gameState.p1.question.b} = ?`;
+            const qTextP2 = `${gameState.p2.question.a} &times; ${gameState.p2.question.b} = ?`;
+            questionP1.innerHTML = qTextP1;
+            questionP2.innerHTML = qTextP2;
 
             // Update Input
             inputDisplayP1.textContent = gameState.p1.input;
             inputDisplayP2.textContent = gameState.p2.input;
 
             // Update Tali
-            // Konversi score (-5 ke 5) menjadi posisi (0% ke 100%)
-            // Score -5 (P2) -> 100% (P2 sisi)
-            // Score 0 (Center) -> 50%
-            // Score 5 (P1) -> 0% (P1 sisi)
             const ropeRange = 2 * WIN_SCORE;
-            // Posisi P1 (0%) adalah score 5. Posisi P2 (100%) adalah score -5.
-            // Posisi = (WIN_SCORE - currentScore) / ropeRange * 100
+            // Hitung posisi indikator (0% untuk P1 Max Score, 100% untuk P2 Max Score)
             const indicatorPosition = ((WIN_SCORE - gameState.score) / ropeRange) * 100;
             indicator.style.left = `calc(${indicatorPosition}% - 15px)`; // -15px untuk centering
 
-            // Update Pesan Tombol
-            document.querySelector('.btn-go-p1').textContent = gameState.p1.submitted ? 'TERKIRIM' : 'Go';
-            document.querySelector('.btn-go-p2').textContent = gameState.p2.submitted ? 'TERKIRIM' : 'Go';
+            // Update Pesan Tombol dan status disabled
+            const goBtnP1 = document.querySelector('.btn-go-p1');
+            const goBtnP2 = document.querySelector('.btn-go-p2');
+            
+            goBtnP1.textContent = gameState.p1.submitted ? 'TERKIRIM' : 'Go';
+            goBtnP2.textContent = gameState.p2.submitted ? 'TERKIRIM' : 'Go';
 
-            // Nonaktifkan tombol setelah dikirim
-            document.querySelectorAll(`[data-player="1"][data-action="submit"]`)[0].disabled = gameState.p1.submitted;
-            document.querySelectorAll(`[data-player="2"][data-action="submit"]`)[0].disabled = gameState.p2.submitted;
+            goBtnP1.disabled = gameState.p1.submitted;
+            goBtnP2.disabled = gameState.p2.submitted;
 
             // Periksa Win Condition
             if (Math.abs(gameState.score) >= WIN_SCORE) {
@@ -364,91 +378,96 @@
 
             if (playerState.submitted || playerState.input === "") return;
 
-            // Tandai sudah dikirim dan catat waktu
+            const submittedAnswer = parseInt(playerState.input);
+            
+            // 1. Cek kebenaran jawaban segera
+            playerState.isCorrect = (submittedAnswer === playerState.question.answer);
+
+            // 2. Tandai sudah dikirim dan catat waktu
             playerState.submitted = true;
             playerState.time = Date.now();
-            updateUI(); // Segera update tombol menjadi 'TERKIRIM'
+            updateUI(); 
 
+            // 3. Periksa apakah putaran selesai
             checkRoundEnd();
         }
 
         /**
-         * Memeriksa kondisi akhir putaran setelah pemain mengirimkan jawaban.
+         * Memeriksa kondisi akhir putaran (kedua pemain sudah submit).
          */
         function checkRoundEnd() {
-            // Putaran berakhir ketika kedua pemain telah mengirimkan jawaban,
-            // ATAU salah satu pemain mengirimkan jawaban BENAR.
-            const p1Sub = gameState.p1.submitted;
-            const p2Sub = gameState.p2.submitted;
-
-            if (!p1Sub && !p2Sub) return; // Belum ada yang submit
-
-            // Cek apakah setidaknya satu jawaban sudah benar
-            const p1IsCorrect = p1Sub && (parseInt(gameState.p1.input) === gameState.question.answer);
-            const p2IsCorrect = p2Sub && (parseInt(gameState.p2.input) === gameState.question.answer);
+            if (gameState.p1.submitted && gameState.p2.submitted) {
+                 gameState.roundActive = false;
+                 // Jeda singkat sebelum menentukan pemenang putaran
+                 setTimeout(determineRoundWinner, 1000);
+            }
+        }
+        
+        /**
+         * Menentukan pemenang putaran berdasarkan hasil dan waktu.
+         */
+        function determineRoundWinner() {
+            const p1 = gameState.p1;
+            const p2 = gameState.p2;
 
             let roundWinner = 0; // 0: Seri/Tidak ada pemenang, 1: P1, 2: P2
+            let message = "Putaran selesai. ";
 
-            if (p1IsCorrect && p2IsCorrect) {
+            if (p1.isCorrect && p2.isCorrect) {
                 // Keduanya benar, tentukan yang tercepat
-                const timeDiff = gameState.p1.time - gameState.p2.time;
+                const timeDiff = p1.time - p2.time;
 
-                // Anggap toleransi seri sangat kecil (< 50ms), tapi kita fokus pada siapa yang datang pertama
-                if (Math.abs(timeDiff) < 50) { // Jika waktu hampir bersamaan
-                    roundWinner = 0; // Seri
-                } else if (timeDiff < 0) { // P1 lebih cepat (time is smaller)
+                if (Math.abs(timeDiff) < 50) { // Toleransi seri
+                    roundWinner = 0;
+                    message += "Keduanya benar, waktu hampir bersamaan (Seri)!";
+                } else if (timeDiff < 0) { // P1 lebih cepat (waktu lebih kecil)
                     roundWinner = 1;
+                    message += "Keduanya benar. Pemain Kiri tercepat!";
                 } else { // P2 lebih cepat
                     roundWinner = 2;
+                    message += "Keduanya benar. Pemain Kanan tercepat!";
                 }
 
-            } else if (p1IsCorrect) {
-                // P1 benar, P2 salah/belum submit
+            } else if (p1.isCorrect) {
+                // Hanya P1 yang benar
                 roundWinner = 1;
-            } else if (p2IsCorrect) {
-                // P2 benar, P1 salah/belum submit
+                message += "Hanya Pemain Kiri yang menjawab benar!";
+            } else if (p2.isCorrect) {
+                // Hanya P2 yang benar
                 roundWinner = 2;
+                message += "Hanya Pemain Kanan yang menjawab benar!";
+            } else {
+                // Keduanya salah
+                roundWinner = 0;
+                message += "Keduanya salah! Tali tidak bergerak.";
             }
 
-            // Putaran selesai jika:
-            // 1. Keduanya submit
-            // 2. Salah satu submit benar, dan yang lain submit salah (tunggu submit kedua)
-            if (p1Sub && p2Sub) {
-                 gameState.roundActive = false;
-                 // Jeda singkat sebelum memulai putaran baru
-                 setTimeout(() => finishRound(roundWinner), 1000);
-            } else if (roundWinner !== 0) {
-                 // Jika salah satu sudah menang (benardantercepat) dan yang lain belum submit,
-                 // kita tunggu 1 detik saja untuk memberi kesempatan Pihak 2 submit.
-                 setTimeout(() => {
-                     // Cek lagi apakah pemain yang belum submit sudah melakukannya dalam waktu tunggu
-                     if (!gameState.p1.submitted || !gameState.p2.submitted) {
-                         gameState.roundActive = false;
-                         finishRound(roundWinner);
-                     }
-                 }, 1000);
-            }
+            finishRound(roundWinner, message);
         }
 
         /**
          * Menyelesaikan putaran, memperbarui skor, dan memulai putaran baru.
          * @param {number} winner - 0 (Seri), 1 (P1), atau 2 (P2)
+         * @param {string} resultMessage - Pesan hasil putaran.
          */
-        function finishRound(winner) {
-            let message = `Jawaban benar: ${gameState.question.answer}. `;
+        function finishRound(winner, resultMessage) {
+            let finalMessage = resultMessage;
+
+            // Tambahkan detail jawaban yang benar
+            finalMessage += ` (Jawaban P1: ${gameState.p1.question.answer}, Jawaban P2: ${gameState.p2.question.answer}).`;
 
             if (winner === 1) {
                 gameState.score++;
-                message += "POIN untuk Pemain Kiri! Tali bergerak!";
+                finalMessage = `<span class="text-blue-700 font-bold">${finalMessage}</span><br>POIN untuk Pemain Kiri! Tali bergerak!`;
             } else if (winner === 2) {
                 gameState.score--;
-                message += "POIN untuk Pemain Kanan! Tali bergerak!";
+                finalMessage = `<span class="text-red-700 font-bold">${finalMessage}</span><br>POIN untuk Pemain Kanan! Tali bergerak!`;
             } else {
-                message += "Tidak ada yang menang/Seri. Tali tidak bergerak.";
+                 finalMessage = `<span class="text-gray-600 font-bold">${finalMessage}</span>`;
             }
 
             // Tampilkan pesan
-            gameMessage.innerHTML = message;
+            gameMessage.innerHTML = finalMessage;
 
             // Update UI dan cek kemenangan
             updateUI();
@@ -458,7 +477,7 @@
                 setTimeout(() => {
                     gameMessage.innerHTML = `Putaran selanjutnya dimulai!`;
                     newRound();
-                }, 2000);
+                }, 3000); // Beri waktu lebih lama untuk membaca hasil
             }
         }
 
