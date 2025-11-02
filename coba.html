@@ -232,19 +232,19 @@
         const WIN_SCORE = 5;
         const MIN_OPERAND = 2;
         const MAX_OPERAND = 10;
-        const MAX_INPUT_LENGTH = 3; // Jawaban maksimal untuk 10x10 adalah 100.
+        const MAX_INPUT_LENGTH = 3; 
 
         let gameState = {
-            score: 0, // Rentang: -WIN_SCORE hingga +WIN_SCORE. P1 menang pada 5, P2 menang pada -5.
+            score: 0, 
             p1: { 
                 input: "", submitted: false, time: 0, isCorrect: false,
-                question: { a: 0, b: 0, answer: 0 } // Soal spesifik P1
+                question: { a: 0, b: 0, answer: 0 } 
             },
             p2: { 
                 input: "", submitted: false, time: 0, isCorrect: false,
-                question: { a: 0, b: 0, answer: 0 } // Soal spesifik P2
+                question: { a: 0, b: 0, answer: 0 } 
             },
-            roundActive: false
+            roundActive: false // Menunjukkan apakah putaran sedang berlangsung
         };
 
         // DOM elements
@@ -327,7 +327,8 @@
             
             goBtnP1.textContent = gameState.p1.submitted ? 'TERKIRIM' : 'Go';
             goBtnP2.textContent = gameState.p2.submitted ? 'TERKIRIM' : 'Go';
-
+            
+            // Tombol 'Go' dinonaktifkan jika jawaban sudah dikirim
             goBtnP1.disabled = gameState.p1.submitted;
             goBtnP2.disabled = gameState.p2.submitted;
 
@@ -394,10 +395,13 @@
 
         /**
          * Memeriksa kondisi akhir putaran (kedua pemain sudah submit).
+         * HILANGKAN: gameState.roundActive = false; di sini untuk memungkinkan input/klik selama jeda.
          */
         function checkRoundEnd() {
             if (gameState.p1.submitted && gameState.p2.submitted) {
-                 gameState.roundActive = false;
+                 // **PERBAIKAN: JANGAN NONAKTIFKAN GAME DI SINI**
+                 // Ini menyebabkan kalkulator tidak berfungsi saat hasil putaran ditampilkan.
+                 
                  // Jeda singkat sebelum menentukan pemenang putaran
                  setTimeout(determineRoundWinner, 1000);
             }
@@ -417,7 +421,7 @@
                 // Keduanya benar, tentukan yang tercepat
                 const timeDiff = p1.time - p2.time;
 
-                if (Math.abs(timeDiff) < 50) { // Toleransi seri
+                if (Math.abs(timeDiff) < 50) { // Toleransi seri 50ms
                     roundWinner = 0;
                     message += "Keduanya benar, waktu hampir bersamaan (Seri)!";
                 } else if (timeDiff < 0) { // P1 lebih cepat (waktu lebih kecil)
@@ -451,6 +455,10 @@
          * @param {string} resultMessage - Pesan hasil putaran.
          */
         function finishRound(winner, resultMessage) {
+            // **PERBAIKAN: NONAKTIFKAN GAME SEMENTARA DI SINI**
+            // Nonaktifkan game hanya saat jeda hasil/transisi.
+            gameState.roundActive = false; 
+
             let finalMessage = resultMessage;
 
             // Tambahkan detail jawaban yang benar
@@ -500,6 +508,7 @@
          * Menangani semua event klik pada tombol kalkulator.
          */
         document.addEventListener('click', (event) => {
+            // Pastikan event.target adalah tombol kalkulator dan game sedang aktif
             const button = event.target.closest('.calc-button');
             if (!button || !gameState.roundActive) return;
 
