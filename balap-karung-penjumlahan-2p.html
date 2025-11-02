@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lomba Balap Karung Penjumlahan</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #fff;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .game-container {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .game-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1d3557; /* Warna Biru Tua */
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .win-condition {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #457b9d; /* Warna Biru Sedang */
+            margin-bottom: 20px;
+        }
+
+        .center-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .rope-section {
+            /* Mengganti Rope Section menjadi "Lintasan" Balap Karung */
+            background: linear-gradient(90deg, #81c784 0%, #388e3c 100%); /* Hijau Lapangan */
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            border: 5px dashed #ffb74d; /* Garis Lapangan */
+        }
+
+        .rope-container {
+            display: flex;
+            align-items: center;
+            /* Kita tidak lagi menggunakan justify-content: space-between */
+            height: 120px;
+            position: relative;
+            padding: 0 5%; /* Ruang untuk Start/Finish */
+        }
+
+        .team {
+            /* Karung Balap */
+            width: 60px;
+            height: 90px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem; /* Ukuran Emoji */
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            position: absolute; /* Posisi Absolut untuk animasi */
+            bottom: 15px;
+            transition: left 0.5s ease-out, transform 0.2s ease; /* Hanya transisi 'left' */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* Kedua karung MULAI dari posisi kiri */
+        .karung-left, .karung-right {
+            left: 5%; /* Posisi Start yang sama */
+        }
+        
+        .karung-left {
+            background: #e63946; /* Merah */
+            top: 10px; /* Sedikit berbeda di lintasan */
+            transform: rotate(-5deg);
+        }
+
+        .karung-right {
+            background: #1d3557; /* Biru Tua */
+            top: 70px; /* Sedikit berbeda di lintasan */
+            transform: rotate(5deg);
+        }
+
+        /* Ikon Ganti: Mengganti ikon orang yang melompat */
+        .karung-left::before, .karung-right::before {
+            content: '🧑'; 
+            position: absolute;
+            top: -5px;
+            font-size: 2rem;
+            text-shadow: none;
+            color: black;
+        }
+        
+        .karung-right::before {
+             content: '🧑'; 
+        }
+
+        /* Garis START (Ganti Garis Tengah) */
+        .start-line {
+            position: absolute;
+            top: 0;
+            left: 5%; /* Posisi Start */
+            width: 5px;
+            height: 100%;
+            background: #ffb74d; /* Garis Start Oranye */
+            border-radius: 2px;
+            z-index: 5;
+        }
+
+        /* Garis FINISH (Ganti Win Zone Kanan) */
+        .finish-line {
+            position: absolute;
+            top: 0;
+            right: 5%; /* Posisi Finish */
+            width: 10px;
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, white, white 5px, black 5px, black 10px); /* Garis Finish Cekdam */
+            z-index: 5;
+        }
+        
+        /* Hilangkan Garis Tengah dan Win Zones lama yang tidak diperlukan */
+        .race-line, .win-zones, .win-zone-left, .win-zone-right {
+            display: none;
+        }
+
+        /* Sisanya tetap sama untuk tampilan pemain */
+        .players-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex: 1;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .player-area {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid;
+            width: 350px;
+            max-width: 350px;
+        }
+
+        .player-left {
+            border-color: #e63946;
+        }
+
+        .player-right {
+            border-color: #1d3557;
+        }
+
+        .player-header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .player-left .player-header {
+            background: linear-gradient(45deg, #e63946, #c0392b);
+        }
+
+        .player-right .player-header {
+            background: linear-gradient(45deg, #1d3557, #457b9d);
+        }
+
+        .question-display {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1d3557;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f1faee; /* Latar Soal Lebih Terang */
+            border-radius: 10px;
+            border: 2px dashed #a8dadc;
+        }
+
+        .calculator {
+            background: #a8dadc;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .display {
+            background: #f1faee;
+            color: #1d3557;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: right;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            min-height: 30px;
+            font-family: 'Courier New', monospace;
+            border: 2px solid #457b9d;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #457b9d, #1d3557); /* Biru */
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-equals {
+            background: linear-gradient(45deg, #ffb74d, #f4a261); /* Oranye */
+            grid-column: span 3;
+        }
+
+        .btn-clear {
+            background: linear-gradient(45deg, #e63946, #c0392b); /* Merah */
+        }
+
+        .score-display {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #1d3557;
+        }
+
+        .status-message {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            min-height: 20px;
+        }
+
+        .correct {
+            background: #ccffcc; /* Hijau Muda */
+            color: #2a9d8f;
+            border: 2px solid #2a9d8f;
+        }
+
+        .incorrect {
+            background: #ffcccc; /* Merah Muda */
+            color: #e63946;
+            border: 2px solid #e63946;
+        }
+
+        .waiting {
+            background: #ffe6cc; /* Oranye Muda */
+            color: #f4a261;
+            border: 2px solid #f4a261;
+        }
+
+        .game-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .new-game-btn {
+            background: linear-gradient(45deg, #2a9d8f, #264653);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .new-game-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- MODAL LEVEL & WINNER (Umum) --- */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: bounceIn 0.6s ease;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f4a261; /* Oranye */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .level-option {
+            background: #a8dadc;
+            color: #1d3557;
+            border: 2px solid #457b9d;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .level-option:hover {
+            background: #457b9d;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .players-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .player-area {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .center-section {
+                order: -1;
+                margin: 0;
+            }
+            
+            .game-title {
+                font-size: 2rem;
+            }
+            
+            .question-display {
+                font-size: 1.5rem;
+            }
+
+            .rope-section {
+                padding: 10px;
+            }
+            
+            .modal-content {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="game-container">
+   <div class="players-section"><!-- Pemain Kiri -->
+    <div class="player-area player-left">
+     <div class="player-header">
+      Pemain Kiri (Karung Merah)
+     </div>
+     <div class="question-display" id="questionLeft">
+      Klik "Mulai"
+     </div>
+     <div class="score-display">
+      Skor Benar: <span id="scoreLeft">0</span>
+     </div>
+     <div class="status-message" id="statusLeft"></div>
+     <div class="calculator">
+      <div class="display" id="displayLeft">
+       0
+      </div>
+      <div class="buttons"><button class="btn" onclick="inputNumber('left', '7')">7</button> <button class="btn" onclick="inputNumber('left', '8')">8</button> <button class="btn" onclick="inputNumber('left', '9')">9</button> <button class="btn" onclick="inputNumber('left', '4')">4</button> <button class="btn" onclick="inputNumber('left', '5')">5</button> <button class="btn" onclick="inputNumber('left', '6')">6</button> <button class="btn" onclick="inputNumber('left', '1')">1</button> <button class="btn" onclick="inputNumber('left', '2')">2</button> <button class="btn" onclick="inputNumber('left', '3')">3</button> <button class="btn btn-clear" onclick="clearDisplay('left')">C</button> <button class="btn" onclick="inputNumber('left', '0')">0</button> <button class="btn btn-equals" onclick="submitAnswer('left')">Enter</button>
+      </div>
+     </div>
+    </div><!-- Area Tengah -->
+    <div class="center-section">
+     <h1 class="game-title" id="gameTitle">Lomba Balap Karung Penjumlahan</h1>
+     <p class="win-condition" id="winCondition">Siapa yang duluan sampai garis finish, dia pemenangnya!</p>
+     <div class="rope-section">
+      <div class="rope-container">
+       <!-- Garis Start -->
+       <div class="start-line"></div>
+       <!-- Garis Finish -->
+       <div class="finish-line"></div>
+       
+       <!-- Karung Kiri (Top: 10px) -->
+       <div class="team karung-left" id="karungLeft">
+        <!-- 🧑 -->
+       </div>
+       
+       <!-- Karung Kanan (Top: 70px, Agar posisinya berbeda di lintasan) -->
+       <div class="team karung-right" id="karungRight">
+        <!-- 🧑 -->
+       </div>
+       
+      </div>
+     </div>
+     <div class="game-controls"><button class="new-game-btn" onclick="startNewGame()">Mulai Lomba!</button>
+     </div>
+    </div><!-- Pemain Kanan -->
+    <div class="player-area player-right">
+     <div class="player-header">
+      Pemain Kanan (Karung Biru)
+     </div>
+     <div class="question-display" id="questionRight">
+      Klik "Mulai"
+     </div>
+     <div class="score-display">
+      Skor Benar: <span id="scoreRight">0</span>
+     </div>
+     <div class="status-message" id="statusRight"></div>
+     <div class="calculator">
+      <div class="display" id="displayRight">
+       0
+      </div>
+      <div class="buttons"><button class="btn" onclick="inputNumber('right', '7')">7</button> <button class="btn" onclick="inputNumber('right', '8')">8</button> <button class="btn" onclick="inputNumber('right', '9')">9</button> <button class="btn" onclick="inputNumber('right', '4')">4</button> <button class="btn" onclick="inputNumber('right', '5')">5</button> <button class="btn" onclick="inputNumber('right', '6')">6</button> <button class="btn" onclick="inputNumber('right', '1')">1</button> <button class="btn" onclick="inputNumber('right', '2')">2</button> <button class="btn" onclick="inputNumber('right', '3')">3</button> <button class="btn btn-clear" onclick="clearDisplay('right')">C</button> <button class="btn" onclick="inputNumber('right', '0')">0</button> <button class="btn btn-equals" onclick="submitAnswer('right')">Enter</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Modal Pemenang (Dulu: winner-announcement) -->
+  <div class="modal" id="winnerModal">
+   <div class="modal-content">
+    <div class="modal-title">
+     🎉 JUMP START! 🎉
+    </div>
+    <div class="winner-message" id="winnerMessage"></div><button class="new-game-btn" onclick="resetGame()">Lomba Lagi</button>
+   </div>
+  </div>
+  
+  <!-- Modal Pemilihan Level (Baru) -->
+  <div class="modal" id="levelModal">
+    <div class="modal-content">
+        <div class="modal-title">Pilih Level Lomba</div>
+        <button class="level-option" onclick="selectLevel(1, 9)">Mudah (1 - 9)</button>
+        <button class="level-option" onclick="selectLevel(10, 99)">Sedang (10 - 99)</button>
+        <button class="level-option" onclick="selectLevel(100, 999)">Sulit (100 - 999)</button>
+    </div>
+  </div>
+
+  <script>
+        // Konfigurasi default
+        const defaultConfig = {
+            game_title: "Lomba Balap Karung Penjumlahan",
+            win_condition: "Siapa yang duluan sampai garis finish, dia pemenangnya!"
+        };
+
+        // Status Game
+        let gameState = {
+            leftQuestion: null,
+            rightQuestion: null,
+            leftScore: 0,
+            rightScore: 0,
+            leftKarungPosition: 5,  // Posisi karung kiri (persen dari kiri)
+            rightKarungPosition: 5, // Posisi karung kanan (persen dari kiri)
+            gameActive: false,
+            leftStartTime: null,
+            rightStartTime: null,
+            minNumber: 1, // Batas bawah angka untuk soal
+            maxNumber: 20 // Batas atas angka untuk soal
+        };
+
+        // Konstanta
+        const WIN_POSITION = 85; // Karung harus mencapai 85% dari sisi kiri untuk menang
+        const START_POSITION = 5; // Posisi start
+        
+        // Inisialisasi Element SDK (jika ada)
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: async (config) => {
+                    document.getElementById('gameTitle').textContent = config.game_title || defaultConfig.game_title;
+                    document.getElementById('winCondition').textContent = config.win_condition || defaultConfig.win_condition;
+                },
+                mapToCapabilities: (config) => ({
+                    recolorables: [],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["game_title", config.game_title || defaultConfig.game_title],
+                    ["win_condition", config.win_condition || defaultConfig.win_condition]
+                ])
+            });
+        }
+
+        /**
+         * Fungsi untuk menghasilkan soal penjumlahan berdasarkan rentang angka (minNumber & maxNumber).
+         */
+        function generateAdditionQuestion(min, max) {
+            // Pastikan minNumber tidak 0
+            const actualMin = Math.max(1, min); 
+            const range = max - actualMin + 1;
+
+            // Fungsi utilitas untuk mendapatkan angka dalam rentang [min, max]
+            const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+            // Ambil dua angka dari rentang yang ditentukan
+            const num1 = getRandomNumber(actualMin, max);
+            const num2 = getRandomNumber(actualMin, max);
+            
+            return {
+                question: `${num1} + ${num2}`,
+                answer: num1 + num2
+            };
+        }
+
+        /**
+         * Fungsi yang dipanggil saat tombol "Mulai Lomba!" diklik.
+         */
+        function startNewGame() {
+            if (!gameState.gameActive) {
+                // Tampilkan modal pemilihan level
+                document.getElementById('levelModal').style.display = 'flex';
+            } else {
+                // Jika game sudah aktif, ini adalah tombol reset
+                resetGame();
+                // Setelah reset, tampilkan lagi modal level
+                document.getElementById('levelModal').style.display = 'flex';
+            }
+        }
+        
+        /**
+         * Fungsi yang dipanggil setelah level dipilih.
+         */
+        function selectLevel(min, max) {
+            // Atur batas angka untuk soal
+            gameState.minNumber = min;
+            gameState.maxNumber = max;
+            
+            // Sembunyikan modal level
+            document.getElementById('levelModal').style.display = 'none';
+            
+            // Lanjutkan ke logika awal ronde
+            startRound();
+        }
+
+        /**
+         * Fungsi untuk memulai ronde setelah level dipilih.
+         */
+        function startRound() {
+            // Atur ulang posisi karung ke posisi awal
+            gameState.leftKarungPosition = START_POSITION;
+            gameState.rightKarungPosition = START_POSITION;
+            updateDisplay();
+
+            gameState.gameActive = true;
+        
+            // Hasilkan soal awal untuk kedua pemain menggunakan rentang level yang dipilih
+            generateNewQuestionForPlayer('left');
+            generateNewQuestionForPlayer('right');
+            
+            // Perbarui teks tombol
+            document.querySelector('.new-game-btn').textContent = 'Reset Game';
+        }
+
+        function generateNewQuestionForPlayer(player) {
+            // Menggunakan fungsi generateAdditionQuestion dengan batas level yang tersimpan di gameState
+            const question = generateAdditionQuestion(gameState.minNumber, gameState.maxNumber);
+            const playerHeader = player.charAt(0).toUpperCase() + player.slice(1);
+            
+            if (player === 'left') {
+                gameState.leftQuestion = question;
+                gameState.leftStartTime = Date.now();
+                document.getElementById('questionLeft').textContent = question.question + ' = ?';
+                clearDisplay('left');
+                document.getElementById('statusLeft').textContent = '';
+                document.getElementById('statusLeft').className = 'status-message';
+            } else {
+                gameState.rightQuestion = question;
+                gameState.rightStartTime = Date.now();
+                document.getElementById('questionRight').textContent = question.question + ' = ?';
+                clearDisplay('right');
+                document.getElementById('statusRight').textContent = '';
+                document.getElementById('statusRight').className = 'status-message';
+            }
+        }
+
+        function inputNumber(player, number) {
+            if (!gameState.gameActive) return;
+            
+            const display = document.getElementById(`display${player.charAt(0).toUpperCase() + player.slice(1)}`);
+            // Batasi input maksimal 5 digit (untuk hasil penjumlahan 10000 + 10000)
+            if (display.textContent.length >= 5 && display.textContent !== '0') return;
+
+            if (display.textContent === '0') {
+                display.textContent = number;
+            } else {
+                display.textContent += number;
+            }
+        }
+
+        function clearDisplay(player) {
+            const display = document.getElementById(`display${player.charAt(0).toUpperCase() + player.slice(1)}`);
+            display.textContent = '0';
+        }
+
+        function submitAnswer(player) {
+            if (!gameState.gameActive) return;
+            
+            const display = document.getElementById(`display${player.charAt(0).toUpperCase() + player.slice(1)}`);
+            const answer = parseInt(display.textContent);
+            const currentTime = Date.now();
+            
+            let isCorrect = false;
+            let responseTime = 0;
+            let correctAnswer = 0;
+            
+            if (player === 'left' && gameState.leftQuestion) {
+                isCorrect = answer === gameState.leftQuestion.answer;
+                responseTime = currentTime - gameState.leftStartTime;
+                correctAnswer = gameState.leftQuestion.answer;
+            } else if (player === 'right' && gameState.rightQuestion) {
+                isCorrect = answer === gameState.rightQuestion.answer;
+                responseTime = currentTime - gameState.rightStartTime;
+                correctAnswer = gameState.rightQuestion.answer;
+            }
+            
+            // Perbarui status dan skor
+            const statusElement = document.getElementById(`status${player.charAt(0).toUpperCase() + player.slice(1)}`);
+            
+            if (isCorrect) {
+                // Pindah 5 langkah dasar
+                const baseMovement = 5; 
+                const maxTime = 10000; // 10 detik
+                // Bonus kecepatan: 1-5 langkah tambahan (makin cepat makin besar bonus)
+                const speedBonus = Math.max(1, Math.floor((maxTime - responseTime) / 2000)); 
+                const movement = baseMovement + Math.min(speedBonus, 5); // 5 langkah dasar + bonus maks 5 langkah
+                
+                if (player === 'left') {
+                    gameState.leftScore++;
+                    gameState.leftKarungPosition += movement; // Bergerak ke kanan
+                } else {
+                    gameState.rightScore++;
+                    gameState.rightKarungPosition += movement; // Bergerak ke kanan
+                }
+                
+                statusElement.textContent = `Benar! +${movement} langkah (${(responseTime/1000).toFixed(2)}s)`;
+                statusElement.className = 'status-message correct';
+                
+                // Hasilkan soal baru segera
+                setTimeout(() => {
+                    generateNewQuestionForPlayer(player);
+                }, 500); // Tunggu sebentar sebelum soal baru muncul
+                
+            } else {
+                statusElement.textContent = `Salah! Jawaban: ${correctAnswer}`;
+                statusElement.className = 'status-message incorrect';
+                
+                // Karung bergerak mundur sedikit sebagai hukuman
+                const penalty = 5; 
+                if (player === 'left') {
+                    gameState.leftKarungPosition = Math.max(START_POSITION, gameState.leftKarungPosition - penalty);
+                } else {
+                    gameState.rightKarungPosition = Math.max(START_POSITION, gameState.rightKarungPosition - penalty);
+                }
+
+                // Hasilkan soal baru setelah menampilkan kesalahan
+                setTimeout(() => {
+                    generateNewQuestionForPlayer(player);
+                }, 2000);
+            }
+            
+            // Setelah submit, pastikan display kembali ke '0' untuk input berikutnya
+            clearDisplay(player);
+
+            updateDisplay();
+            checkWinner();
+        }
+
+
+        function updateDisplay() {
+            // Perbarui skor
+            document.getElementById('scoreLeft').textContent = gameState.leftScore;
+            document.getElementById('scoreRight').textContent = gameState.rightScore;
+            
+            const karungLeft = document.getElementById('karungLeft');
+            const karungRight = document.getElementById('karungRight');
+            
+            // Batasi posisi karung
+            gameState.leftKarungPosition = Math.max(START_POSITION, Math.min(WIN_POSITION, gameState.leftKarungPosition));
+            gameState.rightKarungPosition = Math.max(START_POSITION, Math.min(WIN_POSITION, gameState.rightKarungPosition));
+            
+            // Karung Kiri dan Karung Kanan: bergerak dari START_POSITION ke WIN_POSITION (dari kiri)
+            karungLeft.style.left = `${gameState.leftKarungPosition}%`;
+            karungRight.style.left = `${gameState.rightKarungPosition}%`;
+
+            // Animasi melompat/bergetar saat bergerak
+            if (gameState.gameActive) {
+                // Rotasi disesuaikan agar terasa seperti melompat ke depan
+                karungLeft.style.transform = `rotate(${Math.sin(gameState.leftKarungPosition / 5) * -5}deg)`;
+                karungRight.style.transform = `rotate(${Math.sin(gameState.rightKarungPosition / 5) * 5}deg)`;
+            }
+        }
+
+        function checkWinner() {
+            if (!gameState.gameActive) return;
+
+            let winner = null;
+
+            if (gameState.leftKarungPosition >= WIN_POSITION) {
+                winner = 'Pemain Kiri (Karung Merah)';
+            } else if (gameState.rightKarungPosition >= WIN_POSITION) {
+                winner = 'Pemain Kanan (Karung Biru)';
+            }
+
+            if (winner) {
+                gameState.gameActive = false;
+                showWinner(winner);
+            }
+        }
+
+        function showWinner(winner) {
+            document.getElementById('winnerMessage').textContent = `${winner} berhasil memenangkan Lomba Balap Karung!`;
+            document.getElementById('winnerModal').style.display = 'flex';
+        }
+
+        function resetGame() {
+            gameState = {
+                leftQuestion: null,
+                rightQuestion: null,
+                leftScore: 0,
+                rightScore: 0,
+                leftKarungPosition: START_POSITION,
+                rightKarungPosition: START_POSITION,
+                gameActive: false,
+                leftStartTime: null,
+                rightStartTime: null,
+                minNumber: gameState.minNumber, // Pertahankan level terakhir yang dipilih
+                maxNumber: gameState.maxNumber
+            };
+            
+            // Sembunyikan modal pemenang
+            document.getElementById('winnerModal').style.display = 'none';
+            // Sembunyikan modal level (jika masih terbuka)
+            document.getElementById('levelModal').style.display = 'none';
+
+            
+            // Atur ulang tampilan
+            document.getElementById('questionLeft').textContent = 'Klik "Mulai"';
+            document.getElementById('questionRight').textContent = 'Klik "Mulai"';
+            document.getElementById('statusLeft').textContent = '';
+            document.getElementById('statusLeft').className = 'status-message';
+            document.getElementById('statusRight').textContent = '';
+            document.getElementById('statusRight').className = 'status-message';
+            
+            clearDisplay('left');
+            clearDisplay('right');
+            updateDisplay();
+            
+            // Atur ulang teks tombol
+            document.querySelector('.new-game-btn').textContent = 'Mulai Lomba!';
+        }
+
+        // Inisialisasi tampilan
+        updateDisplay();
+    </script>
+ </body>
+</html>
